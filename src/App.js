@@ -1,20 +1,23 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
-import Quotes from "./pages/Quotes";
+import logo from './logo.svg';
+import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <div className="flex gap-5">
-      <Sidebar />
-      <div className="max-w-5xl flex-1 mx-auto py-4">
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/quotes" element={<Quotes />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
