@@ -16,8 +16,8 @@ const Sidebar = () => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/109/109618.png"
           alt="/"
-          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-[5%] h-7 border-2 border-blue-700 bg-blue-400 ${
-            !open && "rotate-180 top-[85%]"
+          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-9 h-8 p-1 border-2 border-blue-700 bg-blue-900 ${
+            !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
         />
@@ -27,7 +27,7 @@ const Sidebar = () => {
         >
           <div className="flex gap-x-4 items-center ">
             <img
-              src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png"
+              src="https://cdn-icons-png.flaticon.com/512/5169/5169265.png"
               alt="/"
               className={`duration-500 w-10 p-1 ${open && "rotate-[360deg]"}`}
             />

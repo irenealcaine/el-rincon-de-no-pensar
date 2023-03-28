@@ -4,7 +4,7 @@ import Sidebar from "./Components/Sidebar";
 import Blog from "./Pages/Blog";
 import Games from "./Pages/Games";
 import Portfolio from "./Pages/Portfolio";
-// import Quotes from "./Pages/Quotes";
+import Quotes from "./Pages/Quotes";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/games" element={<Games />} />
               <Route path="/blog" element={<Blog />} />
-              {/* <Route path="/quotes" element={<Quotes />} /> */}
+              <Route path="/quotes" element={<Quotes />} />
             </Routes>
           </div>
         </div>

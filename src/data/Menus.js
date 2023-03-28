@@ -1,12 +1,7 @@
 const Menus = [
   {
-    title: "Portfolio",
-    src: "https://cdn-icons-png.flaticon.com/512/14/14573.png",
-    to: "/portfolio",
-  },
-  {
     title: "Juegos",
-    src: "https://www.freepnglogos.com/uploads/games-png/games-controller-game-icon-17.png",
+    src: "https://uxwing.com/wp-content/themes/uxwing/download/sport-and-awards/game-controller-icon.png",
     to: "/games",
     submenu: [
       {
@@ -22,25 +17,26 @@ const Menus = [
     ],
   },
   {
+    title: "Frases",
+    to: "quotes",
+    src: "https://cdn-icons-png.flaticon.com/512/7350/7350737.png",
+  },
+  {
+    title: "El tiempo",
+    to: "weather",
+    src: "https://cdn-icons-png.flaticon.com/512/54/54241.png",
+  },
+  {
+    title: "To-Do",
+    src: "https://www.freeiconspng.com/uploads/check-mark-icon-17.png",
+    to: "/todo",
+  },
+
+  {
     title: "Blog",
     src: "https://cdn-icons-png.flaticon.com/512/4922/4922073.png",
     to: "/blog",
   },
-  // {
-  //   title: "Frases célebres",
-  //   src: "https://cdn-icons-png.flaticon.com/512/7350/7350737.png",
-  //   to: "/quotes",
-  // },
-  // {
-  //   title: "El tiempo",
-  //   src: "https://cdn-icons-png.flaticon.com/512/54/54241.png",
-  //   to: "/weather",
-  // },
-  // {
-  //   title: "To-Do",
-  //   src: "https://www.freeiconspng.com/uploads/check-mark-icon-17.png",
-  //   to: "/todo",
-  // },
 ];
 
 export default Menus;
