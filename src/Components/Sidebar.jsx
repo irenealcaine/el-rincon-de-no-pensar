@@ -23,7 +23,7 @@ const Sidebar = () => {
         />
         <Link
           to={"/"}
-          className="flex items-center duration-200 hover:bg-blue-400 rounded-md"
+          className="flex items-center duration-200 hover:bg-blue-400 rounded-md text-blue-100 hover:text-blue-900"
         >
           <div className="flex gap-x-4 items-center ">
             <img
@@ -32,7 +32,7 @@ const Sidebar = () => {
               className={`duration-500 w-10 p-1 ${open && "rotate-[360deg]"}`}
             />
             <h1
-              className={`text-blue-100 origin-left font-medium text-3xl duration-200 hover:text-blue-900 ${
+              className={` origin-left font-medium text-3xl duration-200  ${
                 !open && "scale-0"
               }`}
             >
