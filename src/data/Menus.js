@@ -22,20 +22,25 @@ const Menus = [
     ],
   },
   {
-    title: "Frases célebres",
-    src: "https://cdn-icons-png.flaticon.com/512/7350/7350737.png",
-    to: "/quotes",
+    title: "Blog",
+    src: "https://cdn-icons-png.flaticon.com/512/4922/4922073.png",
+    to: "/blog",
   },
-  {
-    title: "El tiempo",
-    src: "https://cdn-icons-png.flaticon.com/512/54/54241.png",
-    to: "/weather",
-  },
-  {
-    title: "To-Do",
-    src: "https://www.freeiconspng.com/uploads/check-mark-icon-17.png",
-    to: "/todo",
-  },
+  // {
+  //   title: "Frases célebres",
+  //   src: "https://cdn-icons-png.flaticon.com/512/7350/7350737.png",
+  //   to: "/quotes",
+  // },
+  // {
+  //   title: "El tiempo",
+  //   src: "https://cdn-icons-png.flaticon.com/512/54/54241.png",
+  //   to: "/weather",
+  // },
+  // {
+  //   title: "To-Do",
+  //   src: "https://www.freeiconspng.com/uploads/check-mark-icon-17.png",
+  //   to: "/todo",
+  // },
 ];
 
 export default Menus;

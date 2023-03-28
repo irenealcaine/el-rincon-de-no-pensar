@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Sidebar from "./Components/Sidebar";
-import Quotes from "./Pages/Quotes";
+import Blog from "./Pages/Blog";
 import Games from "./Pages/Games";
 import Portfolio from "./Pages/Portfolio";
+// import Quotes from "./Pages/Quotes";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
           >
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/quotes" element={<Quotes />} />
-              <Route path="/games" element={<Games />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/games" element={<Games />} />
+              <Route path="/blog" element={<Blog />} />
+              {/* <Route path="/quotes" element={<Quotes />} /> */}
             </Routes>
           </div>
         </div>

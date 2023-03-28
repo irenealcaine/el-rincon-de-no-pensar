@@ -10,7 +10,7 @@ const Sidebar = () => {
     <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
       <div
         className={`${
-          open ? "w-72" : "w-20"
+          open ? "w-60" : "w-20"
         } duration-200 h-screen p-5 pt-8 bg-blue-900 sticky top-0 left-0`}
       >
         <img
@@ -61,7 +61,7 @@ const Sidebar = () => {
                     alt="/"
                     src="https://cdn-icons-png.flaticon.com/512/25/25637.png"
                     onClick={() => setSubMenuOpen(!subMenuOpen)}
-                    className={`duration-200 cursor-pointer  h-4  ${
+                    className={`duration-200 cursor-pointer  h-4 hover:h-6 ${
                       !subMenuOpen && "rotate-180"
                     } ${!open && "hidden"}`}
                   />
