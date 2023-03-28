@@ -16,8 +16,8 @@ const Sidebar = () => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/109/109618.png"
           alt="/"
-          className={`absolute cursor-pointer rounded-full -right-3 top-9 h-7 border-2 border-blue-700 bg-blue-400 ${
-            !open && "rotate-180"
+          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-[5%] h-7 border-2 border-blue-700 bg-blue-400 ${
+            !open && "rotate-180 top-[85%]"
           }`}
           onClick={() => setOpen(!open)}
         />
