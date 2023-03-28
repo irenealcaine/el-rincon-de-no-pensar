@@ -1,9 +1,10 @@
 import React from "react";
+import Header from "../Components/Header";
 
 const Games = () => {
   return (
     <div className="bg-blue-100">
-      <h2>Games</h2>
+      <Header title={"Juegos"} />
     </div>
   );
 };
