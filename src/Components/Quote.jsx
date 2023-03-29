@@ -19,14 +19,6 @@ const Quote = () => {
   };
 
   return (
-    // <div className="p-4">
-    //   {RandomQuotes.map((quote, index) => (
-    //     <div>
-    //       <p className=" text-center text-xl">{quote.randomQuote}</p>
-    //       <p className="uppercase text-right">{quote.author}</p>
-    //     </div>
-    //   ))}
-    // </div>
 
     <div className="bg-blue-100 flex flex-col items-center justify-center">
 
