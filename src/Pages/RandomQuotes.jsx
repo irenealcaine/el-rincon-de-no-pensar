@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "../Components/Header";
-import Quote from "../Components/Quote";
+import RandomQuote from "../Components/RandomQuote";
 
-const Quotes = () => {
+const RandomQuotes = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"Frases célebres"} />
-      <Quote />
+      <RandomQuote />
     </div>
   );
 };
 
-export default Quotes;
+export default RandomQuotes;
