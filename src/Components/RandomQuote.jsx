@@ -22,6 +22,9 @@ const RandomQuote = () => {
           <p
             className={`text-3xl md:text-6xl uppercase font-bold font-oswald tracking-tighter after:content-['"'] before:content-['"']`}
           >
+            {/* {randomQuote.quote}
+            H<span>o</span>la */}
+            {/* {<div>H{<span>o</span>}la</div>} */}
             {randomQuote.quote}
           </p>
           <p className="text-lg mt-4 text-right italic before:content-['-_']">
