@@ -5,6 +5,7 @@ import Blog from "./Pages/Blog";
 import Games from "./Pages/Games";
 import Portfolio from "./Pages/Portfolio";
 import RandomQuotes from "./Pages/RandomQuotes";
+import BlogPostDetail from "./Pages/BlogPostDetail";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/games" element={<Games />} />
               <Route path="/blog" element={<Blog />} />
+
+              <Route path="/post/:1" element={<BlogPostDetail />} />
               <Route path="/quotes" element={<RandomQuotes />} />
             </Routes>
           </div>
