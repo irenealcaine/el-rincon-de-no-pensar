@@ -26,7 +26,9 @@ const RandomQuote = () => {
   };
 
   return (
-    <div className={`bg-blue-100 flex flex-col items-center justify-center`}>
+    <div
+      className={`min-h-[85vh] bg-blue-100 flex flex-col items-center justify-centerc relative`}
+    >
       <div
         className={` w-10/12 md:w-9/12 quote-container ${
           showQuote ? "show" : ""
@@ -49,7 +51,7 @@ const RandomQuote = () => {
               {showExplanation ? "X" : "?"}
             </button>
             {showExplanation && (
-              <p className="mt-8 mb-8 w-full md:w-8/12 mx-auto text-lg text-blue-100 decoration-blue-600 decoration-2 underline">
+              <p className="font-oswald mt-8 mb-8 w-full md:w-8/12 mx-auto text-lg md:text-2xl text-blue-100 decoration-blue-600 decoration-2 underline">
                 {randomQuote.inspiration}
               </p>
             )}
@@ -58,7 +60,7 @@ const RandomQuote = () => {
       </div>
 
       <button
-        className="bg-blue-700 duration-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-700 duration-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded absolute bottom-10 right-10"
         onClick={() => {
           generarFraseAleatoria();
         }}
