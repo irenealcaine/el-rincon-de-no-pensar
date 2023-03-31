@@ -11,12 +11,12 @@ const Sidebar = () => {
       <div
         className={`${
           open ? "w-60" : "w-20"
-        } duration-200 h-screen p-5 pt-8 bg-blue-900 sticky top-0 left-0`}
+        } duration-200 h-screen p-5 pt-8 bg-blue-700 sticky top-0 left-0`}
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/109/109618.png"
           alt="/"
-          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-9 h-8 p-1 border-2 border-blue-700 bg-blue-900 ${
+          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-9 h-8 p-1 border-2 border-blue-900 bg-blue-700 ${
             !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
