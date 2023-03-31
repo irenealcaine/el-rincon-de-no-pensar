@@ -10,8 +10,8 @@ const Sidebar = () => {
     <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
       <div
         className={`${
-          open ? "w-60" : "w-20"
-        } duration-200 h-screen p-5 pt-8 bg-blue-700 sticky top-0 left-0`}
+          open ? "w-60" : "w-16"
+        } duration-200 h-screen p-2 pt-8 bg-blue-700 sticky top-0 left-0`}
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/109/109618.png"

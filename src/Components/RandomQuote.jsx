@@ -35,9 +35,9 @@ const RandomQuote = () => {
         }`}
       >
         {randomQuote && (
-          <div className="mb-8 px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
+          <div className="mb-24 px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
             <p
-              className={`text-3xl md:text-6xl uppercase font-bold font-oswald tracking-tighter after:content-['"'] before:content-['"']`}
+              className={`text-2xl md:text-6xl uppercase font-bold font-oswald tracking-tighter after:content-['"'] before:content-['"']`}
             >
               {randomQuote.quote}
             </p>
@@ -61,7 +61,7 @@ const RandomQuote = () => {
 
       <button
         className={`bg-blue-900 duration-500 hover:bg-blue-500 hover:text-blue-900 text-white font-bold py-2 px-4 rounded ${
-          !randomQuote ? "" : "absolute bottom-10 right-10"
+          !randomQuote ? "" : "absolute bottom-10 right-1"
         }`}
         onClick={() => {
           generarFraseAleatoria();

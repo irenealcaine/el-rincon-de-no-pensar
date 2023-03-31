@@ -15,7 +15,7 @@ function App() {
           <Sidebar />
           <div
             id="container"
-            className="absolute md:static pl-20 md:pl-0 z-0 w-full h-full bg-green-50"
+            className="absolute md:static pl-16 md:pl-0 z-0 w-full h-full bg-green-50"
           >
             <Routes>
               <Route exact path="/" element={<Home />} />
