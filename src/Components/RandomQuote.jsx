@@ -60,7 +60,9 @@ const RandomQuote = () => {
       </div>
 
       <button
-        className="bg-blue-900 duration-500 hover:bg-blue-500 hover:text-blue-900 text-white font-bold py-2 px-4 rounded absolute bottom-10 right-10"
+        className={`bg-blue-900 duration-500 hover:bg-blue-500 hover:text-blue-900 text-white font-bold py-2 px-4 rounded ${
+          !randomQuote ? "" : "absolute bottom-10 right-10"
+        }`}
         onClick={() => {
           generarFraseAleatoria();
         }}
