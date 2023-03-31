@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Quotes from "../data/Quotes.js";
+import { AiOutlineClose, AiOutlineQuestion } from 'react-icons/ai';
 
 const RandomQuote = () => {
   const [randomQuote, setRandomQuote] = useState("");
@@ -30,9 +31,8 @@ const RandomQuote = () => {
       className={`min-h-[85vh] bg-blue-100 flex flex-col items-center justify-centerc relative`}
     >
       <div
-        className={` w-10/12 md:w-9/12 quote-container ${
-          showQuote ? "show" : ""
-        }`}
+        className={` w-10/12 md:w-9/12 quote-container ${showQuote ? "show" : ""
+          }`}
       >
         {randomQuote && (
           <div className="mb-24 px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
@@ -45,10 +45,10 @@ const RandomQuote = () => {
               {randomQuote.author}
             </p>
             <button
-              className="absolute left-2 bottom-2 mt-8 bg-blue-900 border border-blue-400 hover:text-black duration-500 hover:bg-blue-400  font-bold py-1 px-3 rounded-full transition-200"
+              className="absolute left-2 bottom-2 mt-8 bg-blue-900 border border-blue-400 hover:text-black duration-500 hover:bg-blue-400  font-bold p-1 rounded-full transition-200"
               onClick={toggleShowExplanation}
             >
-              {showExplanation ? "X" : "?"}
+              {showExplanation ? <AiOutlineClose /> : <AiOutlineQuestion />}
             </button>
             {showExplanation && (
               <p className="font-oswald mt-8 mb-8 w-full md:w-8/12 mx-auto text-lg md:text-2xl text-blue-100 decoration-blue-600 decoration-2 underline">
@@ -60,9 +60,8 @@ const RandomQuote = () => {
       </div>
 
       <button
-        className={`bg-blue-900 duration-500 hover:bg-blue-500 hover:text-blue-900 text-white font-bold py-2 px-4 rounded ${
-          !randomQuote ? "" : "absolute bottom-10 right-1"
-        }`}
+        className={`bg-blue-900 duration-500 hover:bg-blue-500 hover:text-blue-900 text-white font-bold py-2 px-4 rounded ${!randomQuote ? "" : "absolute bottom-10 right-1"
+          }`}
         onClick={() => {
           generarFraseAleatoria();
         }}

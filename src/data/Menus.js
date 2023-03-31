@@ -1,3 +1,6 @@
+import { BsChatQuote } from 'react-icons/bs'
+import { CgNotes } from 'react-icons/cg'
+
 const Menus = [
   // {
   //   title: "Juegos",
@@ -18,8 +21,9 @@ const Menus = [
   // },
   {
     title: "Frases",
-    to: "quotes",
+    to: "/quotes",
     src: "https://cdn-icons-png.flaticon.com/512/7350/7350737.png",
+    icon: (<BsChatQuote className="w-8 h-8" />)
   },
   // {
   //   title: "El tiempo",
@@ -36,6 +40,7 @@ const Menus = [
     title: "Blog",
     src: "https://cdn-icons-png.flaticon.com/512/4922/4922073.png",
     to: "/blog",
+    icon: (<CgNotes className="w-8 h-8" />)
   },
 ];
 
