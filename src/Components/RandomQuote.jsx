@@ -12,17 +12,11 @@ const RandomQuote = () => {
     setShowQuote(false);
     setTimeout(() => {
       setRandomQuote(selectedQuote);
-    }, 500);
+    }, 300);
 
     setTimeout(() => {
       setShowQuote(true);
-    }, 500);
-  };
-
-  const aparecer = () => {
-    // setTimeout(() => {
-    //   setShowQuote(true);
-    // }, 1000);
+    }, 300);
   };
 
   const toggleShowExplanation = () => {
@@ -30,12 +24,12 @@ const RandomQuote = () => {
   };
 
   return (
-    <div className="bg-blue-100 flex flex-col items-center justify-center">
-      <div
-        className={` w-10/12 md:w-9/12 quote-container ${
-          showQuote ? "show" : ""
-        }`}
-      >
+    <div
+      className={`bg-blue-100 flex flex-col items-center justify-center quote-container ${
+        showQuote ? "show" : ""
+      }`}
+    >
+      <div className={` w-10/12 md:w-9/12`}>
         {randomQuote && (
           <div className="mb-8 px-4 py-2 bg-blue-900 text-white rounded-lg text-center">
             <p
@@ -62,10 +56,9 @@ const RandomQuote = () => {
       </div>
 
       <button
-        className="bg-blue-700 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-700 duration-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
         onClick={() => {
           generarFraseAleatoria();
-          aparecer();
         }}
       >
         {!randomQuote ? "Generar frase aleatoria" : "Generar otra frase"}
