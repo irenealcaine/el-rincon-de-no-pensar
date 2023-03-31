@@ -26,12 +26,12 @@ const RandomQuote = () => {
   };
 
   return (
-    <div
-      className={`bg-blue-100 flex flex-col items-center justify-center quote-container ${
-        showQuote ? "show" : ""
-      }`}
-    >
-      <div className={` w-10/12 md:w-9/12`}>
+    <div className={`bg-blue-100 flex flex-col items-center justify-center`}>
+      <div
+        className={` w-10/12 md:w-9/12 quote-container ${
+          showQuote ? "show" : ""
+        }`}
+      >
         {randomQuote && (
           <div className="mb-8 px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
             <p
