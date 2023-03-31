@@ -41,7 +41,7 @@ const RandomQuote = () => {
             >
               {randomQuote.quote}
             </p>
-            <p className="mt-4 text-right italic before:content-['-_']">
+            <p className="mt-4 mb-8 text-right italic before:content-['-_']">
               {randomQuote.author}
             </p>
             <button
