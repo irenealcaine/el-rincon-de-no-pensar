@@ -105,6 +105,15 @@ const Sidebar = () => {
                 <CgNotes className="h-6" />
                 Blog
               </Link>
+              <Link
+                to="/projects/quotes"
+                className={`text-blue-100 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-10 ${
+                  !open && "hidden"
+                } ${projectsSubMenuOpen ? "block" : "hidden"}`}
+              >
+                <BsChatQuote className="h-6" />
+                Frases célebres
+              </Link>
             </div>
           </div>
 
