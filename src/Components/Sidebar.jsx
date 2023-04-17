@@ -53,15 +53,15 @@ const Sidebar = () => {
           <div>
             <Link
               to="/games"
-              className="text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+              className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+              onClick={() => setGamesSubMenuOpen(!gamesSubMenuOpen)}
             >
               <FaGamepad className="w-8 h-8" />
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Juegos
               </span>
               <BsFillCaretDownFill
-                onClick={() => setGamesSubMenuOpen(!gamesSubMenuOpen)}
-                className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 ${
+                className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${
                   gamesSubMenuOpen && "rotate-180"
                 } ${!open && "hidden"}`}
               />
@@ -82,15 +82,15 @@ const Sidebar = () => {
           <div>
             <Link
               to="/projects"
-              className="text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+              className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+              onClick={() => setProjectsSubMenuOpen(!projectsSubMenuOpen)}
             >
               <AiOutlineFundProjectionScreen className="w-8 h-8" />
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Proyectos
               </span>
               <BsFillCaretDownFill
-                onClick={() => setProjectsSubMenuOpen(!projectsSubMenuOpen)}
-                className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 ${
+                className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${
                   projectsSubMenuOpen && "rotate-180"
                 } ${!open && "hidden"}`}
               />
@@ -111,15 +111,15 @@ const Sidebar = () => {
           <div>
             <Link
               to="/components"
-              className="text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+              className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+              onClick={() => setComponentsSubMenuOpen(!componentsSubMenuOpen)}
             >
               <TbPuzzle className="w-8 h-8" />
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Componentes
               </span>
               <BsFillCaretDownFill
-                onClick={() => setComponentsSubMenuOpen(!componentsSubMenuOpen)}
-                className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 ${
+                className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${
                   componentsSubMenuOpen && "rotate-180"
                 } ${!open && "hidden"}`}
               />
