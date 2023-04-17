@@ -6,6 +6,7 @@ import Games from "./Pages/Games";
 import Projects from "./Pages/Projects";
 import RandomQuotes from "./Pages/RandomQuotes";
 import BlogPostDetail from "./Pages/BlogPostDetail";
+import WeatherApp from "./Pages/WeatherApp";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/blog" element={<Blog />} />
               <Route path="/projects/quotes" element={<RandomQuotes />} />
+              <Route path="/projects/weather" element={<WeatherApp />} />
 
               <Route path="/post/:1" element={<BlogPostDetail />} />
             </Routes>
