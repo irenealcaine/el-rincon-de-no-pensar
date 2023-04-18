@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import Menus from "../data/Menus.js";
 import { FaDragon, FaArrowLeft, FaGamepad } from "react-icons/fa";
-import { BsChatQuote, BsFillCaretDownFill } from "react-icons/bs";
+import { BsChatQuote, BsFillCaretUpFill } from "react-icons/bs";
 import { TfiClose } from "react-icons/tfi";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { CgNotes } from "react-icons/cg";
@@ -55,9 +55,9 @@ const menuItems = [
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
-  const [gamesSubMenuOpen, setGamesSubMenuOpen] = useState(false);
-  const [projectsSubMenuOpen, setProjectsSubMenuOpen] = useState(false);
-  const [componentsSubMenuOpen, setComponentsSubMenuOpen] = useState(false);
+  const [gamesSubMenuOpen, setGamesSubMenuOpen] = useState(true);
+  const [projectsSubMenuOpen, setProjectsSubMenuOpen] = useState(true);
+  const [componentsSubMenuOpen, setComponentsSubMenuOpen] = useState(true);
 
   return (
     <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
@@ -115,15 +115,15 @@ const Sidebar = () => {
                     } ${!open && "hidden"}`}
                 /> */}
                 {menuItem.links && (
-                  <BsFillCaretDownFill
-                    className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 rotate-180
+                  <BsFillCaretUpFill
+                    className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2
                     ${menuItem.title === "Juegos"
-                        ? gamesSubMenuOpen && "rotate-0"
+                        ? gamesSubMenuOpen && "rotate-180"
                         : menuItem.title === "Proyectos"
-                          ? projectsSubMenuOpen && "rotate-0"
+                          ? projectsSubMenuOpen && "rotate-180"
                           : menuItem.title === "Componentes" &&
                           componentsSubMenuOpen &&
-                          "rotate-0"
+                          "rotate-180"
                       } ${!open && "hidden"}`}
                   />
                 )}
