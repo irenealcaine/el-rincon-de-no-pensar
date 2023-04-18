@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Menus from "../data/Menus.js";
+// import Menus from "../data/Menus.js";
 import { FaDragon, FaArrowLeft, FaGamepad } from "react-icons/fa";
 import { BsChatQuote, BsFillCaretDownFill } from "react-icons/bs";
 import { TfiClose } from "react-icons/tfi";
@@ -55,7 +55,6 @@ const menuItems = [
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
-  const [subMenuOpen, setSubMenuOpen] = useState(false);
   const [gamesSubMenuOpen, setGamesSubMenuOpen] = useState(false);
   const [projectsSubMenuOpen, setProjectsSubMenuOpen] = useState(false);
   const [componentsSubMenuOpen, setComponentsSubMenuOpen] = useState(false);
@@ -95,7 +94,15 @@ const Sidebar = () => {
               <Link
                 to={menuItem.to}
                 className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
-                onClick={() => setGamesSubMenuOpen(!gamesSubMenuOpen)}
+                onClick={() =>
+                  // setGamesSubMenuOpen(!gamesSubMenuOpen)
+                  menuItem.title === "Juegos"
+                    ? setGamesSubMenuOpen(!gamesSubMenuOpen)
+                    : menuItem.title === "Proyectos"
+                      ? setProjectsSubMenuOpen(!projectsSubMenuOpen)
+                      : menuItem.title === "Componentes" &&
+                      setComponentsSubMenuOpen(!componentsSubMenuOpen)
+                }
               >
                 {menuItem.icon}
                 <span
@@ -109,14 +116,14 @@ const Sidebar = () => {
                 /> */}
                 {menuItem.links && (
                   <BsFillCaretDownFill
-                    className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2
+                    className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 rotate-180
                     ${menuItem.title === "Juegos"
-                        ? gamesSubMenuOpen && "rotate-180"
+                        ? gamesSubMenuOpen && "rotate-0"
                         : menuItem.title === "Proyectos"
-                          ? projectsSubMenuOpen && "rotate-180"
+                          ? projectsSubMenuOpen && "rotate-0"
                           : menuItem.title === "Componentes" &&
                           componentsSubMenuOpen &&
-                          "rotate-180"
+                          "rotate-0"
                       } ${!open && "hidden"}`}
                   />
                 )}
