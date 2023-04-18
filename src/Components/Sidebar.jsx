@@ -63,14 +63,12 @@ const Sidebar = () => {
   return (
     <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
       <div
-        className={`${
-          open ? "w-60" : "w-16"
-        } duration-200 h-screen p-2 pt-8 bg-blue-700 sticky top-0 left-0`}
+        className={`${open ? "w-60" : "w-16"
+          } duration-200 h-screen p-2 pt-8 bg-blue-700 sticky top-0 left-0`}
       >
         <FaArrowLeft
-          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-blue-200 border-2 border-blue-900 bg-blue-700 ${
-            !open && "rotate-180"
-          }`}
+          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-blue-200 border-2 border-blue-900 bg-blue-700 ${!open && "rotate-180"
+            }`}
           onClick={() => setOpen(!open)}
         />
         <Link
@@ -79,14 +77,12 @@ const Sidebar = () => {
         >
           <div className="flex gap-x-4 items-center ">
             <FaDragon
-              className={`duration-500 w-12 h-12 p-1 ${
-                open && "rotate-[360deg]"
-              }`}
+              className={`duration-500 w-12 h-12 p-1 ${open && "rotate-[360deg]"
+                }`}
             />
             <h1
-              className={` origin-left font-medium text-3xl duration-200  ${
-                !open && "scale-0"
-              }`}
+              className={` origin-left font-medium text-3xl duration-200  ${!open && "scale-0"
+                }`}
             >
               Inicio
             </h1>
@@ -107,26 +103,59 @@ const Sidebar = () => {
                 >
                   {menuItem.title}
                 </span>
-                <BsFillCaretDownFill
-                  className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${
-                    gamesSubMenuOpen && "rotate-180"
-                  } ${!open && "hidden"}`}
-                />
+                {/* <BsFillCaretDownFill
+                  className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${gamesSubMenuOpen && "rotate-180"
+                    } ${!open && "hidden"}`}
+                /> */}
+                {menuItem.links && (
+                  <BsFillCaretDownFill
+                    className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2
+                    ${menuItem.title === "Juegos"
+                        ? gamesSubMenuOpen && "rotate-180"
+                        : menuItem.title === "Proyectos"
+                          ? projectsSubMenuOpen && "rotate-180"
+                          : menuItem.title === "Componentes" &&
+                          componentsSubMenuOpen &&
+                          "rotate-180"
+                      } ${!open && "hidden"}`}
+                  />
+                )}
               </Link>
               <div>
                 {menuItem.links.map((link, subIndex) => (
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={`text-blue-100 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-10 ${
-                      !open && "hidden"
-                    } ${gamesSubMenuOpen ? "block" : "hidden"}`}
+                    className={` text-blue-100 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-10 ${!open && "hidden"
+                      } ${
+                      // gamesSubMenuOpen ? "block" : "hidden"
+                      menuItem.title === "Juegos"
+                        ? gamesSubMenuOpen && "hidden"
+                        : menuItem.title === "Proyectos"
+                          ? projectsSubMenuOpen && "hidden"
+                          : menuItem.title === "Componentes" &&
+                          componentsSubMenuOpen &&
+                          "hidden"
+                      }`}
                   >
                     {link.icon}
                     {link.title}
+                    {/* {menuItem.links && (
+                      <BsFillCaretDownFill
+                        className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${menuItem.subMenu === "games"
+                            ? gamesSubMenuOpen && "rotate-180"
+                            : menuItem.subMenu === "projects"
+                              ? projectsSubMenuOpen && "rotate-180"
+                              : menuItem.subMenu === "components" &&
+                              componentsSubMenuOpen &&
+                              "rotate-180"
+                          } ${!open && "hidden"}`}
+                      />
+                    )} */}
                   </Link>
                 ))}
               </div>
+
             </div>
           ))}
           {/* <div>
