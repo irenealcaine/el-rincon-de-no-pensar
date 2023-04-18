@@ -9,6 +9,50 @@ import { CgNotes } from "react-icons/cg";
 import { TbPuzzle } from "react-icons/tb";
 import { MdOutlineWatchLater } from "react-icons/md";
 
+const menuItems = [
+  {
+    title: "Juegos",
+    icon: <FaGamepad className="w-8 h-8" />,
+    to: "/games",
+    links: [
+      {
+        title: "Tic-tac-toe",
+        to: "/games/tic-tac-toe",
+        icon: <TfiClose className="h-6" />,
+      },
+    ],
+  },
+  {
+    title: "Proyectos",
+    icon: <AiOutlineFundProjectionScreen className="w-8 h-8" />,
+    to: "/projects",
+    links: [
+      {
+        title: "Blog",
+        to: "/projects/blog",
+        icon: <CgNotes className="h-6" />,
+      },
+      {
+        title: "Frases célebres",
+        to: "/projects/quotes",
+        icon: <BsChatQuote className="h-6" />,
+      },
+    ],
+  },
+  {
+    title: "Componentes",
+    icon: <TbPuzzle className="w-8 h-8" />,
+    to: "/components",
+    links: [
+      {
+        title: "Reloj",
+        to: "/components/watch",
+        icon: <MdOutlineWatchLater className="h-6" />,
+      },
+    ],
+  },
+];
+
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(false);
@@ -50,7 +94,42 @@ const Sidebar = () => {
         </Link>
 
         <div className="pt-6">
-          <div>
+          {menuItems.map((menuItem, index) => (
+            <div key={index}>
+              <Link
+                to={menuItem.to}
+                className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+                onClick={() => setGamesSubMenuOpen(!gamesSubMenuOpen)}
+              >
+                {menuItem.icon}
+                <span
+                  className={`${!open && "hidden"} origin-left duration-200`}
+                >
+                  {menuItem.title}
+                </span>
+                <BsFillCaretDownFill
+                  className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2 ${
+                    gamesSubMenuOpen && "rotate-180"
+                  } ${!open && "hidden"}`}
+                />
+              </Link>
+              <div>
+                {menuItem.links.map((link, subIndex) => (
+                  <Link
+                    key={subIndex}
+                    to={link.to}
+                    className={`text-blue-100 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-10 ${
+                      !open && "hidden"
+                    } ${gamesSubMenuOpen ? "block" : "hidden"}`}
+                  >
+                    {link.icon}
+                    {link.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+          {/* <div>
             <Link
               to="/games"
               className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
@@ -144,7 +223,7 @@ const Sidebar = () => {
                 Reloj
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
