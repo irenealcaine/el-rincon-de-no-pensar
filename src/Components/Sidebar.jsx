@@ -84,9 +84,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={` text-blue-200 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-6 ${
-                      !open && "hidden"
-                    } ${
+                    className={` text-blue-200 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200  ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "hidden"
                         : menuItem.title === "Proyectos"
@@ -96,8 +94,10 @@ const Sidebar = () => {
                           "hidden"
                     }`}
                   >
-                    {link.icon}
-                    {link.title}
+                    <span className={`${!open ? "mx-auto" : "ml-6"}`}>
+                      {link.icon}
+                    </span>
+                    <span className={`${!open && "hidden"}`}>{link.title}</span>
                   </Link>
                 ))}
               </div>
