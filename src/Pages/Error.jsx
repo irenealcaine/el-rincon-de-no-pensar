@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../Components/Header";
 
-const Projects = () => {
+const Error = () => {
   return (
     <div className="bg-blue-100">
-      <Header title={"Proyectos"} />
+      <Header title={"Error"} />
+      UPS
     </div>
   );
 };
 
-export default Projects;
+export default Error;
