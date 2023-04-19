@@ -1,12 +1,11 @@
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { BsChatQuote, BsFillCloudSunFill } from "react-icons/bs";
 import { CgNotes } from "react-icons/cg";
 import { FaGamepad } from "react-icons/fa";
-import { BsChatQuote, BsFillCloudSunFill } from "react-icons/bs";
-import { TfiClose } from "react-icons/tfi";
-import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { TbPuzzle } from "react-icons/tb";
-// import { MdOutlineWatchLater } from "react-icons/md";
 import { FiWatch } from "react-icons/fi";
 import { RxLapTimer } from "react-icons/rx";
+import { TfiClose } from "react-icons/tfi";
+import { TbPuzzle } from "react-icons/tb";
 
 const menuItems = [
   {
