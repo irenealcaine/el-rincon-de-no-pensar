@@ -48,7 +48,7 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className="relative text-blue-100 text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+                className="relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
                 onClick={() =>
                   menuItem.title === "Juegos"
                     ? setGamesSubMenuOpen(!gamesSubMenuOpen)
@@ -84,7 +84,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={` text-blue-100 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-10 ${
+                    className={` text-blue-200 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200 ml-6 ${
                       !open && "hidden"
                     } ${
                       menuItem.title === "Juegos"

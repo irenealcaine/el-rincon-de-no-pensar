@@ -1,24 +1,14 @@
 import { CgNotes } from "react-icons/cg";
-import { FaDragon, FaArrowLeft, FaGamepad } from "react-icons/fa";
-import { BsChatQuote, BsFillCaretUpFill } from "react-icons/bs";
+import { FaGamepad } from "react-icons/fa";
+import { BsChatQuote, BsFillCloudSunFill } from "react-icons/bs";
 import { TfiClose } from "react-icons/tfi";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { TbPuzzle } from "react-icons/tb";
-import { MdOutlineWatchLater } from "react-icons/md";
+// import { MdOutlineWatchLater } from "react-icons/md";
+import { FiWatch } from "react-icons/fi";
+import { RxLapTimer } from "react-icons/rx";
 
 const menuItems = [
-  {
-    title: "Juegos",
-    icon: <FaGamepad className="w-8 h-8" />,
-    to: "/games",
-    links: [
-      {
-        title: "Tic-tac-toe",
-        to: "/games/tic-tac-toe",
-        icon: <TfiClose className="h-6" />,
-      },
-    ],
-  },
   {
     title: "Proyectos",
     icon: <AiOutlineFundProjectionScreen className="w-8 h-8" />,
@@ -34,6 +24,11 @@ const menuItems = [
         to: "/projects/quotes",
         icon: <BsChatQuote className="h-6" />,
       },
+      {
+        title: "El tiempo",
+        to: "/projects/weather",
+        icon: <BsFillCloudSunFill className="h-6" />,
+      },
     ],
   },
   {
@@ -44,7 +39,24 @@ const menuItems = [
       {
         title: "Reloj",
         to: "/components/watch",
-        icon: <MdOutlineWatchLater className="h-6" />,
+        icon: <FiWatch className="h-6" />,
+      },
+      {
+        title: "Tempoizador",
+        to: "/components/watch",
+        icon: <RxLapTimer className="h-6" />,
+      },
+    ],
+  },
+  {
+    title: "Juegos",
+    icon: <FaGamepad className="w-8 h-8" />,
+    to: "/games",
+    links: [
+      {
+        title: "Tic-tac-toe",
+        to: "/games/tic-tac-toe",
+        icon: <TfiClose className="h-6" />,
       },
     ],
   },

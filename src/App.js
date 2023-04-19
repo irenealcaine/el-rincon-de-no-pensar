@@ -20,11 +20,15 @@ function App() {
           >
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/games" element={<Games />} />
+              
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/blog" element={<Blog />} />
               <Route path="/projects/quotes" element={<RandomQuotes />} />
               <Route path="/projects/weather" element={<WeatherApp />} />
+              
+              <Route path="/games" element={<Games />} />
+              
+              <Route path="/games" element={<Games />} />
 
               <Route path="/post/:1" element={<BlogPostDetail />} />
             </Routes>
