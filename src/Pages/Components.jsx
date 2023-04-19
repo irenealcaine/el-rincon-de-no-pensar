@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../Components/Header";
 
-const Projects = () => {
+const Components = () => {
   return (
     <div className="bg-blue-100">
-      <Header title={"Proyectos"} />
+      <Header title={"Componentes"} />
     </div>
   );
 };
 
-export default Projects;
+export default Components;

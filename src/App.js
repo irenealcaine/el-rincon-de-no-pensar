@@ -3,6 +3,8 @@ import Home from "./Pages/Home";
 import Sidebar from "./Components/Sidebar";
 import Blog from "./Pages/Blog";
 import Games from "./Pages/Games";
+import Components from "./Pages/Components";
+import Error from "./Pages/Error";
 import Projects from "./Pages/Projects";
 import RandomQuotes from "./Pages/RandomQuotes";
 import BlogPostDetail from "./Pages/BlogPostDetail";
@@ -20,17 +22,19 @@ function App() {
           >
             <Routes>
               <Route exact path="/" element={<Home />} />
-              
+
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/blog" element={<Blog />} />
+              <Route path="/post/:1" element={<BlogPostDetail />} />
               <Route path="/projects/quotes" element={<RandomQuotes />} />
               <Route path="/projects/weather" element={<WeatherApp />} />
-              
-              <Route path="/games" element={<Games />} />
-              
-              <Route path="/games" element={<Games />} />
 
-              <Route path="/post/:1" element={<BlogPostDetail />} />
+              <Route path="/components" element={<Components />} />
+              <Route path="/components/watch" element={<Error />} />
+              <Route path="/components/timer" element={<Error />} />
+
+              <Route path="/games" element={<Games />} />
+              <Route path="/games/tic-tac-toe" element={<Error />} />
             </Routes>
           </div>
         </div>

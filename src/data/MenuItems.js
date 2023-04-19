@@ -41,8 +41,8 @@ const menuItems = [
         icon: <FiWatch className="h-6" />,
       },
       {
-        title: "Tempoizador",
-        to: "/components/watch",
+        title: "Temporizador",
+        to: "/components/timer",
         icon: <RxLapTimer className="h-6" />,
       },
     ],
