@@ -9,6 +9,7 @@ import Projects from "./Pages/Projects";
 import RandomQuotes from "./Pages/RandomQuotes";
 import BlogPostDetail from "./Pages/BlogPostDetail";
 import WeatherApp from "./Pages/WeatherApp";
+import Timer from "./Components/Timer";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
 
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<Error />} />
-              <Route path="/components/timer" element={<Error />} />
+              <Route path="/components/timer" element={<Timer />} />
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<Error />} />
