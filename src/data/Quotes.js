@@ -8,7 +8,7 @@ const Quotes = [
     ),
     author: "Fernando Fernán Gomez",
     inspiration:
-      "Porque a veces es necesario mandarlo todo a la mierda, que se le va a hacer",
+      "A veces es necesario mandarlo todo a la mierda, que se le va a hacer",
   },
   {
     quote: (
@@ -23,7 +23,7 @@ const Quotes = [
       </span>
     ),
     author: "Tri-line",
-    inspiration: "Porque nunca estamos donde debemos.",
+    inspiration: "Nunca estamos donde queremos estar.",
   },
   {
     quote: (
@@ -33,8 +33,7 @@ const Quotes = [
       </span>
     ),
     author: "Michael Scott",
-    inspiration:
-      "Porque a veces es necesario mandarlo todo a la mierda, que se le va a hacer",
+    inspiration: "",
   },
   {
     quote: (
@@ -47,8 +46,7 @@ const Quotes = [
       </span>
     ),
     author: "Groucho Marx",
-    inspiration:
-      "Porque a veces es necesario mandarlo todo a la mierda, que se le va a hacer",
+    inspiration: "",
   },
   {
     quote: (
@@ -59,7 +57,57 @@ const Quotes = [
     ),
     author: "Mi abuelo",
     inspiration:
-      "Porque a veces es necesario mandarlo todo a la mierda, que se le va a hacer",
+      "Los que dicen que el dinero no da la felicidad nunca les ha faltado el dinero.",
+  },
+  {
+    quote: (
+      <span>
+        - ¿Cómo estás, Cruella?
+        <br /> {<span className="text-yellow-500">- Aburrida </span>}
+        como de costumbre,{" "}
+        {<span className="text-yellow-500">completamente hastiada</span>}.
+      </span>
+    ),
+    author: "Cruella De Vil",
+    inspiration:
+      "Madurar es dejar de empatizar con los protagonistas de Disney y empezar a empatizar con los villanos.",
+  },
+  {
+    quote: (
+      <span>
+        Estoy rodeado de <br />{" "}
+        {<span className="text-yellow-500">idiotas</span>}.
+      </span>
+    ),
+    author: "Scar",
+    inspiration:
+      "Madurar es dejar de empatizar con los protagonistas de Disney y empezar a empatizar con los villanos.",
+  },
+  {
+    quote: (
+      <span>
+        Cuanto peor {<span className="text-yellow-500">mejor </span>}
+        para todos y cuanto peor para todos{" "}
+        {<span className="text-yellow-500">mejor</span>}, mejor para mí el suyo{" "}
+        {<span className="text-yellow-500">beneficio político</span>}.
+      </span>
+    ),
+    author: "Mariano Rajoy",
+    inspiration:
+      "Que gran humorista perdió España cuando este señor dejó de ser presidente.",
+  },
+  {
+    quote: (
+      <span>
+        Es el {<span className="text-yellow-500">vecino </span>} el que elige el
+        alcalde y es el {<span className="text-yellow-500">alcalde </span>}el
+        que quiere que sean los vecinos el{" "}
+        {<span className="text-yellow-500">alcalde</span>}.
+      </span>
+    ),
+    author: "Mariano Rajoy",
+    inspiration:
+      "Que gran humorista perdió España cuando este señor dejó de ser presidente.",
   },
 ];
 
