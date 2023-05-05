@@ -8,9 +8,9 @@ const Blog = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"Blog"} />
-      <div className="flex flex-wrap flex-col md:flex-row items-center md:justify-center p-4 gap-4">
+      <div className="flex flex-wrap flex-col md:flex-row items-center md:justify-center p-4 gap-4 md:gap-6 lg:gap-8">
         {Posts.map((post, index) => (
-          <div className="w-12/12 md:w-5/12 lg:w-3/12">
+          <div className="w-12/12 md:w-5/12">
             <BlogPosts
               key={index}
               title={post.title}
