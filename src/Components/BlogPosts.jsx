@@ -2,11 +2,11 @@ import React from "react";
 
 const BlogPosts = ({ title, excerpt, imageUrl, postUrl }) => {
   return (
-    <div className="max-w-lg mx-auto shadow-lg rounded-lg overflow-hidden">
+    <div className="shadow-lg rounded-lg overflow-hidden">
       <a href={postUrl}>
         <img src={imageUrl} alt={title} className="w-full h-64 object-cover" />
       </a>
-      <div className="px-6 py-4">
+      <div className="px-6 py-4 bg-white">
         <a
           href={postUrl}
           className="font-bold text-xl mb-2 hover:text-gray-600"

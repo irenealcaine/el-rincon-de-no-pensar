@@ -5,7 +5,7 @@ import Posts from "../data/Posts";
 const BlogPost = () => {
   return (
     <div className="flex">
-      {Posts.map((post, index) => (
+      {/* {Posts.map((post, index) => (
         <BlogPosts
           key={index}
           title={post.title}
@@ -13,7 +13,8 @@ const BlogPost = () => {
           imageUrl={post.imageUrl}
           postUrl={post.postUrl}
         />
-      ))}
+      ))} */}
+      gg
     </div>
   );
 };

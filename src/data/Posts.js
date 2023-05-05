@@ -11,5 +11,11 @@ const Posts = [
     imageUrl: "https://via.placeholder.com/512x256",
     postUrl: "/post/2",
   },
+  {
+    title: "Título del artículo 3",
+    excerpt: "Extracto del artículo 3.",
+    imageUrl: "https://via.placeholder.com/512x256",
+    postUrl: "/post/3",
+  },
 ];
 export default Posts;
