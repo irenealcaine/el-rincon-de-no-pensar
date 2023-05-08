@@ -6,6 +6,7 @@ import { FiWatch } from "react-icons/fi";
 import { RxLapTimer } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
 import { TbPuzzle } from "react-icons/tb";
+import { GiCardAceHearts } from "react-icons/gi";
 
 const menuItems = [
   {
@@ -56,6 +57,11 @@ const menuItems = [
         title: "Tic-tac-toe",
         to: "/games/tic-tac-toe",
         icon: <TfiClose className="h-6" />,
+      },
+      {
+        title: "Memoria",
+        to: "/games/memory",
+        icon: <GiCardAceHearts className="h-6" />,
       },
     ],
   },

@@ -12,6 +12,7 @@ import WeatherApp from "./Pages/WeatherApp";
 import Timer from "./Components/Timer";
 import Watch from "./Components/Watch";
 import TicTacToe from "./Pages/TicTacToe";
+import Memory from "./Pages/Memory";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToe />} />
+              <Route path="/games/memory" element={<Error />} />
             </Routes>
           </div>
         </div>
