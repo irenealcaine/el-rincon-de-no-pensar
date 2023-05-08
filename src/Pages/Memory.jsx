@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import shuffle from "lodash.shuffle";
+import Header from "../Components/Header";
 
 const cards = [
   {
@@ -58,22 +59,25 @@ function Game() {
   };
 
   return (
-    <div className="flex flex-wrap justify-center">
-      {shuffledCards.map((card) => (
-        <div
-          key={card.id}
-          className="w-32 h-32 m-4 rounded-lg shadow-md bg-gray-100 flex justify-center items-center cursor-pointer hover:bg-gray-200 transition-colors duration-300"
-          onClick={() => handleCardClick(card)}
-        >
-          {matchedCards.includes(card) || openedCards.includes(card) ? (
-            <img
-              src={card.image}
-              alt={card.name}
-              className="w-full h-full object-cover"
-            />
-          ) : null}
-        </div>
-      ))}
+    <div className="bg-blue-100 min-h-screen">
+      <Header title={"Memoria"} />
+      <div className="flex flex-wrap justify-center">
+        {shuffledCards.map((card) => (
+          <div
+            key={card.id}
+            className="w-32 h-32 m-4 rounded-lg shadow-md bg-gray-100 flex justify-center items-center cursor-pointer hover:bg-gray-200 transition-colors duration-300"
+            onClick={() => handleCardClick(card)}
+          >
+            {matchedCards.includes(card) || openedCards.includes(card) ? (
+              <img
+                src={card.image}
+                alt={card.name}
+                className="w-full h-full object-cover"
+              />
+            ) : null}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

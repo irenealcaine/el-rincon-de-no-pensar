@@ -1,6 +1,8 @@
 import { useState } from "react";
 import clsx from "clsx";
 
+import Header from "../Components/Header";
+
 const X_CLASS = "text-red-500";
 const O_CLASS = "text-blue-500";
 
@@ -28,9 +30,15 @@ function TicTacToe() {
       }
     );
     return (
-      <div className={classes} onClick={() => handleClick(index)}>
-        {value}
-      </div>
+      <>
+      
+      {/* <div className="bg-blue-100 min-h-screen"> */}
+        {/* <Header title={"Tic-tac-toe"} /> */}
+        <div className={classes} onClick={() => handleClick(index)}>
+          {value}
+        </div>
+       {/* </div> */}
+      </>
     );
   };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import BlogPost from "../Components/BlogPost";
 import Header from "../Components/Header";
 import BlogPosts from "../Components/BlogPosts";
 import Posts from "../data/Posts.js";
