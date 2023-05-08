@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useInterval from "../Hooks/useInterval"; // custom hook to handle setInterval
+import Header from './Header'
 
 const Timer = () => {
 
@@ -76,7 +77,9 @@ const Timer = () => {
   const [isRestInterval, setIsRestInterval] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="min-h-screen bg-blue-100">
+      <Header title={"Cronómetro Pomodoro"} />
+    <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold mb-4">Pomodoro Timer</h1>
       <div className="flex mb-4">
         <div className="mr-4">
@@ -118,6 +121,7 @@ const Timer = () => {
           Reset
         </button>
       </div>
+    </div>
     </div>
   )
 }
