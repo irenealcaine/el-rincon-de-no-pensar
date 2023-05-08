@@ -39,7 +39,7 @@ function App() {
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToe />} />
-              <Route path="/games/memory" element={<Error />} />
+              <Route path="/games/memory" element={<Memory />} />
             </Routes>
           </div>
         </div>
