@@ -12,59 +12,70 @@ const menuItems = [
   {
     title: "Proyectos",
     icon: <AiOutlineFundProjectionScreen className="w-8 h-8" />,
+    bigIcon: <AiOutlineFundProjectionScreen className="w-8 h-8" />,
     to: "/projects",
     links: [
       {
         title: "Blog",
         to: "/projects/blog",
         icon: <CgNotes className="h-6" />,
+        bigIcon: <CgNotes className="h-16 w-16" />,
       },
       {
         title: "Frases célebres",
         to: "/projects/quotes",
         icon: <BsChatQuote className="h-6" />,
+        bigIcon: <BsChatQuote className="h-16 w-16" />,
       },
       {
         title: "El tiempo",
         to: "/projects/weather",
         icon: <BsFillCloudSunFill className="h-6" />,
+        bigIcon: <BsFillCloudSunFill className="h-16 w-16" />,
       },
     ],
   },
   {
     title: "Componentes",
     icon: <TbPuzzle className="w-8 h-8" />,
+    bigIcon: <TbPuzzle className="w-8 h-8" />,
     to: "/components",
     links: [
       {
         title: "Reloj",
         to: "/components/watch",
         icon: <FiWatch className="h-6" />,
+        bigIcon: <FiWatch className="h-16 w-16" />,
       },
       {
         title: "Temporizador",
         to: "/components/timer",
         icon: <RxLapTimer className="h-6" />,
+        bigIcon: <RxLapTimer className="h-16 w-16" />,
       },
     ],
   },
   {
     title: "Juegos",
     icon: <FaGamepad className="w-8 h-8" />,
+    bigIcon: <FaGamepad className="w-8 h-8" />,
     to: "/games",
     links: [
       {
         title: "Tic-tac-toe",
         to: "/games/tic-tac-toe",
         icon: <TfiClose className="h-6" />,
+        bigIcon: <TfiClose className="h-16 w-16" />,
       },
       {
         title: "Memoria",
         to: "/games/memory",
         icon: <GiCardAceHearts className="h-6" />,
+        bigIcon: <GiCardAceHearts className="h-16 w-16" />,
       },
     ],
   },
 ];
 
 export default menuItems;
+
