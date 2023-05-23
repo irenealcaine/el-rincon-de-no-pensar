@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Components/Header";
+import Subtitle from "../Components/Subtitle";
 import menuItems from "../data/MenuItems";
 import { Link } from "react-router-dom";
 
@@ -7,6 +8,7 @@ const Home = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"El rincón de no pensar"} />
+      <Subtitle subtitle={"El rincón de no pensar"} />
       <div className="flex flex-wrap gap-8 justify-center px-8">
         {menuItems.map((item) => {
           return (

@@ -1,5 +1,6 @@
 const Posts = [
   {
+    id: 1,
     title: "Título del artículo 1",
     excerpt: "Extracto del artículo 1.",
     imageUrl:
@@ -7,6 +8,7 @@ const Posts = [
     postUrl: "/post/1",
   },
   {
+    id: 2,
     title: "Título del artículo 2",
     excerpt: "Extracto del artículo 2.",
     imageUrl:
@@ -14,6 +16,7 @@ const Posts = [
     postUrl: "/post/2",
   },
   {
+    id: 3,
     title: "Título del artículo 3",
     excerpt: "Extracto del artículo 3.",
     imageUrl:
