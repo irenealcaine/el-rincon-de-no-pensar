@@ -7,9 +7,9 @@ import Posts from "../data/Posts";
 const BlogPostDetail = () => {
   const { id } = useParams();
   const post = Posts.find((post) => post.id === parseInt(id));
-  console.log(id, Posts, post);
+
   return (
-    <div className="bg-blue-100 min-h-screen">
+    <div className="bg-blue-100">
       <Header title={post.title} />
       <img src={post.imageUrl} alt={post.title} />
       <Subtitle subtitle={post.excerpt} />
