@@ -6,8 +6,8 @@ import menuItems from "../data/MenuItems";
 const Games = () => {
   return (
     <div className="min-h-screen bg-blue-100">
-      <Header title={"Proyectos"} />
-      <div className="flex flex-col md:flex-row gap-8 justify-center">
+      <Header title={"Juegos"} />
+      <div className="flex flex-wrap gap-8 justify-center">
         {menuItems[2].links.map((item) => {
           return (
             <Link
