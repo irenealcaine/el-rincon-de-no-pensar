@@ -7,7 +7,7 @@ const Games = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Juegos"} />
-      <div className="flex flex-wrap gap-8 justify-center">
+      <div className="flex flex-wrap gap-8 justify-center px-8">
         {menuItems[2].links.map((item) => {
           return (
             <Link

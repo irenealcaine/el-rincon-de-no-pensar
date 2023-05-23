@@ -7,7 +7,7 @@ const Components = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Componentes"} />
-      <div className="flex flex-wrap gap-8 justify-center">
+      <div className="flex flex-wrap gap-8 justify-center px-8">
         {menuItems[1].links.map((item) => {
           return (
             <Link

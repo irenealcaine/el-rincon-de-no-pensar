@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"El rincón de no pensar"} />
-      <div className="flex flex-wrap gap-8 justify-center">
+      <div className="flex flex-wrap gap-8 justify-center px-8">
         {menuItems.map((item) => {
           return (
             <div className="">
