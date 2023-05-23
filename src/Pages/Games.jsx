@@ -17,7 +17,7 @@ const Games = () => {
               <p className="p-4 border-2 border-blue-900 rounded-full hover:bg-blue-500 hover:text-white transition duration-300">
                 {item.bigIcon}
               </p>
-              <p className="">{item.title}</p>
+              <p className="font-bold text-xl">{item.title}</p>
             </Link>
           );
         })}
