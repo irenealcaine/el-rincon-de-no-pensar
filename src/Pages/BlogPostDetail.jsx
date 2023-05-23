@@ -1,9 +1,18 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import Header from "../Components/Header";
+import Subtitle from "../Components/Subtitle";
+import Posts from "../data/Posts";
 
-const BlogPostDetail = ({ title, excerpt, imageUrl, postUrl }) => {
+const BlogPostDetail = () => {
+  const { id } = useParams();
+  const post = Posts.find((post) => post.id === parseInt(id));
+
   return (
     <div className="bg-blue-100">
-      <h2>{title}</h2>
+      <Header title={post.title} />
+      <img src={post.imageUrl} alt={post.title} />
+      <Subtitle subtitle={post.excerpt} />
     </div>
   );
 };
