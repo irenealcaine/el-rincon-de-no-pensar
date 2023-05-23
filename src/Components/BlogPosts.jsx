@@ -13,7 +13,9 @@ const BlogPosts = ({ title, excerpt, imageUrl, postUrl }) => {
         >
           {title}
         </a>
-        <p className="text-gray-700 text-base">{excerpt}</p>
+        <p className="text-gray-700 text-base text-ellipsis overflow-hidden">
+          {excerpt}
+        </p>
       </div>
     </div>
   );
