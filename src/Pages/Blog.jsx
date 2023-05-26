@@ -7,15 +7,15 @@ const Blog = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"Blog"} />
-      <div className="flex flex-wrap flex-col md:flex-row items-center md:justify-center p-4 gap-4 md:gap-6 lg:gap-8 max-w-full">
+      <div className="flex flex-wrap flex-col md:flex-row items-center md:justify-center p-4 gap-4 md:gap-6 lg:gap-8 ">
         {Posts.map((post, index) => (
           <BlogPosts
             key={index}
             title={post.title}
-            excerpt={post.excerpt}
+            excerpt={post.subtitle}
             imageUrl={post.imageUrl}
             postUrl={post.postUrl}
-            className="w-12/12 md:w-5/12"
+            className=""
           />
         ))}
       </div>
