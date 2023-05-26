@@ -1,10 +1,13 @@
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { BsChatQuote, BsFillCloudSunFill } from "react-icons/bs";
+import {
+  BsChatQuote,
+  // BsFillCloudSunFill
+} from "react-icons/bs";
 import { CgNotes } from "react-icons/cg";
 import { FaGamepad } from "react-icons/fa";
 import { FiWatch } from "react-icons/fi";
 import { RxLapTimer } from "react-icons/rx";
-import { TfiClose } from "react-icons/tfi";
+// import { TfiClose } from "react-icons/tfi";
 import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 

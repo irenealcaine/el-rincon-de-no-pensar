@@ -4,7 +4,7 @@ import Sidebar from "./Components/Sidebar";
 import Blog from "./Pages/Blog";
 import Games from "./Pages/Games";
 import Components from "./Pages/Components";
-import Error from "./Pages/Error";
+// import Error from "./Pages/Error";
 import Projects from "./Pages/Projects";
 import RandomQuotes from "./Pages/RandomQuotes";
 import BlogPostDetail from "./Pages/BlogPostDetail";
