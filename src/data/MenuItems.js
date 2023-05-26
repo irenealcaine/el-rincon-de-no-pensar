@@ -27,12 +27,12 @@ const menuItems = [
         icon: <BsChatQuote className="h-6" />,
         bigIcon: <BsChatQuote className="h-16 w-16" />,
       },
-      {
-        title: "El tiempo",
-        to: "/projects/weather",
-        icon: <BsFillCloudSunFill className="h-6" />,
-        bigIcon: <BsFillCloudSunFill className="h-16 w-16" />,
-      },
+      // {
+      //   title: "El tiempo",
+      //   to: "/projects/weather",
+      //   icon: <BsFillCloudSunFill className="h-6" />,
+      //   bigIcon: <BsFillCloudSunFill className="h-16 w-16" />,
+      // },
     ],
   },
   {
@@ -61,12 +61,12 @@ const menuItems = [
     bigIcon: <FaGamepad className="h-16 w-16" />,
     to: "/games",
     links: [
-      {
-        title: "Tic-tac-toe",
-        to: "/games/tic-tac-toe",
-        icon: <TfiClose className="h-6" />,
-        bigIcon: <TfiClose className="h-16 w-16" />,
-      },
+      // {
+      //   title: "Tic-tac-toe",
+      //   to: "/games/tic-tac-toe",
+      //   icon: <TfiClose className="h-6" />,
+      //   bigIcon: <TfiClose className="h-16 w-16" />,
+      // },
       {
         title: "Memoria",
         to: "/games/memory",
