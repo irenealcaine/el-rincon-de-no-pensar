@@ -9,10 +9,14 @@ const BlogPostDetail = () => {
   const post = Posts.find((post) => post.id === parseInt(id));
 
   return (
-    <div className="bg-blue-100">
+    <div className="bg-blue-100 min-h-screen">
       <Header title={post.title} />
-      <img src={post.imageUrl} alt={post.title} />
-      <Subtitle subtitle={post.excerpt} />
+      <img
+        src={post.imageUrl}
+        alt={post.title}
+        className="w-10/12 lg:w-5/12 mx-auto rounded-lg shadow-lg"
+      />
+      <Subtitle subtitle={post.excerpt} className="" />
     </div>
   );
 };
