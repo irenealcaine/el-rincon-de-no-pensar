@@ -4,7 +4,7 @@ const BlogPosts = ({ title, excerpt, imageUrl, postUrl }) => {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden w-full md:w-5/12 lg:w-3/12">
       <a href={postUrl}>
-        <img src={imageUrl} alt={title} className=" h-64 object-cover" />
+        <img src={imageUrl} alt={title} className=" h-64 w-full object-cover" />
         <div className="px-6 py-4 bg-white">
           <a
             href={postUrl}
