@@ -30,7 +30,7 @@ const Sidebar = () => {
           <div className="flex gap-x-4 items-center ">
             <FaDragon
               className={`duration-500 w-8 h-8  p-1 ${
-                open && "rotate-[360deg] w-12 h-12"
+                open && "rotate-[360deg] md:w-12 md:h-12"
               }`}
             />
             <h1
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className="relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+                className="relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-4 rounded-md"
                 onClick={() =>
                   menuItem.title === "Juegos"
                     ? setGamesSubMenuOpen(!gamesSubMenuOpen)
