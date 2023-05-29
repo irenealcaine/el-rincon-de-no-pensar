@@ -78,10 +78,10 @@ const Timer = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Cronómetro Pomodoro"} />
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold mb-4">Pomodoro Timer</h1>
-        <div className="flex mb-4">
-          <div className="mr-4">
+      <div className="flex flex-col items-center justify-center p-4">
+        <h1 className="text-xl md:text-3xl font-bold mb-4">Pomodoro Timer</h1>
+        <div className="flex flex-col md:flex-row mb-4">
+          <div className="md:mr-4">
             <label htmlFor="workInterval">Work Interval (minutes)</label>
             <input
               type="number"
@@ -104,7 +104,7 @@ const Timer = () => {
             />
           </div>
         </div>
-        <div className="text-6xl font-bold">{formatTime(timeLeft)}</div>
+        <div className="text-6xl font-bold mb-8">{formatTime(timeLeft)}</div>
         <div className="flex items-center">
           <button
             onClick={handleStartStopClick}

@@ -14,7 +14,7 @@ import { GiCardAceHearts } from "react-icons/gi";
 const menuItems = [
   {
     title: "Proyectos",
-    icon: <AiOutlineFundProjectionScreen className="w-8 h-8" />,
+    icon: <AiOutlineFundProjectionScreen className="w-6 h-6" />,
     bigIcon: <AiOutlineFundProjectionScreen className="h-16 w-16" />,
     to: "/projects",
     links: [
@@ -40,7 +40,7 @@ const menuItems = [
   },
   {
     title: "Componentes",
-    icon: <TbPuzzle className="w-8 h-8" />,
+    icon: <TbPuzzle className="w-6 h-6" />,
     bigIcon: <TbPuzzle className="h-16 w-16" />,
     to: "/components",
     links: [
@@ -60,7 +60,7 @@ const menuItems = [
   },
   {
     title: "Juegos",
-    icon: <FaGamepad className="w-8 h-8" />,
+    icon: <FaGamepad className="w-6 h-6" />,
     bigIcon: <FaGamepad className="h-16 w-16" />,
     to: "/games",
     links: [
