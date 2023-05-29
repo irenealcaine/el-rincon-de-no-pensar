@@ -33,7 +33,7 @@ const Quotes = [
       </span>
     ),
     author: "Michael Scott",
-    inspiration: "",
+    inspiration: "No tenemos que saberlo todo siempre.",
   },
   {
     quote: (
@@ -46,7 +46,7 @@ const Quotes = [
       </span>
     ),
     author: "Groucho Marx",
-    inspiration: "",
+    inspiration: "Aceptamos antes a los demás que a nosotros mismos",
   },
   {
     quote: (
