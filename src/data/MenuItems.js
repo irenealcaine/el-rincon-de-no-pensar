@@ -7,7 +7,7 @@ import { CgNotes } from "react-icons/cg";
 import { FaGamepad } from "react-icons/fa";
 import { FiWatch } from "react-icons/fi";
 import { RxLapTimer } from "react-icons/rx";
-// import { TfiClose } from "react-icons/tfi";
+import { TfiClose } from "react-icons/tfi";
 import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 
@@ -64,12 +64,12 @@ const menuItems = [
     bigIcon: <FaGamepad className="h-16 w-16" />,
     to: "/games",
     links: [
-      // {
-      //   title: "Tic-tac-toe",
-      //   to: "/games/tic-tac-toe",
-      //   icon: <TfiClose className="h-6" />,
-      //   bigIcon: <TfiClose className="h-16 w-16" />,
-      // },
+      {
+        title: "Tic-tac-toe",
+        to: "/games/tic-tac-toe",
+        icon: <TfiClose className="h-6" />,
+        bigIcon: <TfiClose className="h-16 w-16" />,
+      },
       {
         title: "Memoria",
         to: "/games/memory",
