@@ -14,7 +14,7 @@ const Sidebar = () => {
     <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
       <div
         className={`${
-          open ? "w-60" : "w-16"
+          open ? "w-60" : "w-12"
         } duration-200 h-screen p-2 pt-8 bg-blue-700 sticky top-0 left-0`}
       >
         <FaArrowLeft
@@ -29,8 +29,8 @@ const Sidebar = () => {
         >
           <div className="flex gap-x-4 items-center ">
             <FaDragon
-              className={`duration-500 w-12 h-12 p-1 ${
-                open && "rotate-[360deg]"
+              className={`duration-500 w-8 h-8  p-1 ${
+                open && "rotate-[360deg] w-12 h-12"
               }`}
             />
             <h1
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className="relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
+                className="relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-2 rounded-md"
                 onClick={() =>
                   menuItem.title === "Juegos"
                     ? setGamesSubMenuOpen(!gamesSubMenuOpen)
@@ -84,7 +84,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={` text-blue-200 flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200  ${
+                    className={` text-blue-200 flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200  ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "hidden"
                         : menuItem.title === "Proyectos"
