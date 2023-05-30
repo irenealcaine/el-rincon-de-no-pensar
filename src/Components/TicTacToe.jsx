@@ -1,10 +1,4 @@
-import { useState } from "react";
-import clsx from "clsx";
-
-// import Header from "../Components/Header";
-
-const X_CLASS = "text-red-500";
-const O_CLASS = "text-blue-500";
+import React, { useState } from "react";
 
 function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -22,54 +16,49 @@ function TicTacToe() {
 
   const renderSquare = (index) => {
     const value = board[index];
-    const classes = clsx(
-      "border-2 border-gray-300 w-16 h-16 flex justify-center items-center text-2xl font-bold cursor-pointer",
-      {
-        [X_CLASS]: value === "X",
-        [O_CLASS]: value === "O",
-      }
-    );
+
     return (
       <>
-        {/* <div className="bg-blue-100 min-h-screen"> */}
-        {/* <Header title={"Tic-tac-toe"} /> */}
-        <div className={classes} onClick={() => handleClick(index)}>
+        <div
+          className={`border border-blue-300 w-16 md:w-24 lg:w-32 aspect-square flex justify-center items-center text-2xl md:text-4xl lg:text-6xl font-bold cursor-pointer ${
+            value === "X" ? "text-red-500" : "text-green-500"
+          }`}
+          onClick={() => handleClick(index)}
+        >
           {value}
         </div>
-        {/* </div> */}
       </>
     );
   };
 
   const winner = calculateWinner(board);
-  const status = winner
-    ? `Winner: ${winner}`
+  const isGameOver = winner || board.every((square) => square !== null);
+  const status = isGameOver
+    ? winner
+      ? `Winner: ${winner}`
+      : "It's a tie!"
     : `Next player: ${xIsNext ? "X" : "O"}`;
-
+    
   return (
     <div className="flex flex-col items-center">
       <div className="flex">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
+        {[0, 1, 2].map((index) => renderSquare(index))}
       </div>
       <div className="flex">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
+        {[3, 4, 5].map((index) => renderSquare(index))}
       </div>
       <div className="flex">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
+        {[6, 7, 8].map((index) => renderSquare(index))}
       </div>
       <div className="my-4">{status}</div>
-      <button
-        className="bg-gray-400 text-white px-4 py-2 rounded-md"
-        onClick={() => setBoard(Array(9).fill(null))}
-      >
-        Reset
-      </button>
+      {isGameOver && (
+        <button
+          className="bg-blue-400 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-500"
+          onClick={() => setBoard(Array(9).fill(null))}
+        >
+          Reset
+        </button>
+      )}
     </div>
   );
 }
