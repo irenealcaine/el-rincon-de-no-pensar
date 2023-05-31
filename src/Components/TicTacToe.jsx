@@ -35,10 +35,10 @@ function TicTacToe() {
   const isGameOver = winner || board.every((square) => square !== null);
   const status = isGameOver
     ? winner
-      ? `Winner: ${winner}`
-      : "It's a tie!"
-    : `Next player: ${xIsNext ? "X" : "O"}`;
-    
+      ? `Ganador: ${winner}`
+      : "Es un empate!"
+    : `Siguiente jugador: ${xIsNext ? "X" : "O"}`;
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex">

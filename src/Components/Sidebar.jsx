@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import menuItems from "../data/MenuItems.js";
-import { FaDragon, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { BsFillCaretUpFill } from "react-icons/bs";
+import { GiSofa } from "react-icons/gi";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -28,7 +29,7 @@ const Sidebar = () => {
           className="flex items-center duration-200 hover:bg-blue-400 rounded-md text-blue-100 hover:text-blue-900"
         >
           <div className="flex gap-x-4 items-center ">
-            <FaDragon
+            <GiSofa
               className={`duration-500 w-8 h-8  p-1 ${
                 open && "rotate-[360deg] md:w-12 md:h-12"
               }`}
