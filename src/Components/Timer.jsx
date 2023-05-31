@@ -79,10 +79,12 @@ const Timer = () => {
     <div className="min-h-screen bg-blue-100">
       <Header title={"Cronómetro Pomodoro"} />
       <div className="flex flex-col items-center justify-center p-4">
-        <h1 className="text-xl md:text-3xl font-bold mb-4">Pomodoro Timer</h1>
+        <h1 className="text-xl md:text-3xl font-bold mb-4">
+          Cronómetro Pomodoro
+        </h1>
         <div className="flex flex-col md:flex-row mb-4">
           <div className="md:mr-4">
-            <label htmlFor="workInterval">Work Interval (minutes)</label>
+            <label htmlFor="workInterval">Intervalo de trabajo (minutos)</label>
             <input
               type="number"
               name="work"
@@ -93,7 +95,9 @@ const Timer = () => {
             />
           </div>
           <div>
-            <label htmlFor="restInterval">Rest Interval (minutes)</label>
+            <label htmlFor="restInterval">
+              Intervalo de descanso (minutos)
+            </label>
             <input
               type="number"
               name="rest"
