@@ -38,7 +38,7 @@ function TicTacToe() {
 
     return (
       <div
-        className={`border border-blue-300 w-16 md:w-24 lg:w-32 aspect-square flex justify-center items-center text-2xl md:text-4xl lg:text-6xl font-bold cursor-pointer ${textStyle}`}
+        className={`border border-blue-300 w-16 md:w-24 lg:w-32 aspect-square flex justify-center items-center text-4xl md:text-6xl lg:text-8xl font-bold cursor-pointer ${textStyle}`}
         onClick={() => handleClick(index)}
       >
         {value}
@@ -66,16 +66,22 @@ function TicTacToe() {
       </div>
       <div className="my-4">{status}</div>
 
-      <div>
-        <div>Gana X: {playerXWins}</div>
-        <div>Gana O: {playerOWins}</div>
-        <div>Empates: {draws}</div>
+      <div className="flex flex-col md:flex-row md:gap-4 text-xl items-center">
+        <div className="text-red-700">
+          Gana X: <span className="font-bold text-3xl">{playerXWins}</span>
+        </div>
+        <div className="text-green-700 underline decoration-2">
+          Gana O: <span className="font-bold text-3xl">{playerOWins}</span>
+        </div>
+        <div className="text-blue-700">
+          Empates: <span className="font-bold text-3xl">{draws}</span>
+        </div>
       </div>
 
       <div>
         {isGameOver && (
           <button
-            className="bg-blue-400 hover:bg-blue-700 text-white font-bold mt-4 px-4 py-2 rounded-md transition duration-500"
+            className="bg-blue-400 hover:bg-blue-700 text-white font-bold mt-4 px-8 py-2 rounded-md transition duration-500"
             onClick={() => {
               setBoard(Array(9).fill(null));
               setWinner(null);
