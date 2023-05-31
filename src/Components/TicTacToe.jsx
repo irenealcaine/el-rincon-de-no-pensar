@@ -69,19 +69,19 @@ function TicTacToe() {
       <div>
         <div>Gana X: {playerXWins}</div>
         <div>Gana O: {playerOWins}</div>
-        <div>Draws: {draws}</div>
+        <div>Empates: {draws}</div>
       </div>
 
       <div>
         {isGameOver && (
           <button
-            className="bg-gray-400 text-white px-4 py-2 rounded-md"
+            className="bg-blue-400 hover:bg-blue-700 text-white font-bold mt-4 px-4 py-2 rounded-md transition duration-500"
             onClick={() => {
               setBoard(Array(9).fill(null));
               setWinner(null);
             }}
           >
-            New Game
+            Nuevo juego
           </button>
         )}
       </div>
