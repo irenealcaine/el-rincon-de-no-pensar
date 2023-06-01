@@ -20,6 +20,9 @@ const BlogPostDetail = () => {
       >
         Atrás
       </button>
+      <p className="text-gray-400 text-sm w-full p-4 text-right">
+        {post.categories}
+      </p>
       <img
         src={post.imageUrl}
         alt={post.title}

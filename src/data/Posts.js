@@ -17,6 +17,7 @@ const Posts = [
     imageUrl:
       "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2022/03/09/16468231897426.jpg",
     postUrl: "/post/2",
+    categories: ["Categoría 2 ", "Categoría 3 "],
   },
   {
     id: 3,
@@ -26,6 +27,7 @@ const Posts = [
     imageUrl:
       "https://www.barcelo.com/content/dam/bpt/posts/2023/2/mejores%20playas%20del%20mundo%20tripadvisor%202023.jpg",
     postUrl: "/post/3",
+    categories: ["Categoría 1 ", "Categoría 3 "],
   },
 ];
 export default Posts;
