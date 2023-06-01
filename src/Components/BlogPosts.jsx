@@ -26,8 +26,8 @@ const BlogPosts = ({
           <h2 className="font-bold text-xl mb-2 hover:text-gray-600">
             {title}
           </h2>
-          <h3 className="font-bold mb-2 hover:text-gray-600">{subtitle}</h3>
-          <p className="text-gray-700 text-base">{shortenedExcerpt}</p>
+          <h3 className="font-bold mb-2 text-gray-600">{subtitle}</h3>
+          <p className="text-gray-900 text-base">{shortenedExcerpt}</p>
         </div>
       </a>
     </div>
