@@ -15,7 +15,7 @@ const Blog = () => {
             excerpt={post.excerpt}
             imageUrl={post.imageUrl}
             postUrl={post.postUrl}
-            className=""
+            categories={post.categories}
           />
         ))}
       </div>

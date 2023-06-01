@@ -7,6 +7,7 @@ const Posts = [
     imageUrl:
       "https://cdn.pixabay.com/photo/2016/10/18/21/22/beach-1751455_1280.jpg",
     postUrl: "/post/1",
+    categories: ["Categoría 1 ", "Categoría 2 "],
   },
   {
     id: 2,
