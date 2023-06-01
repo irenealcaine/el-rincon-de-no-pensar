@@ -34,7 +34,7 @@ function TicTacToe() {
   const renderSquare = (index) => {
     const value = board[index];
     const isX = value === "X";
-    const textStyle = isX ? "text-red-500" : "text-green-500";
+    const textStyle = isX ? "text-orange-500" : "text-green-500";
 
     return (
       <div
@@ -47,14 +47,25 @@ function TicTacToe() {
   };
 
   const isGameOver = winner || board.every((square) => square !== null);
-  const status = isGameOver
-    ? winner
-      ? `Ganador: ${winner}`
-      : "Es un empate!"
-    : `Siguiente jugador: ${xIsNext ? "X" : "O"}`;
+  const status = isGameOver ? (
+    winner ? (
+      <span
+        className={`${
+          winner === "X" ? "text-orange-500" : "text-green-500"
+        } font-bold text-3xl`}
+      >{`¡Gana ${winner}!`}</span>
+    ) : (
+      <span className="font-bold text-3xl text-blue-700">¡Es un empate!</span>
+    )
+  ) : (
+    <span className="font-bold text-xl text-blue-900">{`Turno de ${
+      xIsNext ? "X" : "O"
+    }`}</span>
+  );
 
   return (
     <div className="flex flex-col items-center">
+      <div className="my-4">{status}</div>
       <div className="flex">
         {[0, 1, 2].map((index) => renderSquare(index))}
       </div>
@@ -64,17 +75,23 @@ function TicTacToe() {
       <div className="flex">
         {[6, 7, 8].map((index) => renderSquare(index))}
       </div>
-      <div className="my-4">{status}</div>
 
-      <div className="flex flex-col md:flex-row md:gap-4 text-xl items-center">
-        <div className="text-red-700">
-          Gana X: <span className="font-bold text-3xl">{playerXWins}</span>
+      <div className="flex flex-col md:flex-row md:gap-4 text-xl items-center my-4">
+        <div className="">
+          Gana X:{" "}
+          <span className="font-bold text-3xl text-orange-500">
+            {playerXWins}
+          </span>
         </div>
-        <div className="text-green-700 underline decoration-2">
-          Gana O: <span className="font-bold text-3xl">{playerOWins}</span>
+        <div className="">
+          Gana O:{" "}
+          <span className="font-bold text-3xl text-green-500">
+            {playerOWins}
+          </span>
         </div>
-        <div className="text-blue-700">
-          Empates: <span className="font-bold text-3xl">{draws}</span>
+        <div className="">
+          Empates:{" "}
+          <span className="font-bold text-3xl text-blue-700">{draws}</span>
         </div>
       </div>
 
