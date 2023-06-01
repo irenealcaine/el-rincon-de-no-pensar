@@ -1,9 +1,8 @@
 import React from "react";
 
 const BlogPosts = ({ title, excerpt, imageUrl, postUrl }) => {
-  
-  const maxLength = 100; 
-  let shortenedExcerpt = excerpt.slice(0, maxLength); 
+  const maxLength = 100;
+  let shortenedExcerpt = excerpt.slice(0, maxLength);
   if (excerpt.length > maxLength) {
     shortenedExcerpt += "...";
   }
@@ -13,12 +12,12 @@ const BlogPosts = ({ title, excerpt, imageUrl, postUrl }) => {
       <a href={postUrl}>
         <img src={imageUrl} alt={title} className=" h-64 w-full object-cover" />
         <div className="px-6 py-4 bg-white">
-          <a
+          <p
             href={postUrl}
             className="font-bold text-xl mb-2 hover:text-gray-600"
           >
             {title}
-          </a>
+          </p>
           <p className="text-gray-700 text-base">{shortenedExcerpt}</p>
         </div>
       </a>
