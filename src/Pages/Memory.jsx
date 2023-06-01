@@ -69,6 +69,7 @@ const Memory = () => {
   );
 
   const [prev, setPrev] = useState(-1);
+  const [gameOver, setGameOver] = useState(false);
 
   function check(current) {
     if (items[current].id === items[prev].id) {
@@ -87,6 +88,10 @@ const Memory = () => {
         setPrev(-1);
       }, 300);
     }
+    const allPairsFound = items.every((item) => item.stat === "correct");
+    if (allPairsFound) {
+      setGameOver(true);
+    }
   }
 
   function handleClick(id) {
@@ -99,14 +104,26 @@ const Memory = () => {
     }
   }
 
+  function handleNewGame() {
+    window.location.reload();
+  }
+
   return (
-    <div className="bg-blue-100 min-h-screen">
+    <div className="bg-blue-100 min-h-screen pb-8">
       <Header title={"Memoria"} />
       <div className="flex flex-wrap gap-4 justify-center p-8">
         {items.map((item, index) => (
           <Card key={index} item={item} id={index} handleClick={handleClick} />
         ))}
       </div>
+      {gameOver && ( // Mostrar el botón solo cuando el juego haya terminado
+        <button
+          className="bg-blue-400 hover:bg-blue-700 text-white font-bold block mx-auto my-4 px-8 py-2 rounded-md transition duration-500"
+          onClick={handleNewGame}
+        >
+          Nuevo juego
+        </button>
+      )}
     </div>
   );
 };
