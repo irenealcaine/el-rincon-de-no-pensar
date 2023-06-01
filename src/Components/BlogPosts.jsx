@@ -1,11 +1,9 @@
 import React from "react";
 
 const BlogPosts = ({ title, excerpt, imageUrl, postUrl }) => {
-  const maxLength = 500; // Límite máximo de caracteres para el excerpt
-
-  let shortenedExcerpt = excerpt.slice(0, maxLength); // Limitar la longitud del excerpt
-
-  // Agregar los tres puntos suspensivos si se excede el límite
+  
+  const maxLength = 100; 
+  let shortenedExcerpt = excerpt.slice(0, maxLength); 
   if (excerpt.length > maxLength) {
     shortenedExcerpt += "...";
   }
