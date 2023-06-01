@@ -27,9 +27,11 @@ const BlogPostDetail = () => {
         alt={post.title}
         className="w-10/12 md:w-8/12 max-h-96 object-cover mx-auto rounded-lg shadow-lg"
       />
-      <p className="text-gray-400 text-sm pt-4 w-10/12 md:w-8/12 mx-auto">
-        {post.categories}
-      </p>
+      <div className="flex w-10/12 md:w-8/12 mx-auto gap-4 mt-2">
+        {post.categories.map((category) => (
+          <span className=" text-gray-400 text-sm">{category}</span>
+        ))}
+      </div>
       <p className="py-4 w-10/12 md:w-8/12 mx-auto indent-6 text-justify">
         {post.excerpt}
       </p>

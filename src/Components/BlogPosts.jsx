@@ -19,10 +19,10 @@ const BlogPosts = ({
       <a href={postUrl}>
         <img src={imageUrl} alt={title} className=" h-64 w-full object-cover" />
         <div className="px-6 py-4 bg-white">
-          {/* {categories.map((category) => {
-            <p className="text-gray-400 text-sm">{category}</p>;
-          })} */}
-          <p className="text-gray-400 text-sm">{categories}</p>
+          {categories.map((category) => (
+            <span className="mx-2 text-gray-400 text-sm">{category}</span>
+          ))}
+          {/* <p className="text-gray-400 text-sm">{categories}</p> */}
           <h2 className="font-bold text-xl mb-2 hover:text-gray-600">
             {title}
           </h2>
