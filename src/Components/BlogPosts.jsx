@@ -1,6 +1,13 @@
 import React from "react";
 
-const BlogPosts = ({ title, excerpt, imageUrl, postUrl, categories }) => {
+const BlogPosts = ({
+  title,
+  subtitle,
+  excerpt,
+  imageUrl,
+  postUrl,
+  categories,
+}) => {
   const maxLength = 100;
   let shortenedExcerpt = excerpt.slice(0, maxLength);
   if (excerpt.length > maxLength) {
@@ -16,12 +23,10 @@ const BlogPosts = ({ title, excerpt, imageUrl, postUrl, categories }) => {
             <p className="text-gray-400 text-sm">{category}</p>;
           })} */}
           <p className="text-gray-400 text-sm">{categories}</p>
-          <h2
-            href={postUrl}
-            className="font-bold text-xl mb-2 hover:text-gray-600"
-          >
+          <h2 className="font-bold text-xl mb-2 hover:text-gray-600">
             {title}
           </h2>
+          <h3 className="font-bold mb-2 hover:text-gray-600">{subtitle}</h3>
           <p className="text-gray-700 text-base">{shortenedExcerpt}</p>
         </div>
       </a>

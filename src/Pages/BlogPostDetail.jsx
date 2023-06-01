@@ -20,15 +20,17 @@ const BlogPostDetail = () => {
       >
         Atrás
       </button>
-      <p className="text-gray-400 text-sm w-full p-4 text-right">
-        {post.categories}
-      </p>
+      <p className="text-gray-400 text-sm p-4">{post.categories}</p>
+      <Subtitle subtitle={post.subtitle} className="" />
       <img
         src={post.imageUrl}
         alt={post.title}
-        className="w-10/12 lg:w-5/12 mx-auto rounded-lg shadow-lg"
+        className="w-10/12 md:w-8/12 max-h-96 object-cover mx-auto rounded-lg shadow-lg"
       />
-      <Subtitle subtitle={post.excerpt} className="" />
+      <p className="py-8 w-10/12 md:w-8/12 mx-auto indent-6 text-justify">
+        <span className="text-gray-400 text-sm p-4">{post.categories}</span>
+        {post.excerpt}
+      </p>
     </div>
   );
 };
