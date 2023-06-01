@@ -12,7 +12,7 @@ const Blog = () => {
           <BlogPosts
             key={index}
             title={post.title}
-            excerpt={post.subtitle}
+            excerpt={post.excerpt}
             imageUrl={post.imageUrl}
             postUrl={post.postUrl}
             className=""
