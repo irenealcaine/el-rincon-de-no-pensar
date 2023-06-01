@@ -20,17 +20,43 @@ const BlogPostDetail = () => {
       >
         Atrás
       </button>
-      <p className="text-gray-400 text-sm p-4">{post.categories}</p>
+
       <Subtitle subtitle={post.subtitle} className="" />
       <img
         src={post.imageUrl}
         alt={post.title}
         className="w-10/12 md:w-8/12 max-h-96 object-cover mx-auto rounded-lg shadow-lg"
       />
-      <p className="py-8 w-10/12 md:w-8/12 mx-auto indent-6 text-justify">
-        <span className="text-gray-400 text-sm p-4">{post.categories}</span>
+      <p className="text-gray-400 text-sm pt-4 w-10/12 md:w-8/12 mx-auto">
+        {post.categories}
+      </p>
+      <p className="py-4 w-10/12 md:w-8/12 mx-auto indent-6 text-justify">
         {post.excerpt}
       </p>
+
+      <div className="py-4 px-8 flex flex-col md:flex-row md:justify-around">
+        {post.id - 1 > 0 && (
+          <button
+            className="bg-blue-400 hover:bg-blue-700 text-white font-bold block my-4 ml-8 px-8 py-2 rounded-md transition duration-500"
+            onClick={() => {
+              navigate(`/post/${post.id - 1}`);
+            }}
+          >
+            Anterior
+          </button>
+        )}
+
+        {post.id + 1 <= Posts.length && (
+          <button
+            className="bg-blue-400 hover:bg-blue-700 text-white font-bold block my-4 ml-8 px-8 py-2 rounded-md transition duration-500"
+            onClick={() => {
+              navigate(`/post/${post.id + 1}`);
+            }}
+          >
+            Siguiente
+          </button>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,36 +1,53 @@
 const Posts = [
   {
     id: 1,
-    title: "Título del artículo 1",
-    subtitle: "Subtítulo del artículo 1",
-    excerpt:
-      "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas Letraset, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.",
+    title: "Consejos para mantener un estilo de vida saludable",
+    subtitle: "Descubre cómo mejorar tu bienestar general",
+    excerpt: "Lorem Ipsum es simplemente el texto de relleno...",
     imageUrl:
-      "https://cdn.pixabay.com/photo/2016/10/18/21/22/beach-1751455_1280.jpg",
+      "https://www.gundo.app/blog/wp-content/uploads/2022/02/Estilos-de-vida-saludable-la-importancia-para-nuestra-salud-1-e1645630955761.jpeg",
     postUrl: "/post/1",
-    categories: ["Categoría 1 ", "Categoría 2 "],
+    categories: ["Salud", "Bienestar"],
   },
   {
     id: 2,
-    title: "Título del artículo 2",
-    subtitle: "Subtítulo del artículo 2",
-    excerpt:
-      "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas Letraset, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.",
+    title: "Los destinos turísticos más populares del año",
+    subtitle: "Descubre lugares increíbles para tus vacaciones",
+    excerpt: "Lorem Ipsum es simplemente el texto de relleno...",
     imageUrl:
-      "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2022/03/09/16468231897426.jpg",
+      "https://www.bbva.com/wp-content/uploads/2017/12/billetes-avion-viajes-tarifas-comparacion-precios-ahorro-compra-vuelos-bbva-1024x683.jpg",
     postUrl: "/post/2",
-    categories: ["Categoría 2 ", "Categoría 3 "],
+    categories: ["Viajes"],
   },
   {
     id: 3,
-    title: "Título del artículo 3",
-    subtitle: "Subtítulo del artículo 3",
-    excerpt:
-      "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas Letraset, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.",
+    title: "Consejos financieros para emprendedores",
+    subtitle: "Aprende a manejar tus finanzas como emprendedor",
+    excerpt: "Lorem Ipsum es simplemente el texto de relleno...",
     imageUrl:
-      "https://www.barcelo.com/content/dam/bpt/posts/2023/2/mejores%20playas%20del%20mundo%20tripadvisor%202023.jpg",
+      "https://www.revistaeconomia.com/wp-content/uploads/2022/01/Plantilla-de-tamano-para-las-entradas-13.gif",
     postUrl: "/post/3",
-    categories: ["Categoría 1 ", "Categoría 3 "],
+    categories: ["Negocios", "Finanzas"],
+  },
+  {
+    id: 4,
+    title: "Recetas saludables para una alimentación equilibrada",
+    subtitle: "Descubre platos nutritivos y sabrosos",
+    excerpt: "Lorem Ipsum es simplemente el texto de relleno...",
+    imageUrl:
+      "https://depor.com/resizer/wlGAoDwKiNY88q237GBa_kN3J9Y=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/FGBNWTJTXNG2VERRH724ZWXV4Y.jpg",
+    postUrl: "/post/4",
+    categories: ["Salud", "Alimentación"],
+  },
+  {
+    id: 5,
+    title: "Cómo contribuir al cuidado del medio ambiente",
+    subtitle: "Pequeños cambios que hacen la diferencia",
+    excerpt: "Lorem Ipsum es simplemente el texto de relleno...",
+    imageUrl:
+      "https://www.henkel.es/resource/image/1084248/16x9/1920/1080/7a7530443937d70f83dbb22c6423158c/F34BFB3EAF33429AAFA08601DD0B63E2/2020-06-05-d%C3%ADa-mundial-del-medio-ambiente-jpg.webp",
+    postUrl: "/post/5",
+    categories: ["Medio Ambiente", "Sostenibilidad"],
   },
 ];
 export default Posts;
