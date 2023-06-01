@@ -27,9 +27,11 @@ const BlogPostDetail = () => {
         alt={post.title}
         className="w-10/12 md:w-8/12 max-h-96 object-cover mx-auto rounded-lg shadow-lg"
       />
-      <div className="flex w-10/12 md:w-8/12 mx-auto gap-4 mt-2">
+      <div className="flex w-10/12 md:w-8/12 mx-auto gap-4 mt-2 px-4">
         {post.categories.map((category) => (
-          <span className=" text-gray-400 text-sm">{category}</span>
+          <span className=" text-gray-400 text-sm px-2 border rounded border-gray-400">
+            {category}
+          </span>
         ))}
       </div>
       <p className="py-4 w-10/12 md:w-8/12 mx-auto indent-6 text-justify">
