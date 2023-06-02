@@ -13,6 +13,7 @@ import Timer from "./Components/Timer";
 import Watch from "./Components/Watch";
 import TicTacToeGame from "./Pages/TicTacToeGame";
 import Memory from "./Pages/Memory";
+import Idle from "./Pages/Idle";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToeGame />} />
               <Route path="/games/memory" element={<Memory />} />
+              <Route path="/games/idle" element={<Idle />} />
             </Routes>
           </div>
         </div>
