@@ -63,7 +63,7 @@ const RandomQuote = () => {
 
       <Button
         className={!randomQuote ? "" : "absolute bottom-10 right-1"}
-        onClick={() => {
+        onClickValue={() => {
           generarFraseAleatoria();
         }}
         value={!randomQuote ? "Generar frase aleatoria" : "Generar otra frase"}
