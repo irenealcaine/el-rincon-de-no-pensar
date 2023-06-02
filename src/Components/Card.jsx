@@ -10,11 +10,6 @@ function Card({ item, id, handleClick }) {
         item.stat !== "correct" && handleClick(id);
       }}
     >
-      {/* <img
-        src={item.img}
-        alt="/"
-        className={`${item.stat ? "w-full h-full" : "h-0 w-0"} `}
-      /> */}
       <AiOutlineQuestion
         className={`text-blue-700 ${!item.stat ? "w-full h-full" : "h-0 w-0"} `}
       />

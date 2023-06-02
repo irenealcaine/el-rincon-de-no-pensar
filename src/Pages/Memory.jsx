@@ -105,7 +105,13 @@ const Memory = () => {
   }
 
   function handleNewGame() {
-    window.location.reload();
+    items.sort(() => Math.random() - 0.5);
+    const resetItems = items.map((item) => {
+      return { ...item, stat: "" };
+    });
+    setItems(resetItems);
+    setGameOver(false);
+    setPrev(-1);
   }
 
   return (
