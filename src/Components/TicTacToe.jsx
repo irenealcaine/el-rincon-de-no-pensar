@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -97,15 +98,14 @@ function TicTacToe() {
 
       <div>
         {isGameOver && (
-          <button
-            className="bg-blue-400 hover:bg-blue-700 text-white font-bold mt-4 px-8 py-2 rounded-md transition duration-500"
-            onClick={() => {
+          <Button
+            className={""}
+            onClickValue={() => {
               setBoard(Array(9).fill(null));
               setWinner(null);
             }}
-          >
-            Nuevo juego
-          </button>
+            value={"Nuevo juego"}
+          />
         )}
       </div>
     </div>

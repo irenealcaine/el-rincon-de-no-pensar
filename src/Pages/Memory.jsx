@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
+import Button from "../Components/Button";
 
 const Memory = () => {
   const [items, setItems] = useState(
@@ -105,7 +106,13 @@ const Memory = () => {
   }
 
   function handleNewGame() {
-    window.location.reload();
+    items.sort(() => Math.random() - 0.5);
+    const resetItems = items.map((item) => {
+      return { ...item, stat: "" };
+    });
+    setItems(resetItems);
+    setGameOver(false);
+    setPrev(-1);
   }
 
   return (
@@ -116,13 +123,14 @@ const Memory = () => {
           <Card key={index} item={item} id={index} handleClick={handleClick} />
         ))}
       </div>
-      {gameOver && ( // Mostrar el botón solo cuando el juego haya terminado
-        <button
-          className="bg-blue-400 hover:bg-blue-700 text-white font-bold block mx-auto my-4 px-8 py-2 rounded-md transition duration-500"
-          onClick={handleNewGame}
-        >
-          Nuevo juego
-        </button>
+      {gameOver && (
+        <div className="w-full">
+          <Button
+            className={"mx-auto block"}
+            onClickValue={handleNewGame}
+            value={"Nuevo juego"}
+          />
+        </div>
       )}
     </div>
   );

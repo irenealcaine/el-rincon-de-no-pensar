@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import useInterval from "../Hooks/useInterval"; // custom hook to handle setInterval
+import useInterval from "../Hooks/useInterval";
+import Button from "./Button";
 import Header from "./Header";
 
 const Timer = () => {
-  const [workInterval, setWorkInterval] = useState(25); // work interval in minutes
-  const [restInterval, setRestInterval] = useState(5); // rest interval in minutes
-  const [isActive, setIsActive] = useState(false); // is timer active or not
+  const [workInterval, setWorkInterval] = useState(25);
+  const [restInterval, setRestInterval] = useState(5);
+  const [isActive, setIsActive] = useState(false);
   const [timeLeft, setTimeLeft] = useState(workInterval * 60);
 
   function formatTime(seconds) {
@@ -14,24 +15,18 @@ const Timer = () => {
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
   }
 
-  // convert minutes to seconds
   const workIntervalInSeconds = workInterval * 60;
   const restIntervalInSeconds = restInterval * 60;
 
-  // handle start/stop button click
-
   function handleStartStopClick() {
     setIsActive((prevIsActive) => !prevIsActive);
-    setTimeLeft(workInterval * 60);
   }
 
-  // handle reset button click
   const handleResetClick = () => {
     setIsActive(false);
     setTimeLeft(workIntervalInSeconds);
   };
 
-  // handle work/rest interval change
   const handleIntervalChange = (event) => {
     const { name, value } = event.target;
     if (name === "work") {
@@ -41,24 +36,14 @@ const Timer = () => {
     }
   };
 
-  // handle timer tick
-
   function handleTick() {
     setTimeLeft((timeLeft) => timeLeft - 1);
-    console.log(timeLeft);
   }
 
-  // useInterval custom hook to handle setInterval
-  useInterval(
-    handleTick,
-    isActive ? 1000 : null // only run if isActive is true
-  );
-
-  // handle timer reaching 0
+  useInterval(handleTick, isActive ? 1000 : null);
 
   useEffect(() => {
     if (timeLeft === 0) {
-      // play sound and switch to work/rest interval
       const audio = new Audio(
         "https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"
       );
@@ -72,7 +57,6 @@ const Timer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLeft, workIntervalInSeconds, restIntervalInSeconds]);
 
-  // determine if current interval is work or rest
   const [isRestInterval, setIsRestInterval] = useState(false);
 
   return (
@@ -109,21 +93,17 @@ const Timer = () => {
           </div>
         </div>
         <div className="text-6xl font-bold mb-8">{formatTime(timeLeft)}</div>
-        <div className="flex items-center">
-          <button
-            onClick={handleStartStopClick}
-            className={`${
-              isActive ? "bg-red-500" : "bg-green-500"
-            } text-white font-bold py-2 px-4 rounded mr-4`}
-          >
-            {isActive ? "Stop" : "Start"}
-          </button>
-          <button
-            onClick={handleResetClick}
-            className="bg-gray-500 text-white font-bold py-2 px-4 rounded"
-          >
-            Reset
-          </button>
+        <div className="flex flex-col md:flex-row items-center gap-4">
+          <Button
+            className={isActive ? "bg-red-500" : "bg-green-500"}
+            onClickValue={handleStartStopClick}
+            value={isActive ? "Pause" : "Start"}
+          />
+          <Button
+            className={"bg-gray-500"}
+            onClickValue={handleResetClick}
+            value={"Reset"}
+          />
         </div>
       </div>
     </div>
