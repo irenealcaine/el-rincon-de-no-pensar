@@ -4,62 +4,93 @@ import Button from "./Button";
 const IdleGame = () => {
   const [score, setScore] = useState(0);
   const [bonusButtonDisabled, setBonusButtonDisabled] = useState(true);
+  const [baseButtonDisabled, setBaseButtonDisabled] = useState(true);
+  const [baseLvl, setBaseLvl] = useState(1);
+  const [baseCost, setBaseCost] = useState(5);
   const [bonus1Lvl, setBonus1Lvl] = useState(0);
+  const [bonus1Cost, setBonus1Cost] = useState(5);
 
   const handleClick = () => {
-    setScore(score + 1);
+    setScore(score + baseLvl * 1.1);
   };
 
   const handleReset = () => {
-    setScore(0.0);
+    setScore(0);
     setBonus1Lvl(0);
+    setBonus1Cost(5);
+    setBaseLvl(1);
+    setBaseCost(5);
+    console.log("bonus 1 lvl: " + bonus1Lvl);
   };
-
-  useEffect(() => {
-    console.log(`score: ${score}`);
-  }, [1000]);
 
   useEffect(() => {
     const bonusInterval = setInterval(() => {
       setScore((prevScore) => prevScore + bonus1Lvl * 0.01);
     }, 1000);
 
-    const lastUpdateTime = localStorage.getItem("lastUpdateTime");
-    if (lastUpdateTime) {
-      const elapsedTime = Date.now() - parseInt(lastUpdateTime);
-      const bonusIncrement = Math.floor(elapsedTime / 1000) * 0.01;
-      setScore((prevScore) => prevScore + bonusIncrement);
-    }
-
     return () => {
       clearInterval(bonusInterval);
     };
-  }, [1000]);
+  }, [bonus1Lvl]);
 
   useEffect(() => {
-    if (score >= 15) {
+    if (score >= bonus1Cost) {
       setBonusButtonDisabled(false);
     } else {
       setBonusButtonDisabled(true);
     }
-    localStorage.setItem("lastUpdateTime", Date.now().toString());
-  }, [1000]);
+  }, [score, bonus1Cost]);
+
+  useEffect(() => {
+    if (score >= baseCost) {
+      setBaseButtonDisabled(false);
+    } else {
+      setBaseButtonDisabled(true);
+    }
+  }, [score, baseCost]);
+
+  const handleBaseClick = () => {
+    setBaseLvl(baseLvl + 1);
+    setBaseCost(baseCost * 1.5);
+    console.log("bonus 1 lvl: " + bonus1Lvl);
+  };
 
   const handleBonusClick = () => {
     setBonus1Lvl(bonus1Lvl + 1);
+    setBonus1Cost(bonus1Cost * 1.5);
+    console.log("bonus 1 lvl: " + bonus1Lvl);
   };
 
   return (
     <div>
-      <p className="text-4xl">Score: {score.toFixed(2)}</p>
-      <Button className={""} onClickValue={handleClick} value={"Base"} />
+      <p className="text-4xl">Puntuación: {score.toFixed(2)} puntos</p>
+      <p>{(baseLvl * 1.1).toFixed(2)} puntos por click</p>
+      <Button
+        className={"bg-green-500"}
+        onClickValue={handleClick}
+        value={"Click"}
+      />
+      <p>
+        Subir nivel base (prox lvl: {((baseLvl + 1) * 1.1).toFixed(2)} puntos
+        por click)
+      </p>
+      <Button
+        className={baseButtonDisabled && "bg-gray-400"}
+        onClickValue={handleBaseClick}
+        value={baseLvl + " " + baseCost.toFixed(2)}
+        disabled={baseButtonDisabled}
+      />
+      <p>
+        Subir nivel bonus 1 ({bonus1Lvl * 0.01} puntos/segundo, prox lvl{" "}
+        {(bonus1Lvl + 1) * 0.01} puntos/segundo)
+      </p>
       <Button
         className={bonusButtonDisabled && "bg-gray-400"}
         onClickValue={handleBonusClick}
-        value={bonus1Lvl}
-        // disabled={bonusButtonDisabled}
+        value={bonus1Lvl + " " + bonus1Cost.toFixed(2)}
         disabled={bonusButtonDisabled}
       />
+      <p>Resetear</p>
       <Button
         className={"bg-red-700"}
         onClickValue={handleReset}
