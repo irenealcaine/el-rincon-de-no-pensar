@@ -11,7 +11,7 @@ const IdleGame = () => {
   const [bonus1Cost, setBonus1Cost] = useState(5);
 
   const handleClick = () => {
-    setScore(score + baseLvl * 1.5);
+    setScore(score + baseLvl * 1.1);
   };
 
   const handleReset = () => {
@@ -64,20 +64,26 @@ const IdleGame = () => {
   return (
     <div>
       <p className="text-4xl">Puntuación: {score.toFixed(2)} puntos</p>
-      <p>{baseLvl * 1.5} puntos por click</p>
+      <p>{(baseLvl * 1.1).toFixed(2)} puntos por click</p>
       <Button
         className={"bg-green-500"}
         onClickValue={handleClick}
         value={"Click"}
       />
-      <p>Subir nivel base (cada click genera 1.5 puntos por el nivel base)</p>
+      <p>
+        Subir nivel base (prox lvl: {((baseLvl + 1) * 1.1).toFixed(2)} puntos
+        por click)
+      </p>
       <Button
         className={baseButtonDisabled && "bg-gray-400"}
         onClickValue={handleBaseClick}
         value={baseLvl + " " + baseCost.toFixed(2)}
         disabled={baseButtonDisabled}
       />
-      <p>Subir nivel bonus 1 (se generan nivelBonus1*1.5*0.01 puntos)</p>
+      <p>
+        Subir nivel bonus 1 ({bonus1Lvl * 0.01} puntos/segundo, prox lvl{" "}
+        {(bonus1Lvl + 1) * 0.01} puntos/segundo)
+      </p>
       <Button
         className={bonusButtonDisabled && "bg-gray-400"}
         onClickValue={handleBonusClick}
