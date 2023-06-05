@@ -28,16 +28,14 @@ const RandomQuote = () => {
   };
 
   return (
-    <div
-      className={`min-h-[85vh] bg-blue-100 flex flex-col items-center justify-centerc relative`}
-    >
+    <div className={`pb-16 flex flex-col items-center justify-start relative`}>
       <div
         className={` w-10/12 md:w-9/12 quote-container ${
           showQuote ? "show" : ""
         }`}
       >
         {randomQuote && (
-          <div className="mb-24 px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
+          <div className="px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
             <p
               className={`text-2xl md:text-6xl uppercase font-bold font-oswald tracking-tighter after:content-['"'] before:content-['"']`}
             >
@@ -62,7 +60,7 @@ const RandomQuote = () => {
       </div>
 
       <Button
-        className={!randomQuote ? "" : "absolute bottom-10 right-1"}
+        className={!randomQuote ? "" : "absolute bottom-1 right-4"}
         onClickValue={() => {
           generarFraseAleatoria();
         }}
