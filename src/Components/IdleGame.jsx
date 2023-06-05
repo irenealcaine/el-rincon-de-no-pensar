@@ -3,9 +3,6 @@ import Button from "./Button";
 
 const IdleGame = () => {
   const [score, setScore] = useState(0);
-  const [bonus1ButtonDisabled, setBonus1ButtonDisabled] = useState(true);
-  const [bonus2ButtonDisabled, setBonus2ButtonDisabled] = useState(true);
-  const [baseButtonDisabled, setBaseButtonDisabled] = useState(true);
   const [base, setBase] = useState({ level: 0, cost: 100 });
   const [bonus1, setBonus1] = useState({ level: 0, cost: 15, base: 15 });
   const [bonus2, setBonus2] = useState({ level: 0, cost: 100, base: 100 });
@@ -17,8 +14,8 @@ const IdleGame = () => {
 
   const handleReset = () => {
     setScore(0);
-    setBonus1({ level: 0, cost: 15 });
-    setBonus2({ level: 0, cost: 100 });
+    setBonus1({ level: 0, cost: 15, base: 15 });
+    setBonus2({ level: 0, cost: 100, base: 100 });
     setBase({ level: 0, cost: 100 });
   };
 
@@ -88,7 +85,7 @@ const IdleGame = () => {
         {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/segundo
       </p>
       <Button
-        className={bonus1ButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
+        className={isBonus1ButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
         onClickValue={handleBonus1Click}
         value={
           "Nivel: " +
@@ -106,7 +103,7 @@ const IdleGame = () => {
         {((bonus2.level + 1) * 1).toFixed(2)} puntos/segundo
       </p>
       <Button
-        className={bonus2ButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
+        className={isBonus2ButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
         onClickValue={handleBonus2Click}
         value={
           "Nivel: " +
@@ -123,7 +120,7 @@ const IdleGame = () => {
       <p>Subir nivel base</p>
       <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
       <Button
-        className={baseButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
+        className={isBaseButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
         onClickValue={handleBaseClick}
         value={
           "Nivel: " +
