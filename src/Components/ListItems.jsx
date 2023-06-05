@@ -7,12 +7,12 @@ const ListItems = ({ mapItems }) => {
         return (
           <Link
             to={item.to}
-            className="flex flex-col items-center text-blue-900 "
+            className="flex flex-col items-center text-blue-900 md:w-3/12 w-full"
           >
-            <p className="p-4 border-2 border-blue-900 rounded-full hover:bg-blue-500 hover:text-white transition duration-300">
+            <p className="flex flex-col md:flex-row justify-center items-center md:gap-4 w-full p-4 border-2 border-blue-900 rounded-xl hover:bg-blue-500 hover:text-white transition duration-300">
               {item.bigIcon}
+              <p className="font-bold text-xl">{item.title}</p>
             </p>
-            <p className="font-bold text-xl">{item.title}</p>
           </Link>
         );
       })}
