@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
-import Subtitle from "./Subtitle";
 
 const IdleGame = () => {
   const [score, setScore] = useState(0);
