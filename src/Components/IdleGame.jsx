@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import Subtitle from "./Subtitle";
 
 const IdleGame = () => {
   const [score, setScore] = useState(0);
@@ -66,26 +67,28 @@ const IdleGame = () => {
   const isBaseButtonDisabled = score < base.cost;
 
   return (
-    <div>
+    <div className="p-8 flex flex-col items-center">
       <p className="text-4xl">Puntuación: {score.toFixed(2)} puntos</p>
-      <hr />
-      <p>--------------------------------------</p>
-
+      <p className="text-4xl">
+        Bonus: {bonus1.level * 0.1 + bonus2.level * 1} puntos/segundo
+      </p>
+      <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>{2 ** base.level} puntos por click</p>
       <Button
-        className={"bg-green-500"}
+        className={"bg-green-500 w-full"}
         onClickValue={handleClick}
         value={"Click"}
       />
-      <hr />
-      <p>--------------------------------------</p>
+      <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>Bonus 1</p>
       <p>
         {bonus1.level * 0.01} puntos/segundo, próximo nivel{" "}
         {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/segundo
       </p>
       <Button
-        className={isBonus1ButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
+        className={` w-full ${
+          isBonus1ButtonDisabled && "bg-gray-400 hover:bg-gray-400"
+        }`}
         onClickValue={handleBonus1Click}
         value={
           "Nivel: " +
@@ -103,7 +106,9 @@ const IdleGame = () => {
         {((bonus2.level + 1) * 1).toFixed(2)} puntos/segundo
       </p>
       <Button
-        className={isBonus2ButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
+        className={` w-full ${
+          isBonus2ButtonDisabled && "bg-gray-400 hover:bg-gray-400"
+        }`}
         onClickValue={handleBonus2Click}
         value={
           "Nivel: " +
@@ -114,13 +119,14 @@ const IdleGame = () => {
         }
         disabled={isBonus2ButtonDisabled}
       />
+      <hr className="h-1 bg-green-400/40 my-2 w-full" />
 
-      <hr />
-      <p>--------------------------------------</p>
       <p>Subir nivel base</p>
       <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
       <Button
-        className={isBaseButtonDisabled && "bg-gray-400 hover:bg-gray-400"}
+        className={`w-full ${
+          isBaseButtonDisabled && "bg-gray-400 hover:bg-gray-400"
+        }`}
         onClickValue={handleBaseClick}
         value={
           "Nivel: " +
@@ -131,17 +137,17 @@ const IdleGame = () => {
         }
         disabled={isBaseButtonDisabled}
       />
-      <hr />
-      <p>--------------------------------------</p>
+      <hr className="h-1 bg-green-400/40 my-2 w-full" />
+
       <p>Resetear todos los valores</p>
       <Button
-        className={"bg-red-700"}
+        className={"bg-red-700 w-full"}
         onClickValue={handleReset}
         value={"Reset"}
       />
       <p>Agrega 100000000 puntos</p>
       <Button
-        className={"bg-violet-400"}
+        className={"bg-violet-400 w-full"}
         onClickValue={() => setScore(score + 100000000)}
         value={"Truco"}
         disabled={""}
