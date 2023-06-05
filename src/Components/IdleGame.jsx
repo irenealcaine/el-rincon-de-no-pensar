@@ -68,10 +68,12 @@ const IdleGame = () => {
 
   return (
     <div className="p-8 flex flex-col items-center">
-      <p className="text-4xl">Puntuación: {score.toFixed(2)} puntos</p>
-      <p className="text-4xl">
-        Bonus: {(bonus1.level * 0.1 + bonus2.level * 1).toFixed(2)}{" "}
-        puntos/segundo
+      <p className="text-2xl md:text-4xl">
+        Puntuación: {score.toFixed(2)} puntos
+      </p>
+      <p className="text-2xl md:text-4xl">
+        Bonus: {(bonus1.level * 0.1 + bonus2.level * 1).toFixed(2)} puntos /
+        segundo
       </p>
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>{2 ** base.level} puntos por click</p>

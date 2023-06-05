@@ -4,7 +4,7 @@ import IdleGame from "../Components/IdleGame";
 const Idle = () => {
   return (
     <div className="min-h-screen bg-blue-100">
-      <Header title={"Idle"} />
+      <Header title={"Clicker"} />
       <IdleGame />
     </div>
   );
