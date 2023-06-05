@@ -23,9 +23,9 @@ const IdleGame = () => {
   useEffect(() => {
     const bonusInterval = setInterval(() => {
       setScore(
-        (prevScore) => prevScore + bonus1.level * 0.1 + bonus2.level * 1
+        (prevScore) => prevScore + bonus1.level * 0.01 + bonus2.level * 0.1
       );
-    }, 1000);
+    }, 100);
 
     return () => {
       clearInterval(bonusInterval);
@@ -70,12 +70,13 @@ const IdleGame = () => {
     <div className="p-8 flex flex-col items-center">
       <p className="text-4xl">Puntuación: {score.toFixed(2)} puntos</p>
       <p className="text-4xl">
-        Bonus: {bonus1.level * 0.1 + bonus2.level * 1} puntos/segundo
+        Bonus: {(bonus1.level * 0.1 + bonus2.level * 1).toFixed(2)}{" "}
+        puntos/segundo
       </p>
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>{2 ** base.level} puntos por click</p>
       <Button
-        className={"bg-green-500 w-full"}
+        className={"bg-green-500 w-full md:w-5/12"}
         onClickValue={handleClick}
         value={"Click"}
       />
@@ -86,7 +87,7 @@ const IdleGame = () => {
         {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/segundo
       </p>
       <Button
-        className={` w-full ${
+        className={` w-full md:w-5/12 ${
           isBonus1ButtonDisabled && "bg-gray-400 hover:bg-gray-400"
         }`}
         onClickValue={handleBonus1Click}
@@ -106,7 +107,7 @@ const IdleGame = () => {
         {((bonus2.level + 1) * 1).toFixed(2)} puntos/segundo
       </p>
       <Button
-        className={` w-full ${
+        className={` w-full md:w-5/12 ${
           isBonus2ButtonDisabled && "bg-gray-400 hover:bg-gray-400"
         }`}
         onClickValue={handleBonus2Click}
@@ -124,7 +125,7 @@ const IdleGame = () => {
       <p>Subir nivel base</p>
       <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
       <Button
-        className={`w-full ${
+        className={`w-full md:w-5/12 ${
           isBaseButtonDisabled && "bg-gray-400 hover:bg-gray-400"
         }`}
         onClickValue={handleBaseClick}
@@ -141,13 +142,13 @@ const IdleGame = () => {
 
       <p>Resetear todos los valores</p>
       <Button
-        className={"bg-red-700 w-full"}
+        className={"bg-red-700 w-full md:w-5/12"}
         onClickValue={handleReset}
         value={"Reset"}
       />
       <p>Agrega 100000000 puntos</p>
       <Button
-        className={"bg-violet-400 w-full"}
+        className={"bg-violet-400 w-full md:w-5/12"}
         onClickValue={() => setScore(score + 100000000)}
         value={"Truco"}
         disabled={""}
