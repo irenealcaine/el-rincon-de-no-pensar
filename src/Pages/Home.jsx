@@ -14,6 +14,7 @@ const Home = () => {
       <Subtitle subtitle={introduction1} />
       <ListItems mapItems={menuItems} />
       <Subtitle subtitle={introduction2} />
+      <p>Contacto:</p>
     </div>
   );
 };
