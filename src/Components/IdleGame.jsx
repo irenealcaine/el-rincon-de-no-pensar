@@ -84,7 +84,7 @@ const IdleGame = () => {
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>Bonus 1</p>
       <p>
-        {bonus1.level * 0.01} puntos/segundo, próximo nivel{" "}
+        {bonus1.level * 0.1} puntos/segundo, próximo nivel{" "}
         {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/segundo
       </p>
       <Button
@@ -104,7 +104,7 @@ const IdleGame = () => {
 
       <p>Bonus 2</p>
       <p>
-        {bonus2.level * 0.01} puntos/segundo, próximo nivel{" "}
+        {bonus2.level * 1} puntos/segundo, próximo nivel{" "}
         {((bonus2.level + 1) * 1).toFixed(2)} puntos/segundo
       </p>
       <Button
