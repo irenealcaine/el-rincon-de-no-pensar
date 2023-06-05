@@ -13,7 +13,7 @@ const Home = () => {
       <Header title={"El rincón de no pensar"} />
       <Subtitle subtitle={introduction1} />
       <ListItems mapItems={menuItems} />
-      <p className="p-8">
+      <p className="px-8 pt-4">
         Todo el código está disponible en{" "}
         <a
           href="https://github.com/irenealcaine/el-rincon-de-no-pensar"
@@ -25,7 +25,7 @@ const Home = () => {
         </a>
         , siéntete libre de curiosear
       </p>
-      <p>
+      <p className="px-8 py-4">
         Contacto:{" "}
         <a
           href="mailto:irenealcainealvarez@gmail.com"
