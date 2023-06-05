@@ -34,13 +34,13 @@ const Sidebar = () => {
                 open && "rotate-[360deg] md:w-12 md:h-12"
               }`}
             />
-            <h1
+            <p
               className={` origin-left font-medium text-3xl duration-200  ${
                 !open && "scale-0"
               }`}
             >
               Inicio
-            </h1>
+            </p>
           </div>
         </Link>
 

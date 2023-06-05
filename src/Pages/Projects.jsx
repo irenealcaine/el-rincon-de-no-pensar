@@ -1,27 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import menuItems from "../data/MenuItems";
+import ListItems from "../Components/ListItems";
 
 const Projects = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Proyectos"} />
-      <div className="flex flex-wrap gap-8 justify-center px-8">
-        {menuItems[0].links.map((item) => {
-          return (
-            <Link
-              to={item.to}
-              className="flex flex-col items-center text-blue-900"
-            >
-              <p className="p-4 border-2 border-blue-900 rounded-full hover:bg-blue-500 hover:text-white transition duration-300">
-                {item.bigIcon}
-              </p>
-              <p className="font-bold text-xl">{item.title}</p>
-            </Link>
-          );
-        })}
-      </div>
+      <ListItems mapItems={menuItems[0].links} />
     </div>
   );
 };
