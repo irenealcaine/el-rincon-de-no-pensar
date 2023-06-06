@@ -70,9 +70,8 @@ const IdleGame = () => {
       <p className="text-2xl md:text-4xl">
         Puntuación: {score.toFixed(2)} puntos
       </p>
-      <p className="text-2xl md:text-4xl">
-        Bonus: {(bonus1.level * 0.1 + bonus2.level * 1).toFixed(2)} puntos /
-        segundo
+      <p className="md:text-2xl">
+        ({(bonus1.level * 0.1 + bonus2.level * 1).toFixed(1)} puntos/s)
       </p>
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>{2 ** base.level} puntos por click</p>
@@ -85,8 +84,8 @@ const IdleGame = () => {
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>Bonus 1</p>
       <p>
-        {bonus1.level * 0.1} puntos/segundo, próximo nivel{" "}
-        {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/segundo
+        {(bonus1.level * 0.1).toFixed(2)} puntos/s, próximo nivel{" "}
+        {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/s
       </p>
       <Button
         type={isBonus1ButtonDisabled && "gray"}
@@ -104,8 +103,8 @@ const IdleGame = () => {
 
       <p>Bonus 2</p>
       <p>
-        {bonus2.level * 1} puntos/segundo, próximo nivel{" "}
-        {((bonus2.level + 1) * 1).toFixed(2)} puntos/segundo
+        {(bonus2.level * 1).toFixed(2)} puntos/s, próximo nivel{" "}
+        {((bonus2.level + 1) * 1).toFixed(2)} puntos/s
       </p>
       <Button
         type={isBonus2ButtonDisabled && "gray"}
