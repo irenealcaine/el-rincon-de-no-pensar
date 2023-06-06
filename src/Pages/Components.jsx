@@ -11,7 +11,7 @@ const Components = () => {
       <Header title={"Componentes"} />
       <Subtitle
         subtitle={
-          "Algunos componentes de React sueltos que tengo esperanza de reciclar algún día. La mayoría de componentes de esta página no aparecen en esta sección (el sidebar, el botón...), pero siempre puedes echales un vistazo en el repositorio de esta web."
+          "Algunos componentes de React sueltos que tengo esperanza de reciclar algún día. La mayoría de componentes de esta página no aparecen en esta sección (el sidebar, el botón...), pero siempre puedes echales un vistazo en el repositorio de la web."
         }
       />
       <div className="w-full text-center mb-4">
