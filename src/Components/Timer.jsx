@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useInterval from "../Hooks/useInterval";
 import Button from "./Button";
+import Footer from "./Footer";
 import Header from "./Header";
 
 const Timer = () => {
@@ -106,6 +107,7 @@ const Timer = () => {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
