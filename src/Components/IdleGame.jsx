@@ -70,27 +70,26 @@ const IdleGame = () => {
       <p className="text-2xl md:text-4xl">
         Puntuación: {score.toFixed(2)} puntos
       </p>
-      <p className="text-2xl md:text-4xl">
-        Bonus: {(bonus1.level * 0.1 + bonus2.level * 1).toFixed(2)} puntos /
-        segundo
+      <p className="md:text-2xl">
+        ({(bonus1.level * 0.1 + bonus2.level * 1).toFixed(1)} puntos/s)
       </p>
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>{2 ** base.level} puntos por click</p>
       <Button
-        className={"bg-green-500 w-full md:w-5/12"}
+        type={"green"}
+        className={"w-full md:w-5/12"}
         onClickValue={handleClick}
         value={"Click"}
       />
       <hr className="h-1 bg-green-400/40 my-2 w-full" />
       <p>Bonus 1</p>
       <p>
-        {bonus1.level * 0.1} puntos/segundo, próximo nivel{" "}
-        {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/segundo
+        {(bonus1.level * 0.1).toFixed(2)} puntos/s, próximo nivel{" "}
+        {((bonus1.level + 1) * 0.1).toFixed(2)} puntos/s
       </p>
       <Button
-        className={` w-full md:w-5/12 ${
-          isBonus1ButtonDisabled && "bg-gray-400 hover:bg-gray-400"
-        }`}
+        type={isBonus1ButtonDisabled && "gray"}
+        className={`w-full md:w-5/12`}
         onClickValue={handleBonus1Click}
         value={
           "Nivel: " +
@@ -104,13 +103,12 @@ const IdleGame = () => {
 
       <p>Bonus 2</p>
       <p>
-        {bonus2.level * 1} puntos/segundo, próximo nivel{" "}
-        {((bonus2.level + 1) * 1).toFixed(2)} puntos/segundo
+        {(bonus2.level * 1).toFixed(2)} puntos/s, próximo nivel{" "}
+        {((bonus2.level + 1) * 1).toFixed(2)} puntos/s
       </p>
       <Button
-        className={` w-full md:w-5/12 ${
-          isBonus2ButtonDisabled && "bg-gray-400 hover:bg-gray-400"
-        }`}
+        type={isBonus2ButtonDisabled && "gray"}
+        className={` w-full md:w-5/12`}
         onClickValue={handleBonus2Click}
         value={
           "Nivel: " +
@@ -126,9 +124,8 @@ const IdleGame = () => {
       <p>Subir nivel base</p>
       <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
       <Button
-        className={`w-full md:w-5/12 ${
-          isBaseButtonDisabled && "bg-gray-400 hover:bg-gray-400"
-        }`}
+        type={isBaseButtonDisabled && "gray"}
+        className={`w-full md:w-5/12`}
         onClickValue={handleBaseClick}
         value={
           "Nivel: " +
@@ -143,13 +140,15 @@ const IdleGame = () => {
 
       <p>Resetear todos los valores</p>
       <Button
-        className={"bg-red-700 w-full md:w-5/12"}
+        type={"red"}
+        className={"w-full md:w-5/12"}
         onClickValue={handleReset}
         value={"Reset"}
       />
       <p>Agrega 100000000 puntos</p>
       <Button
-        className={"bg-violet-400 w-full md:w-5/12"}
+        type={"violet"}
+        className={"w-full md:w-5/12"}
         onClickValue={() => setScore(score + 100000000)}
         value={"Truco"}
         disabled={""}
