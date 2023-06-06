@@ -46,7 +46,7 @@ const Timer = () => {
   useEffect(() => {
     if (timeLeft === 0) {
       const audio = new Audio(
-        "https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"
+        "https://www.soundjay.com/misc/sounds/bell-ringing-03a.mp3"
       );
       audio.play();
       setTimeLeft(
@@ -62,11 +62,8 @@ const Timer = () => {
 
   return (
     <div className="min-h-screen bg-blue-100">
-      <Header title={"Cronómetro Pomodoro"} />
+      <Header title={"Temporizador pomodoro"} />
       <div className="flex flex-col items-center justify-center p-4">
-        <h1 className="text-xl md:text-3xl font-bold mb-4">
-          Cronómetro Pomodoro
-        </h1>
         <div className="flex flex-col md:flex-row mb-4">
           <div className="md:mr-4">
             <label htmlFor="workInterval">Intervalo de trabajo (minutos)</label>
