@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../Components/Button";
+import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Subtitle from "../Components/Subtitle";
 import Posts from "../data/Posts";
@@ -59,6 +60,7 @@ const BlogPostDetail = () => {
           />
         )}
       </div>
+      <Footer />
     </div>
   );
 };

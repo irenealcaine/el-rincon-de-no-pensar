@@ -65,13 +65,13 @@ const menuItems = [
     to: "/games",
     links: [
       {
-        title: "Tic-tac-toe",
+        title: "3 en raya",
         to: "/games/tic-tac-toe",
         icon: <TfiClose className="h-6" />,
         bigIcon: <TfiClose className="h-16 w-16" />,
       },
       {
-        title: "Memoria",
+        title: "Parejas",
         to: "/games/memory",
         icon: <GiCardAceHearts className="h-6" />,
         bigIcon: <GiCardAceHearts className="h-16 w-16" />,

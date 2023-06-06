@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Footer from "./Footer";
 import Header from "./Header";
 
 const Watch = () => {
@@ -37,7 +38,7 @@ const Watch = () => {
             }}
           />
           <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-blue-100 rounded transform -translate-x-1/2 translate-y-full"
+            className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-blue-200 rounded transform -translate-x-1/2 translate-y-full"
             style={{
               transform: `rotate(${secondDegrees}deg)`,
               transformOrigin: "top",
@@ -46,6 +47,7 @@ const Watch = () => {
           <div className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-blue-100 transform -translate-x-1/2 -translate-y-1/2" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

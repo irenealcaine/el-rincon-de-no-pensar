@@ -39,7 +39,7 @@ function TicTacToe() {
 
     return (
       <div
-        className={`border border-blue-300 w-16 md:w-24 lg:w-32 aspect-square flex justify-center items-center text-4xl md:text-6xl lg:text-8xl font-bold cursor-pointer ${textStyle}`}
+        className={`font-tictactoe border border-blue-300 w-16 md:w-24 lg:w-32 aspect-square flex justify-center items-center text-4xl md:text-6xl lg:text-8xl font-bold cursor-pointer ${textStyle}`}
         onClick={() => handleClick(index)}
       >
         {value}

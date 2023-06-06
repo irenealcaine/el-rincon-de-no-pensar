@@ -5,14 +5,14 @@ module.exports = {
     extend: {
       fontFamily: {
         oswald: ["Oswald", "sans-serif"],
+        tictactoe: ["Cherry Bomb One", "cursive"],
       },
       backgroundImage: {
-        hero:
-          "url('https://images.newscientist.com/wp-content/uploads/2023/03/21161436/SEI_149163371.jpg')",
-         },
+        hero: "url('https://images.newscientist.com/wp-content/uploads/2023/03/21161436/SEI_149163371.jpg')",
+      },
       backgroundSize: {
-        'large': '12rem',
-      }
+        large: "12rem",
+      },
     },
   },
   plugins: [],

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Components/Header";
 import BlogPosts from "../Components/BlogPosts";
 import Posts from "../data/Posts.js";
+import Footer from "../Components/Footer";
 
 const Blog = () => {
   return (
@@ -20,6 +21,7 @@ const Blog = () => {
           />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
