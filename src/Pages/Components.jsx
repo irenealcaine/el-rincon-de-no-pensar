@@ -4,6 +4,7 @@ import Header from "../Components/Header";
 import ListItems from "../Components/ListItems";
 import Subtitle from "../Components/Subtitle";
 import menuItems from "../data/MenuItems";
+import HiperLink from "../Components/HiperLink";
 
 const Components = () => {
   return (
@@ -15,9 +16,10 @@ const Components = () => {
         }
       />
       <div className="w-full text-center mb-4">
-        <a href="https://github.com/irenealcaine/el-rincon-de-no-pensar">
-          Repositorio
-        </a>
+        <HiperLink
+          href={"https://github.com/irenealcaine/el-rincon-de-no-pensar"}
+          text={"Repositorio"}
+        />
       </div>
       <ListItems mapItems={menuItems[1].links} />
       <Footer />

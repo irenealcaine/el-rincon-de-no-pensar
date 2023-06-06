@@ -5,12 +5,15 @@ import ListItems from "../Components/ListItems";
 import Footer from "../Components/Footer";
 import Subtitle from "../Components/Subtitle";
 
-
 const Games = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Juegos"} />
-      <Subtitle subtitle={"Recopilación de juegos, he de decir que ha sido mas divertido crearlos que jugarlos, pero ahí están, para que otros se entretengan."}/>
+      <Subtitle
+        subtitle={
+          "Recopilación de juegos, he de decir que ha sido mas divertido crearlos que jugarlos, pero ahí están, para que otros se entretengan. De momento están el típico 3 en raya y un juego de encontrar parejas, pero tengo en mente unos pocos mas."
+        }
+      />
       <ListItems mapItems={menuItems[2].links} />
       <Footer />
     </div>
