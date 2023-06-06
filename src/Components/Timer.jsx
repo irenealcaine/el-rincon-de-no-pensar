@@ -93,12 +93,12 @@ const Timer = () => {
         <div className="text-6xl font-bold mb-8">{formatTime(timeLeft)}</div>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
-            className={isActive ? "bg-red-500" : "bg-green-500"}
+            type={isActive ? "red" : "green"}
             onClickValue={handleStartStopClick}
             value={isActive ? "Pause" : "Start"}
           />
           <Button
-            className={"bg-gray-500"}
+            type={"gray"}
             onClickValue={handleResetClick}
             value={"Reset"}
           />
