@@ -142,184 +142,185 @@ const IdleGame = () => {
 
   return (
     <div className="p-8 flex flex-col items-center">
-      <p className="text-2xl md:text-4xl">
-        Puntuación: {score.toFixed(2)} puntos
-      </p>
-      <p className="md:text-2xl">
-        (
-        {(
-          2 ** upgrade1.level * bonus1.level * 0.1 +
-          2 ** upgrade2.level * bonus2.level * 1 +
-          2 ** upgrade3.level * bonus3.level * 8
-        ).toFixed(1)}{" "}
-        puntos/s)
-      </p>
-      <hr className="h-1 bg-green-400/40 my-2 w-full" />
-      <p>{2 ** base.level} puntos por click</p>
-      <Button
-        type={"green"}
-        className={"w-full md:w-5/12"}
-        onClickValue={handleClick}
-        value={"Click"}
-      />
-      <hr className="h-1 bg-green-400/40 my-2 w-full" />
-      <p>Bonus 1</p>
-      <p>
-        {(2 ** upgrade1.level * bonus1.level * 0.1).toFixed(2)} puntos/s,
-        próximo nivel{" "}
-        {(2 ** upgrade1.level * (bonus1.level + 1) * 0.1).toFixed(2)} puntos/s
-      </p>
-      <Button
-        type={isBonus1ButtonDisabled && "gray"}
-        className={`w-full md:w-5/12`}
-        onClickValue={handleBonus1Click}
-        value={
-          "Nivel: " +
-          bonus1.level +
-          " -> Coste: " +
-          bonus1.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isBonus1ButtonDisabled}
-      />
+      <div className="rounded-xl shadow-lg bg-blue-50 p-4">
+        <p className="text-2xl md:text-4xl">
+          Puntuación: {score.toFixed(2)} puntos
+        </p>
+        <p className="md:text-2xl">
+          (
+          {(
+            2 ** upgrade1.level * bonus1.level * 0.1 +
+            2 ** upgrade2.level * bonus2.level * 1 +
+            2 ** upgrade3.level * bonus3.level * 8
+          ).toFixed(1)}{" "}
+          puntos/s)
+        </p>
+      </div>
+      <div className="rounded-xl shadow-lg bg-blue-50 p-4">
+        <p>{2 ** base.level} puntos por click</p>
+        <Button
+          type={"green"}
+          className={"w-56 h-56 rounded-full"}
+          onClickValue={handleClick}
+          value={"Click"}
+        />
 
-      <p>Bonus 2</p>
-      <p>
-        {(2 ** upgrade2.level * bonus2.level * 1).toFixed(2)} puntos/s, próximo
-        nivel {(2 ** upgrade2.level * (bonus2.level + 1) * 1).toFixed(2)}{" "}
-        puntos/s
-      </p>
+        <p>Bonus 1</p>
+        <p>
+          {(2 ** upgrade1.level * bonus1.level * 0.1).toFixed(2)} puntos/s,
+          próximo nivel{" "}
+          {(2 ** upgrade1.level * (bonus1.level + 1) * 0.1).toFixed(2)} puntos/s
+        </p>
+        <Button
+          type={isBonus1ButtonDisabled && "gray"}
+          className={`w-full md:w-5/12`}
+          onClickValue={handleBonus1Click}
+          value={
+            "Nivel: " +
+            bonus1.level +
+            " -> Coste: " +
+            bonus1.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isBonus1ButtonDisabled}
+        />
 
-      <Button
-        type={isBonus2ButtonDisabled && "gray"}
-        className={` w-full md:w-5/12`}
-        onClickValue={handleBonus2Click}
-        value={
-          "Nivel: " +
-          bonus2.level +
-          " -> Coste: " +
-          bonus2.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isBonus2ButtonDisabled}
-      />
+        <p>Bonus 2</p>
+        <p>
+          {(2 ** upgrade2.level * bonus2.level * 1).toFixed(2)} puntos/s,
+          próximo nivel{" "}
+          {(2 ** upgrade2.level * (bonus2.level + 1) * 1).toFixed(2)} puntos/s
+        </p>
 
-      <p>Bonus 3</p>
-      <p>
-        {(2 ** upgrade3.level * bonus3.level * 8).toFixed(2)} puntos/s, próximo
-        nivel {(2 ** upgrade3.level * (bonus3.level + 1) * 8).toFixed(2)}{" "}
-        puntos/s
-      </p>
+        <Button
+          type={isBonus2ButtonDisabled && "gray"}
+          className={` w-full md:w-5/12`}
+          onClickValue={handleBonus2Click}
+          value={
+            "Nivel: " +
+            bonus2.level +
+            " -> Coste: " +
+            bonus2.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isBonus2ButtonDisabled}
+        />
 
-      <Button
-        type={isBonus3ButtonDisabled && "gray"}
-        className={` w-full md:w-5/12`}
-        onClickValue={handleBonus3Click}
-        value={
-          "Nivel: " +
-          bonus3.level +
-          " -> Coste: " +
-          bonus3.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isBonus3ButtonDisabled}
-      />
+        <p>Bonus 3</p>
+        <p>
+          {(2 ** upgrade3.level * bonus3.level * 8).toFixed(2)} puntos/s,
+          próximo nivel{" "}
+          {(2 ** upgrade3.level * (bonus3.level + 1) * 8).toFixed(2)} puntos/s
+        </p>
 
-      <hr className="h-1 bg-green-400/40 my-2 w-full" />
+        <Button
+          type={isBonus3ButtonDisabled && "gray"}
+          className={` w-full md:w-5/12`}
+          onClickValue={handleBonus3Click}
+          value={
+            "Nivel: " +
+            bonus3.level +
+            " -> Coste: " +
+            bonus3.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isBonus3ButtonDisabled}
+        />
+      </div>
+      <div className="rounded-xl shadow-lg bg-blue-50 p-4">
+        <p>Subir nivel base</p>
+        <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
+        <Button
+          type={isBaseButtonDisabled && "gray"}
+          className={`w-full md:w-5/12`}
+          onClickValue={handleBaseClick}
+          value={
+            "Nivel: " +
+            base.level +
+            " -> Coste: " +
+            base.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isBaseButtonDisabled}
+        />
 
-      <p>Subir nivel base</p>
-      <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
-      <Button
-        type={isBaseButtonDisabled && "gray"}
-        className={`w-full md:w-5/12`}
-        onClickValue={handleBaseClick}
-        value={
-          "Nivel: " +
-          base.level +
-          " -> Coste: " +
-          base.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isBaseButtonDisabled}
-      />
+        <p>Subir nivel bonus 1</p>
+        <p>
+          {" "}
+          Próximo nivel:{" "}
+          {(2 ** (upgrade1.level + 1) * bonus1.level * 0.1).toFixed(2)} puntos/s
+        </p>
+        <Button
+          type={isUpgrade1ButtonDisabled && "gray"}
+          className={`w-full md:w-5/12`}
+          onClickValue={handleUpgrade1Click}
+          value={
+            "Nivel: " +
+            upgrade1.level +
+            " -> Coste: " +
+            upgrade1.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isUpgrade1ButtonDisabled}
+        />
 
-      <p>Subir nivel bonus 1</p>
-      <p>
-        {" "}
-        Próximo nivel:{" "}
-        {(2 ** (upgrade1.level + 1) * bonus1.level * 0.1).toFixed(2)} puntos/s
-      </p>
-      <Button
-        type={isUpgrade1ButtonDisabled && "gray"}
-        className={`w-full md:w-5/12`}
-        onClickValue={handleUpgrade1Click}
-        value={
-          "Nivel: " +
-          upgrade1.level +
-          " -> Coste: " +
-          upgrade1.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isUpgrade1ButtonDisabled}
-      />
+        <p>Subir nivel bonus 2</p>
+        <p>
+          {" "}
+          Próximo nivel:{" "}
+          {(2 ** (upgrade2.level + 1) * bonus2.level * 1).toFixed(2)} puntos/s
+        </p>
+        <Button
+          type={isUpgrade2ButtonDisabled && "gray"}
+          className={`w-full md:w-5/12`}
+          onClickValue={handleUpgrade2Click}
+          value={
+            "Nivel: " +
+            upgrade2.level +
+            " -> Coste: " +
+            upgrade2.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isUpgrade2ButtonDisabled}
+        />
 
-      <p>Subir nivel bonus 2</p>
-      <p>
-        {" "}
-        Próximo nivel:{" "}
-        {(2 ** (upgrade2.level + 1) * bonus2.level * 1).toFixed(2)} puntos/s
-      </p>
-      <Button
-        type={isUpgrade2ButtonDisabled && "gray"}
-        className={`w-full md:w-5/12`}
-        onClickValue={handleUpgrade2Click}
-        value={
-          "Nivel: " +
-          upgrade2.level +
-          " -> Coste: " +
-          upgrade2.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isUpgrade2ButtonDisabled}
-      />
-
-      <p>Subir nivel bonus 3</p>
-      <p>
-        {" "}
-        Próximo nivel:{" "}
-        {(2 ** (upgrade3.level + 1) * bonus3.level * 8).toFixed(2)} puntos/s
-      </p>
-      <Button
-        type={isUpgrade3ButtonDisabled && "gray"}
-        className={`w-full md:w-5/12`}
-        onClickValue={handleUpgrade3Click}
-        value={
-          "Nivel: " +
-          upgrade3.level +
-          " -> Coste: " +
-          upgrade3.cost.toFixed(2) +
-          " puntos"
-        }
-        disabled={isUpgrade3ButtonDisabled}
-      />
-
-      <hr className="h-1 bg-green-400/40 my-2 w-full" />
-
-      <p>Resetear todos los valores</p>
-      <Button
-        type={"red"}
-        className={"w-full md:w-5/12"}
-        onClickValue={handleReset}
-        value={"Reset"}
-      />
-      <p>Agrega 100000000 puntos</p>
-      <Button
-        type={"violet"}
-        className={"w-full md:w-5/12"}
-        onClickValue={() => setScore(score + 100000000)}
-        value={"Truco"}
-        disabled={""}
-      />
+        <p>Subir nivel bonus 3</p>
+        <p>
+          {" "}
+          Próximo nivel:{" "}
+          {(2 ** (upgrade3.level + 1) * bonus3.level * 8).toFixed(2)} puntos/s
+        </p>
+        <Button
+          type={isUpgrade3ButtonDisabled && "gray"}
+          className={`w-full md:w-5/12`}
+          onClickValue={handleUpgrade3Click}
+          value={
+            "Nivel: " +
+            upgrade3.level +
+            " -> Coste: " +
+            upgrade3.cost.toFixed(2) +
+            " puntos"
+          }
+          disabled={isUpgrade3ButtonDisabled}
+        />
+      </div>
+      <div className="rounded-xl shadow-lg bg-blue-50 p-4">
+        <p>Resetear todos los valores</p>
+        <Button
+          type={"red"}
+          className={"w-full md:w-5/12"}
+          onClickValue={handleReset}
+          value={"Reset"}
+        />
+        <p>Agrega 100000000 puntos</p>
+        <Button
+          type={"violet"}
+          className={"w-full md:w-5/12"}
+          onClickValue={() => setScore(score + 100000000)}
+          value={"Truco"}
+          disabled={""}
+        />
+      </div>
     </div>
   );
 };
