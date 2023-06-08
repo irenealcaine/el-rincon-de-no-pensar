@@ -143,11 +143,11 @@ const IdleGame = () => {
   return (
     <div className="p-8 flex flex-col md:flex-row items-center md:items-start md:justify-center gap-4">
       <div className=" flex flex-col gap-4 items-center">
-        <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-          <p className="text-2xl md:text-4xl">
+        <div className="p-4">
+          <p className="text-2xl md:text-4xl text-center">
             Puntuación: {score.toFixed(2)} puntos
           </p>
-          <p className="md:text-2xl">
+          <p className="md:text-2xl text-center mt-2">
             (
             {(
               2 ** upgrade1.level * bonus1.level * 0.1 +
@@ -156,12 +156,13 @@ const IdleGame = () => {
             ).toFixed(1)}{" "}
             puntos/s)
           </p>
-        </div>
-        <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-          <p>{2 ** base.level} puntos por click</p>
+
+          <p className="text-xl md:text-3xl text-center mt-4 mb-8">
+            {2 ** base.level} puntos por click
+          </p>
           <Button
             type={"green"}
-            className={"w-56 h-56 rounded-full"}
+            className={"w-56 h-56 rounded-full mx-auto block"}
             onClickValue={handleClick}
             value={"Click"}
           />
@@ -170,8 +171,8 @@ const IdleGame = () => {
 
       <div className="flex flex-col lg:flex-row md:items-start md:justify-center gap-4 items-center">
         <div className="">
-          <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-            <p>Bonus 1</p>
+          <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
+            <p className="text-xl md:text-3xl mb-2">Bonus 1</p>
             <p>
               {(2 ** upgrade1.level * bonus1.level * 0.1).toFixed(2)} puntos/s,
               próximo nivel{" "}
@@ -192,7 +193,7 @@ const IdleGame = () => {
               disabled={isBonus1ButtonDisabled}
             />
 
-            <p>Bonus 2</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Bonus 2</p>
             <p>
               {(2 ** upgrade2.level * bonus2.level * 1).toFixed(2)} puntos/s,
               próximo nivel{" "}
@@ -214,7 +215,7 @@ const IdleGame = () => {
               disabled={isBonus2ButtonDisabled}
             />
 
-            <p>Bonus 3</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Bonus 3</p>
             <p>
               {(2 ** upgrade3.level * bonus3.level * 8).toFixed(2)} puntos/s,
               próximo nivel{" "}
@@ -238,8 +239,8 @@ const IdleGame = () => {
           </div>
         </div>
         <div className=" flex flex-col gap-4 items-center">
-          <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-            <p>Subir nivel base</p>
+          <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
+            <p className="text-xl md:text-3xl mb-2">Subir nivel base</p>
             <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
             <Button
               type={isBaseButtonDisabled && "gray"}
@@ -255,7 +256,7 @@ const IdleGame = () => {
               disabled={isBaseButtonDisabled}
             />
 
-            <p>Subir nivel bonus 1</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Subir nivel bonus 1</p>
             <p>
               {" "}
               Próximo nivel:{" "}
@@ -276,7 +277,7 @@ const IdleGame = () => {
               disabled={isUpgrade1ButtonDisabled}
             />
 
-            <p>Subir nivel bonus 2</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Subir nivel bonus 2</p>
             <p>
               {" "}
               Próximo nivel:{" "}
@@ -297,7 +298,7 @@ const IdleGame = () => {
               disabled={isUpgrade2ButtonDisabled}
             />
 
-            <p>Subir nivel bonus 3</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Subir nivel bonus 3</p>
             <p>
               {" "}
               Próximo nivel:{" "}
@@ -318,15 +319,19 @@ const IdleGame = () => {
               disabled={isUpgrade3ButtonDisabled}
             />
           </div>
-          <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-            <p>Resetear todos los valores</p>
+          <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
+            <p className="text-xl md:text-3xl mb-2">
+              Resetear todos los valores
+            </p>
             <Button
               type={"red"}
               className={"w-full"}
               onClickValue={handleReset}
               value={"Reset"}
             />
-            <p>Agrega 100000000 puntos</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">
+              Agrega 100000000 puntos
+            </p>
             <Button
               type={"violet"}
               className={"w-full"}
