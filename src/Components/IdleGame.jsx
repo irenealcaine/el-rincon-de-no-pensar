@@ -141,13 +141,13 @@ const IdleGame = () => {
   const isUpgrade3ButtonDisabled = score < upgrade3.cost;
 
   return (
-    <div className="p-8 flex flex-col md:flex-row items-center md:items-start md:justify-center gap-4">
+    <div className="p-4 md:p-8 flex flex-col md:flex-row items-center md:items-start md:justify-center gap-4">
       <div className=" flex flex-col gap-4 items-center">
-        <div className="p-4">
-          <p className="text-2xl md:text-4xl text-center">
+        <div className="md:w-64 p-4">
+          <p className="text-2xl md:text-4xl text-center my-2">
             Puntuación: {score.toFixed(2)} puntos
           </p>
-          <p className="md:text-2xl text-center mt-2">
+          <p className="md:text-2xl text-center my-4">
             (
             {(
               2 ** upgrade1.level * bonus1.level * 0.1 +
@@ -156,21 +156,20 @@ const IdleGame = () => {
             ).toFixed(1)}{" "}
             puntos/s)
           </p>
-
-          <p className="text-xl md:text-3xl text-center mt-4 mb-8">
-            {2 ** base.level} puntos por click
-          </p>
           <Button
             type={"green"}
             className={"w-56 h-56 rounded-full mx-auto block"}
             onClickValue={handleClick}
             value={"Click"}
           />
+          <p className="text-xl md:text-3xl text-center my-2">
+            {2 ** base.level} puntos por click
+          </p>
         </div>
       </div>
 
       <div className="flex flex-col lg:flex-row md:items-start md:justify-center gap-4 items-center">
-        <div className="">
+        <div className="w-full">
           <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
             <p className="text-xl md:text-3xl mb-2">Bonus 1</p>
             <p>
@@ -238,7 +237,7 @@ const IdleGame = () => {
             />
           </div>
         </div>
-        <div className=" flex flex-col gap-4 items-center">
+        <div className="w-full flex flex-col gap-4 items-center">
           <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
             <p className="text-xl md:text-3xl mb-2">Subir nivel base</p>
             <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
