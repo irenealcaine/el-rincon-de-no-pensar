@@ -171,8 +171,8 @@ const IdleGame = () => {
 
       <div className="flex flex-col lg:flex-row md:items-start md:justify-center gap-4 items-center">
         <div className="">
-          <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-            <p className="text-xl md:text-3xl mt-2 mb-4">Bonus 1</p>
+          <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
+            <p className="text-xl md:text-3xl mb-2">Bonus 1</p>
             <p>
               {(2 ** upgrade1.level * bonus1.level * 0.1).toFixed(2)} puntos/s,
               próximo nivel{" "}
@@ -193,7 +193,7 @@ const IdleGame = () => {
               disabled={isBonus1ButtonDisabled}
             />
 
-            <p className="text-xl md:text-3xl mt-2 mb-4">Bonus 2</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Bonus 2</p>
             <p>
               {(2 ** upgrade2.level * bonus2.level * 1).toFixed(2)} puntos/s,
               próximo nivel{" "}
@@ -215,7 +215,7 @@ const IdleGame = () => {
               disabled={isBonus2ButtonDisabled}
             />
 
-            <p className="text-xl md:text-3xl mt-2 mb-4">Bonus 3</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Bonus 3</p>
             <p>
               {(2 ** upgrade3.level * bonus3.level * 8).toFixed(2)} puntos/s,
               próximo nivel{" "}
@@ -239,8 +239,8 @@ const IdleGame = () => {
           </div>
         </div>
         <div className=" flex flex-col gap-4 items-center">
-          <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-            <p className="text-xl md:text-3xl mt-2 mb-4">Subir nivel base</p>
+          <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
+            <p className="text-xl md:text-3xl mb-2">Subir nivel base</p>
             <p> Próximo nivel: {2 ** (base.level + 1)} puntos por click</p>
             <Button
               type={isBaseButtonDisabled && "gray"}
@@ -256,7 +256,7 @@ const IdleGame = () => {
               disabled={isBaseButtonDisabled}
             />
 
-            <p className="text-xl md:text-3xl mt-2 mb-4">Subir nivel bonus 1</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Subir nivel bonus 1</p>
             <p>
               {" "}
               Próximo nivel:{" "}
@@ -277,7 +277,7 @@ const IdleGame = () => {
               disabled={isUpgrade1ButtonDisabled}
             />
 
-            <p className="text-xl md:text-3xl mt-2 mb-4">Subir nivel bonus 2</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Subir nivel bonus 2</p>
             <p>
               {" "}
               Próximo nivel:{" "}
@@ -298,7 +298,7 @@ const IdleGame = () => {
               disabled={isUpgrade2ButtonDisabled}
             />
 
-            <p className="text-xl md:text-3xl mt-2 mb-4">Subir nivel bonus 3</p>
+            <p className="text-xl md:text-3xl mt-4 mb-2">Subir nivel bonus 3</p>
             <p>
               {" "}
               Próximo nivel:{" "}
@@ -319,8 +319,8 @@ const IdleGame = () => {
               disabled={isUpgrade3ButtonDisabled}
             />
           </div>
-          <div className="rounded-xl shadow-lg bg-blue-50 p-4">
-            <p className="text-xl md:text-3xl mt-2 mb-4">
+          <div className="w-full rounded-xl shadow-lg bg-blue-50 p-4">
+            <p className="text-xl md:text-3xl mb-2">
               Resetear todos los valores
             </p>
             <Button
@@ -329,7 +329,7 @@ const IdleGame = () => {
               onClickValue={handleReset}
               value={"Reset"}
             />
-            <p className="text-xl md:text-3xl mt-2 mb-4">
+            <p className="text-xl md:text-3xl mt-4 mb-2">
               Agrega 100000000 puntos
             </p>
             <Button
