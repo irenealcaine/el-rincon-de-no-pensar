@@ -90,7 +90,7 @@ const questions = [
   {
     question:
       "¿Cuál de las siguientes opciones es un servicio de computación en la nube proporcionado por Amazon?",
-    image: "",
+    image: "https://cdn.diferenciador.com/imagenes/tipos-de-nubes-og.jpg",
     options: [
       "Azure",
       "Google Cloud Platform",
@@ -131,8 +131,11 @@ const QuestionGame = () => {
       {showScore ? (
         <div className="text-center">
           <h2 className="text-4xl font-bold">
-            ¡Tu puntuación es {score} de {questions.length}!
+            Tu puntuación es {score} de {questions.length}
           </h2>
+          <p className="mt-4">
+            {score === questions.length ? "¡Perfecto!" : ""}
+          </p>
           <Button
             className={`mt-8`}
             onClickValue={() => window.location.reload()}
@@ -151,7 +154,7 @@ const QuestionGame = () => {
             src={questions[currentQuestion].image}
             alt={questions[currentQuestion].question}
             className={
-              "w-full md:w-7/12 lg:5/12 mx-auto rounded-lg mb-4 shadow-lg"
+              "w-full md:w-7/12 lg:w-5/12 mx-auto rounded-lg mb-4 shadow-lg"
             }
           />
           <div className="flex flex-wrap justify-center gap-2">
