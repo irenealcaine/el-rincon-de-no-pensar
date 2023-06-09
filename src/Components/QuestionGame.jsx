@@ -1,13 +1,25 @@
 import React, { useState } from "react";
+import Button from "../Components/Button";
 
 const questions = [
   {
+    question: "¿Cuál es la flor nacional de Japón?",
+    image:
+      "https://verdecora.es/blog/wp-content/uploads/2019/03/cerezo-flor-plantacion.jpg",
+    options: ["Melocotonero", "Cerezo", "Pino", "Abeto"],
+    answer: "Cerezo",
+  },
+  {
     question: "¿Cuál es la capital de Francia?",
+    image:
+      "https://europa.eu/europass/sites/default/files/2020-04/France_0.jpg",
     options: ["Londres", "París", "Madrid", "Roma"],
     answer: "París",
   },
   {
     question: "¿Cuál es el río más largo del mundo?",
+    image:
+      "https://www.collinsdictionary.com/images/full/river_377603497_1000.jpg",
     options: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
     answer: "Amazonas",
   },
@@ -28,7 +40,6 @@ const QuestionGame = () => {
     if (selectedOption === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
-
     setSelectedOption("");
     setCurrentQuestion(currentQuestion + 1);
   };
@@ -37,58 +48,64 @@ const QuestionGame = () => {
     if (selectedOption === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
-
     setShowScore(true);
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="w-full p-4 md:p-8">
       {showScore ? (
         <div className="text-center">
           <h2 className="text-4xl font-bold">
             ¡Tu puntuación es {score} de {questions.length}!
           </h2>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded"
-            onClick={() => window.location.reload()}
-          >
-            Jugar de nuevo
-          </button>
+          <Button
+            className={`mt-8`}
+            onClickValue={() => window.location.reload()}
+            value={"Jugar de nuevo"}
+          />
         </div>
       ) : (
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">
+          <p>
+            Pregunta {currentQuestion + 1} de {questions.length}
+          </p>
+          <h2 className="text-2xl font-bold mb-8">
             {questions[currentQuestion].question}
           </h2>
-          <div className="flex justify-center">
+          <img
+            src={questions[currentQuestion].image}
+            alt={questions[currentQuestion].question}
+            className={
+              "w-full md:w-7/12 lg:5/12 mx-auto rounded-lg mb-4 shadow-lg"
+            }
+          />
+          <div className="flex flex-wrap justify-center gap-2">
             {questions[currentQuestion].options.map((option, index) => (
-              <button
+              <Button
                 key={index}
-                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded ${
-                  selectedOption === option ? "bg-blue-700" : ""
-                }`}
-                onClick={() => handleOptionSelect(option)}
-              >
-                {option}
-              </button>
+                type={"violet"}
+                className={`${selectedOption === option && `!bg-violet-900`} `}
+                onClickValue={() => handleOptionSelect(option)}
+                value={option}
+              />
             ))}
           </div>
           {currentQuestion < questions.length - 1 ? (
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded"
-              onClick={handleNextQuestion}
+            <Button
+              type={!selectedOption && "gray"}
+              className={`mt-8`}
+              onClickValue={handleNextQuestion}
               disabled={!selectedOption}
-            >
-              Siguiente pregunta
-            </button>
+              value={"Siguiente pregunta"}
+            />
           ) : (
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded"
-              onClick={handleFinishGame}
+            <Button
+              type={!selectedOption && "gray"}
+              className={`mt-8`}
+              onClickValue={handleFinishGame}
               disabled={!selectedOption}
-            >
-              Finalizar juego
-            </button>
+              value={"Finalizar juego"}
+            />
           )}
         </div>
       )}
