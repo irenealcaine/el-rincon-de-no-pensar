@@ -125,6 +125,9 @@ const QuestionGame = () => {
     }
     setShowScore(true);
   };
+  
+  const puntuation="";
+  
 
   return (
     <div className="w-full p-4 md:p-8">
