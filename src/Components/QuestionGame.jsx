@@ -119,15 +119,46 @@ const QuestionGame = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
 
+  const resetGame = () => {
+    setCurrentQuestion(0);
+    setSelectedOption("");
+    setScore(0);
+    setShowScore(false);
+  };
+
   const handleFinishGame = () => {
     if (selectedOption === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
     setShowScore(true);
   };
-  
-  const puntuation="";
-  
+
+  let puntuation = "";
+
+  switch (score) {
+    case 10:
+      puntuation = "¡Perfecto!";
+      break;
+    case 9:
+    case 8:
+    case 7:
+      puntuation = "¡Casi! Sigue intentándolo";
+      break;
+    case 6:
+    case 5:
+    case 4:
+    case 3:
+    case 2:
+    case 1:
+      puntuation = "La próxima vez saldrá mejor";
+      break;
+    case 0:
+      puntuation = "Es difícil hacerlo tan perfectamente erróneo...";
+      break;
+    default:
+      puntuation = "default";
+      break;
+  }
 
   return (
     <div className="w-full p-4 md:p-8">
@@ -136,12 +167,10 @@ const QuestionGame = () => {
           <h2 className="text-4xl font-bold">
             Tu puntuación es {score} de {questions.length}
           </h2>
-          <p className="mt-4">
-            {score === questions.length ? "¡Perfecto!" : ""}
-          </p>
+          <p className="mt-4">{puntuation}</p>
           <Button
             className={`mt-8`}
-            onClickValue={() => window.location.reload()}
+            onClickValue={resetGame}
             value={"Jugar de nuevo"}
           />
         </div>
