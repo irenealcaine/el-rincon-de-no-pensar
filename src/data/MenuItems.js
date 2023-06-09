@@ -11,6 +11,7 @@ import { TfiClose } from "react-icons/tfi";
 import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 import { RxCursorArrow } from "react-icons/rx";
+import { AiOutlineQuestion } from "react-icons/ai";
 
 const menuItems = [
   {
@@ -66,6 +67,12 @@ const menuItems = [
     to: "/games",
     links: [
       {
+        title: "Clicker",
+        to: "/games/idle",
+        icon: <RxCursorArrow className="h-6" />,
+        bigIcon: <RxCursorArrow className="h-16 w-16" />,
+      },
+      {
         title: "3 en raya",
         to: "/games/tic-tac-toe",
         icon: <TfiClose className="h-6" />,
@@ -78,10 +85,10 @@ const menuItems = [
         bigIcon: <GiCardAceHearts className="h-16 w-16" />,
       },
       {
-        title: "Clicker",
-        to: "/games/idle",
-        icon: <RxCursorArrow className="h-6" />,
-        bigIcon: <RxCursorArrow className="h-16 w-16" />,
+        title: "Preguntas",
+        to: "/games/quiz",
+        icon: <AiOutlineQuestion className="h-6" />,
+        bigIcon: <AiOutlineQuestion className="h-16 w-16" />,
       },
     ],
   },
