@@ -194,7 +194,9 @@ const QuestionGame = () => {
               <Button
                 key={index}
                 type={"violet"}
-                className={`${selectedOption === option && `!bg-violet-900`} `}
+                className={`${
+                  selectedOption === option && `!bg-violet-900`
+                } w-full md:w-auto`}
                 onClickValue={() => handleOptionSelect(option)}
                 value={option}
               />
@@ -203,7 +205,7 @@ const QuestionGame = () => {
           {currentQuestion < questions.length - 1 ? (
             <Button
               type={!selectedOption && "gray"}
-              className={`mt-8`}
+              className={`mt-8 w-full md:w-auto`}
               onClickValue={handleNextQuestion}
               disabled={!selectedOption}
               value={"Siguiente pregunta"}
@@ -211,7 +213,7 @@ const QuestionGame = () => {
           ) : (
             <Button
               type={!selectedOption && "gray"}
-              className={`mt-8`}
+              className={`mt-8 w-full md:w-auto`}
               onClickValue={handleFinishGame}
               disabled={!selectedOption}
               value={"Finalizar juego"}
