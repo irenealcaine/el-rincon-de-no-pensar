@@ -3,27 +3,102 @@ import Button from "../Components/Button";
 
 const questions = [
   {
-    question: "¿Cuál es la flor nacional de Japón?",
+    question:
+      "¿Qué lenguaje de programación se utiliza principalmente para el desarrollo de aplicaciones móviles?",
     image:
-      "https://verdecora.es/blog/wp-content/uploads/2019/03/cerezo-flor-plantacion.jpg",
-    options: ["Melocotonero", "Cerezo", "Pino", "Abeto"],
-    answer: "Cerezo",
+      "https://d500.epimg.net/cincodias/imagenes/2020/11/16/lifestyle/1605555641_363320_1605556525_noticia_normal.jpg",
+    options: ["Java", "C++", "Python", "Ruby"],
+    answer: "Java",
   },
   {
-    question: "¿Cuál es la capital de Francia?",
+    question:
+      "¿Cuál de los siguientes es un lenguaje de marcado utilizado para estructurar contenido web?",
     image:
-      "https://europa.eu/europass/sites/default/files/2020-04/France_0.jpg",
-    options: ["Londres", "París", "Madrid", "Roma"],
-    answer: "París",
+      "https://blogthinkbig.com/wp-content/uploads/sites/4/2014/08/internet-y-la-web-1.jpg?resize=500%2C280",
+    options: ["HTML", "CSS", "JavaScript", "PHP"],
+    answer: "HTML",
   },
   {
-    question: "¿Cuál es el río más largo del mundo?",
+    question:
+      "¿Cuál de las siguientes opciones es un paradigma de programación orientado a objetos?",
     image:
-      "https://www.collinsdictionary.com/images/full/river_377603497_1000.jpg",
-    options: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
-    answer: "Amazonas",
+      "https://media.tutellus.com/libraries/22/16/lib/1466774399567_8.jpg?size=854x493s&ext=jpg",
+    options: ["Prolog", "C", "Lisp", "Java"],
+    answer: "Java",
   },
-  // Agrega más preguntas aquí
+  {
+    question:
+      "¿Cuál de los siguientes es un sistema de gestión de bases de datos relacionales?",
+    image:
+      "https://atlantictech.io/wp-content/uploads/2022/08/2c4ea-basededatos2-1300x731.png",
+    options: ["MongoDB", "PostgreSQL", "Redis", "Elasticsearch"],
+    answer: "PostgreSQL",
+  },
+  {
+    question:
+      "¿Qué protocolo se utiliza para transferir archivos desde un servidor a un cliente a través de Internet?",
+    image:
+      "https://s2.ppllstatics.com/rc/www/multimedia/2023/04/11/cuantas-horas-pasamos-internet.jpg",
+    options: ["FTP", "HTTP", "SMTP", "SSH"],
+    answer: "FTP",
+  },
+  {
+    question:
+      "¿Cuál de las siguientes opciones es un tipo de prueba de software que verifica si el código funciona correctamente en diferentes situaciones?",
+    image:
+      "https://qwertyarticles.com/wp-content/uploads/2014/11/Computer-Test.jpg",
+    options: [
+      "Prueba unitaria",
+      "Prueba de integración",
+      "Prueba de rendimiento",
+      "Prueba de aceptación",
+    ],
+    answer: "Prueba de integración",
+  },
+  {
+    question:
+      "¿Cuál de los siguientes términos se refiere al proceso de encontrar y corregir errores en el código?",
+    image: "https://www.ibeta.com/wp-content/uploads/2019/06/software-bugs.jpg",
+    options: ["Depuración", "Compilación", "Optimización", "Ejecución"],
+    answer: "Depuración",
+  },
+  {
+    question: "¿Qué es un 'framework' en el contexto de la programación?",
+    image:
+      "https://www.suratica.es/wp-content/uploads/2021/11/frameworks-team.jpg",
+    options: [
+      "Un conjunto de reglas de codificación",
+      "Una biblioteca de funciones predefinidas",
+      "Un lenguaje de programación específico",
+      "Un entorno de desarrollo integrado (IDE)",
+    ],
+    answer: "Una biblioteca de funciones predefinidas",
+  },
+  {
+    question:
+      "¿Cuál de los siguientes es un método de ordenamiento comúnmente utilizado en programación?",
+    image:
+      "https://d500.epimg.net/cincodias/imagenes/2016/10/10/lifestyle/1476093288_890907_1476093375_noticia_normal.jpg",
+    options: [
+      "Búsqueda binaria",
+      "Ordenamiento de burbuja",
+      "Árbol binario",
+      "Recursión",
+    ],
+    answer: "Ordenamiento de burbuja",
+  },
+  {
+    question:
+      "¿Cuál de las siguientes opciones es un servicio de computación en la nube proporcionado por Amazon?",
+    image: "",
+    options: [
+      "Azure",
+      "Google Cloud Platform",
+      "IBM Cloud",
+      "Amazon Web Services (AWS)",
+    ],
+    answer: "Amazon Web Services (AWS)",
+  },
 ];
 
 const QuestionGame = () => {
