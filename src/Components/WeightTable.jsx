@@ -109,7 +109,6 @@ const WeightTable = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Registro de Peso</h1>
       <table className="w-full mb-4">
         <thead>
           <tr>

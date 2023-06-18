@@ -12,6 +12,7 @@ import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 import { RxCursorArrow } from "react-icons/rx";
 import { AiOutlineQuestion } from "react-icons/ai";
+import {ImStatsDots} from "react-icons/im"
 
 const menuItems = [
   {
@@ -31,6 +32,12 @@ const menuItems = [
         to: "/projects/quotes",
         icon: <BsChatQuote className="h-6" />,
         bigIcon: <BsChatQuote className="h-16 w-16" />,
+      },
+      {
+        title: "Registro de peso",
+        to: "/projects/weighttracker",
+        icon: <ImStatsDots className="h-6" />,
+        bigIcon: <ImStatsDots className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",
