@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
-// tslint:disable:no-unused-variable
+// tslint:disable:no-unused-variable 
 import Chart from "chart.js/auto";
 // import { differenceInDays } from "date-fns";
 
