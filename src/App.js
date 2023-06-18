@@ -15,6 +15,7 @@ import TicTacToeGame from "./Pages/TicTacToeGame";
 import Memory from "./Pages/Memory";
 import Idle from "./Pages/Idle";
 import Questions from "./Pages/Questions";
+import WeightTracker from "./Pages/WeightTracker";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
               <Route path="/post/:id" element={<BlogPostDetail />} />
               <Route path="/projects/quotes" element={<RandomQuotes />} />
               <Route path="/projects/weather" element={<WeatherApp />} />
+              <Route
+                path="/projects/weighttracker"
+                element={<WeightTracker />}
+              />
 
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<Watch />} />
