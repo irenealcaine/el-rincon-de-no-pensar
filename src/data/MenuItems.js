@@ -14,6 +14,7 @@ import { RxCursorArrow } from "react-icons/rx";
 import { AiOutlineQuestion } from "react-icons/ai";
 import { ImStatsDots } from "react-icons/im"
 import { FaRegHandPeace } from 'react-icons/fa'
+import { CgGym } from "react-icons/cg"
 
 const menuItems = [
   {
@@ -39,6 +40,12 @@ const menuItems = [
         to: "/projects/weighttracker",
         icon: <ImStatsDots className="h-6" />,
         bigIcon: <ImStatsDots className="h-16 w-16" />,
+      },
+      {
+        title: "Tabla de ejercicios",
+        to: "/projects/exercise",
+        icon: <CgGym className="h-6" />,
+        bigIcon: <CgGym className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",
