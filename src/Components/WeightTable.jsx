@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
-// tslint:disable:no-unused-variable 
+// eslint-disable-next-line no-unused-vars
 import Chart from "chart.js/auto";
-// import { differenceInDays } from "date-fns";
+import Button from "./Button";
+
 
 const WeightTable = () => {
   const [weightData, setWeightData] = useState([]);
   const [rowData, setRowData] = useState([{ date: "", weight: "", i: "" }]);
+  const [dateWarning, setDateWarning] = useState("");
 
-  // useEffect(() => {
-  //   Chart.register(Chart.controllers.line);
-  // }, []);
 
   const handleAddRow = () => {
     const newRow = { date: "", weight: "", i: "" };
@@ -20,18 +19,16 @@ const WeightTable = () => {
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
     const updatedRowData = [...rowData];
-    // const currentDate = new Date(value);
 
-    // const previousDates = updatedRowData
-    //   .slice(0, index)
-    //   .map((row) => new Date(row.date));
-
-    // const isDateValid = previousDates.every((date) => currentDate >= date);
-
-    // if (!isDateValid) {
-    //   alert("La fecha no puede ser anterior a las fechas anteriores.");
-    //   return;
-    // }
+    // Check if the entered date is earlier than previous dates
+    if (name === "date" && index > 0) {
+      const previousDates = updatedRowData.slice(0, index).map((row) => row.date);
+      if (previousDates.some((date) => date > value)) {
+        setDateWarning("¡La fecha es anterior a las fechas anteriores!");
+      } else {
+        setDateWarning("");
+      }
+    }
 
     updatedRowData[index] = {
       ...updatedRowData[index],
@@ -50,34 +47,6 @@ const WeightTable = () => {
     setWeightData(newWeightData);
   };
 
-  // const adjustChartData = (data) => {
-  //   const adjustedData = [];
-
-  //   for (let i = 0; i < data.length; i++) {
-  //     adjustedData.push(data[i]);
-
-  //     if (i < data.length - 1) {
-  //       const currentDate = new Date(data[i].date);
-  //       const nextDate = new Date(data[i + 1].date);
-  //       const difference = differenceInDays(nextDate, currentDate);
-
-  //       if (difference > 1) {
-  //         for (let j = 1; j < difference; j++) {
-  //           const intermediateDate = new Date(currentDate);
-  //           intermediateDate.setDate(currentDate.getDate() + j);
-
-  //           adjustedData.push({
-  //             i: parseFloat(i + 1) + parseFloat(j) / (difference + 1),
-  //             date: intermediateDate,
-  //             weight: null,
-  //           });
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   return adjustedData;
-  // };
 
   const chartData = {
     labels: weightData.map((data) => data.date),
@@ -85,8 +54,11 @@ const WeightTable = () => {
       {
         label: "Peso",
         data: weightData.map((data) => data.weight),
-        fill: false,
-        borderColor: "rgb(75, 192, 192)",
+        fill: true,
+        borderColor: "rgb(37, 99, 235)",
+        tension: 0.2,
+        pointRadius: 1, // Tamaño de los puntos
+        pointHoverRadius: 3
       },
     ],
   };
@@ -98,6 +70,7 @@ const WeightTable = () => {
           display: true,
           text: "Fecha",
         },
+
       },
       y: {
         title: {
@@ -107,6 +80,8 @@ const WeightTable = () => {
       },
     },
   };
+
+
 
   return (
     <div className="container mx-auto p-4">
@@ -142,19 +117,14 @@ const WeightTable = () => {
           ))}
         </tbody>
       </table>
+
+      {dateWarning && <p className="text-red-500 font-bold mb-6 py-1 px-4 border border-red-500 rounded text-center">{dateWarning}</p>}
+
       <div className="flex">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-          onClick={handleAddRow}
-        >
-          Agregar Fila
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleSaveData}
-        >
-          Guardar Datos
-        </button>
+
+        <Button type={"violet"} onClickValue={handleAddRow} value={"Agregar fila"} className={"mr-2"} />
+
+        <Button onClickValue={handleSaveData} value={"Guardar cambios"} />
       </div>
 
       <div className="mt-4">
