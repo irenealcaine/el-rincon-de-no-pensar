@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 
 const ExerciseTable = () => {
   const [flexiones, setFlexiones] = useState(0);
@@ -35,15 +36,15 @@ const ExerciseTable = () => {
         sentadillasIncremento += sentadillas * 0.2;
         abdominalesIncremento += abdominales * 0.25;
       }
-      fila.push(<td> Semana {semana + 1}</td>);
+      fila.push(<th className='p-2 bg-blue-500/40 border border-black'> Semana {semana + 1}</th>);
 
       for (let dia = 1; dia <= 7; dia++) {
         if (dia === 3 || dia === 6) {
-          fila.push(<td key={dia}>Descanso</td>);
+          fila.push(<td key={dia} className='italic p-2 border border-black'>Descanso</td>);
         }
         else {
           const ejercicio = (
-            <div className='p-4'>
+            <div className='p-2'>
               {parseInt(flexiones + flexionesIncremento)} flexiones
               <br />
               {parseInt(sentadillas + sentadillasIncremento)} sentadillas
@@ -51,11 +52,11 @@ const ExerciseTable = () => {
               {parseInt(abdominales + abdominalesIncremento)} abdominales
             </div>
           );
-          fila.push(<td key={dia}>{ejercicio}</td>);
+          fila.push(<td key={dia} className='p-2 border border-black'>{ejercicio}</td>);
         }
       }
 
-      tabla.push(<tr key={semana}>{fila}</tr>);
+      tabla.push(<tr key={semana} className=''>{fila}</tr>);
     }
 
     return tabla;
@@ -63,40 +64,39 @@ const ExerciseTable = () => {
 
   return (
     <div>
-      <h2>Tabla de Ejercicios</h2>
-      <label>
-        Flexiones:
-        <input
-          type="number"
-          name="flexiones"
-          value={flexiones}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Sentadillas:
-        <input
-          type="number"
-          name="sentadillas"
-          value={sentadillas}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Abdominales:
-        <input
-          type="number"
-          name="abdominales"
-          value={abdominales}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <button onClick={generarTabla}>Generar Tabla</button>
+      <div className='flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-4'>
+        <label>
+          Flexiones:{" "}
+          <input
+            type="number"
+            name="flexiones"
+            value={flexiones}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Sentadillas:{" "}
+          <input
+            type="number"
+            name="sentadillas"
+            value={sentadillas}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Abdominales:{" "}
+          <input
+            type="number"
+            name="abdominales"
+            value={abdominales}
+            onChange={handleInputChange}
+          />
+        </label>
+        {/* <button onClick={generarTabla}>Generar Tabla</button> */}
+        <Button onClickValue={generarTabla} value={"Generar tabla"} />
+      </div>
       {mostrarTabla && (
-        <table>
+        <table className='table-fixed mx-auto border-collapse border border-black'>
           <tbody>{renderTabla()}</tbody>
         </table>
       )}
