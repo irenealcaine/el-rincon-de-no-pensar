@@ -12,7 +12,8 @@ import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 import { RxCursorArrow } from "react-icons/rx";
 import { AiOutlineQuestion } from "react-icons/ai";
-import {ImStatsDots} from "react-icons/im"
+import { ImStatsDots } from "react-icons/im"
+import { FaRegHandPeace } from 'react-icons/fa'
 
 const menuItems = [
   {
@@ -96,6 +97,12 @@ const menuItems = [
         to: "/games/quiz",
         icon: <AiOutlineQuestion className="h-6" />,
         bigIcon: <AiOutlineQuestion className="h-16 w-16" />,
+      },
+      {
+        title: "Piedra-papel-tijeras",
+        to: "/games/rock-paper-scissors",
+        icon: <FaRegHandPeace className="h-6" />,
+        bigIcon: <FaRegHandPeace className="h-16 w-16" />,
       },
     ],
   },

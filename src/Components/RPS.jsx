@@ -51,7 +51,6 @@ const RPS = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="text-center">
-        <h1 className="text-3xl mb-4">Piedra, Papel, Tijeras</h1>
         <div className="flex justify-center mb-4">
           {options.map((option) => (
             <Button value={option} onClickValue={() => handleUserChoice(option)} disabled={!!userChoice} className={`mx-2 ${userChoice === option && 'outline outline-offset-2 outline-blue-700'}`} type={!!userChoice && "gray"} />
@@ -64,9 +63,9 @@ const RPS = () => {
         </div>
         {userChoice && computerChoice && result && (
           <div>
-            <p>Tu elección: {userChoice}</p>
+            <p className='mt-4 mb-2'>Tu elección: {userChoice}</p>
             <p>Elección de la inteligencia artificial: {computerChoice}</p>
-            <h2 className="text-2xl mt-4">{result}</h2>
+            <h2 className="text-2xl my-4">{result}</h2>
 
             <Button value={"Otra vez"} onClickValue={handleReset} />
           </div>
