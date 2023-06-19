@@ -16,6 +16,7 @@ import Memory from "./Pages/Memory";
 import Idle from "./Pages/Idle";
 import Questions from "./Pages/Questions";
 import WeightTracker from "./Pages/WeightTracker";
+import RPSGame from "./Pages/RPSGame";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
               <Route path="/games/memory" element={<Memory />} />
               <Route path="/games/idle" element={<Idle />} />
               <Route path="/games/quiz" element={<Questions />} />
+              <Route path="/games/rock-paper-scissors" element={<RPSGame />} />
             </Routes>
           </div>
         </div>
