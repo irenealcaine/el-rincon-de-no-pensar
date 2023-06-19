@@ -96,7 +96,7 @@ const ExerciseTable = () => {
         <Button onClickValue={generarTabla} value={"Generar tabla"} />
       </div>
       {mostrarTabla && (
-        <table className='table-fixed mx-auto border-collapse border border-black'>
+        <table className='table-fixed mx-auto mt-4 border-collapse border border-black'>
           <tbody>{renderTabla()}</tbody>
         </table>
       )}
