@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Button from './Button';
+import React, { useState } from "react";
+import Button from "./Button";
 
 const ExerciseTable = () => {
   const [flexiones, setFlexiones] = useState(0);
@@ -9,11 +9,11 @@ const ExerciseTable = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'flexiones') {
+    if (name === "flexiones") {
       setFlexiones(parseInt(value));
-    } else if (name === 'sentadillas') {
+    } else if (name === "sentadillas") {
       setSentadillas(parseInt(value));
-    } else if (name === 'abdominales') {
+    } else if (name === "abdominales") {
       setAbdominales(parseInt(value));
     }
   };
@@ -36,27 +36,46 @@ const ExerciseTable = () => {
         sentadillasIncremento += sentadillas * 0.2;
         abdominalesIncremento += abdominales * 0.25;
       }
-      fila.push(<th className='p-2 bg-blue-500/40 border border-black'> Semana {semana + 1}</th>);
+      fila.push(
+        <div className="p-4 bg-blue-500/40 border border-blue-300 font-bold">
+          {" "}
+          Semana {semana + 1}
+        </div>
+      );
 
       for (let dia = 1; dia <= 7; dia++) {
         if (dia === 3 || dia === 6) {
-          fila.push(<td key={dia} className='italic p-2 border border-black'>Descanso</td>);
-        }
-        else {
-          const ejercicio = (
-            <div className='p-2'>
-              {parseInt(flexiones + flexionesIncremento)} flexiones
-              <br />
-              {parseInt(sentadillas + sentadillasIncremento)} sentadillas
-              <br />
-              {parseInt(abdominales + abdominalesIncremento)} abdominales
+          fila.push(
+            <div
+              key={dia}
+              className="italic p-4 border border-blue-300 text-center"
+            >
+              Descanso
             </div>
           );
-          fila.push(<td key={dia} className='p-2 border border-black'>{ejercicio}</td>);
+        } else {
+          const ejercicio = (
+            <div className="p-2">
+              {parseInt(flexiones + flexionesIncremento)} flex.
+              <br />
+              {parseInt(sentadillas + sentadillasIncremento)} sent.
+              <br />
+              {parseInt(abdominales + abdominalesIncremento)} abd.
+            </div>
+          );
+          fila.push(
+            <div key={dia} className="p-2 border border-blue-300">
+              {ejercicio}
+            </div>
+          );
         }
       }
 
-      tabla.push(<tr key={semana} className=''>{fila}</tr>);
+      tabla.push(
+        <div key={semana} className="flex flex-col md:flex-row">
+          {fila}
+        </div>
+      );
     }
 
     return tabla;
@@ -64,41 +83,44 @@ const ExerciseTable = () => {
 
   return (
     <div>
-      <div className='flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-4'>
-        <label>
+      <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-4">
+        <label className="w-7/12 md:w-auto">
           Flexiones:{" "}
           <input
             type="number"
             name="flexiones"
             value={flexiones}
             onChange={handleInputChange}
+            className={"px-4 w-full md:w-auto rounded border border-blue-700"}
           />
         </label>
-        <label>
+        <label className="w-7/12 md:w-auto">
           Sentadillas:{" "}
           <input
             type="number"
             name="sentadillas"
             value={sentadillas}
             onChange={handleInputChange}
+            className={"px-4 w-full md:w-auto rounded border border-blue-700"}
           />
         </label>
-        <label>
+        <label className="w-7/12 md:w-auto">
           Abdominales:{" "}
           <input
             type="number"
             name="abdominales"
             value={abdominales}
             onChange={handleInputChange}
+            className={"px-4 w-full md:w-auto rounded border border-blue-700"}
           />
         </label>
-        {/* <button onClick={generarTabla}>Generar Tabla</button> */}
+
         <Button onClickValue={generarTabla} value={"Generar tabla"} />
       </div>
       {mostrarTabla && (
-        <table className='table-fixed mx-auto mt-4 border-collapse border border-black'>
-          <tbody>{renderTabla()}</tbody>
-        </table>
+        <div className="mx-auto w-10/12 mt-4">
+          <div>{renderTabla()}</div>
+        </div>
       )}
     </div>
   );
