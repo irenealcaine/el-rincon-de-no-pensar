@@ -15,6 +15,7 @@ import { AiOutlineQuestion } from "react-icons/ai";
 import { ImStatsDots } from "react-icons/im"
 import { FaRegHandPeace } from 'react-icons/fa'
 import { CgGym } from "react-icons/cg"
+import { AiOutlineCalculator } from "react-icons/ai"
 
 const menuItems = [
   {
@@ -72,6 +73,12 @@ const menuItems = [
         to: "/components/timer",
         icon: <RxLapTimer className="h-6" />,
         bigIcon: <RxLapTimer className="h-16 w-16" />,
+      },
+      {
+        title: "Calculadora",
+        to: "/components/calculator",
+        icon: <AiOutlineCalculator className="h-6" />,
+        bigIcon: <AiOutlineCalculator className="h-16 w-16" />,
       },
     ],
   },

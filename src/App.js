@@ -18,6 +18,7 @@ import Questions from "./Pages/Questions";
 import WeightTracker from "./Pages/WeightTracker";
 import RPSGame from "./Pages/RPSGame";
 import Exercise from "./Pages/Exercise";
+import CalculatorPage from "./Pages/CalculatorPage";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<Watch />} />
               <Route path="/components/timer" element={<Timer />} />
+              <Route path="/components/calculator" element={<CalculatorPage />} />
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToeGame />} />
