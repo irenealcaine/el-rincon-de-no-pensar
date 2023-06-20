@@ -20,7 +20,7 @@ const Button = ({ type, className, onClickValue, value, disabled }) => {
 
   return (
     <button
-      className={`transition duration-500 text-white font-bold py-2 px-8 rounded ${color} ${className}`}
+      className={`transition duration-200 text-white font-bold py-2 px-8 rounded active:scale-95 ${color} ${className}`}
       onClick={onClickValue}
       disabled={disabled}
     >
