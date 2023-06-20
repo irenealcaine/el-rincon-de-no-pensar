@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import Subtitle from "./Subtitle";
 
 const ExerciseTable = () => {
   const [flexiones, setFlexiones] = useState(0);
@@ -83,6 +84,7 @@ const ExerciseTable = () => {
 
   return (
     <div>
+      <Subtitle subtitle={"¿Cuántas repeticiones eres capaz de hacer?"} />
       <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-4">
         <label className="w-7/12 md:w-auto">
           Flexiones:{" "}
@@ -118,8 +120,18 @@ const ExerciseTable = () => {
         <Button onClickValue={generarTabla} value={"Generar tabla"} />
       </div>
       {mostrarTabla && (
-        <div className="mx-auto w-10/12 mt-4">
-          <div>{renderTabla()}</div>
+        <div>
+          <p className="indent-2 mt-4 w-10/12 md:w-7/12 mx-auto">
+            A continuación se muestra una tabla de entrenamiento mde 28 días,
+            donde aumenta la intensidad cada semana
+          </p>
+          <p className="indent-2 mt-2 w-10/12 md:w-7/12 mx-auto">
+            Recuerda que esto es orientativo, yo no tengo ni idea de nada de
+            esto.
+          </p>
+          <div className="mx-auto w-10/12 mt-4">
+            <div>{renderTabla()}</div>
+          </div>
         </div>
       )}
     </div>
