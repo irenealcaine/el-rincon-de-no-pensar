@@ -53,7 +53,7 @@ const RPS = () => {
       <div className="text-center w-10/12">
         <div className="flex justify-center mb-4">
           {options.map((option) => (
-            <Button value={option} onClickValue={() => handleUserChoice(option)} disabled={!!userChoice} className={`mx-2 !px-2 ${userChoice === option && 'outline outline-offset-2 outline-blue-700'}`} type={!!userChoice && "gray"} />
+            <Button value={option} onClickValue={() => handleUserChoice(option)} disabled={!!userChoice} className={`mx-2 !px-4 !py-4 ${userChoice === option && 'outline outline-offset-2 outline-blue-700'}`} type={!!userChoice && "gray"} />
           ))}
         </div>
         <div className='flex justify-center gap-4 mx-auto w-full md:w-7/12 py-2 px-4 border border-blue-500 rounded'>
