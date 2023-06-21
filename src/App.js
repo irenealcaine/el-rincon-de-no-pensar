@@ -19,6 +19,7 @@ import WeightTracker from "./Pages/WeightTracker";
 import RPSGame from "./Pages/RPSGame";
 import Exercise from "./Pages/Exercise";
 import CalculatorPage from "./Pages/CalculatorPage";
+import CarouselPage from "./Pages/CarouselPage";
 
 function App() {
   return (
@@ -47,7 +48,11 @@ function App() {
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<Watch />} />
               <Route path="/components/timer" element={<Timer />} />
-              <Route path="/components/calculator" element={<CalculatorPage />} />
+              <Route
+                path="/components/calculator"
+                element={<CalculatorPage />}
+              />
+              <Route path="/components/carousel" element={<CarouselPage />} />
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToeGame />} />
