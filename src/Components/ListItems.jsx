@@ -11,7 +11,9 @@ const ListItems = ({ mapItems }) => {
           >
             <p className="flex flex-col 2xl:flex-row justify-center items-center aspect-video shadow-lg md:gap-4 w-full p-4 border-2 border-blue-900 outline outline-offset-2 hover:outline-offset-4 outline-blue-700/50 hover:outline-blue-900 rounded-xl hover:bg-blue-500 hover:text-white transition duration-300">
               {item.bigIcon}
-              <p className="font-bold text-xl xl:text-4xl">{item.title}</p>
+              <p className="font-bold text-xl xl:text-4xl text-center">
+                {item.title}
+              </p>
             </p>
           </Link>
         );

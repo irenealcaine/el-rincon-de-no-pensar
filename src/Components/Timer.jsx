@@ -90,18 +90,18 @@ const Timer = () => {
           </div>
         </div>
         <div className="text-6xl font-bold mb-8">{formatTime(timeLeft)}</div>
-        <div className="flex flex-col md:flex-row items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-4 w-10/12 md:w-7/12">
           <Button
             type={isActive ? "red" : "green"}
             onClickValue={handleStartStopClick}
             value={isActive ? "Pause" : "Start"}
-            className={"w-full md:w-auto"}
+            className={"w-full"}
           />
           <Button
             type={"gray"}
             onClickValue={handleResetClick}
             value={"Reset"}
-            className={"w-full md:w-auto"}
+            className={"w-full "}
           />
         </div>
       </div>
