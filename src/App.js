@@ -21,6 +21,7 @@ import Exercise from "./Pages/Exercise";
 import CalculatorPage from "./Pages/CalculatorPage";
 import CarouselPage from "./Pages/CarouselPage";
 import TodoListPage from "./Pages/TodoListPage";
+import GalleryPage from "./Pages/GalleryPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
               <Route path="/projects/weighttracker" element={<WeightTracker />} />
               <Route path="/projects/exercise" element={<Exercise />} />
               <Route path="/projects/todo" element={<TodoListPage />} />
+              <Route path="/projects/gallery" element={<GalleryPage />} />
 
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<Watch />} />

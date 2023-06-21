@@ -17,6 +17,7 @@ import { FaRegHandPeace } from "react-icons/fa";
 import { CgGym } from "react-icons/cg";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { BsImages } from "react-icons/bs";
+import { BiPhotoAlbum } from "react-icons/bi"
 
 const menuItems = [
   {
@@ -54,6 +55,12 @@ const menuItems = [
         to: "/projects/todo",
         icon: <AiOutlineCheckCircle className="h-6" />,
         bigIcon: <AiOutlineCheckCircle className="h-16 w-16" />,
+      },
+      {
+        title: "Galería de fotos",
+        to: "/projects/gallery",
+        icon: <BiPhotoAlbum className="h-6" />,
+        bigIcon: <BiPhotoAlbum className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",
