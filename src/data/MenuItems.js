@@ -113,7 +113,7 @@ const menuItems = [
         bigIcon: <AiOutlineQuestion className="h-16 w-16" />,
       },
       {
-        title: "Piedra-papel-tijeras",
+        title: "Piedra, papel, tijeras",
         to: "/games/rock-paper-scissors",
         icon: <FaRegHandPeace className="h-6" />,
         bigIcon: <FaRegHandPeace className="h-16 w-16" />,
