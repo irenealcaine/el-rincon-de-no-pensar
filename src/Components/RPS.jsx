@@ -104,7 +104,7 @@ const RPS = () => {
         </div>
         {userChoice && computerChoice && result && (
           <div>
-            <p className="mt-4 mb-2 text-blue-700">Tu elección:</p>
+            <p className="mt-4 mb-2 text-blue-700">Tu elección</p>
             <span className=" text-blue-700">{userChoice}</span>
             <p className="text-green-700 mt-4">
               Elección de la inteligencia artificial
