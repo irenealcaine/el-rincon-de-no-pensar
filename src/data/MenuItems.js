@@ -11,7 +11,7 @@ import { TfiClose } from "react-icons/tfi";
 import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 import { RxCursorArrow } from "react-icons/rx";
-import { AiOutlineQuestion } from "react-icons/ai";
+import { AiOutlineQuestion, AiOutlineCheckCircle } from "react-icons/ai";
 import { ImStatsDots } from "react-icons/im";
 import { FaRegHandPeace } from "react-icons/fa";
 import { CgGym } from "react-icons/cg";
@@ -48,6 +48,12 @@ const menuItems = [
         to: "/projects/exercise",
         icon: <CgGym className="h-6" />,
         bigIcon: <CgGym className="h-16 w-16" />,
+      },
+      {
+        title: "Lista de tareas",
+        to: "/projects/todo",
+        icon: <AiOutlineCheckCircle className="h-6" />,
+        bigIcon: <AiOutlineCheckCircle className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",

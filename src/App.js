@@ -20,6 +20,7 @@ import RPSGame from "./Pages/RPSGame";
 import Exercise from "./Pages/Exercise";
 import CalculatorPage from "./Pages/CalculatorPage";
 import CarouselPage from "./Pages/CarouselPage";
+import TodoListPage from "./Pages/TodoListPage";
 
 function App() {
   return (
@@ -39,11 +40,9 @@ function App() {
               <Route path="/post/:id" element={<BlogPostDetail />} />
               <Route path="/projects/quotes" element={<RandomQuotes />} />
               <Route path="/projects/weather" element={<WeatherApp />} />
-              <Route
-                path="/projects/weighttracker"
-                element={<WeightTracker />}
-              />
+              <Route path="/projects/weighttracker" element={<WeightTracker />} />
               <Route path="/projects/exercise" element={<Exercise />} />
+              <Route path="/projects/todo" element={<TodoListPage />} />
 
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<Watch />} />
