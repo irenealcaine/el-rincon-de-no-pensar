@@ -12,11 +12,11 @@ import { TbPuzzle } from "react-icons/tb";
 import { GiCardAceHearts } from "react-icons/gi";
 import { RxCursorArrow } from "react-icons/rx";
 import { AiOutlineQuestion } from "react-icons/ai";
-import { ImStatsDots } from "react-icons/im"
-import { FaRegHandPeace } from 'react-icons/fa'
-import { CgGym } from "react-icons/cg"
-import { AiOutlineCalculator } from "react-icons/ai"
-import {BsImages} from "react-icons/bs"
+import { ImStatsDots } from "react-icons/im";
+import { FaRegHandPeace } from "react-icons/fa";
+import { CgGym } from "react-icons/cg";
+import { AiOutlineCalculator } from "react-icons/ai";
+import { BsImages } from "react-icons/bs";
 
 const menuItems = [
   {
@@ -84,7 +84,7 @@ const menuItems = [
       {
         title: "Carrusel de fotos",
         to: "/components/carousel",
-        icon: <BsImags className="h-6" />,
+        icon: <BsImages className="h-6" />,
         bigIcon: <BsImages className="h-16 w-16" />,
       },
     ],
