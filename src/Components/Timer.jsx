@@ -53,7 +53,6 @@ const Timer = () => {
         isRestInterval ? workIntervalInSeconds : restIntervalInSeconds
       );
       setIsRestInterval(!isRestInterval);
-      console.log(workInterval, restInterval);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLeft, workIntervalInSeconds, restIntervalInSeconds]);
@@ -96,11 +95,13 @@ const Timer = () => {
             type={isActive ? "red" : "green"}
             onClickValue={handleStartStopClick}
             value={isActive ? "Pause" : "Start"}
+            className={"w-full md:w-auto"}
           />
           <Button
             type={"gray"}
             onClickValue={handleResetClick}
             value={"Reset"}
+            className={"w-full md:w-auto"}
           />
         </div>
       </div>
