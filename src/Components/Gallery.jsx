@@ -1,21 +1,16 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 const Modal = ({ isOpen, onClose, imgSrc }) => {
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-10 ${
-        isOpen ? "" : "hidden"
-      }`}
+      className={`fixed inset-0 flex items-center justify-center z-10 ${isOpen ? "" : "hidden"
+        }`}
     >
-      <div className="absolute inset-0 bg-gray-900/40"></div>
-      <div className="p-8 rounded z-20 mx-auto">
-        <img alt={""} src={imgSrc} className={"mx-auto rounded-xl"} />
-        <button
-          className="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
-          onClick={onClose}
-        >
-          Close
-        </button>
+      <div className="absolute inset-0 bg-gray-900/90"></div>
+      <div className="pl-20 pr-8 pb-8 pt-16 z-20 w-full h-screen">
+        <img alt={""} src={imgSrc} className={"mx-auto my-auto rounded-xl max-h-full object-contain border-4 border-blue-200"} />
+        <Button type={"red"} value={"Cerrar"} onClickValue={onClose} className={"absolute right-2 top-2"} />
       </div>
     </div>
   );
@@ -46,7 +41,7 @@ const Gallery = ({ photos }) => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 max-w-5xl">
       <div className="mb-4">
         <label htmlFor="category-select" className="mr-2 font-bold">
           Filtrar por categoría:
@@ -64,7 +59,7 @@ const Gallery = ({ photos }) => {
           ))}
         </select>
       </div>
-      <div className="columns-2 gap-4">
+      <div className="columns-2 md:columns-3 gap-4">
         {filteredPhotos.map((photo) => (
           <div key={photo.id} className="">
             <img

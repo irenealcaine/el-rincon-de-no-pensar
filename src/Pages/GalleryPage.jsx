@@ -8,7 +8,7 @@ const GalleryPage = () => {
   const photos = [
     {
       id: 1,
-      url: 'https://www.gundo.app/blog/wp-content/uploads/2022/02/Estilos-de-vida-saludable-la-importancia-para-nuestra-salud-1-e1645630955761.jpeg',
+      url: 'https://e00-telva.uecdn.es/apps/cocina/imagenes/recetas/internacionales/fajitas_pollo_pimientos.jpg',
       category: 'Comida'
     },
     {
@@ -39,6 +39,11 @@ const GalleryPage = () => {
       id: 7,
       url: 'https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk.jpg',
       category: 'Comida'
+    },
+    {
+      id: 8,
+      url: 'https://lujoviajes.com/wp-content/uploads/2019/10/Viajes-de-lujo-c%C3%B3mo-encontrar-m%C3%A1s-baratos.png',
+      category: 'Viajes'
     },
   ];
 
