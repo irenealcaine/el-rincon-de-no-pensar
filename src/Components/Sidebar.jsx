@@ -93,7 +93,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={` text-blue-200 flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200  ${
+                    className={`mt-0.5 text-blue-200 flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200  ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "hidden"
                         : menuItem.title === "Proyectos"
