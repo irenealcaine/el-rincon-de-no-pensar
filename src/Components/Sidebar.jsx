@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import menuItems from "../data/MenuItems.js";
 import { FaArrowLeft } from "react-icons/fa";
 import { BsFillCaretUpFill } from "react-icons/bs";
@@ -10,6 +10,12 @@ const Sidebar = () => {
   const [gamesSubMenuOpen, setGamesSubMenuOpen] = useState(true);
   const [projectsSubMenuOpen, setProjectsSubMenuOpen] = useState(true);
   const [componentsSubMenuOpen, setComponentsSubMenuOpen] = useState(true);
+
+  const location = useLocation();
+
+  const isCurrentPage = (menuItem) => {
+    return location.pathname === menuItem.to;
+  };
 
   return (
     <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
@@ -49,7 +55,9 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className="relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-4 rounded-md"
+                className={`relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-4 rounded-md ${
+                  isCurrentPage(menuItem) && "bg-blue-500"
+                }`}
                 onClick={() =>
                   menuItem.title === "Juegos"
                     ? setGamesSubMenuOpen(!gamesSubMenuOpen)
@@ -93,7 +101,7 @@ const Sidebar = () => {
                         : menuItem.title === "Componentes" &&
                           componentsSubMenuOpen &&
                           "hidden"
-                    }`}
+                    } ${isCurrentPage(link) && "bg-blue-500"}`}
                   >
                     <span className={`${!open ? "mx-auto" : "ml-6"}`}>
                       {link.icon}
