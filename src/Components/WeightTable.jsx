@@ -4,12 +4,10 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import Button from "./Button";
 
-
 const WeightTable = () => {
   const [weightData, setWeightData] = useState([]);
   const [rowData, setRowData] = useState([{ date: "", weight: "", i: "" }]);
   const [dateWarning, setDateWarning] = useState("");
-
 
   const handleAddRow = () => {
     const newRow = { date: "", weight: "", i: "" };
@@ -22,7 +20,9 @@ const WeightTable = () => {
 
     // Check if the entered date is earlier than previous dates
     if (name === "date" && index > 0) {
-      const previousDates = updatedRowData.slice(0, index).map((row) => row.date);
+      const previousDates = updatedRowData
+        .slice(0, index)
+        .map((row) => row.date);
       if (previousDates.some((date) => date > value)) {
         setDateWarning("¡La fecha es anterior a las fechas anteriores!");
       } else {
@@ -47,7 +47,6 @@ const WeightTable = () => {
     setWeightData(newWeightData);
   };
 
-
   const chartData = {
     labels: weightData.map((data) => data.date),
     datasets: [
@@ -58,7 +57,7 @@ const WeightTable = () => {
         borderColor: "rgb(37, 99, 235)",
         tension: 0.2,
         pointRadius: 1, // Tamaño de los puntos
-        pointHoverRadius: 3
+        pointHoverRadius: 3,
       },
     ],
   };
@@ -70,7 +69,6 @@ const WeightTable = () => {
           display: true,
           text: "Fecha",
         },
-
       },
       y: {
         title: {
@@ -80,8 +78,6 @@ const WeightTable = () => {
       },
     },
   };
-
-
 
   return (
     <div className="container mx-auto p-4">
@@ -118,11 +114,19 @@ const WeightTable = () => {
         </tbody>
       </table>
 
-      {dateWarning && <p className="text-red-500 font-bold mb-6 py-1 px-4 border border-red-500 rounded text-center">{dateWarning}</p>}
+      {dateWarning && (
+        <p className="text-red-500 font-bold mb-6 py-1 px-4 border border-red-500 rounded text-center">
+          {dateWarning}
+        </p>
+      )}
 
       <div className="flex">
-
-        <Button type={"violet"} onClickValue={handleAddRow} value={"Agregar fila"} className={"mr-2"} />
+        <Button
+          type={"green"}
+          onClickValue={handleAddRow}
+          value={"Agregar fila"}
+          className={"mr-2"}
+        />
 
         <Button onClickValue={handleSaveData} value={"Guardar cambios"} />
       </div>
