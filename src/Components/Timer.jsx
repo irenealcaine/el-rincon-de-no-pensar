@@ -3,12 +3,15 @@ import useInterval from "../Hooks/useInterval";
 import Button from "./Button";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 
 const Timer = () => {
   const [workInterval, setWorkInterval] = useState(25);
   const [restInterval, setRestInterval] = useState(5);
   const [isActive, setIsActive] = useState(false);
   const [timeLeft, setTimeLeft] = useState(workInterval * 60);
+
+  const navigate = useNavigate();
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -62,6 +65,14 @@ const Timer = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Temporizador pomodoro"} />
+      <Button
+        type={"violet"}
+        className={"ml-8"}
+        onClickValue={() => {
+          navigate("/components");
+        }}
+        value={"Componentes"}
+      />
       <div className="flex flex-col items-center justify-center p-4">
         <div className="flex flex-col md:flex-row mb-4">
           <div className="md:mr-4">

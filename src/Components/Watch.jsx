@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
+import Button from "../Components/Button";
 
 const Watch = () => {
+  const navigate = useNavigate();
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -21,6 +24,14 @@ const Watch = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Reloj"} />
+      <Button
+        type={"violet"}
+        className={"ml-8"}
+        onClickValue={() => {
+          navigate("/components");
+        }}
+        value={"Componentes"}
+      />
       <div className="h-full flex justify-center items-center">
         <div className="relative w-72 h-72 rounded-full border-4 border-blue-500 bg-white">
           <div
