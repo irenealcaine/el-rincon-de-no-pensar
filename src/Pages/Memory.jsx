@@ -3,8 +3,10 @@ import Header from "../Components/Header";
 import Card from "../Components/Card";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Memory = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState(
     [
       {
@@ -119,6 +121,14 @@ const Memory = () => {
   return (
     <div className="bg-blue-100 min-h-screen pb-8">
       <Header title={"Memoria"} />
+      <Button
+        type={"violet"}
+        className={"ml-8"}
+        onClickValue={() => {
+          navigate("/games");
+        }}
+        value={"Juegos"}
+      />
       <div className="flex flex-wrap gap-4 justify-center p-8">
         {items.map((item, index) => (
           <Card key={index} item={item} id={index} handleClick={handleClick} />

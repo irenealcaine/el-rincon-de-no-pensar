@@ -13,7 +13,7 @@ const RandomQuotes = () => {
       <Header title={"Frases célebres"} />
       <Button
         type={"violet"}
-        className={"ml-8"}
+        className={"ml-8  mb-4"}
         onClickValue={() => {
           navigate("/projects");
         }}
