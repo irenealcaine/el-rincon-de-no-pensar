@@ -26,7 +26,7 @@ const Watch = () => {
       <Header title={"Reloj"} />
       <Button
         type={"violet"}
-        className={"ml-8"}
+        className={"ml-8 mb-4"}
         onClickValue={() => {
           navigate("/components");
         }}

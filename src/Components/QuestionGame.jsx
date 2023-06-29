@@ -193,7 +193,7 @@ const QuestionGame = () => {
             {questions[currentQuestion].options.map((option, index) => (
               <Button
                 key={index}
-                type={"violet"}
+                type={"green"}
                 className={`${
                   selectedOption === option && `!bg-violet-900`
                 } w-full md:w-auto`}
