@@ -8,6 +8,16 @@ const ExerciseTable = () => {
   const [abdominales, setAbdominales] = useState(0);
   const [mostrarTabla, setMostrarTabla] = useState(false);
 
+  const dias = [
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo",
+  ];
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "flexiones") {
@@ -47,16 +57,15 @@ const ExerciseTable = () => {
       for (let dia = 1; dia <= 7; dia++) {
         if (dia === 3 || dia === 6) {
           fila.push(
-            <div
-              key={dia}
-              className="italic p-4 border border-blue-300 text-center md:w-32"
-            >
-              Descanso
+            <div key={dia} className="p-2 border border-blue-300 md:w-32">
+              <p className="font-bold text-lg">{dias[dia - 1]}</p>
+              <p className="italic">Descanso</p>
             </div>,
           );
         } else {
           const ejercicio = (
-            <div className="p-2 md:w-32">
+            <div className="">
+              <p className=" font-bold text-lg">{dias[dia - 1]}</p>
               {parseInt(flexiones + flexionesIncremento)} flex.
               <br />
               {parseInt(sentadillas + sentadillasIncremento)} sent.
@@ -65,7 +74,7 @@ const ExerciseTable = () => {
             </div>
           );
           fila.push(
-            <div key={dia} className="p-2 border border-blue-300">
+            <div key={dia} className="p-2 border border-blue-300 md:w-32">
               {ejercicio}
             </div>,
           );
