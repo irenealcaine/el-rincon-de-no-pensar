@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
@@ -10,6 +10,10 @@ const BlogPostDetail = () => {
   const { id } = useParams();
   const post = Posts.find((post) => post.id === parseInt(id));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   return (
     <div className="bg-blue-100 min-h-screen">
@@ -35,9 +39,7 @@ const BlogPostDetail = () => {
           </span>
         ))}
       </div>
-      <p className="py-4 w-10/12 md:w-8/12 mx-auto indent-6 text-justify">
-        {post.excerpt}
-      </p>
+      <p className="py-4 w-10/12 md:w-8/12 mx-auto indent-6">{post.excerpt}</p>
 
       <div className="py-4 px-8 flex flex-col md:flex-row md:justify-around">
         {post.id - 1 > 0 && (

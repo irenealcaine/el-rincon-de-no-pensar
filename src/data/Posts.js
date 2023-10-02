@@ -6,7 +6,7 @@ const Posts = [
     excerpt:
       "Mantener un estilo de vida saludable es fundamental para promover el bienestar físico y mental. Algunos consejos útiles incluyen hacer ejercicio regularmente, comer una dieta equilibrada, dormir lo suficiente, reducir el estrés y mantener una buena hidratación. Además, es importante evitar hábitos perjudiciales como el tabaquismo y el consumo excesivo de alcohol. Al implementar estos consejos en tu rutina diaria, podrás disfrutar de una vida más saludable y plena.",
     imageUrl:
-      "https://www.gundo.app/blog/wp-content/uploads/2022/02/Estilos-de-vida-saludable-la-importancia-para-nuestra-salud-1-e1645630955761.jpeg",
+      "https://www.bigrockhq.com/wp-content/uploads/2019/01/13-Top-Nutrition-and-Lifestyle-Tips-to-Increase-Your-Productivity-at-Work.jpg",
     postUrl: "/post/1",
     categories: ["Salud", "Bienestar"],
   },

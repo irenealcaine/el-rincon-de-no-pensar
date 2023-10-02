@@ -8,6 +8,16 @@ const ExerciseTable = () => {
   const [abdominales, setAbdominales] = useState(0);
   const [mostrarTabla, setMostrarTabla] = useState(false);
 
+  const dias = [
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo",
+  ];
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "flexiones") {
@@ -38,25 +48,24 @@ const ExerciseTable = () => {
         abdominalesIncremento += abdominales * 0.25;
       }
       fila.push(
-        <div className="p-4 bg-blue-500/40 border border-blue-300 font-bold">
+        <div className="p-4 bg-blue-500/40 border border-blue-300 font-bold md:w-32">
           {" "}
           Semana {semana + 1}
-        </div>
+        </div>,
       );
 
       for (let dia = 1; dia <= 7; dia++) {
         if (dia === 3 || dia === 6) {
           fila.push(
-            <div
-              key={dia}
-              className="italic p-4 border border-blue-300 text-center"
-            >
-              Descanso
-            </div>
+            <div key={dia} className="p-2 border border-blue-300 md:w-32">
+              <p className="font-bold text-lg">{dias[dia - 1]}</p>
+              <p className="italic">Descanso</p>
+            </div>,
           );
         } else {
           const ejercicio = (
-            <div className="p-2">
+            <div className="">
+              <p className=" font-bold text-lg">{dias[dia - 1]}</p>
               {parseInt(flexiones + flexionesIncremento)} flex.
               <br />
               {parseInt(sentadillas + sentadillasIncremento)} sent.
@@ -65,9 +74,9 @@ const ExerciseTable = () => {
             </div>
           );
           fila.push(
-            <div key={dia} className="p-2 border border-blue-300">
+            <div key={dia} className="p-2 border border-blue-300 md:w-32">
               {ejercicio}
-            </div>
+            </div>,
           );
         }
       }
@@ -75,7 +84,7 @@ const ExerciseTable = () => {
       tabla.push(
         <div key={semana} className="flex flex-col md:flex-row">
           {fila}
-        </div>
+        </div>,
       );
     }
 
@@ -83,7 +92,7 @@ const ExerciseTable = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <Subtitle subtitle={"¿Cuántas repeticiones eres capaz de hacer?"} />
       <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-4">
         <label className="w-7/12 md:w-auto">
@@ -120,7 +129,7 @@ const ExerciseTable = () => {
         <Button onClickValue={generarTabla} value={"Generar tabla"} />
       </div>
       {mostrarTabla && (
-        <div>
+        <div className="">
           <p className="indent-2 mt-4 w-10/12 md:w-7/12 mx-auto">
             A continuación se muestra una tabla de entrenamiento mde 28 días,
             donde aumenta la intensidad cada semana
@@ -129,8 +138,8 @@ const ExerciseTable = () => {
             Recuerda que esto es orientativo, yo no tengo ni idea de nada de
             esto.
           </p>
-          <div className="mx-auto w-10/12 mt-4">
-            <div>{renderTabla()}</div>
+          <div className="mx-auto w-11/12 mt-4 overflow-x-auto">
+            {renderTabla()}
           </div>
         </div>
       )}
