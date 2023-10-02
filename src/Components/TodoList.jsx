@@ -25,10 +25,10 @@ const TodoList = () => {
 
   return (
     <div className="max-w-md mx-auto px-4 mt-8">
-      <div className="flex mb-4 ">
+      <div className="flex gap-2 flex-col mb-4 md:flex-row">
         <input
           type="text"
-          className="border border-gray-300 p-2 flex-grow mr-2 rounded border-none"
+          className="border border-gray-300 p-2 flex-grow mr-2 rounded border-none w-full md:w-fit"
           placeholder="Añadir tarea"
           value={newTask}
           onChange={handleInputChange}
