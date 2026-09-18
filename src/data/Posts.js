@@ -54,5 +54,66 @@ const Posts = [
     postUrl: "/post/5",
     categories: ["Medio Ambiente", "Sostenibilidad"],
   },
+  {
+    id: 6,
+    title: "El arte de no pensar: por qué tu mente necesita descansar",
+    subtitle: "Cultiva momentos de silencio mental y deja florecer la creatividad",
+    excerpt:
+      "En un mundo lleno de estímulos constantes, nuestra mente rara vez descansa. Aprender a no pensar no significa apagar el cerebro, sino permitirle divagar, aburrirse y conectar ideas de forma espontánea. Dar paseos sin móvil, practicar la respiración consciente o simplemente mirar por la ventana son pequeñas prácticas que reducen el estrés, mejoran la memoria y potencian la creatividad. Este rincón nace precisamente de esa idea: encontrar espacios donde el pensamiento fluya libre, sin prisa ni obligaciones. Tómate unos minutos al día para no pensar; tu mente te lo agradecerá.",
+    imageUrl: "https://picsum.photos/seed/pensar/1200/700",
+    postUrl: "/post/6",
+    categories: ["Bienestar", "Cultura"],
+    featured: true,
+  },
+  {
+    id: 7,
+    title: "Primeros pasos en programación con React",
+    subtitle: "Una guía amable para crear tus primeras interfaces",
+    excerpt:
+      "React es una de las librerías más populares para construir interfaces de usuario. Empezar puede parecer abrumador, pero solo necesitas entender tres ideas clave: componentes, estado y props. Un componente es como una pieza de LEGO que puedes reutilizar; el estado es la información que cambia con el tiempo, y las props son los datos que pasas entre componentes. Con estos conceptos claros, podrás construir desde una lista de tareas hasta un pequeño juego. Practica poco a poco, crea proyectos sencillos y no temas consultar la documentación. La programación se aprende escribiendo código, así que abre tu editor y dale caña.",
+    imageUrl: "https://picsum.photos/seed/react/900/600",
+    postUrl: "/post/7",
+    categories: ["Tecnología", "Educación"],
+  },
+  {
+    id: 8,
+    title: "Viajar solo por primera vez",
+    subtitle: "Consejos para perder el miedo y disfrutar de tu propia compañía",
+    excerpt:
+      "Viajar solo es una de las experiencias más enriquecedoras que existen. Al principio da miedo, pero pronto descubres la libertad de marcar tu propio ritmo. Empieza con destinos cercanos y estancias cortas, planifica el alojamiento con antelación y comparte siempre tu itinerario con alguien de confianza. Aprovecha para alojarte en hostales, donde es fácil conocer a otros viajeros, y no cargues demasiado equipaje. Lo más difícil no es estar solo, sino el momento de volver a casa y darte cuenta de lo mucho que has crecido.",
+    imageUrl: "https://picsum.photos/seed/viaje/900/600",
+    postUrl: "/post/8",
+    categories: ["Viajes"],
+  },
+  {
+    id: 9,
+    title: "Ejercicio en casa sin material",
+    subtitle: "Entrena tu cuerpo donde quieras y sin gastar dinero",
+    excerpt:
+      "No necesitas un gimnasio ni equipamiento caro para mantenerte en forma. Con tu propio peso corporal puedes realizar rutinas completas: sentadillas, flexiones, planchas, zancadas o burpees. Basta con dedicar veinte o treinta minutos tres veces por semana para notar resultados. Empieza despacio, escucha a tu cuerpo y aumenta la intensidad progresivamente. Crea un pequeño rincón en casa con una esterilla, ponte música y conviértelo en un hábito. La constancia importa mucho más que la intensidad.",
+    imageUrl: "https://picsum.photos/seed/deporte/900/600",
+    postUrl: "/post/9",
+    categories: ["Salud", "Deportes"],
+  },
+  {
+    id: 10,
+    title: "Cómo ahorrar en tu día a día",
+    subtitle: "Pequeños hábitos que llenan tu cuenta de ahorro",
+    excerpt:
+      "Ahorrar no consiste en privarse de todo, sino en tomar decisiones inteligentes. Lleva un registro de tus gastos para saber a dónde va tu dinero, cocina en casa con más frecuencia y evita las compras impulsivas esperando 24 horas antes de comprar algo que no necesitas. Revisa tus suscripciones y cancela las que no usas, compara precios antes de comprar y aprovecha las ofertas solo cuando de verdad las necesitas. Pequeños cambios diarios, como llevar café de casa, pueden sumar una sorprendente cantidad al final del año.",
+    imageUrl: "https://picsum.photos/seed/ahorro/900/600",
+    postUrl: "/post/10",
+    categories: ["Finanzas"],
+  },
+  {
+    id: 11,
+    title: "Repostería fácil para principiantes",
+    subtitle: "Dulces sencillos que salen bien a la primera",
+    excerpt:
+      "Hacer repostería en casa es más fácil de lo que parece y mucho más gratificante. Empieza por recetas simples como magdalenas, galletas de mantequilla o un bizcocho de yogur, donde las proporciones son fáciles de recordar. Usa ingredientes a temperatura ambiente, pesa las cantidades y no abras el horno mientras hornea. El truco está en no sobrebatir la masa y en confiar en el proceso. Pronto descubrirás que el aroma de unos dulces recién hechos es el mejor premio del esfuerzo.",
+    imageUrl: "https://picsum.photos/seed/reposteria/900/600",
+    postUrl: "/post/11",
+    categories: ["Alimentación"],
+  },
 ];
 export default Posts;

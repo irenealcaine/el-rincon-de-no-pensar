@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Button from "../Components/Button";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
-import Subtitle from "../Components/Subtitle";
+import BlogPosts from "../Components/BlogPosts";
 import Posts from "../data/Posts";
+import categoryColors from "../data/categoryColors";
+import { FiArrowLeft, FiArrowRight, FiSearch } from "react-icons/fi";
 
 const BlogPostDetail = () => {
   const { id } = useParams();
@@ -19,72 +20,135 @@ const BlogPostDetail = () => {
     return (
       <div className="bg-blue-100 min-h-screen">
         <Header title={"Post no encontrado"} />
-        <p className="text-center text-2xl mt-8 px-8">
-          Lo sentimos, no existe ningún post con ese identificador.
-        </p>
-        <div className="flex justify-center mt-8">
-          <Button
-            onClickValue={() => {
-              navigate("/projects/blog");
-            }}
-            value={"Volver al blog"}
-          />
-        </div>
+        <main className="max-w-2xl mx-auto px-4 md:px-8 pb-16 text-center">
+          <div className="mx-auto mt-10 w-16 h-16 rounded-2xl bg-white/70 border border-blue-900/10 flex items-center justify-center text-blue-800/60">
+            <FiSearch size={26} />
+          </div>
+          <p className="mt-5 text-2xl font-bold text-blue-950">
+            Lo sentimos, no existe ningún post con ese identificador.
+          </p>
+          <button
+            onClick={() => navigate("/projects/blog")}
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-blue-800 text-white font-bold px-6 py-3 hover:bg-blue-900 transition active:scale-95"
+          >
+            <FiArrowLeft />
+            Volver al blog
+          </button>
+        </main>
         <Footer />
       </div>
     );
   }
 
+  const prevPost = post.id - 1 > 0 ? Posts.find((p) => p.id === post.id - 1) : null;
+  const nextPost =
+    post.id + 1 <= Posts.length ? Posts.find((p) => p.id === post.id + 1) : null;
+
+  const relatedPosts = Posts.filter(
+    (p) =>
+      p.id !== post.id &&
+      p.categories.some((category) => post.categories.includes(category))
+  ).slice(0, 3);
+
   return (
     <div className="bg-blue-100 min-h-screen">
-      <Header title={post.title} />
+      <Header title={"Blog"} />
 
-      <Button
-        className={"ml-8"}
-        onClickValue={() => {
-          navigate("/projects/blog");
-        }}
-        value={"Atrás"}
-      />
-      <Subtitle subtitle={post.subtitle} className="" />
-      <img
-        src={post.imageUrl}
-        alt={post.title}
-        className="w-10/12 md:w-8/12 max-h-96 object-cover mx-auto rounded-lg shadow-lg"
-      />
-      <div className="flex w-10/12 md:w-8/12 mx-auto gap-4 mt-4 px-4">
-        {post.categories.map((category, index) => (
-          <span
-            key={index}
-            className=" text-gray-400 text-sm px-2 border rounded border-gray-400"
-          >
-            {category}
-          </span>
-        ))}
-      </div>
-      <p className="py-4 w-10/12 md:w-8/12 mx-auto indent-6">{post.excerpt}</p>
+      <main className="max-w-3xl mx-auto px-4 md:px-8 pb-16">
+        <button
+          onClick={() => navigate("/projects/blog")}
+          className="mt-8 inline-flex items-center gap-2 font-bold text-blue-900/70 hover:text-blue-800 transition"
+        >
+          <FiArrowLeft />
+          Volver al blog
+        </button>
 
-      <div className="py-4 px-8 flex flex-col md:flex-row md:justify-around">
-        {post.id - 1 > 0 && (
-          <Button
-            className={"mb-2 md:mb-0"}
-            onClickValue={() => {
-              navigate(`/post/${parseInt(post.id) - 1}`);
-            }}
-            value={"Anterior"}
-          />
+        <div className="mt-6 flex flex-wrap gap-2">
+          {post.categories.map((category, index) => (
+            <span
+              key={index}
+              className={`px-3 py-1 rounded-full text-xs font-bold ${
+                categoryColors[category] || "bg-white text-blue-900 border border-blue-900/10"
+              }`}
+            >
+              {category}
+            </span>
+          ))}
+        </div>
+
+        <h1 className="mt-4 text-3xl md:text-5xl font-black text-blue-950 leading-tight">
+          {post.title}
+        </h1>
+        <p className="mt-2 font-bold text-blue-900/50">{post.subtitle}</p>
+
+        <img
+          src={post.imageUrl}
+          alt={post.title}
+          className="mt-8 w-full max-h-[28rem] object-cover rounded-3xl shadow-xl"
+        />
+
+        <div className="mt-8 rounded-3xl bg-white/80 border border-blue-900/10 p-6 md:p-10 shadow-sm backdrop-blur-sm">
+          <p className="text-blue-950 leading-loose md:text-lg indent-8">
+            {post.excerpt}
+          </p>
+        </div>
+
+        {(prevPost || nextPost) && (
+          <nav className="mt-10 flex flex-col sm:flex-row gap-4">
+            {prevPost && (
+              <Link
+                to={`/post/${prevPost.id}`}
+                className="group flex-1 rounded-2xl bg-white border border-blue-900/10 p-5 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <span className="flex items-center gap-1 text-xs font-bold text-blue-900/50 uppercase">
+                  <FiArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
+                  Anterior
+                </span>
+                <span className="mt-2 block font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
+                  {prevPost.title}
+                </span>
+              </Link>
+            )}
+            {nextPost && (
+              <Link
+                to={`/post/${nextPost.id}`}
+                className="group flex-1 rounded-2xl bg-white border border-blue-900/10 p-5 shadow-md hover:shadow-xl transition-all duration-300 text-right"
+              >
+                <span className="flex items-center gap-1 justify-end text-xs font-bold text-blue-900/50 uppercase">
+                  Siguiente
+                  <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <span className="mt-2 block font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
+                  {nextPost.title}
+                </span>
+              </Link>
+            )}
+          </nav>
         )}
+      </main>
 
-        {post.id + 1 <= Posts.length && (
-          <Button
-            className={""}
-            onClickValue={() => {
-              navigate(`/post/${parseInt(post.id) + 1}`);
-            }}
-            value={"Siguiente"}
-          />
-        )}
-      </div>
+      {relatedPosts.length > 0 && (
+        <section className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+          <h2 className="font-['Cherry_Bomb_One'] text-2xl md:text-3xl text-blue-950 mb-6">
+            Artículos relacionados
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            {relatedPosts.map((related) => (
+              <BlogPosts
+                key={related.id}
+                title={related.title}
+                subtitle={related.subtitle}
+                excerpt={related.excerpt}
+                imageUrl={related.imageUrl}
+                postUrl={related.postUrl}
+                categories={related.categories}
+                categoryColors={categoryColors}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       <Footer />
     </div>
   );
