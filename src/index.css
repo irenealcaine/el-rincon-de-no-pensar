@@ -12,13 +12,31 @@ html {
 
 .quote-container {
   opacity: 0;
-  transform: translateY(-25px);
-  scale: 0.9;
+  transform: perspective(900px) rotateY(12deg) translateY(-20px) scale(0.95);
+  transform-origin: top center;
   transition: all 0.5s ease-in-out;
 }
 
 .quote-container.show {
   opacity: 1;
-  transform: translateY(0px);
-  scale: 1;
+  transform: perspective(900px) rotateY(0deg) translateY(0px) scale(1);
+}
+
+@keyframes marquee-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.marquee-light {
+  animation: marquee-blink 1.4s infinite;
+}
+
+.quote-card .text-yellow-500 {
+  color: #fde047;
+  text-shadow: 0 0 8px rgba(253, 224, 71, 0.75), 0 0 26px rgba(253, 224, 71, 0.35);
 }

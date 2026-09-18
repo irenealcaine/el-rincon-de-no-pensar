@@ -37,7 +37,7 @@ const FeaturedPost = ({ post }) => {
               </span>
             ))}
           </div>
-          <h2 className="font-black text-2xl md:text-3xl text-blue-950 leading-tight group-hover:text-blue-700 transition-colors duration-300">
+          <h2 className="font-black text-2xl md:text-3xl text-blue-900 leading-tight group-hover:text-blue-700 transition-colors duration-300">
             {post.title}
           </h2>
           <h3 className="font-bold text-blue-900/50 mt-1">{post.subtitle}</h3>

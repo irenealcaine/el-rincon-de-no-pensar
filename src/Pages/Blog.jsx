@@ -52,7 +52,7 @@ const Blog = () => {
             <p className="font-['Cherry_Bomb_One'] text-blue-800/70 text-base tracking-wide">
               ~ apuntes, ideas y reflexiones ~
             </p>
-            <h2 className="text-3xl md:text-4xl font-black text-blue-950 mt-1 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black text-blue-900 mt-1 leading-tight">
               Artículos del rincón
             </h2>
             <p className="text-blue-900/60 mt-2 max-w-xl">
@@ -122,7 +122,7 @@ const Blog = () => {
             <div className="mx-auto w-16 h-16 rounded-2xl bg-white/70 border border-blue-900/10 flex items-center justify-center text-blue-800/60">
               <FiSearch size={26} />
             </div>
-            <p className="mt-5 text-lg font-bold text-blue-950">
+            <p className="mt-5 text-lg font-bold text-blue-900">
               No hay artículos que coincidan con tu búsqueda
             </p>
             <p className="mt-1 text-blue-900/50">

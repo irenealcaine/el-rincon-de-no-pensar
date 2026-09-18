@@ -42,7 +42,7 @@ const BlogPosts = ({
         </div>
 
         <div className="p-5 md:p-6 flex flex-col flex-1">
-          <h2 className="font-black text-xl text-blue-950 leading-snug group-hover:text-blue-700 transition-colors duration-300">
+          <h2 className="font-black text-xl text-blue-900 leading-snug group-hover:text-blue-700 transition-colors duration-300">
             {title}
           </h2>
           <h3 className="font-bold text-sm text-blue-900/50 mt-1 mb-2">

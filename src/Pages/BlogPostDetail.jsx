@@ -24,7 +24,7 @@ const BlogPostDetail = () => {
           <div className="mx-auto mt-10 w-16 h-16 rounded-2xl bg-white/70 border border-blue-900/10 flex items-center justify-center text-blue-800/60">
             <FiSearch size={26} />
           </div>
-          <p className="mt-5 text-2xl font-bold text-blue-950">
+          <p className="mt-5 text-2xl font-bold text-blue-900">
             Lo sentimos, no existe ningún post con ese identificador.
           </p>
           <button
@@ -76,7 +76,7 @@ const BlogPostDetail = () => {
           ))}
         </div>
 
-        <h1 className="mt-4 text-3xl md:text-5xl font-black text-blue-950 leading-tight">
+        <h1 className="mt-4 text-3xl md:text-5xl font-black text-blue-900 leading-tight">
           {post.title}
         </h1>
         <p className="mt-2 font-bold text-blue-900/50">{post.subtitle}</p>
@@ -88,7 +88,7 @@ const BlogPostDetail = () => {
         />
 
         <div className="mt-8 rounded-3xl bg-white/80 border border-blue-900/10 p-6 md:p-10 shadow-sm backdrop-blur-sm">
-          <p className="text-blue-950 leading-loose md:text-lg indent-8">
+          <p className="text-blue-900 leading-loose md:text-lg indent-8">
             {post.excerpt}
           </p>
         </div>
@@ -104,7 +104,7 @@ const BlogPostDetail = () => {
                   <FiArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
                   Anterior
                 </span>
-                <span className="mt-2 block font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
+                <span className="mt-2 block font-bold text-blue-900 group-hover:text-blue-700 transition-colors leading-snug">
                   {prevPost.title}
                 </span>
               </Link>
@@ -118,7 +118,7 @@ const BlogPostDetail = () => {
                   Siguiente
                   <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
-                <span className="mt-2 block font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
+                <span className="mt-2 block font-bold text-blue-900 group-hover:text-blue-700 transition-colors leading-snug">
                   {nextPost.title}
                 </span>
               </Link>
@@ -129,7 +129,7 @@ const BlogPostDetail = () => {
 
       {relatedPosts.length > 0 && (
         <section className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
-          <h2 className="font-['Cherry_Bomb_One'] text-2xl md:text-3xl text-blue-950 mb-6">
+          <h2 className="font-['Cherry_Bomb_One'] text-2xl md:text-3xl text-blue-900 mb-6">
             Artículos relacionados
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
