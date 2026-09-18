@@ -25,6 +25,7 @@ const Footer = () => {
     <footer className="mt-16 text-xl w-fit sticky bottom-0 right-0 flex justify-end px-4 py-1 gap-4 bg-hero bg-large rounded-r-lg border-y-2 border-r-2 border-blue-900">
       {socialMedia.map((media) => (
         <a
+          key={media.href}
           href={media.href}
           className="p-1 rounded-xl text-white bg-blue-700/50 backdrop-blur-sm flex items-center gap-2"
         >

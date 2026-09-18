@@ -69,7 +69,6 @@ const IdleGame = () => {
       level: prevBase.level + 1,
       cost: prevBase.cost ** 1.2,
     }));
-    console.log(base);
   };
 
   const handleBonus1Click = () => {
@@ -79,7 +78,6 @@ const IdleGame = () => {
       level: prevBonus1.level + 1,
       cost: prevBonus1.base * E ** ((prevBonus1.level + 1) * 0.14),
     }));
-    console.log(bonus1);
   };
 
   const handleBonus2Click = () => {
@@ -89,7 +87,6 @@ const IdleGame = () => {
       level: prevBonus2.level + 1,
       cost: prevBonus2.base * E ** ((prevBonus2.level + 1) * 0.14),
     }));
-    console.log(bonus2);
   };
 
   const handleBonus3Click = () => {
@@ -99,7 +96,6 @@ const IdleGame = () => {
       level: prevBonus3.level + 1,
       cost: prevBonus3.base * E ** ((prevBonus3.level + 1) * 0.14),
     }));
-    console.log(bonus3);
   };
 
   const handleUpgrade1Click = () => {
@@ -109,7 +105,6 @@ const IdleGame = () => {
       level: prevUpgrade1.level + 1,
       cost: prevUpgrade1.base * E ** ((prevUpgrade1.level + 1) * 0.14),
     }));
-    console.log(upgrade1);
   };
 
   const handleUpgrade2Click = () => {
@@ -119,7 +114,6 @@ const IdleGame = () => {
       level: prevUpgrade2.level + 1,
       cost: prevUpgrade2.base * E ** ((prevUpgrade2.level + 1) * 0.14),
     }));
-    console.log(upgrade2);
   };
 
   const handleUpgrade3Click = () => {
@@ -129,7 +123,6 @@ const IdleGame = () => {
       level: prevUpgrade3.level + 1,
       cost: prevUpgrade3.base * E ** ((prevUpgrade3.level + 1) * 0.14),
     }));
-    console.log(upgrade3);
   };
 
   const isBonus1ButtonDisabled = score < bonus1.cost;

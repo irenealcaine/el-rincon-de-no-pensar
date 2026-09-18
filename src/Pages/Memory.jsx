@@ -76,6 +76,8 @@ const Memory = () => {
   const [gameOver, setGameOver] = useState(false);
 
   function check(current) {
+    if (current === prev) return;
+
     if (items[current].id === items[prev].id) {
       items[current].stat = "correct";
       items[prev].stat = "correct";
@@ -99,6 +101,7 @@ const Memory = () => {
   }
 
   function handleClick(id) {
+    if (items[id].stat === "correct" || items[id].stat === "active") return;
     if (prev === -1) {
       items[id].stat = "active";
       setItems([...items]);

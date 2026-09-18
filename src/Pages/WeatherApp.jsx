@@ -3,12 +3,15 @@ import React, { useState, useEffect } from "react";
 // import WeatherSummary from "./WeatherSummary";
 
 const API_KEY = "your_api_key_here";
+const API_KEY_REQUIRED = API_KEY === "your_api_key_here";
 
 const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (API_KEY_REQUIRED) return;
+
     const successCallback = async (position) => {
       const { latitude, longitude } = position.coords;
       const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
@@ -30,6 +33,22 @@ const WeatherApp = () => {
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
     );
   }, []);
+
+  if (API_KEY_REQUIRED) {
+    return (
+      <div className="min-h-screen bg-blue-100 p-8 text-center">
+        <h1 className="text-3xl font-bold mb-4">El tiempo</h1>
+        <p>
+          Esta aplicación necesita una API key de OpenWeatherMap para
+          funcionar. Añade tu clave en{" "}
+          <code className="bg-gray-200 px-1 rounded">
+            src/Pages/WeatherApp.jsx
+          </code>{" "}
+          (constante <code className="bg-gray-200 px-1 rounded">API_KEY</code>).
+        </p>
+      </div>
+    );
+  }
 
   if (error) {
     return <div>{error}</div>;

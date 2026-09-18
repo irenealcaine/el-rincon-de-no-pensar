@@ -6,7 +6,7 @@ import menuItems from "../data/MenuItems";
 import ListItems from "../Components/ListItems";
 
 const Home = () => {
-  const introduction1 = `Bienvenidos a 'El Rincón de no pensar', una web donde se encuentran proyectos pequeños pero llenos de encanto, todos ellos hecos con React y Tailwind. Aquí, presento una colección de creaciones modestas que, aunque demasiado pequeñas para tener su propio sitio web, merecen ser apreciadas y compartidas.`;
+  const introduction1 = `Bienvenidos a 'El Rincón de no pensar', una web donde se encuentran proyectos pequeños pero llenos de encanto, todos ellos hechos con React y Tailwind. Aquí, presento una colección de creaciones modestas que, aunque demasiado pequeñas para tener su propio sitio web, merecen ser apreciadas y compartidas.`;
 
   return (
     <div className="bg-blue-100 min-h-screen">
@@ -23,7 +23,7 @@ const Home = () => {
       </p>
 
       <p className="text-center px-8 pt-4 md:w-6/12 mx-auto">
-        Échale un ojo tambien a mi{" "}
+        Échale un ojo también a mi{" "}
         <HiperLink
           href={"https://irenealcainealvarez.es/"}
           text={"web personal"}

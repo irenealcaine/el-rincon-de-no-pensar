@@ -39,11 +39,13 @@ const WeightTable = () => {
   };
 
   const handleSaveData = () => {
-    const newWeightData = rowData.map((row, index) => ({
-      i: parseFloat(index + 1),
-      date: row.date,
-      weight: parseFloat(row.weight),
-    }));
+    const newWeightData = rowData
+      .filter((row) => row.date && row.weight !== "")
+      .map((row, index) => ({
+        i: parseFloat(index + 1),
+        date: row.date,
+        weight: parseFloat(row.weight),
+      }));
     setWeightData(newWeightData);
   };
 

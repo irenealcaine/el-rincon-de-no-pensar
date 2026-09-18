@@ -15,6 +15,26 @@ const BlogPostDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+  if (!post) {
+    return (
+      <div className="bg-blue-100 min-h-screen">
+        <Header title={"Post no encontrado"} />
+        <p className="text-center text-2xl mt-8 px-8">
+          Lo sentimos, no existe ningún post con ese identificador.
+        </p>
+        <div className="flex justify-center mt-8">
+          <Button
+            onClickValue={() => {
+              navigate("/projects/blog");
+            }}
+            value={"Volver al blog"}
+          />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={post.title} />
@@ -33,8 +53,11 @@ const BlogPostDetail = () => {
         className="w-10/12 md:w-8/12 max-h-96 object-cover mx-auto rounded-lg shadow-lg"
       />
       <div className="flex w-10/12 md:w-8/12 mx-auto gap-4 mt-4 px-4">
-        {post.categories.map((category) => (
-          <span className=" text-gray-400 text-sm px-2 border rounded border-gray-400">
+        {post.categories.map((category, index) => (
+          <span
+            key={index}
+            className=" text-gray-400 text-sm px-2 border rounded border-gray-400"
+          >
             {category}
           </span>
         ))}
