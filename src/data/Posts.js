@@ -6,7 +6,7 @@ const Posts = [
     excerpt:
       "Mantener un estilo de vida saludable es fundamental para promover el bienestar físico y mental. Algunos consejos útiles incluyen hacer ejercicio regularmente, comer una dieta equilibrada, dormir lo suficiente, reducir el estrés y mantener una buena hidratación. Además, es importante evitar hábitos perjudiciales como el tabaquismo y el consumo excesivo de alcohol. Al implementar estos consejos en tu rutina diaria, podrás disfrutar de una vida más saludable y plena.",
     imageUrl:
-      "https://www.bigrockhq.com/wp-content/uploads/2019/01/13-Top-Nutrition-and-Lifestyle-Tips-to-Increase-Your-Productivity-at-Work.jpg",
+      "https://imgs.search.brave.com/G0YgWWhArQQ4cf7ZDBYRzAsjpO0MYuhv5MecZ01bsiw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTk2/MDk3NDMxMS9lcy9m/b3RvL211Y2hvcy1w/cm9kdWN0b3MtZGlm/ZXJlbnRlcy1lbi1t/ZXNhLWJsYW5jYS1w/bGFub3MtZnVlbnRl/cy1uYXR1cmFsZXMt/ZGUtc2Vyb3Rvbmlu/YS5qcGc_Yj0xJnM9/NjEyeDYxMiZ3PTAm/az0yMCZjPTFLRi1l/MU80WmtCRWwwVnk0/MkFwbkVTRFZrZkJa/MFQ2djZKdWtCMWYx/Q0U9",
     postUrl: "/post/1",
     categories: ["Salud", "Bienestar"],
   },
@@ -50,7 +50,7 @@ const Posts = [
     excerpt:
       "Contribuir al cuidado del medio ambiente es crucial para garantizar un futuro sostenible. Empieza por reducir tu huella de carbono optando por medios de transporte más sostenibles, como caminar, usar la bicicleta o utilizar el transporte público. Además, adopta prácticas de consumo responsable, como rechazar el plástico de un solo uso y elegir productos con empaques ecoamigables. Ahorra energía en casa utilizando bombillas LED, apagando los electrodomésticos en modo standby y ajustando la temperatura de tu hogar. Recicla y reutiliza siempre que sea posible, separando tus desechos y dando una segunda vida a objetos que ya no necesitas. Por último, involúcrate en acciones comunitarias, como limpiar espacios públicos o participar en proyectos de reforestación. Juntos, podemos marcar la diferencia y proteger nuestro hermoso planeta para las generaciones futuras. ¡Cada pequeña acción cuenta!",
     imageUrl:
-      "https://www.henkel.es/resource/image/1084248/16x9/1920/1080/7a7530443937d70f83dbb22c6423158c/F34BFB3EAF33429AAFA08601DD0B63E2/2020-06-05-d%C3%ADa-mundial-del-medio-ambiente-jpg.webp",
+      "https://imgs.search.brave.com/GEfY2dT5YF90b-f7ap8k0c-y9GrQ3QxPSzQ6FEVluiY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTU3/NDM5MzQxL2VzL2Zv/dG8vYm9zcXVlLWls/dW1pbmFkby1wb3It/ZWwtc29sLW5hY2ll/bnRlLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1OSUhBc2s0/dUxqQXctVUcwa011/U2M1U3QxZC1oMk1y/VnkzLUE0S2wwek9J/PQ",
     postUrl: "/post/5",
     categories: ["Medio Ambiente", "Sostenibilidad"],
   },
