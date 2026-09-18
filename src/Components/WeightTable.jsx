@@ -1,13 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 // eslint-disable-next-line no-unused-vars
 import Chart from "chart.js/auto";
+import "chartjs-adapter-date-fns";
 import Button from "./Button";
 
+const STORAGE_KEY = "weightTracker";
+
+const loadStoredData = () => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : null;
+  } catch {
+    return null;
+  }
+};
+
 const WeightTable = () => {
-  const [weightData, setWeightData] = useState([]);
-  const [rowData, setRowData] = useState([{ date: "", weight: "", i: "" }]);
+  const [weightData, setWeightData] = useState(
+    () => loadStoredData()?.weightData ?? []
+  );
+  const [rowData, setRowData] = useState(() => {
+    const stored = loadStoredData();
+    return stored?.rowData?.length
+      ? stored.rowData
+      : [{ date: "", weight: "", i: "" }];
+  });
   const [dateWarning, setDateWarning] = useState("");
+  const [showEditor, setShowEditor] = useState(() => {
+    const stored = loadStoredData();
+    return !(stored?.weightData?.length > 0);
+  });
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    const [y, m, d] = dateStr.split("-");
+    return `${d}/${m}/${y}`;
+  };
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ rowData, weightData }));
+    } catch {
+      // localStorage no disponible (modo privado, etc.)
+    }
+  }, [rowData, weightData]);
 
   const handleAddRow = () => {
     const newRow = { date: "", weight: "", i: "" };
@@ -47,95 +84,223 @@ const WeightTable = () => {
         weight: parseFloat(row.weight),
       }));
     setWeightData(newWeightData);
+    setShowEditor(false);
   };
 
   const chartData = {
-    labels: weightData.map((data) => data.date),
     datasets: [
       {
         label: "Peso",
-        data: weightData.map((data) => data.weight),
+        data: weightData.map((data) => ({ x: data.date, y: data.weight })),
         fill: true,
+        backgroundColor: "rgba(37, 99, 235, 0.15)",
         borderColor: "rgb(37, 99, 235)",
-        tension: 0.2,
-        pointRadius: 1, // Tamaño de los puntos
-        pointHoverRadius: 3,
+        borderWidth: 2,
+        tension: 0.3,
+        pointRadius: 4,
+        pointBackgroundColor: "rgb(37, 99, 235)",
+        pointHoverRadius: 6,
       },
     ],
   };
 
   const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
+        type: "time",
+        time: {
+          unit: "day",
+          displayFormats: {
+            day: "dd/MM",
+          },
+          tooltipFormat: "dd/MM/yyyy",
+        },
         title: {
           display: true,
           text: "Fecha",
+        },
+        grid: {
+          color: "rgba(30, 58, 138, 0.08)",
         },
       },
       y: {
         title: {
           display: true,
-          text: "Peso",
+          text: "Peso (kg)",
+        },
+        grid: {
+          color: "rgba(30, 58, 138, 0.08)",
+        },
+      },
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: (context) => ` ${context.parsed.y} kg`,
         },
       },
     },
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <table className="w-full mb-4">
-        <thead>
-          <tr>
-            <th className="border p-2">Fecha</th>
-            <th className="border p-2">Peso</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rowData.map((row, index) => (
-            <tr key={index}>
-              <td className="border p-2">
-                <input
-                  type="date"
-                  name="date"
-                  value={row.date}
-                  onChange={(e) => handleInputChange(e, index)}
-                  className="w-full border-gray-300 p-1"
-                />
-              </td>
-              <td className="border p-2">
-                <input
-                  type="number"
-                  name="weight"
-                  value={row.weight}
-                  onChange={(e) => handleInputChange(e, index)}
-                  className="w-full border-gray-300 p-1"
-                />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="pb-16">
+      {showEditor || weightData.length === 0 ? (
+        <section className="bg-white rounded-3xl shadow-lg p-4 md:p-6 mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-black text-blue-900">Registro</h2>
+            {weightData.length > 0 && (
+              <button
+                onClick={() => setShowEditor(false)}
+                className="text-sm font-bold text-blue-800 hover:text-blue-600 transition"
+              >
+                ← Ver datos guardados
+              </button>
+            )}
+          </div>
 
-      {dateWarning && (
-        <p className="text-red-500 font-bold mb-6 py-1 px-4 border border-red-500 rounded text-center">
-          {dateWarning}
-        </p>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-blue-900 text-white">
+                  <th className="p-3 text-left font-bold rounded-l-xl w-1/2">
+                    Fecha
+                  </th>
+                  <th className="p-3 text-left font-bold rounded-r-xl w-1/2">
+                    Peso (kg)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rowData.map((row, index) => (
+                  <tr
+                    key={index}
+                    className="border-b border-blue-900/10 last:border-0"
+                  >
+                    <td className="p-3">
+                      <input
+                        type="date"
+                        name="date"
+                        value={row.date}
+                        onChange={(e) => handleInputChange(e, index)}
+                        className="w-full rounded-lg border border-blue-900/10 bg-blue-50/50 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/40"
+                      />
+                    </td>
+                    <td className="p-3">
+                      <input
+                        type="number"
+                        step="0.1"
+                        name="weight"
+                        value={row.weight}
+                        onChange={(e) => handleInputChange(e, index)}
+                        className="w-full rounded-lg border border-blue-900/10 bg-blue-50/50 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/40"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {dateWarning && (
+            <p className="mt-4 text-red-600 font-bold bg-red-50 border border-red-200 rounded-xl py-2 px-4 text-center">
+              {dateWarning}
+            </p>
+          )}
+
+          <div className="mt-4 flex flex-col sm:flex-row gap-3">
+            <Button
+              type={"green"}
+              onClickValue={handleAddRow}
+              value={"Agregar fila"}
+            />
+            <Button onClickValue={handleSaveData} value={"Guardar cambios"} />
+          </div>
+        </section>
+      ) : (
+        <section className="bg-white rounded-3xl shadow-lg p-4 md:p-6 mb-8">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-xl font-black text-blue-900">
+              Datos guardados
+            </h2>
+            <span className="text-sm font-bold text-blue-900/50">
+              {weightData.length}{" "}
+              {weightData.length === 1 ? "entrada" : "entradas"}
+            </span>
+          </div>
+
+          <div className="max-h-96 overflow-y-auto rounded-xl border border-blue-900/10">
+            <table className="w-full text-sm">
+              <thead className="sticky top-0 bg-blue-900 text-white">
+                <tr>
+                  <th className="p-2 text-left font-bold">#</th>
+                  <th className="p-2 text-left font-bold">Fecha</th>
+                  <th className="p-2 text-left font-bold">Peso (kg)</th>
+                  <th className="p-2 text-left font-bold">Δ</th>
+                </tr>
+              </thead>
+              <tbody>
+                {weightData.map((data, index) => {
+                  const prev = index > 0 ? weightData[index - 1].weight : null;
+                  const delta = prev !== null ? data.weight - prev : null;
+                  return (
+                    <tr
+                      key={index}
+                      className="border-b border-blue-900/5 last:border-0 hover:bg-blue-50/50"
+                    >
+                      <td className="p-2 text-blue-900/40">{index + 1}</td>
+                      <td className="p-2 font-medium text-blue-900">
+                        {formatDate(data.date)}
+                      </td>
+                      <td className="p-2 font-bold text-blue-900">
+                        {data.weight} kg
+                      </td>
+                      <td className="p-2">
+                        {delta !== null && (
+                          <span
+                            className={
+                              delta > 0
+                                ? "text-red-500"
+                                : delta < 0
+                                ? "text-emerald-600"
+                                : "text-blue-900/40"
+                            }
+                          >
+                            {delta > 0 ? "+" : ""}
+                            {delta.toFixed(1)} kg
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          <button
+            onClick={() => setShowEditor(true)}
+            className="mt-4 rounded-full bg-blue-800 text-white font-bold px-6 py-2.5 hover:bg-blue-900 transition active:scale-95"
+          >
+            Añadir / editar datos
+          </button>
+        </section>
       )}
 
-      <div className="flex">
-        <Button
-          type={"green"}
-          onClickValue={handleAddRow}
-          value={"Agregar fila"}
-          className={"mr-2"}
-        />
-
-        <Button onClickValue={handleSaveData} value={"Guardar cambios"} />
-      </div>
-
-      <div className="mt-4">
-        <Line data={chartData} options={chartOptions} />
-      </div>
+      <section className="bg-white rounded-3xl shadow-lg p-4 md:p-6">
+        <h2 className="text-xl font-black text-blue-900 mb-4">Evolución</h2>
+        {weightData.length > 0 ? (
+          <div className="h-80">
+            <Line data={chartData} options={chartOptions} />
+          </div>
+        ) : (
+          <p className="text-blue-900/60 text-center py-16">
+            Añade filas, pulsa "Guardar cambios" y aquí verás la evolución de tu
+            peso.
+          </p>
+        )}
+      </section>
     </div>
   );
 };
