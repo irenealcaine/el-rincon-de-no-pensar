@@ -22,7 +22,7 @@ const socialMedia = [
 
 const Footer = () => {
   return (
-    <footer className="mt-16 text-xl w-fit sticky bottom-0 right-0 flex justify-end px-4 py-1 gap-4 bg-hero bg-large rounded-r-lg border-y-2 border-r-2 border-blue-900">
+    <footer className="fixed bottom-0 right-0 text-xl w-fit flex justify-end px-4 py-1 gap-4 bg-hero bg-large rounded-tl-lg border-t-2 border-l-2 border-blue-900">
       {socialMedia.map((media) => (
         <a
           key={media.href}
