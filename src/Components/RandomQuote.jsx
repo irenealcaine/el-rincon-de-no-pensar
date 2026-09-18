@@ -3,6 +3,23 @@ import Quotes from "../data/Quotes.js";
 import { AiOutlineClose, AiOutlineQuestion } from "react-icons/ai";
 import Button from "./Button.jsx";
 
+const MarqueeLights = () => {
+  const lights = Array.from({ length: 28 });
+  return (
+    <div className="flex justify-between gap-1 px-3 py-2 bg-blue-900/90 rounded-t-3xl border-b border-yellow-400/30">
+      {lights.map((_, index) => (
+        <span
+          key={index}
+          className={`marquee-light w-1.5 h-1.5 rounded-full ${
+            index % 2 === 0 ? "bg-yellow-400" : "bg-blue-300/70"
+          }`}
+          style={{ animationDelay: `${(index % 5) * 0.2}s` }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const RandomQuote = () => {
   const [randomQuote, setRandomQuote] = useState("");
   const [showExplanation, setShowExplanation] = useState(false);
@@ -27,45 +44,69 @@ const RandomQuote = () => {
     setShowExplanation(!showExplanation);
   };
 
+  const quoteNumber = randomQuote
+    ? Quotes.findIndex((quote) => quote === randomQuote) + 1
+    : 0;
+
   return (
-    <div className={`pb-16 flex flex-col items-center justify-start relative`}>
+    <div className="relative flex flex-col items-center justify-start pb-24 pt-2">
       <div
-        className={` w-10/12 md:w-9/12 quote-container ${
+        className={`relative w-11/12 max-w-3xl quote-container ${
           showQuote ? "show" : ""
         }`}
       >
-        {randomQuote && (
-          <div className="px-4 py-2 bg-blue-900 text-white rounded-lg text-center relative">
-            <p
-              className={`text-2xl md:text-6xl uppercase font-bold font-oswald tracking-tighter after:content-['"'] before:content-['"']`}
-            >
-              {randomQuote.quote}
-            </p>
-            <p className="mt-4 mb-8 text-right italic before:content-['-_']">
-              {randomQuote.author}
-            </p>
-            <button
-              className="absolute left-2 bottom-2 mt-8 bg-blue-900 border border-blue-400 hover:text-black duration-500 hover:bg-blue-400  font-bold p-1 rounded-full transition-200"
-              onClick={toggleShowExplanation}
-            >
-              {showExplanation ? <AiOutlineClose /> : <AiOutlineQuestion />}
-            </button>
-            {showExplanation && (
-              <p className="font-oswald mt-8 mb-8 w-full md:w-8/12 mx-auto text-lg md:text-2xl text-blue-100 decoration-blue-600 decoration-2 underline">
-                {randomQuote.inspiration}
+        {randomQuote ? (
+          <div className="quote-card relative bg-blue-900 shadow-2xl rounded-3xl">
+            <MarqueeLights />
+
+            <div className="px-6 md:px-12 py-10 md:py-14 text-center">
+              <p className="text-2xl md:text-4xl lg:text-5xl uppercase font-bold font-oswald tracking-tighter leading-tight text-white">
+                {randomQuote.quote}
               </p>
+            </div>
+
+            <div className="border-t-2 border-dashed border-yellow-400/40 bg-blue-900/60 px-6 py-4 flex flex-wrap items-center justify-between gap-3 rounded-b-3xl">
+              <p className="italic text-blue-100/90 before:content-['—_']">
+                {randomQuote.author}
+              </p>
+              <div className="flex items-center gap-3">
+                <span className="text-blue-200/70 text-xs font-bold tracking-widest">
+                  {quoteNumber}/{Quotes.length}
+                </span>
+                <button
+                  className="bg-blue-900 border border-yellow-400/50 text-yellow-300 hover:bg-yellow-400 hover:text-blue-900 hover:border-yellow-400 duration-500 font-bold p-2 rounded-full transition-200"
+                  onClick={toggleShowExplanation}
+                  title="¿Por qué?"
+                >
+                  {showExplanation ? <AiOutlineClose /> : <AiOutlineQuestion />}
+                </button>
+              </div>
+            </div>
+
+            {showExplanation && (
+              <div className="px-6 md:px-12 py-6 text-center bg-blue-900 rounded-b-3xl">
+                <p className="font-oswald text-lg md:text-xl text-yellow-200">
+                  {randomQuote.inspiration}
+                </p>
+              </div>
             )}
+          </div>
+        ) : (
+          <div className="quote-card relative bg-blue-900 shadow-2xl rounded-3xl">
+            <MarqueeLights />
+            <p className="px-6 py-16 md:py-20 text-center text-blue-200/80 font-bold">
+              El cartel está vacío... pulsa el botón para empezar la proyección.
+            </p>
           </div>
         )}
       </div>
 
-      <Button
-        className={!randomQuote ? "" : "absolute bottom-1 right-4"}
-        onClickValue={() => {
-          generarFraseAleatoria();
-        }}
-        value={!randomQuote ? "Generar frase aleatoria" : "Generar otra frase"}
-      />
+      <div className="mt-12">
+        <Button
+          onClickValue={generarFraseAleatoria}
+          value={randomQuote ? "Generar otra frase" : "Generar frase aleatoria"}
+        />
+      </div>
     </div>
   );
 };
