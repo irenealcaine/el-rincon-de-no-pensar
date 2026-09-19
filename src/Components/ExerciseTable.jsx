@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import Subtitle from "./Subtitle";
 
 const ExerciseTable = () => {
   const [flexiones, setFlexiones] = useState(0);
@@ -33,115 +32,126 @@ const ExerciseTable = () => {
     setMostrarTabla(true);
   };
 
-  const renderTabla = () => {
-    const tabla = [];
-    let flexionesIncremento = 0;
-    let sentadillasIncremento = 0;
-    let abdominalesIncremento = 0;
+  const semanas = [];
+  let flexionesIncremento = 0;
+  let sentadillasIncremento = 0;
+  let abdominalesIncremento = 0;
 
-    for (let semana = 0; semana <= 3; semana++) {
-      const fila = [];
-
-      if (semana >= 1) {
-        flexionesIncremento += flexiones * 0.1;
-        sentadillasIncremento += sentadillas * 0.2;
-        abdominalesIncremento += abdominales * 0.25;
-      }
-      fila.push(
-        <div className="p-4 bg-blue-500/40 border border-blue-300 font-bold md:w-32">
-          {" "}
-          Semana {semana + 1}
-        </div>,
-      );
-
-      for (let dia = 1; dia <= 7; dia++) {
-        if (dia === 3 || dia === 6) {
-          fila.push(
-            <div key={dia} className="p-2 border border-blue-300 md:w-32">
-              <p className="font-bold text-lg">{dias[dia - 1]}</p>
-              <p className="italic">Descanso</p>
-            </div>,
-          );
-        } else {
-          const ejercicio = (
-            <div className="">
-              <p className=" font-bold text-lg">{dias[dia - 1]}</p>
-              {parseInt(flexiones + flexionesIncremento)} flex.
-              <br />
-              {parseInt(sentadillas + sentadillasIncremento)} sent.
-              <br />
-              {parseInt(abdominales + abdominalesIncremento)} abd.
-            </div>
-          );
-          fila.push(
-            <div key={dia} className="p-2 border border-blue-300 md:w-32">
-              {ejercicio}
-            </div>,
-          );
-        }
-      }
-
-      tabla.push(
-        <div key={semana} className="flex flex-col md:flex-row">
-          {fila}
-        </div>,
-      );
+  for (let semana = 0; semana < 4; semana++) {
+    if (semana >= 1) {
+      flexionesIncremento += flexiones * 0.1;
+      sentadillasIncremento += sentadillas * 0.2;
+      abdominalesIncremento += abdominales * 0.25;
     }
+    semanas.push({
+      numero: semana + 1,
+      flexiones: parseInt(flexiones + flexionesIncremento),
+      sentadillas: parseInt(sentadillas + sentadillasIncremento),
+      abdominales: parseInt(abdominales + abdominalesIncremento),
+    });
+  }
 
-    return tabla;
-  };
+  const inputs = [
+    { name: "flexiones", label: "Flexiones", value: flexiones },
+    { name: "sentadillas", label: "Sentadillas", value: sentadillas },
+    { name: "abdominales", label: "Abdominales", value: abdominales },
+  ];
 
   return (
-    <div className="">
-      <Subtitle subtitle={"¿Cuántas repeticiones eres capaz de hacer?"} />
-      <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-4">
-        <label className="w-7/12 md:w-auto">
-          Flexiones:{" "}
-          <input
-            type="number"
-            name="flexiones"
-            value={flexiones}
-            onChange={handleInputChange}
-            className={"px-4 w-full md:w-auto rounded border border-blue-700"}
-          />
-        </label>
-        <label className="w-7/12 md:w-auto">
-          Sentadillas:{" "}
-          <input
-            type="number"
-            name="sentadillas"
-            value={sentadillas}
-            onChange={handleInputChange}
-            className={"px-4 w-full md:w-auto rounded border border-blue-700"}
-          />
-        </label>
-        <label className="w-7/12 md:w-auto">
-          Abdominales:{" "}
-          <input
-            type="number"
-            name="abdominales"
-            value={abdominales}
-            onChange={handleInputChange}
-            className={"px-4 w-full md:w-auto rounded border border-blue-700"}
-          />
-        </label>
+    <div className="pb-16">
+      <section className="bg-white rounded-3xl shadow-lg p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-black text-blue-900">
+          ¿Cuántas repeticiones eres capaz de hacer?
+        </h2>
+        <p className="text-blue-900/60 text-sm mt-1 mb-6">
+          Introduce tus marcas y genera un plan de entrenamiento de 4 semanas.
+        </p>
 
-        <Button onClickValue={generarTabla} value={"Generar tabla"} />
-      </div>
-      {mostrarTabla && (
-        <div className="">
-          <p className="indent-2 mt-4 w-10/12 md:w-7/12 mx-auto">
-            A continuación se muestra una tabla de entrenamiento mde 28 días,
-            donde aumenta la intensidad cada semana
-          </p>
-          <p className="indent-2 mt-2 w-10/12 md:w-7/12 mx-auto">
-            Recuerda que esto es orientativo, yo no tengo ni idea de nada de
-            esto.
-          </p>
-          <div className="mx-auto w-11/12 mt-4 overflow-x-auto">
-            {renderTabla()}
-          </div>
+        <div className="flex flex-col md:flex-row md:items-end gap-4">
+          {inputs.map((input) => (
+            <label key={input.name} className="flex-1 w-full">
+              <span className="block text-sm font-bold text-blue-900/70 mb-1">
+                {input.label}
+              </span>
+              <input
+                type="number"
+                min="0"
+                name={input.name}
+                value={input.value}
+                onChange={handleInputChange}
+                className="w-full rounded-xl border border-blue-900/10 bg-blue-50/50 px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500/40"
+              />
+            </label>
+          ))}
+          <Button onClickValue={generarTabla} value={"Generar tabla"} />
         </div>
+      </section>
+
+      {mostrarTabla && (
+        <section className="bg-white rounded-3xl shadow-lg p-6 md:p-8">
+          <h2 className="text-xl font-black text-blue-900">Tu plan de 28 días</h2>
+          <p className="text-blue-900/60 text-sm mt-1 mb-6">
+            La intensidad aumenta cada semana. Recuerda que esto es orientativo,
+            yo no tengo ni idea de nada de esto.
+          </p>
+
+          <div className="space-y-4">
+            {semanas.map((semana) => (
+              <div
+                key={semana.numero}
+                className="rounded-2xl border border-blue-900/10 overflow-hidden"
+              >
+                <div className="bg-blue-900 text-white px-4 py-2.5 font-black">
+                  Semana {semana.numero}
+                </div>
+                <div className="grid grid-cols-3 sm:grid-cols-7 gap-px bg-blue-900/10">
+                  {dias.map((dia, index) => {
+                    const diaNumero = index + 1;
+                    const descanso = diaNumero === 3 || diaNumero === 6;
+                    return (
+                      <div
+                        key={dia}
+                        className={`p-3 ${
+                          descanso ? "bg-blue-50/70" : "bg-white"
+                        }`}
+                      >
+                        <p className="font-bold text-sm text-blue-900">
+                          {dia}
+                        </p>
+                        {descanso ? (
+                          <p className="italic text-blue-900/40 text-sm mt-1">
+                            Descanso
+                          </p>
+                        ) : (
+                          <div className="mt-1 space-y-0.5 text-sm font-medium">
+                            <p>
+                              <span className="font-bold text-emerald-600">
+                                flex.
+                              </span>{" "}
+                              {semana.flexiones}
+                            </p>
+                            <p>
+                              <span className="font-bold text-sky-600">
+                                sent.
+                              </span>{" "}
+                              {semana.sentadillas}
+                            </p>
+                            <p>
+                              <span className="font-bold text-violet-600">
+                                abd.
+                              </span>{" "}
+                              {semana.abdominales}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );
