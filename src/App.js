@@ -12,7 +12,7 @@ import WeatherApp from "./Pages/WeatherApp";
 import WatchPage from "./Pages/WatchPage";
 import TimerPage from "./Pages/TimerPage";
 import TicTacToeGame from "./Pages/TicTacToeGame";
-import Memory from "./Pages/Memory";
+import MemoryPage from "./Pages/MemoryPage";
 import Idle from "./Pages/Idle";
 import Questions from "./Pages/Questions";
 import WeightTracker from "./Pages/WeightTracker";
@@ -57,7 +57,7 @@ function App() {
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToeGame />} />
-              <Route path="/games/memory" element={<Memory />} />
+              <Route path="/games/memory" element={<MemoryPage />} />
               <Route path="/games/idle" element={<Idle />} />
               <Route path="/games/quiz" element={<Questions />} />
               <Route path="/games/rock-paper-scissors" element={<RPSGame />} />

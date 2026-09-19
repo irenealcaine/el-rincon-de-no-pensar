@@ -1,24 +1,41 @@
 import { AiOutlineQuestion } from "react-icons/ai";
 
 function Card({ item, id, handleClick }) {
+  const flipped = !!item.stat;
+
   return (
-    <div
-      className={`bg-blue-700/20 border-2 border-blue-700 p-4 rounded-xl w-5/12 max-w-[180px] md:w-3/12 lg:w-2/12 aspect-square ${
-        item.stat === "correct" ? "!bg-green-300" : ""
-      } ${item.stat === "wrong" ? "!bg-red-300" : ""}`}
-      onClick={() => {
-        item.stat !== "correct" && handleClick(id);
-      }}
+    <button
+      onClick={() => handleClick(id)}
+      disabled={item.stat === "correct"}
+      className="perspective-600 block w-full aspect-square focus:outline-none"
+      aria-label={flipped ? `Carta ${item.id}` : "Carta boca abajo"}
     >
-      <AiOutlineQuestion
-        className={`text-blue-700 ${!item.stat ? "w-full h-full" : "h-0 w-0"} `}
-      />
-      <img
-        src={item.img}
-        alt="/"
-        className={`${item.stat ? "w-full h-full" : "h-0 w-0"} `}
-      />
-    </div>
+      <div
+        className={`preserve-3d relative w-full h-full transition-transform duration-300 ${
+          flipped ? "rotate-y-180" : ""
+        }`}
+      >
+        <div className="backface-hidden absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-900 shadow-md flex items-center justify-center">
+          <AiOutlineQuestion className="w-1/3 h-1/3 text-blue-100" />
+        </div>
+
+        <div
+          className={`backface-hidden rotate-y-180 absolute inset-0 rounded-2xl border-2 bg-white p-1.5 shadow-md overflow-hidden ${
+            item.stat === "correct"
+              ? "border-emerald-400 ring-2 ring-emerald-300"
+              : item.stat === "wrong"
+              ? "border-red-400 ring-2 ring-red-300"
+              : "border-blue-200"
+          }`}
+        >
+          <img
+            src={item.img}
+            alt="Carta"
+            className="w-full h-full object-contain rounded-xl"
+          />
+        </div>
+      </div>
+    </button>
   );
 }
 
