@@ -101,3 +101,18 @@ html {
 .floaty {
   animation: floaty-up 0.7s ease-out forwards;
 }
+
+@keyframes cell-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cell-pop {
+  animation: cell-pop 0.18s ease-out;
+}

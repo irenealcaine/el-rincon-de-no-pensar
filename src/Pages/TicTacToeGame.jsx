@@ -18,9 +18,7 @@ const TicTacToeGame = () => {
           backTo={"/games"}
           backLabel={"Volver a juegos"}
         />
-        <div className="flex flex-wrap flex-col md:flex-row items-center md:justify-center gap-4 md:gap-6 lg:gap-8">
-          <TicTacToe />
-        </div>
+        <TicTacToe />
       </main>
       <Footer />
     </div>
