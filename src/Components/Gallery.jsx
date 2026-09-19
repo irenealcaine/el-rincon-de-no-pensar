@@ -20,7 +20,7 @@ const Modal = ({ onClose, photos, index, onNavigate }) => {
 
   return (
     <div
-      className="fixed inset-0 z-20 flex items-center justify-center p-4 md:p-10"
+      className="fixed inset-0 z-20 flex items-center justify-center pl-16 md:pl-20 p-4 md:p-10"
       onClick={onClose}
     >
       <div className="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-md" />
@@ -40,7 +40,7 @@ const Modal = ({ onClose, photos, index, onNavigate }) => {
             onNavigate(index - 1);
           }}
           title="Anterior"
-          className="absolute left-2 md:left-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
+          className="absolute left-14 md:left-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
         >
           <FiChevronLeft size={28} />
         </button>
