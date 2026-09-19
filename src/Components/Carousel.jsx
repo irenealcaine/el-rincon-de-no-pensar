@@ -1,13 +1,27 @@
-import React, { useState } from "react";
-import { RiArrowLeftSFill } from "react-icons/ri";
-import { RiArrowRightSFill } from "react-icons/ri";
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  RiArrowLeftSFill,
+  RiArrowRightSFill,
+  RiShuffleLine,
+  RiPauseLine,
+  RiPlayLine,
+} from "react-icons/ri";
 
-const Carousel = ({ images }) => {
+const generateImages = (count = 6) =>
+  Array.from(
+    { length: count },
+    () =>
+      `https://picsum.photos/seed/${Math.random().toString(36).slice(2)}/1200/675`
+  );
+
+const Carousel = () => {
+  const [images, setImages] = useState(() => generateImages());
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
   const previousImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -15,25 +29,92 @@ const Carousel = ({ images }) => {
     );
   };
 
+  const shuffle = () => {
+    setImages(generateImages());
+    setCurrentImageIndex(0);
+  };
+
+  useEffect(() => {
+    if (!autoplay) return;
+    const interval = setInterval(nextImage, 3500);
+    return () => clearInterval(interval);
+  }, [autoplay, nextImage]);
+
   return (
-    <div className="relative w-10/12 mx-auto">
-      <img
-        src={images[currentImageIndex]}
-        alt="Carousel"
-        className="w-full aspect-video bg-cover rounded-xl shadow"
-      />
-      <button
-        className="absolute top-1/2 left-4 transform duration-200 -translate-y-1/2 bg-blue-500/80 hover:bg-blue-700/80 text-white p-2 rounded-full"
-        onClick={previousImage}
-      >
-        <RiArrowLeftSFill />
-      </button>
-      <button
-        className="absolute top-1/2 right-4 transform duration-200 -translate-y-1/2 bg-blue-500/80 hover:bg-blue-700/80 text-white p-2 rounded-full"
-        onClick={nextImage}
-      >
-        <RiArrowRightSFill />
-      </button>
+    <div className="w-full">
+      <div className="relative overflow-hidden rounded-3xl shadow-xl">
+        <div className="aspect-video bg-blue-200">
+          <img
+            key={currentImageIndex}
+            src={images[currentImageIndex]}
+            alt={`Foto ${currentImageIndex + 1}`}
+            className="carousel-fade w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+
+        <span className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-white/90 text-blue-900 text-xs font-bold">
+          {currentImageIndex + 1} / {images.length}
+        </span>
+
+        <button
+          onClick={previousImage}
+          title="Anterior"
+          className="absolute top-1/2 -translate-y-1/2 left-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90"
+        >
+          <RiArrowLeftSFill size={26} />
+        </button>
+        <button
+          onClick={nextImage}
+          title="Siguiente"
+          className="absolute top-1/2 -translate-y-1/2 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90"
+        >
+          <RiArrowRightSFill size={26} />
+        </button>
+      </div>
+
+      <div className="mt-4 flex justify-center gap-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            title={`Ir a la foto ${index + 1}`}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              index === currentImageIndex
+                ? "w-8 bg-blue-800"
+                : "w-2.5 bg-blue-900/20 hover:bg-blue-900/40"
+            }`}
+          />
+        ))}
+      </div>
+
+      <div className="mt-4 flex flex-wrap justify-center gap-3">
+        <button
+          onClick={shuffle}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-violet-500 hover:bg-violet-600 text-white font-bold transition duration-200 active:scale-95"
+        >
+          <RiShuffleLine /> Barajar
+        </button>
+        <button
+          onClick={() => setAutoplay(!autoplay)}
+          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold transition duration-200 active:scale-95 ${
+            autoplay
+              ? "bg-blue-800 hover:bg-blue-900 text-white"
+              : "bg-white text-blue-900 border border-blue-900/10 hover:bg-blue-50"
+          }`}
+        >
+          {autoplay ? (
+            <>
+              <RiPauseLine /> Pausar
+            </>
+          ) : (
+            <>
+              <RiPlayLine /> Reproducir
+            </>
+          )}
+        </button>
+      </div>
     </div>
   );
 };
