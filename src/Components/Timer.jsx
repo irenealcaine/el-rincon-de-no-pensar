@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useInterval from "../Hooks/useInterval";
 import Button from "./Button";
-import Footer from "./Footer";
-import Header from "./Header";
-import PageIntro from "./PageIntro";
 import { FiPlay, FiPause, FiRotateCcw, FiSkipForward } from "react-icons/fi";
 
 const STORAGE_KEY = "pomodoroCounter";
@@ -100,141 +97,125 @@ const Timer = () => {
   const ringOffset = circumference * (1 - fraction);
 
   return (
-    <div className="min-h-screen bg-blue-100">
-      <Header title={"Temporizador pomodoro"} />
-      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
-        <PageIntro
-          tagline={"~ concéntrate ~"}
-          title={"Temporizador pomodoro"}
-          description={
-            "Gestiona intervalos de trabajo y descanso con la técnica pomodoro."
-          }
-          backTo={"/components"}
-          backLabel={"Volver a componentes"}
-        />
+    <section className="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-10">
+      <div className="flex flex-col items-center">
+        <span
+          className={`px-4 py-1.5 rounded-full text-sm font-bold transition-colors duration-500 ${
+            isRestInterval
+              ? "bg-violet-100 text-violet-700"
+              : "bg-emerald-100 text-emerald-700"
+          }`}
+        >
+          {isRestInterval ? "Descanso" : "Trabajo"}
+        </span>
 
-        <section className="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-10">
-          <div className="flex flex-col items-center">
-            <span
-              className={`px-4 py-1.5 rounded-full text-sm font-bold transition-colors duration-500 ${
-                isRestInterval
-                  ? "bg-violet-100 text-violet-700"
-                  : "bg-emerald-100 text-emerald-700"
-              }`}
-            >
-              {isRestInterval ? "Descanso" : "Trabajo"}
+        <div className="relative mt-6">
+          <svg
+            viewBox="0 0 280 280"
+            className="w-64 h-64 md:w-72 md:h-72 -rotate-90"
+          >
+            <circle
+              cx="140"
+              cy="140"
+              r={radius}
+              fill="none"
+              stroke="#e2e8f0"
+              strokeWidth="12"
+            />
+            <circle
+              cx="140"
+              cy="140"
+              r={radius}
+              fill="none"
+              stroke={isRestInterval ? "#8b5cf6" : "#10b981"}
+              strokeWidth="12"
+              strokeLinecap="round"
+              strokeDasharray={circumference}
+              strokeDashoffset={ringOffset}
+              style={{ transition: "stroke-dashoffset 1s linear" }}
+            />
+          </svg>
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className="font-oswald text-5xl md:text-6xl font-bold text-blue-900 tabular-nums">
+              {formatTime(timeLeft)}
             </span>
-
-            <div className="relative mt-6">
-              <svg
-                viewBox="0 0 280 280"
-                className="w-64 h-64 md:w-72 md:h-72 -rotate-90"
-              >
-                <circle
-                  cx="140"
-                  cy="140"
-                  r={radius}
-                  fill="none"
-                  stroke="#e2e8f0"
-                  strokeWidth="12"
-                />
-                <circle
-                  cx="140"
-                  cy="140"
-                  r={radius}
-                  fill="none"
-                  stroke={isRestInterval ? "#8b5cf6" : "#10b981"}
-                  strokeWidth="12"
-                  strokeLinecap="round"
-                  strokeDasharray={circumference}
-                  strokeDashoffset={ringOffset}
-                  style={{ transition: "stroke-dashoffset 1s linear" }}
-                />
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-oswald text-5xl md:text-6xl font-bold text-blue-900 tabular-nums">
-                  {formatTime(timeLeft)}
-                </span>
-                <span className="mt-1 text-sm font-bold text-blue-900/50">
-                  {pomodoros} {pomodoros === 1 ? "pomodoro" : "pomodoros"}
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full max-w-md">
-              <Button
-                type={isActive ? "red" : "green"}
-                onClickValue={handleStartStopClick}
-                value={
-                  isActive ? (
-                    <span className="inline-flex items-center gap-2">
-                      <FiPause /> Pausar
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-2">
-                      <FiPlay /> Iniciar
-                    </span>
-                  )
-                }
-                className={"w-full"}
-              />
-              <Button
-                type={"gray"}
-                onClickValue={handleResetClick}
-                value={
-                  <span className="inline-flex items-center gap-2">
-                    <FiRotateCcw /> Reiniciar
-                  </span>
-                }
-                className={"w-full"}
-              />
-              <Button
-                type={"violet"}
-                onClickValue={handleSkipClick}
-                value={
-                  <span className="inline-flex items-center gap-2">
-                    <FiSkipForward /> Saltar
-                  </span>
-                }
-                className={"w-full"}
-              />
-            </div>
-
-            <div className="mt-8 w-full max-w-md grid grid-cols-2 gap-4">
-              <label className="block">
-                <span className="block text-sm font-bold text-blue-900/70 mb-1">
-                  Trabajo (min)
-                </span>
-                <input
-                  type="number"
-                  min="1"
-                  name="work"
-                  value={workInterval}
-                  onChange={handleIntervalChange}
-                  disabled={isActive}
-                  className="w-full rounded-xl border border-blue-900/10 bg-blue-50/50 px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-50"
-                />
-              </label>
-              <label className="block">
-                <span className="block text-sm font-bold text-blue-900/70 mb-1">
-                  Descanso (min)
-                </span>
-                <input
-                  type="number"
-                  min="1"
-                  name="rest"
-                  value={restInterval}
-                  onChange={handleIntervalChange}
-                  disabled={isActive}
-                  className="w-full rounded-xl border border-blue-900/10 bg-blue-50/50 px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-50"
-                />
-              </label>
-            </div>
+            <span className="mt-1 text-sm font-bold text-blue-900/50">
+              {pomodoros} {pomodoros === 1 ? "pomodoro" : "pomodoros"}
+            </span>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+        </div>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full max-w-md">
+          <Button
+            type={isActive ? "red" : "green"}
+            onClickValue={handleStartStopClick}
+            value={
+              isActive ? (
+                <span className="inline-flex items-center gap-2">
+                  <FiPause /> Pausar
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-2">
+                  <FiPlay /> Iniciar
+                </span>
+              )
+            }
+            className={"w-full"}
+          />
+          <Button
+            type={"gray"}
+            onClickValue={handleResetClick}
+            value={
+              <span className="inline-flex items-center gap-2">
+                <FiRotateCcw /> Reiniciar
+              </span>
+            }
+            className={"w-full"}
+          />
+          <Button
+            type={"violet"}
+            onClickValue={handleSkipClick}
+            value={
+              <span className="inline-flex items-center gap-2">
+                <FiSkipForward /> Saltar
+              </span>
+            }
+            className={"w-full"}
+          />
+        </div>
+
+        <div className="mt-8 w-full max-w-md grid grid-cols-2 gap-4">
+          <label className="block">
+            <span className="block text-sm font-bold text-blue-900/70 mb-1">
+              Trabajo (min)
+            </span>
+            <input
+              type="number"
+              min="1"
+              name="work"
+              value={workInterval}
+              onChange={handleIntervalChange}
+              disabled={isActive}
+              className="w-full rounded-xl border border-blue-900/10 bg-blue-50/50 px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-50"
+            />
+          </label>
+          <label className="block">
+            <span className="block text-sm font-bold text-blue-900/70 mb-1">
+              Descanso (min)
+            </span>
+            <input
+              type="number"
+              min="1"
+              name="rest"
+              value={restInterval}
+              onChange={handleIntervalChange}
+              disabled={isActive}
+              className="w-full rounded-xl border border-blue-900/10 bg-blue-50/50 px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-50"
+            />
+          </label>
+        </div>
+      </div>
+    </section>
   );
 };
 

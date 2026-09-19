@@ -9,8 +9,8 @@ import Projects from "./Pages/Projects";
 import RandomQuotes from "./Pages/RandomQuotes";
 import BlogPostDetail from "./Pages/BlogPostDetail";
 import WeatherApp from "./Pages/WeatherApp";
-import Timer from "./Components/Timer";
-import Watch from "./Components/Watch";
+import WatchPage from "./Pages/WatchPage";
+import TimerPage from "./Pages/TimerPage";
 import TicTacToeGame from "./Pages/TicTacToeGame";
 import Memory from "./Pages/Memory";
 import Idle from "./Pages/Idle";
@@ -47,8 +47,8 @@ function App() {
               <Route path="/projects/gallery" element={<GalleryPage />} />
 
               <Route path="/components" element={<Components />} />
-              <Route path="/components/watch" element={<Watch />} />
-              <Route path="/components/timer" element={<Timer />} />
+              <Route path="/components/watch" element={<WatchPage />} />
+              <Route path="/components/timer" element={<TimerPage />} />
               <Route
                 path="/components/calculator"
                 element={<CalculatorPage />}
