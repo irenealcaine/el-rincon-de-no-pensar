@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const formatNumber = (n) => {
+  if (n >= 1e21) return n.toExponential(4) + "G";
   if (n >= 1e9) return (n / 1e9).toFixed(1) + "G";
   if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
   if (n >= 1e3) return (n / 1e3).toFixed(1) + "k";
   if (Number.isInteger(n)) return String(n);
-  return n.toFixed(2);
+  return n.toFixed(4).replace(/\.?0+$/, "");
 };
 
 const PurchaseItem = ({ title, level, cost, onBuy, disabled, children }) => (
