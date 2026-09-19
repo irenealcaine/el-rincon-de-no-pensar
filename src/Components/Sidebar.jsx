@@ -17,6 +17,22 @@ const Sidebar = () => {
     return location.pathname === menuItem.to;
   };
 
+  const toggleSection = (section) => {
+    if (section === "Juegos") {
+      setGamesSubMenuOpen((prev) => !prev);
+      setProjectsSubMenuOpen(true);
+      setComponentsSubMenuOpen(true);
+    } else if (section === "Proyectos") {
+      setProjectsSubMenuOpen((prev) => !prev);
+      setGamesSubMenuOpen(true);
+      setComponentsSubMenuOpen(true);
+    } else if (section === "Componentes") {
+      setComponentsSubMenuOpen((prev) => !prev);
+      setGamesSubMenuOpen(true);
+      setProjectsSubMenuOpen(true);
+    }
+  };
+
   return (
     <div className="flex z-10 top-0 left-0 fixed md:relative">
       <div
@@ -58,14 +74,7 @@ const Sidebar = () => {
                 className={`relative text-white font-semibold text-lg flex items-center gap-x-3 cursor-pointer p-2 hover:bg-white/10 hover:text-white duration-200 mt-4 rounded-xl ${
                   isCurrentPage(menuItem) && "bg-blue-500 text-white shadow-lg"
                 } ${!open && "justify-center px-0"}`}
-                onClick={() =>
-                  menuItem.title === "Juegos"
-                    ? setGamesSubMenuOpen(!gamesSubMenuOpen)
-                    : menuItem.title === "Proyectos"
-                    ? setProjectsSubMenuOpen(!projectsSubMenuOpen)
-                    : menuItem.title === "Componentes" &&
-                      setComponentsSubMenuOpen(!componentsSubMenuOpen)
-                }
+                onClick={() => toggleSection(menuItem.title)}
               >
                 <span
                   className={`${
