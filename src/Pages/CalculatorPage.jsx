@@ -2,24 +2,24 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Calculator from "../Components/Calculator";
-import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
+import PageIntro from "../Components/PageIntro";
 
 const CalculatorPage = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"Calculadora"} />
-      <Button
-        type={"violet"}
-        className={"ml-8"}
-        onClickValue={() => {
-          navigate("/components");
-        }}
-        value={"Componentes"}
-      />
-      <Calculator />
+      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+        <PageIntro
+          tagline={"~ echa cuentas ~"}
+          title={"Calculadora"}
+          description={
+            "Una calculadora sencilla hecha con React y Tailwind para operaciones del día a día."
+          }
+          backTo={"/components"}
+          backLabel={"Volver a componentes"}
+        />
+        <Calculator />
+      </main>
       <Footer />
     </div>
   );

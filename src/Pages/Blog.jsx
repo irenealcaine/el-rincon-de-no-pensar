@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import Header from "../Components/Header";
 import BlogPosts from "../Components/BlogPosts";
 import FeaturedPost from "../Components/FeaturedPost";
+import PageIntro from "../Components/PageIntro";
 import Posts from "../data/Posts.js";
 import categoryColors from "../data/categoryColors.js";
 import Footer from "../Components/Footer";
-import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
 import { FiSearch, FiCheck } from "react-icons/fi";
 
 const Blog = () => {
-  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [search, setSearch] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -47,25 +45,15 @@ const Blog = () => {
       <Header title={"Blog"} />
 
       <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
-        <section className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-8 mb-10">
-          <div>
-            <p className="font-['Cherry_Bomb_One'] text-blue-800/70 text-base tracking-wide">
-              ~ apuntes, ideas y reflexiones ~
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black text-blue-900 mt-1 leading-tight">
-              Artículos del rincón
-            </h2>
-            <p className="text-blue-900/60 mt-2 max-w-xl">
-              Una colección de escritos sobre salud, viajes, finanzas y
-              sostenibilidad para curiosear y aprender.
-            </p>
-          </div>
-          <Button
-            type={"violet"}
-            onClickValue={() => navigate("/projects")}
-            value={"Ver proyectos"}
-          />
-        </section>
+        <PageIntro
+          tagline={"~ apuntes, ideas y reflexiones ~"}
+          title={"Artículos del rincón"}
+          description={
+            "Una colección de escritos sobre salud, viajes, finanzas y sostenibilidad para curiosear y aprender."
+          }
+          backTo={"/projects"}
+          backLabel={"Ver proyectos"}
+        />
 
         <section className="flex flex-col lg:flex-row lg:items-center gap-4 mb-10">
           <div className="flex flex-wrap gap-2">

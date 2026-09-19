@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
+import PageIntro from "./PageIntro";
 
 const Watch = () => {
-  const navigate = useNavigate();
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -24,40 +22,43 @@ const Watch = () => {
   return (
     <div className="min-h-screen bg-blue-100">
       <Header title={"Reloj"} />
-      <Button
-        type={"violet"}
-        className={"ml-8 mb-4"}
-        onClickValue={() => {
-          navigate("/components");
-        }}
-        value={"Componentes"}
-      />
-      <div className="h-full flex justify-center items-center">
-        <div className="relative w-72 h-72 rounded-full border-4 border-blue-500 bg-white">
-          <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-16 bg-blue-700 rounded transform -translate-x-1/2 translate-y-full"
-            style={{
-              transform: `rotate(${hourDegrees}deg)`,
-              transformOrigin: "top",
-            }}
-          />
-          <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-28 bg-blue-700 rounded "
-            style={{
-              transform: `rotate(${minuteDegrees}deg)`,
-              transformOrigin: "top",
-            }}
-          />
-          <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-blue-200 rounded transform -translate-x-1/2 translate-y-full"
-            style={{
-              transform: `rotate(${secondDegrees}deg)`,
-              transformOrigin: "top",
-            }}
-          />
-          <div className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-blue-100 transform -translate-x-1/2 -translate-y-1/2" />
+      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+        <PageIntro
+          tagline={"~ ¿qué hora es? ~"}
+          title={"Reloj"}
+          description={
+            "Un reloj analógico hecho con React que marca la hora en tiempo real."
+          }
+          backTo={"/components"}
+          backLabel={"Volver a componentes"}
+        />
+        <div className="h-full flex justify-center items-center">
+          <div className="relative w-72 h-72 rounded-full border-4 border-blue-500 bg-white">
+            <div
+              className="absolute top-1/2 left-1/2 w-0.5 h-16 bg-blue-700 rounded transform -translate-x-1/2 translate-y-full"
+              style={{
+                transform: `rotate(${hourDegrees}deg)`,
+                transformOrigin: "top",
+              }}
+            />
+            <div
+              className="absolute top-1/2 left-1/2 w-0.5 h-28 bg-blue-700 rounded "
+              style={{
+                transform: `rotate(${minuteDegrees}deg)`,
+                transformOrigin: "top",
+              }}
+            />
+            <div
+              className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-blue-200 rounded transform -translate-x-1/2 translate-y-full"
+              style={{
+                transform: `rotate(${secondDegrees}deg)`,
+                transformOrigin: "top",
+              }}
+            />
+            <div className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-blue-100 transform -translate-x-1/2 -translate-y-1/2" />
+          </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

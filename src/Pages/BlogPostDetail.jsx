@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import BlogPosts from "../Components/BlogPosts";
+import BackButton from "../Components/BackButton";
 import Posts from "../data/Posts";
 import categoryColors from "../data/categoryColors";
 import { FiArrowLeft, FiArrowRight, FiSearch } from "react-icons/fi";
@@ -27,13 +28,9 @@ const BlogPostDetail = () => {
           <p className="mt-5 text-2xl font-bold text-blue-900">
             Lo sentimos, no existe ningún post con ese identificador.
           </p>
-          <button
-            onClick={() => navigate("/projects/blog")}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-blue-800 text-white font-bold px-6 py-3 hover:bg-blue-900 transition active:scale-95"
-          >
-            <FiArrowLeft />
+          <BackButton to={"/projects/blog"} className="mt-6">
             Volver al blog
-          </button>
+          </BackButton>
         </main>
         <Footer />
       </div>
@@ -55,13 +52,9 @@ const BlogPostDetail = () => {
       <Header title={"Blog"} />
 
       <main className="max-w-3xl mx-auto px-4 md:px-8 pb-16">
-        <button
-          onClick={() => navigate("/projects/blog")}
-          className="mt-8 inline-flex items-center gap-2 font-bold text-blue-900/70 hover:text-blue-800 transition"
-        >
-          <FiArrowLeft />
+        <BackButton to={"/projects/blog"} className="mt-8">
           Volver al blog
-        </button>
+        </BackButton>
 
         <div className="mt-6 flex flex-wrap gap-2">
           {post.categories.map((category, index) => (

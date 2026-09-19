@@ -2,12 +2,9 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Gallery from "../Components/Gallery";
-import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
+import PageIntro from "../Components/PageIntro";
 
 const GalleryPage = () => {
-  const navigate = useNavigate();
-
   const photos = [
     {
       id: 1,
@@ -54,15 +51,18 @@ const GalleryPage = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"Galería de fotos"} />
-      <Button
-        type={"violet"}
-        className={"ml-8"}
-        onClickValue={() => {
-          navigate("/projects");
-        }}
-        value={"Proyectos"}
-      />
-      <Gallery photos={photos} />
+      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+        <PageIntro
+          tagline={"~ una imagen vale más que mil palabras ~"}
+          title={"Galería de fotos"}
+          description={
+            "Una galería de fotos con filtros para verlas por categoría."
+          }
+          backTo={"/projects"}
+          backLabel={"Volver a proyectos"}
+        />
+        <Gallery photos={photos} />
+      </main>
       <Footer />
     </div>
   );

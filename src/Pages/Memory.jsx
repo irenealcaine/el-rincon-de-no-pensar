@@ -3,10 +3,9 @@ import Header from "../Components/Header";
 import Card from "../Components/Card";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
-import { useNavigate } from "react-router-dom";
+import PageIntro from "../Components/PageIntro";
 
 const Memory = () => {
-  const navigate = useNavigate();
   const [items, setItems] = useState(
     [
       {
@@ -124,15 +123,17 @@ const Memory = () => {
   return (
     <div className="bg-blue-100 min-h-screen pb-8">
       <Header title={"Memoria"} />
-      <Button
-        type={"violet"}
-        className={"ml-8"}
-        onClickValue={() => {
-          navigate("/games");
-        }}
-        value={"Juegos"}
-      />
-      <div className="flex flex-wrap gap-4 justify-center p-8">
+      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+        <PageIntro
+          tagline={"~ memoriza y encuentra ~"}
+          title={"Parejas"}
+          description={
+            "Encuentra todas las parejas de cartas. Mejor suerte que memoria."
+          }
+          backTo={"/games"}
+          backLabel={"Volver a juegos"}
+        />
+        <div className="flex flex-wrap gap-4 justify-center p-8">
         {items.map((item, index) => (
           <Card key={index} item={item} id={index} handleClick={handleClick} />
         ))}
@@ -146,6 +147,7 @@ const Memory = () => {
           />
         </div>
       )}
+      </main>
       <Footer />
     </div>
   );

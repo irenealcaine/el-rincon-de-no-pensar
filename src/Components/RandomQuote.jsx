@@ -49,7 +49,14 @@ const RandomQuote = () => {
     : 0;
 
   return (
-    <div className="relative flex flex-col items-center justify-start pb-24 pt-2">
+    <div className="relative flex flex-col items-center justify-start pt-2">
+      <div className="mb-8">
+        <Button
+          onClickValue={generarFraseAleatoria}
+          value={randomQuote ? "Generar otra frase" : "Generar frase aleatoria"}
+        />
+      </div>
+
       <div
         className={`relative w-11/12 max-w-3xl quote-container ${
           showQuote ? "show" : ""
@@ -99,13 +106,6 @@ const RandomQuote = () => {
             </p>
           </div>
         )}
-      </div>
-
-      <div className="mt-12">
-        <Button
-          onClickValue={generarFraseAleatoria}
-          value={randomQuote ? "Generar otra frase" : "Generar frase aleatoria"}
-        />
       </div>
     </div>
   );

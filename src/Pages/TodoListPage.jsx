@@ -2,23 +2,24 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import TodoList from "../Components/TodoList";
-import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
+import PageIntro from "../Components/PageIntro";
 
 const TodoListPage = () => {
-  const navigate = useNavigate();
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header title={"Lista de tareas"} />
-      <Button
-        type={"violet"}
-        className={"ml-8"}
-        onClickValue={() => {
-          navigate("/projects");
-        }}
-        value={"Proyectos"}
-      />
-      <TodoList />
+      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+        <PageIntro
+          tagline={"~ pendiente o hecho ~"}
+          title={"Lista de tareas"}
+          description={
+            "Organiza tus tareas y ve cumpliéndolas una a una. Si no está en la lista, no existe."
+          }
+          backTo={"/projects"}
+          backLabel={"Volver a proyectos"}
+        />
+        <TodoList />
+      </main>
       <Footer />
     </div>
   );
