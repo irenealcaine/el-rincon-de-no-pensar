@@ -18,30 +18,30 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex z-10 top-0 left-0 fixed md:relative font-caveat">
+    <div className="flex z-10 top-0 left-0 fixed md:relative">
       <div
         className={`${
           open ? "w-60" : "w-12"
-        } duration-200 h-screen p-2 pt-8 bg-blue-700 sticky top-0 left-0`}
+        } duration-300 h-screen p-2 pt-8 bg-gradient-to-b from-blue-700 to-blue-900 shadow-2xl sticky top-0 left-0`}
       >
         <FaArrowLeft
-          className={` duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-blue-200 border-2 border-blue-900 bg-blue-700 ${
+          className={`duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-blue-100 border-2 border-blue-500 bg-blue-800 shadow-md hover:scale-110 hover:bg-blue-900 ${
             !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
         />
         <Link
           to={"/"}
-          className="flex items-center duration-200 hover:bg-blue-400 rounded-md text-blue-100 hover:text-blue-900"
+          className="flex items-center duration-200 hover:bg-white/10 rounded-xl text-blue-100 hover:text-white"
         >
-          <div className="flex gap-x-4 items-center ">
+          <div className="flex gap-x-3 items-center px-1">
             <GiSofa
-              className={`duration-500 w-8 h-8  p-1 ${
+              className={`duration-500 w-8 h-8 p-1 ${
                 open && "rotate-[360deg] md:w-12 md:h-12"
               }`}
             />
             <p
-              className={` origin-left font-medium text-3xl duration-200  ${
+              className={`origin-left font-bold text-2xl duration-200 ${
                 !open && "scale-0"
               }`}
             >
@@ -55,9 +55,9 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className={`relative text-white text-bold text-lg flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 duration-200 mt-4 rounded-md ${
-                  isCurrentPage(menuItem) && "bg-blue-500"
-                }`}
+                className={`relative text-white font-semibold text-lg flex items-center gap-x-3 cursor-pointer p-2 hover:bg-white/10 hover:text-white duration-200 mt-4 rounded-xl ${
+                  isCurrentPage(menuItem) && "bg-blue-500 text-white shadow-lg"
+                } ${!open && "justify-center px-0"}`}
                 onClick={() =>
                   menuItem.title === "Juegos"
                     ? setGamesSubMenuOpen(!gamesSubMenuOpen)
@@ -67,7 +67,13 @@ const Sidebar = () => {
                       setComponentsSubMenuOpen(!componentsSubMenuOpen)
                 }
               >
-                {menuItem.icon}
+                <span
+                  className={`${
+                    isCurrentPage(menuItem) ? "text-white" : "text-blue-200"
+                  }`}
+                >
+                  {menuItem.icon}
+                </span>
                 <span
                   className={`${!open && "hidden"} origin-left duration-200`}
                 >
@@ -75,8 +81,7 @@ const Sidebar = () => {
                 </span>
                 {menuItem.links && (
                   <BsFillCaretUpFill
-                    className={`duration-200 cursor-pointer w-6 h-4 hover:h-6 absolute right-2
-                    ${
+                    className={`duration-200 cursor-pointer w-6 h-4 absolute right-2 ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "rotate-180"
                         : menuItem.title === "Proyectos"
@@ -93,7 +98,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={`mt-0.5 text-blue-200 flex items-center gap-x-4 cursor-pointer p-1 hover:bg-blue-400 hover:text-blue-900 rounded-md duration-200  ${
+                    className={`mt-0.5 text-blue-200/90 flex items-center gap-x-3 cursor-pointer p-1.5 hover:bg-white/10 hover:text-white rounded-lg duration-200 ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "hidden"
                         : menuItem.title === "Proyectos"
@@ -101,7 +106,7 @@ const Sidebar = () => {
                         : menuItem.title === "Componentes" &&
                           componentsSubMenuOpen &&
                           "hidden"
-                    } ${isCurrentPage(link) && "bg-blue-500"}`}
+                    } ${isCurrentPage(link) && "bg-blue-500 text-white"}`}
                   >
                     <span className={`${!open ? "mx-auto" : "ml-6"}`}>
                       {link.icon}
