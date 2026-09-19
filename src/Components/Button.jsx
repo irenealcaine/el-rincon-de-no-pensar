@@ -3,24 +3,24 @@ const Button = ({ type, className, onClickValue, value, disabled }) => {
 
   switch (type) {
     case "green":
-      color = "bg-green-500 hover:bg-green-900 hover:text-green-100";
+      color = "bg-green-500 hover:bg-green-600";
       break;
     case "red":
-      color = "bg-red-500 hover:bg-red-900 hover:text-red-100";
+      color = "bg-red-500 hover:bg-red-600";
       break;
     case "gray":
-      color = "bg-gray-500 hover:text-red-200";
+      color = "bg-gray-400 hover:bg-gray-500";
       break;
     case "violet":
-      color = "bg-violet-500 hover:bg-violet-900 hover:text-violet-100";
+      color = "bg-violet-500 hover:bg-violet-600";
       break;
     default:
-      color = "bg-blue-500 hover:bg-blue-900 hover:text-blue-100";
+      color = "bg-blue-500 hover:bg-blue-600";
   }
 
   return (
     <button
-      className={`transition duration-200 text-white font-bold py-2 px-8 rounded active:scale-95 ${color} ${className}`}
+      className={`transition-all duration-200 text-white font-bold py-2.5 px-6 rounded-full shadow-sm hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${color} ${className}`}
       onClick={onClickValue}
       disabled={disabled}
     >
