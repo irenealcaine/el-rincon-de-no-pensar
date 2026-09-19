@@ -40,3 +40,31 @@ html {
   color: #fde047;
   text-shadow: 0 0 8px rgba(253, 224, 71, 0.75), 0 0 26px rgba(253, 224, 71, 0.35);
 }
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-backdrop {
+  animation: modal-fade-in 0.2s ease-out;
+}
+
+.modal-image {
+  animation: modal-zoom-in 0.25s ease-out;
+}

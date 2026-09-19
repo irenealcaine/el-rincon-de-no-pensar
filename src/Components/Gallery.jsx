@@ -1,25 +1,84 @@
-import React, { useState } from "react";
-import Button from "./Button";
+import React, { useState, useEffect } from "react";
+import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const Modal = ({ isOpen, onClose, imgSrc }) => {
+const Modal = ({ onClose, photos, index, onNavigate }) => {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onNavigate(index + 1);
+      if (e.key === "ArrowLeft") onNavigate(index - 1);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [index, onClose, onNavigate]);
+
+  const photo = photos[index];
+
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-10 ${isOpen ? "" : "hidden"
-        }`}
+      className="fixed inset-0 z-20 flex items-center justify-center p-4 md:p-10"
+      onClick={onClose}
     >
-      <div className="absolute inset-0 bg-gray-900/90"></div>
-      <div className="pl-20 pr-8 pb-8 pt-16 z-20 w-full h-screen">
-        <img alt={""} src={imgSrc} className={"mx-auto my-auto rounded-xl max-h-full object-contain border-4 border-blue-200"} />
-        <Button type={"red"} value={"Cerrar"} onClickValue={onClose} className={"absolute right-2 top-2"} />
-      </div>
+      <div className="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-md" />
+
+      <button
+        onClick={onClose}
+        title="Cerrar"
+        className="absolute right-4 top-4 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
+      >
+        <FiX size={22} />
+      </button>
+
+      {index > 0 && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onNavigate(index - 1);
+          }}
+          title="Anterior"
+          className="absolute left-2 md:left-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
+        >
+          <FiChevronLeft size={28} />
+        </button>
+      )}
+
+      {index < photos.length - 1 && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onNavigate(index + 1);
+          }}
+          title="Siguiente"
+          className="absolute right-2 md:right-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
+        >
+          <FiChevronRight size={28} />
+        </button>
+      )}
+
+      <figure
+        className="modal-image relative max-w-full max-h-full"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          src={photo.url}
+          alt={photo.category}
+          className="max-h-[80vh] max-w-full object-contain rounded-2xl border-4 border-blue-200 shadow-2xl"
+        />
+        <figcaption className="mt-3 text-center font-bold text-blue-100">
+          {photo.category} · {index + 1}/{photos.length}
+        </figcaption>
+      </figure>
     </div>
   );
 };
 
 const Gallery = ({ photos }) => {
   const [selectedCategory, setSelectedCategory] = useState("Todas");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState("");
+  const [modalIndex, setModalIndex] = useState(null);
 
   const categories = [
     "Todas",
@@ -31,47 +90,69 @@ const Gallery = ({ photos }) => {
       ? photos
       : photos.filter((photo) => photo.category === selectedCategory);
 
-  const openModal = (src) => {
-    setIsModalOpen(true);
-    setImgSrc(src);
-  };
+  const openModal = (index) => setModalIndex(index);
+  const closeModal = () => setModalIndex(null);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const navigateModal = (index) => {
+    if (index < 0 || index >= filteredPhotos.length) return;
+    setModalIndex(index);
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-5xl">
-      <div className="mb-4">
-        <label htmlFor="category-select" className="mr-2 font-bold">
-          Filtrar por categoría:
-        </label>
-        <select
-          id="category-select"
-          className="p-2 border rounded"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="columns-2 md:columns-3 gap-4">
-        {filteredPhotos.map((photo) => (
-          <div key={photo.id} className="">
-            <img
-              src={photo.url}
-              alt={photo.title}
-              onClick={() => openModal(photo.url)}
-              className="w-full rounded-lg shadow bg-cover border-2 border-transparent hover:border-blue-700 transition duration-200 mb-4 cursor-pointer"
-            />
-          </div>
+    <div className="pb-16">
+      <div className="flex flex-wrap gap-2 mb-8">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => {
+              setSelectedCategory(category);
+              setModalIndex(null);
+            }}
+            className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
+              selectedCategory === category
+                ? "bg-blue-800 text-white border-blue-800 shadow-md scale-105"
+                : "bg-white/70 text-blue-900/70 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
+            }`}
+          >
+            {category}
+          </button>
         ))}
-        <Modal isOpen={isModalOpen} onClose={closeModal} imgSrc={imgSrc} />
       </div>
+
+      {filteredPhotos.length === 0 ? (
+        <p className="text-blue-900/50 text-center py-16">
+          No hay fotos en esta categoría.
+        </p>
+      ) : (
+        <div className="columns-2 md:columns-3 gap-4">
+          {filteredPhotos.map((photo, index) => (
+            <div
+              key={photo.id}
+              className="group relative mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => openModal(index)}
+            >
+              <img
+                src={photo.url}
+                alt={photo.category}
+                className="w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+              <span className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-blue-900 text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                {photo.category}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {modalIndex !== null && (
+        <Modal
+          photos={filteredPhotos}
+          index={modalIndex}
+          onClose={closeModal}
+          onNavigate={navigateModal}
+        />
+      )}
     </div>
   );
 };
