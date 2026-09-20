@@ -68,7 +68,7 @@ const BlogPostDetail = () => {
         <h1 className="mt-4 text-3xl md:text-5xl font-black text-blue-900 leading-tight">
           {post.title}
         </h1>
-        <p className="mt-2 font-bold text-blue-900/50">{post.subtitle}</p>
+        <p className="mt-2 font-bold text-blue-900/80">{post.subtitle}</p>
 
         <img
           src={post.imageUrl}
@@ -89,7 +89,7 @@ const BlogPostDetail = () => {
                 to={`/post/${prevPost.id}`}
                 className="group flex-1 rounded-2xl bg-white border border-blue-900/10 p-5 shadow-md hover:shadow-xl transition-all duration-300"
               >
-                <span className="flex items-center gap-1 text-xs font-bold text-blue-900/50 uppercase">
+                <span className="flex items-center gap-1 text-xs font-bold text-blue-900/80 uppercase">
                   <FiArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
                   Anterior
                 </span>
@@ -103,7 +103,7 @@ const BlogPostDetail = () => {
                 to={`/post/${nextPost.id}`}
                 className="group flex-1 rounded-2xl bg-white border border-blue-900/10 p-5 shadow-md hover:shadow-xl transition-all duration-300 text-right"
               >
-                <span className="flex items-center gap-1 justify-end text-xs font-bold text-blue-900/50 uppercase">
+                <span className="flex items-center gap-1 justify-end text-xs font-bold text-blue-900/80 uppercase">
                   Siguiente
                   <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                 </span>

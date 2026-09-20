@@ -89,9 +89,9 @@ function TicTacToe() {
           <span
             className={`px-6 py-2 rounded-full font-black text-2xl ${
               winner === "X"
-                ? "bg-orange-100 text-orange-600"
+                ? "bg-orange-100 text-orange-700"
                 : winner === "O"
-                ? "bg-emerald-100 text-emerald-600"
+                ? "bg-emerald-100 text-emerald-700"
                 : "bg-blue-100 text-blue-700"
             }`}
           >
@@ -115,15 +115,19 @@ function TicTacToe() {
               className={`group w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl font-tictactoe text-5xl md:text-6xl font-bold transition-all duration-200 flex items-center justify-center ${
                 isWinningCell
                   ? winner === "X"
-                    ? "bg-orange-400 text-white"
-                    : "bg-emerald-400 text-white"
+                    ? "bg-orange-700 text-white"
+                    : "bg-emerald-700 text-white"
                   : "bg-blue-50 hover:bg-white"
               }`}
             >
               {value ? (
                 <span
                   className={`cell-pop ${
-                    value === "X" ? "text-orange-500" : "text-emerald-600"
+                    isWinningCell
+                      ? "text-white"
+                      : value === "X"
+                      ? "text-orange-700"
+                      : "text-emerald-700"
                   }`}
                 >
                   {value}
@@ -140,20 +144,20 @@ function TicTacToe() {
 
       <div className="mt-6 flex gap-3 md:gap-4">
         <div className="px-5 py-2 rounded-2xl bg-orange-50 text-center min-w-16">
-          <p className="text-xs font-bold text-orange-500 uppercase">X gana</p>
-          <p className="font-mono text-3xl font-black text-orange-600">
+          <p className="text-xs font-bold text-orange-700 uppercase">X gana</p>
+          <p className="font-mono text-3xl font-black text-orange-700">
             {scores.x}
           </p>
         </div>
         <div className="px-5 py-2 rounded-2xl bg-blue-50 text-center min-w-16">
-          <p className="text-xs font-bold text-blue-500 uppercase">Empates</p>
+          <p className="text-xs font-bold text-blue-700 uppercase">Empates</p>
           <p className="font-mono text-3xl font-black text-blue-700">
             {scores.draws}
           </p>
         </div>
         <div className="px-5 py-2 rounded-2xl bg-emerald-50 text-center min-w-16">
-          <p className="text-xs font-bold text-emerald-500 uppercase">O gana</p>
-          <p className="font-mono text-3xl font-black text-emerald-600">
+          <p className="text-xs font-bold text-emerald-700 uppercase">O gana</p>
+          <p className="font-mono text-3xl font-black text-emerald-700">
             {scores.o}
           </p>
         </div>

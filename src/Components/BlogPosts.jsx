@@ -45,10 +45,10 @@ const BlogPosts = ({
           <h2 className="font-black text-xl text-blue-900 leading-snug group-hover:text-blue-700 transition-colors duration-300">
             {title}
           </h2>
-          <h3 className="font-bold text-sm text-blue-900/50 mt-1 mb-2">
+          <h3 className="font-bold text-sm text-blue-900/80 mt-1 mb-2">
             {subtitle}
           </h3>
-          <p className="text-blue-900/70 text-sm leading-relaxed">
+          <p className="text-blue-900/80 text-sm leading-relaxed">
             {shortenedExcerpt}
           </p>
           <span className="mt-auto pt-4 inline-flex items-center gap-1.5 font-bold text-blue-800 text-sm">

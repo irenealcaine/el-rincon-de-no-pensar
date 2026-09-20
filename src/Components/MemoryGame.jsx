@@ -145,8 +145,8 @@ const MemoryGame = () => {
 
         {gameOver && (
           <div className="mb-6 text-center px-6 py-4 rounded-2xl bg-emerald-50 border border-emerald-200">
-            <p className="font-black text-2xl text-emerald-600">¡Has ganado!</p>
-            <p className="text-emerald-700/70">
+            <p className="font-black text-2xl text-emerald-700">¡Has ganado!</p>
+            <p className="text-emerald-700">
               Lo conseguiste en {moves} {moves === 1 ? "movimiento" : "movimientos"}{" "}
               y {formatTime(elapsed)}.
             </p>
@@ -167,11 +167,11 @@ const MemoryGame = () => {
 
       <section className="bg-white rounded-3xl shadow-lg p-6 md:p-8">
         <h2 className="font-black text-blue-900 mb-2">Partidas anteriores</h2>
-        <p className="text-sm text-blue-900/50 mb-4">
+        <p className="text-sm text-blue-900/80 mb-4">
           Las últimas 10 partidas completadas, con movimientos y tiempo.
         </p>
         {history.length === 0 ? (
-          <p className="text-blue-900/50 text-center py-6">
+          <p className="text-blue-900/80 text-center py-6">
             Aún no hay partidas guardadas. ¡Juega una y aparecerá aquí!
           </p>
         ) : (
@@ -181,7 +181,7 @@ const MemoryGame = () => {
                 key={entry.id}
                 className="flex items-center justify-between gap-3 py-3"
               >
-                <span className="text-sm font-bold text-blue-900/70">
+                <span className="text-sm font-bold text-blue-900/80">
                   {entry.date}
                 </span>
                 <span className="font-mono text-sm text-blue-900">

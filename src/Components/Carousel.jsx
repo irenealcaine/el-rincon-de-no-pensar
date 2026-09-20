@@ -61,14 +61,16 @@ const Carousel = () => {
         <button
           onClick={previousImage}
           title="Anterior"
-          className="absolute top-1/2 -translate-y-1/2 left-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90"
+          aria-label="Anterior"
+          className="absolute top-1/2 -translate-y-1/2 left-4 bg-blue-900/60 hover:bg-blue-900/80 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
         >
           <RiArrowLeftSFill size={26} />
         </button>
         <button
           onClick={nextImage}
           title="Siguiente"
-          className="absolute top-1/2 -translate-y-1/2 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90"
+          aria-label="Siguiente"
+          className="absolute top-1/2 -translate-y-1/2 right-4 bg-blue-900/60 hover:bg-blue-900/80 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
         >
           <RiArrowRightSFill size={26} />
         </button>
@@ -80,10 +82,12 @@ const Carousel = () => {
             key={index}
             onClick={() => setCurrentImageIndex(index)}
             title={`Ir a la foto ${index + 1}`}
-            className={`h-2.5 rounded-full transition-all duration-300 ${
+            aria-label={`Ir a la foto ${index + 1}`}
+            aria-current={index === currentImageIndex ? "true" : undefined}
+            className={`h-3 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 ${
               index === currentImageIndex
                 ? "w-8 bg-blue-800"
-                : "w-2.5 bg-blue-900/20 hover:bg-blue-900/40"
+                : "w-3 bg-blue-900/30 hover:bg-blue-900/50"
             }`}
           />
         ))}
@@ -92,7 +96,7 @@ const Carousel = () => {
       <div className="mt-4 flex flex-wrap justify-center gap-3">
         <button
           onClick={shuffle}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-violet-500 hover:bg-violet-600 text-white font-bold transition duration-200 active:scale-95"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-bold transition duration-200 active:scale-95"
         >
           <RiShuffleLine /> Barajar
         </button>

@@ -3,19 +3,19 @@ const Button = ({ type, className, onClickValue, value, disabled }) => {
 
   switch (type) {
     case "green":
-      color = "bg-green-500 hover:bg-green-600";
+      color = "bg-green-700 hover:bg-green-800";
       break;
     case "red":
-      color = "bg-red-500 hover:bg-red-600";
+      color = "bg-red-600 hover:bg-red-700";
       break;
     case "gray":
-      color = "bg-gray-400 hover:bg-gray-500";
+      color = "bg-gray-600 hover:bg-gray-700";
       break;
     case "violet":
-      color = "bg-violet-500 hover:bg-violet-600";
+      color = "bg-violet-600 hover:bg-violet-700";
       break;
     default:
-      color = "bg-blue-500 hover:bg-blue-600";
+      color = "bg-blue-600 hover:bg-blue-700";
   }
 
   return (

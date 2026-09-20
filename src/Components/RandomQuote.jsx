@@ -77,7 +77,7 @@ const RandomQuote = () => {
                 {randomQuote.author}
               </p>
               <div className="flex items-center gap-3">
-                <span className="text-blue-200/70 text-xs font-bold tracking-widest">
+                <span className="text-blue-100 text-xs font-bold tracking-widest">
                   {quoteNumber}/{Quotes.length}
                 </span>
                 <button

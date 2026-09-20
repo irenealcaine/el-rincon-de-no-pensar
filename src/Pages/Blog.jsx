@@ -62,7 +62,7 @@ const Blog = () => {
                 className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
                   selectedCategory === category
                     ? "bg-blue-800 text-white border-blue-800 shadow-md scale-105"
-                    : "bg-white/70 text-blue-900/70 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
+                    : "bg-white/70 text-blue-900/80 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
                 }`}
               >
                 {category}
@@ -71,13 +71,13 @@ const Blog = () => {
           </div>
 
           <div className="relative lg:ml-auto w-full lg:w-72">
-            <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-900/40" />
+            <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-900/80" />
             <input
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar artículos..."
-              className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/80 border border-blue-900/10 outline-none text-sm focus:ring-2 focus:ring-blue-500/40 placeholder:text-blue-900/40"
+              className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/80 border border-blue-900/10 outline-none text-sm focus:ring-2 focus:ring-blue-500/40 placeholder:text-blue-900/80"
             />
           </div>
         </section>
@@ -111,7 +111,7 @@ const Blog = () => {
             <p className="mt-5 text-lg font-bold text-blue-900">
               No hay artículos que coincidan con tu búsqueda
             </p>
-            <p className="mt-1 text-blue-900/50">
+            <p className="mt-1 text-blue-900/80">
               Prueba con otra palabra o selecciona otra categoría.
             </p>
           </section>
@@ -146,7 +146,7 @@ const Blog = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Tu correo electrónico"
-                  className="flex-1 rounded-full bg-white/10 border border-white/20 px-5 py-3 text-white placeholder:text-blue-200/70 outline-none focus:ring-2 focus:ring-white/40"
+                  className="flex-1 rounded-full bg-white/10 border border-white/20 px-5 py-3 text-white placeholder:text-blue-100/90 outline-none focus:ring-2 focus:ring-white/40"
                 />
                 <button
                   type="submit"

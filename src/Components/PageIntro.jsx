@@ -6,10 +6,10 @@ const PageIntro = ({ tagline, title, description, backTo, backLabel }) => {
     <section className="mt-10 mb-12 md:mt-14 md:mb-16">
       <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <p className="font-tictactoe text-lg text-clay">{tagline}</p>
-          <h2 className="mt-2 font-oswald text-4xl font-bold uppercase tracking-tight text-ink md:text-5xl">
+          <p className="font-tictactoe text-lg text-clay-dark">{tagline}</p>
+          <h1 className="mt-2 font-oswald text-4xl font-bold uppercase tracking-tight text-ink md:text-5xl">
             {title}
-          </h2>
+          </h1>
           <svg
             className="mt-3 h-3 w-36 text-clay"
             viewBox="0 0 144 12"

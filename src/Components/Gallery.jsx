@@ -3,16 +3,37 @@ import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Modal = ({ onClose, photos, index, onNavigate }) => {
   useEffect(() => {
+    const previousFocus = document.activeElement;
+    const modal = document.getElementById("gallery-modal");
+    const closeButton = document.getElementById("gallery-modal-close");
+    (closeButton || modal)?.focus();
+
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowRight") onNavigate(index + 1);
       if (e.key === "ArrowLeft") onNavigate(index - 1);
+      if (e.key === "Tab") {
+        const focusables = modal.querySelectorAll(
+          'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      previousFocus?.focus?.();
     };
   }, [index, onClose, onNavigate]);
 
@@ -20,14 +41,20 @@ const Modal = ({ onClose, photos, index, onNavigate }) => {
 
   return (
     <div
+      id="gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Foto de ${photo.category}`}
       className="fixed inset-0 z-20 flex items-center justify-center pl-16 md:pl-20 p-4 md:p-10"
       onClick={onClose}
     >
       <div className="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-md" />
 
       <button
+        id="gallery-modal-close"
         onClick={onClose}
         title="Cerrar"
+        aria-label="Cerrar"
         className="absolute right-4 top-4 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
       >
         <FiX size={22} />
@@ -40,6 +67,7 @@ const Modal = ({ onClose, photos, index, onNavigate }) => {
             onNavigate(index - 1);
           }}
           title="Anterior"
+          aria-label="Foto anterior"
           className="absolute left-14 md:left-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
         >
           <FiChevronLeft size={28} />
@@ -53,6 +81,7 @@ const Modal = ({ onClose, photos, index, onNavigate }) => {
             onNavigate(index + 1);
           }}
           title="Siguiente"
+          aria-label="Foto siguiente"
           className="absolute right-2 md:right-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
         >
           <FiChevronRight size={28} />
@@ -111,7 +140,7 @@ const Gallery = ({ photos }) => {
             className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
               selectedCategory === category
                 ? "bg-blue-800 text-white border-blue-800 shadow-md scale-105"
-                : "bg-white/70 text-blue-900/70 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
+                : "bg-white/70 text-blue-900/80 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
             }`}
           >
             {category}
@@ -120,15 +149,17 @@ const Gallery = ({ photos }) => {
       </div>
 
       {filteredPhotos.length === 0 ? (
-        <p className="text-blue-900/50 text-center py-16">
+        <p className="text-blue-900/80 text-center py-16">
           No hay fotos en esta categoría.
         </p>
       ) : (
         <div className="columns-2 md:columns-3 gap-4">
           {filteredPhotos.map((photo, index) => (
-            <div
+            <button
               key={photo.id}
-              className="group relative mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+              type="button"
+              aria-label={`Abrir foto de ${photo.category}`}
+              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl shadow-md text-left transition-all duration-300 cursor-pointer hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
               onClick={() => openModal(index)}
             >
               <img
@@ -140,7 +171,7 @@ const Gallery = ({ photos }) => {
               <span className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-blue-900 text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                 {photo.category}
               </span>
-            </div>
+            </button>
           ))}
         </div>
       )}

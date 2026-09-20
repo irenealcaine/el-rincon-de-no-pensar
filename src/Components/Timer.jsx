@@ -139,7 +139,7 @@ const Timer = () => {
             <span className="font-oswald text-5xl md:text-6xl font-bold text-blue-900 tabular-nums">
               {formatTime(timeLeft)}
             </span>
-            <span className="mt-1 text-sm font-bold text-blue-900/50">
+            <span className="mt-1 text-sm font-bold text-blue-900/80">
               {pomodoros} {pomodoros === 1 ? "pomodoro" : "pomodoros"}
             </span>
           </div>
@@ -186,7 +186,7 @@ const Timer = () => {
 
         <div className="mt-8 w-full max-w-md grid grid-cols-2 gap-4">
           <label className="block">
-            <span className="block text-sm font-bold text-blue-900/70 mb-1">
+            <span className="block text-sm font-bold text-blue-900/80 mb-1">
               Trabajo (min)
             </span>
             <input
@@ -200,7 +200,7 @@ const Timer = () => {
             />
           </label>
           <label className="block">
-            <span className="block text-sm font-bold text-blue-900/70 mb-1">
+            <span className="block text-sm font-bold text-blue-900/80 mb-1">
               Descanso (min)
             </span>
             <input

@@ -256,12 +256,12 @@ const QuestionGame = () => {
           <div className="text-center py-4">
             <p className="font-oswald text-6xl md:text-7xl font-black text-blue-900">
               {score}
-              <span className="text-2xl text-blue-900/40">/{questions.length}</span>
+              <span className="text-2xl text-blue-900/80">/{questions.length}</span>
             </p>
-            <p className="mt-2 text-lg font-bold text-blue-900/60">
+            <p className="mt-2 text-lg font-bold text-blue-900/80">
               {getMessage(score)}
             </p>
-            <p className="mt-1 text-sm font-bold text-blue-900/40">
+            <p className="mt-1 text-sm font-bold text-blue-900/80">
               {Math.round((score / questions.length) * 100)}% de aciertos
             </p>
             <Button
@@ -273,7 +273,7 @@ const QuestionGame = () => {
         ) : (
           <div className="text-center">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-sm font-bold text-blue-900/50">
+              <span className="text-sm font-bold text-blue-900/80">
                 Pregunta {currentQuestion + 1} de {questions.length}
               </span>
               <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold">
@@ -342,11 +342,11 @@ const QuestionGame = () => {
 
       <section className="bg-white rounded-3xl shadow-lg p-6 md:p-8 max-w-3xl mx-auto w-full">
         <h2 className="font-black text-blue-900 mb-2">Partidas anteriores</h2>
-        <p className="text-sm text-blue-900/50 mb-4">
+        <p className="text-sm text-blue-900/80 mb-4">
           Las últimas 10 partidas, con su puntuación.
         </p>
         {history.length === 0 ? (
-          <p className="text-blue-900/50 text-center py-6">
+          <p className="text-blue-900/80 text-center py-6">
             Aún no hay partidas guardadas. ¡Juega una y aparecerá aquí!
           </p>
         ) : (

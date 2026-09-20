@@ -40,8 +40,8 @@ const FeaturedPost = ({ post }) => {
           <h2 className="font-black text-2xl md:text-3xl text-blue-900 leading-tight group-hover:text-blue-700 transition-colors duration-300">
             {post.title}
           </h2>
-          <h3 className="font-bold text-blue-900/50 mt-1">{post.subtitle}</h3>
-          <p className="text-blue-900/70 mt-3 leading-relaxed">
+          <h3 className="font-bold text-blue-900/80 mt-1">{post.subtitle}</h3>
+          <p className="text-blue-900/80 mt-3 leading-relaxed">
             {shortenedExcerpt}
           </p>
           <span className="mt-4 inline-flex items-center gap-1.5 font-bold text-blue-800 text-sm">

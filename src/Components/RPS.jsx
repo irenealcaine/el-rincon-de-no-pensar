@@ -7,6 +7,7 @@ const piedra = <FaRegHandRock className="w-10 h-10 md:w-14 md:h-14" />;
 const tijeras = <FaRegHandPeace className="w-10 h-10 md:w-14 md:h-14" />;
 const papel = <FaRegHandPaper className="w-10 h-10 md:w-14 md:h-14" />;
 const options = [piedra, papel, tijeras];
+const optionLabels = ["Piedra", "Papel", "Tijeras"];
 
 const piedraSmall = <FaRegHandRock className="w-6 h-6 md:w-8 md:h-8" />;
 const tijerasSmall = <FaRegHandPeace className="w-6 h-6 md:w-8 md:h-8" />;
@@ -57,8 +58,8 @@ const RPS = () => {
   };
 
   const resultStyle = {
-    win: "bg-emerald-50 border border-emerald-200 text-emerald-600",
-    loss: "bg-red-50 border border-red-200 text-red-600",
+    win: "bg-emerald-50 border border-emerald-200 text-emerald-700",
+    loss: "bg-red-50 border border-red-200 text-red-700",
     tie: "bg-blue-50 border border-blue-200 text-blue-700",
   };
 
@@ -81,15 +82,15 @@ const RPS = () => {
         <div className="flex flex-wrap items-center justify-between gap-3 w-full mb-8">
           <div className="grid grid-cols-3 gap-3 flex-1 min-w-56">
             <div className="px-4 py-3 rounded-2xl bg-emerald-50 text-center">
-              <p className="text-xs font-bold text-emerald-500 uppercase">
+              <p className="text-xs font-bold text-emerald-700 uppercase">
                 Ganadas
               </p>
-              <p className="font-mono text-3xl font-black text-emerald-600">
+              <p className="font-mono text-3xl font-black text-emerald-700">
                 {wins}
               </p>
             </div>
             <div className="px-4 py-3 rounded-2xl bg-blue-50 text-center">
-              <p className="text-xs font-bold text-blue-500 uppercase">
+              <p className="text-xs font-bold text-blue-700 uppercase">
                 Empates
               </p>
               <p className="font-mono text-3xl font-black text-blue-700">
@@ -97,10 +98,10 @@ const RPS = () => {
               </p>
             </div>
             <div className="px-4 py-3 rounded-2xl bg-red-50 text-center">
-              <p className="text-xs font-bold text-red-500 uppercase">
+              <p className="text-xs font-bold text-red-700 uppercase">
                 Perdidas
               </p>
-              <p className="font-mono text-3xl font-black text-red-600">
+              <p className="font-mono text-3xl font-black text-red-700">
                 {losses}
               </p>
             </div>
@@ -108,13 +109,14 @@ const RPS = () => {
           <Button onClickValue={handleReset} value={"Otra vez"} />
         </div>
 
-        <p className="font-bold text-blue-900/60 mb-3">Elige una opción</p>
+        <p className="font-bold text-blue-900/80 mb-3">Elige una opción</p>
         <div className="flex gap-4">
           {options.map((option, index) => (
             <button
               key={index}
               onClick={() => handleUserChoice(option)}
               disabled={!!userChoice}
+              aria-label={`Elegir ${optionLabels[index]}`}
               className={`w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center transition-all duration-200 ${
                 userChoice === option
                   ? "bg-violet-100 text-violet-700 ring-4 ring-violet-400 scale-105"
@@ -130,7 +132,7 @@ const RPS = () => {
           <div className="mt-8 w-full">
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-blue-50 border border-blue-900/10 py-2.5 text-center">
-                <p className="text-[10px] font-bold text-blue-500 uppercase">
+                <p className="text-[10px] font-bold text-blue-700 uppercase">
                   Tú
                 </p>
                 <span className="inline-block text-blue-800">
@@ -138,7 +140,7 @@ const RPS = () => {
                 </span>
               </div>
               <div className="rounded-2xl bg-violet-50 border border-violet-900/10 py-2.5 text-center">
-                <p className="text-[10px] font-bold text-violet-500 uppercase">
+                <p className="text-[10px] font-bold text-violet-700 uppercase">
                   Máquina
                 </p>
                 <span className="inline-block text-violet-800">

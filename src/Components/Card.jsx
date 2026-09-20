@@ -7,7 +7,7 @@ function Card({ item, id, handleClick }) {
     <button
       onClick={() => handleClick(id)}
       disabled={item.stat === "correct"}
-      className="perspective-600 block w-full aspect-square focus:outline-none"
+      className="perspective-600 block w-full aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:rounded-2xl"
       aria-label={flipped ? `Carta ${item.id}` : "Carta boca abajo"}
     >
       <div

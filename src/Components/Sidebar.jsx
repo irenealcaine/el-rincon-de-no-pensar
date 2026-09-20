@@ -40,12 +40,18 @@ const Sidebar = () => {
           open ? "w-60" : "w-12"
         } duration-300 h-screen p-2 pt-8 bg-gradient-to-b from-ink to-[#141b24] shadow-2xl sticky top-0 left-0`}
       >
-        <FaArrowLeft
-          className={`duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-paper-100 border-2 border-clay/60 bg-ink shadow-md hover:scale-110 hover:bg-clay ${
-            !open && "rotate-180"
-          }`}
+        <button
           onClick={() => setOpen(!open)}
-        />
+          aria-label={open ? "Cerrar menú lateral" : "Abrir menú lateral"}
+          aria-expanded={open}
+          className="absolute -right-3 top-20 rounded-full border-2 border-clay/60 bg-ink p-0 text-paper-100 shadow-md transition duration-200 hover:scale-110 hover:bg-clay focus:outline-none focus:ring-2 focus:ring-paper-300"
+        >
+          <FaArrowLeft
+            className={`duration-200 h-7 w-7 cursor-pointer rounded-full p-1 ${
+              !open && "rotate-180"
+            }`}
+          />
+        </button>
         <Link
           to={"/"}
           className="flex items-center duration-200 hover:bg-white/10 rounded-xl text-paper-100 hover:text-white"
@@ -71,14 +77,15 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className={`relative text-paper-100/80 font-semibold text-lg flex items-center gap-x-3 cursor-pointer p-2 hover:bg-white/10 hover:text-white duration-200 mt-4 rounded-xl ${
+                aria-label={menuItem.title}
+                className={`relative text-paper-100/80 font-semibold text-lg flex items-center gap-x-3 cursor-pointer p-2 hover:bg-white/10 hover:text-white duration-200 mt-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-paper-300 ${
                   isCurrentPage(menuItem) && "bg-clay text-white shadow-lg"
                 } ${!open && "justify-center px-0"}`}
                 onClick={() => toggleSection(menuItem.title)}
               >
                 <span
                   className={`${
-                    isCurrentPage(menuItem) ? "text-white" : "text-paper-100/50"
+                    isCurrentPage(menuItem) ? "text-white" : "text-paper-100/70"
                   }`}
                 >
                   {menuItem.icon}
@@ -107,7 +114,8 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={`mt-0.5 text-paper-100/60 flex items-center gap-x-3 cursor-pointer p-1.5 hover:bg-white/10 hover:text-white rounded-lg duration-200 ${
+                    aria-label={link.title}
+                    className={`mt-0.5 text-paper-100/80 flex items-center gap-x-3 cursor-pointer p-1.5 hover:bg-white/10 hover:text-white rounded-lg duration-200 focus:outline-none focus:ring-2 focus:ring-paper-300 ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "hidden"
                         : menuItem.title === "Proyectos"

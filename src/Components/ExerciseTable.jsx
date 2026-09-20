@@ -63,14 +63,14 @@ const ExerciseTable = () => {
         <h2 className="text-xl font-black text-blue-900">
           ¿Cuántas repeticiones eres capaz de hacer?
         </h2>
-        <p className="text-blue-900/60 text-sm mt-1 mb-6">
+        <p className="text-blue-900/80 text-sm mt-1 mb-6">
           Introduce tus marcas y genera un plan de entrenamiento de 4 semanas.
         </p>
 
         <div className="flex flex-col md:flex-row md:items-end gap-4">
           {inputs.map((input) => (
             <label key={input.name} className="flex-1 w-full">
-              <span className="block text-sm font-bold text-blue-900/70 mb-1">
+              <span className="block text-sm font-bold text-blue-900/80 mb-1">
                 {input.label}
               </span>
               <input
@@ -90,7 +90,7 @@ const ExerciseTable = () => {
       {mostrarTabla && (
         <section className="bg-white rounded-3xl shadow-lg p-6 md:p-8">
           <h2 className="text-xl font-black text-blue-900">Tu plan de 28 días</h2>
-          <p className="text-blue-900/60 text-sm mt-1 mb-6">
+          <p className="text-blue-900/80 text-sm mt-1 mb-6">
             La intensidad aumenta cada semana. Recuerda que esto es orientativo,
             yo no tengo ni idea de nada de esto.
           </p>
@@ -119,25 +119,25 @@ const ExerciseTable = () => {
                           {dia}
                         </p>
                         {descanso ? (
-                          <p className="italic text-blue-900/40 text-sm mt-1">
+                          <p className="italic text-blue-900/80 text-sm mt-1">
                             Descanso
                           </p>
                         ) : (
                           <div className="mt-1 space-y-0.5 text-sm font-medium">
                             <p>
-                              <span className="font-bold text-emerald-600">
+                              <span className="font-bold text-emerald-700">
                                 flex.
                               </span>{" "}
                               {semana.flexiones}
                             </p>
                             <p>
-                              <span className="font-bold text-sky-600">
+                              <span className="font-bold text-sky-700">
                                 sent.
                               </span>{" "}
                               {semana.sentadillas}
                             </p>
                             <p>
-                              <span className="font-bold text-violet-600">
+                              <span className="font-bold text-violet-700">
                                 abd.
                               </span>{" "}
                               {semana.abdominales}

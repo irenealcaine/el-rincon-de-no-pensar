@@ -23,7 +23,7 @@ const PurchaseItem = ({ title, level, cost, onBuy, disabled, children }) => (
       disabled={disabled}
       className={`w-full rounded-xl px-4 py-2.5 font-bold transition active:scale-95 ${
         disabled
-          ? "bg-blue-100 text-blue-900/40 cursor-not-allowed"
+          ? "bg-blue-100 text-blue-900/70 cursor-not-allowed"
           : "bg-blue-800 text-white hover:bg-blue-900"
       }`}
     >
@@ -132,13 +132,13 @@ const IdleGame = () => {
   return (
     <div className="pb-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
       <section className="bg-white rounded-3xl shadow-lg p-6 md:p-8 flex flex-col items-center">
-        <p className="text-sm font-bold text-blue-900/50 uppercase tracking-wider">
+        <p className="text-sm font-bold text-blue-900/80 uppercase tracking-wider">
           Puntuación
         </p>
         <p className="font-mono text-5xl md:text-6xl font-bold text-blue-900 tabular-nums mt-1">
           {formatNumber(score)}
         </p>
-        <p className="mt-1 text-sm font-bold text-emerald-600">
+        <p className="mt-1 text-sm font-bold text-emerald-700">
           +{formatNumber(passivePerSecond())} puntos/s
         </p>
 
@@ -152,14 +152,14 @@ const IdleGame = () => {
           {floaties.map((floaty) => (
             <span
               key={floaty.id}
-              className="floaty absolute left-1/2 bottom-full mb-3 text-emerald-600 font-black text-xl pointer-events-none"
+              className="floaty absolute left-1/2 bottom-full mb-3 text-emerald-700 font-black text-xl pointer-events-none"
             >
               +{formatNumber(floaty.value)}
             </span>
           ))}
         </div>
 
-        <p className="mt-6 text-sm font-bold text-blue-900/60">
+        <p className="mt-6 text-sm font-bold text-blue-900/80">
           +{formatNumber(2 ** base.level)} puntos por clic
         </p>
 
@@ -169,7 +169,7 @@ const IdleGame = () => {
             disabled={isDisabled(base.cost)}
             className={`w-full rounded-xl px-4 py-2.5 font-bold transition active:scale-95 ${
               isDisabled(base.cost)
-                ? "bg-blue-100 text-blue-900/40 cursor-not-allowed"
+? "bg-blue-100 text-blue-900/70 cursor-not-allowed"
                 : "bg-blue-800 text-white hover:bg-blue-900"
             }`}
           >
@@ -193,9 +193,9 @@ const IdleGame = () => {
               onBuy={() => handleBuy(setBonus1, bonus1.cost)}
               disabled={isDisabled(bonus1.cost)}
             >
-              <p className="text-sm text-blue-900/60">
+              <p className="text-sm text-blue-900/80">
                 Ganas{" "}
-                <span className="font-bold text-emerald-600">
+                <span className="font-bold text-emerald-700">
                   {formatNumber(2 ** upgrade1.level * bonus1.level * 0.1)}
                 </span>{" "}
                 puntos/s. Próximo nivel:{" "}
@@ -215,9 +215,9 @@ const IdleGame = () => {
               onBuy={() => handleBuy(setBonus2, bonus2.cost)}
               disabled={isDisabled(bonus2.cost)}
             >
-              <p className="text-sm text-blue-900/60">
+              <p className="text-sm text-blue-900/80">
                 Ganas{" "}
-                <span className="font-bold text-emerald-600">
+                <span className="font-bold text-emerald-700">
                   {formatNumber(2 ** upgrade2.level * bonus2.level * 1)}
                 </span>{" "}
                 puntos/s. Próximo nivel:{" "}
@@ -237,9 +237,9 @@ const IdleGame = () => {
               onBuy={() => handleBuy(setBonus3, bonus3.cost)}
               disabled={isDisabled(bonus3.cost)}
             >
-              <p className="text-sm text-blue-900/60">
+              <p className="text-sm text-blue-900/80">
                 Ganas{" "}
-                <span className="font-bold text-emerald-600">
+                <span className="font-bold text-emerald-700">
                   {formatNumber(2 ** upgrade3.level * bonus3.level * 8)}
                 </span>{" "}
                 puntos/s. Próximo nivel:{" "}
@@ -266,9 +266,9 @@ const IdleGame = () => {
               onBuy={() => handleBuy(setUpgrade1, upgrade1.cost)}
               disabled={isDisabled(upgrade1.cost)}
             >
-              <p className="text-sm text-blue-900/60">
+              <p className="text-sm text-blue-900/80">
                 Duplica el Bono 1:{" "}
-                <span className="font-bold text-emerald-600">
+                <span className="font-bold text-emerald-700">
                   {formatNumber(2 ** upgrade1.level * bonus1.level * 0.1)}
                 </span>{" "}
                 →{" "}
@@ -286,9 +286,9 @@ const IdleGame = () => {
               onBuy={() => handleBuy(setUpgrade2, upgrade2.cost)}
               disabled={isDisabled(upgrade2.cost)}
             >
-              <p className="text-sm text-blue-900/60">
+              <p className="text-sm text-blue-900/80">
                 Duplica el Bono 2:{" "}
-                <span className="font-bold text-emerald-600">
+                <span className="font-bold text-emerald-700">
                   {formatNumber(2 ** upgrade2.level * bonus2.level * 1)}
                 </span>{" "}
                 →{" "}
@@ -306,9 +306,9 @@ const IdleGame = () => {
               onBuy={() => handleBuy(setUpgrade3, upgrade3.cost)}
               disabled={isDisabled(upgrade3.cost)}
             >
-              <p className="text-sm text-blue-900/60">
+              <p className="text-sm text-blue-900/80">
                 Duplica el Bono 3:{" "}
-                <span className="font-bold text-emerald-600">
+                <span className="font-bold text-emerald-700">
                   {formatNumber(2 ** upgrade3.level * bonus3.level * 8)}
                 </span>{" "}
                 →{" "}

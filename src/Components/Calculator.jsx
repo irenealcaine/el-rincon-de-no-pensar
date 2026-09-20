@@ -8,10 +8,10 @@ const formatNumber = (num) => {
 const Key = ({ label, onClick, type = "digit", className = "" }) => {
   const styles = {
     digit: "bg-white text-blue-900 border border-blue-900/10 hover:bg-blue-50",
-    operator: "bg-violet-500 text-white hover:bg-violet-600",
+    operator: "bg-violet-600 text-white hover:bg-violet-700",
     function: "bg-blue-100 text-blue-900 hover:bg-blue-200",
-    danger: "bg-red-500 text-white hover:bg-red-600",
-    equals: "bg-emerald-500 text-white hover:bg-emerald-600",
+    danger: "bg-red-600 text-white hover:bg-red-700",
+    equals: "bg-emerald-700 text-white hover:bg-emerald-800",
   };
 
   return (
@@ -178,7 +178,7 @@ const Calculator = () => {
   return (
     <div className="max-w-md w-11/12 mx-auto my-8 bg-white p-6 rounded-3xl shadow-lg">
       <div className="mb-4 bg-blue-900 rounded-2xl p-4 text-right">
-        <p className="text-blue-200/70 text-sm min-h-[1.25rem] font-mono truncate">
+        <p className="text-blue-100 text-sm min-h-[1.25rem] font-mono truncate">
           {expression}
         </p>
         <p

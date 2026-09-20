@@ -204,7 +204,7 @@ const WeightTable = () => {
           </div>
 
           {dateWarning && (
-            <p className="mt-4 text-red-600 font-bold bg-red-50 border border-red-200 rounded-xl py-2 px-4 text-center">
+            <p className="mt-4 text-red-700 font-bold bg-red-50 border border-red-200 rounded-xl py-2 px-4 text-center">
               {dateWarning}
             </p>
           )}
@@ -224,7 +224,7 @@ const WeightTable = () => {
             <h2 className="text-xl font-black text-blue-900">
               Datos guardados
             </h2>
-            <span className="text-sm font-bold text-blue-900/50">
+            <span className="text-sm font-bold text-blue-900/80">
               {weightData.length}{" "}
               {weightData.length === 1 ? "entrada" : "entradas"}
             </span>
@@ -249,7 +249,7 @@ const WeightTable = () => {
                       key={index}
                       className="border-b border-blue-900/5 last:border-0 hover:bg-blue-50/50"
                     >
-                      <td className="p-2 text-blue-900/40">{index + 1}</td>
+                      <td className="p-2 text-blue-900/80">{index + 1}</td>
                       <td className="p-2 font-medium text-blue-900">
                         {formatDate(data.date)}
                       </td>
@@ -261,10 +261,10 @@ const WeightTable = () => {
                           <span
                             className={
                               delta > 0
-                                ? "text-red-500"
+                                ? "text-red-700"
                                 : delta < 0
-                                ? "text-emerald-600"
-                                : "text-blue-900/40"
+                                ? "text-emerald-700"
+                                : "text-blue-900/80"
                             }
                           >
                             {delta > 0 ? "+" : ""}
@@ -295,7 +295,7 @@ const WeightTable = () => {
             <Line data={chartData} options={chartOptions} />
           </div>
         ) : (
-          <p className="text-blue-900/60 text-center py-16">
+          <p className="text-blue-900/80 text-center py-16">
             Añade filas, pulsa "Guardar cambios" y aquí verás la evolución de tu
             peso.
           </p>

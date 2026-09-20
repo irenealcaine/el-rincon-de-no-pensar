@@ -111,7 +111,7 @@ const Watch = () => {
         <p className="mt-8 font-oswald text-4xl md:text-5xl font-bold text-blue-900 tabular-nums tracking-wider">
           {pad(now.hours)}:{pad(now.minutes)}:{pad(now.seconds)}
         </p>
-        <p className="mt-1 text-blue-900/60 font-bold">{dateStr}</p>
+        <p className="mt-1 text-blue-900/80 font-bold">{dateStr}</p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-2">
           {timezones.map((tz) => (
@@ -121,7 +121,7 @@ const Watch = () => {
               className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
                 timezone === tz.value
                   ? "bg-blue-800 text-white border-blue-800 shadow-md"
-                  : "bg-white text-blue-900/70 border-blue-900/10 hover:bg-blue-50 hover:border-blue-800/40"
+                  : "bg-white text-blue-900/80 border-blue-900/10 hover:bg-blue-50 hover:border-blue-800/40"
               }`}
             >
               {tz.label}

@@ -19,7 +19,7 @@ const Home = () => {
         <section className="mb-16">
           <div className="mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-ink/20 md:w-16" />
-            <h2 className="font-oswald text-sm font-bold uppercase tracking-[0.25em] text-ink/60">
+            <h2 className="font-oswald text-sm font-bold uppercase tracking-[0.25em] text-ink/80">
               Explora el rincón
             </h2>
             <span className="h-px w-10 bg-ink/20 md:w-16" />
@@ -28,7 +28,7 @@ const Home = () => {
         </section>
 
         <section className="mx-auto max-w-2xl rounded-2xl border-2 border-ink/10 bg-white/70 p-6 text-center shadow-card backdrop-blur-sm md:p-8">
-          <p className="text-sm font-bold uppercase tracking-widest text-clay">
+          <p className="text-sm font-bold uppercase tracking-widest text-clay-dark">
             Más allá del rincón
           </p>
 

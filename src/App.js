@@ -28,6 +28,12 @@ function App() {
     <>
       <Router>
         <div className="flex">
+          <a
+            href="#container"
+            className="skip-link bg-ink text-white font-bold"
+          >
+            Saltar al contenido
+          </a>
           <Sidebar />
           <div
             id="container"

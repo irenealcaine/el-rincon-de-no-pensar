@@ -12,6 +12,23 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 50;
+}
+
+.skip-link:focus-visible {
+  left: 0.5rem;
+  top: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  outline: 2px solid #173a5e;
+  outline-offset: 2px;
+  box-shadow: 0 4px 12px rgba(23, 58, 94, 0.25);
+}
+
 body {
   background-color: #ecf4fc;
 }

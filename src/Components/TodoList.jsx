@@ -137,7 +137,7 @@ const TodoList = () => {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <span className="text-sm font-bold text-blue-900/50">Color:</span>
+            <span className="text-sm font-bold text-blue-900/80">Color:</span>
             {taskColors.map((color) => (
               <button
                 key={color.id}
@@ -162,20 +162,20 @@ const TodoList = () => {
                 className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-200 border ${
                   filter === f.value
                     ? "bg-blue-800 text-white border-blue-800 shadow-md"
-                    : "bg-white/70 text-blue-900/70 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
+                    : "bg-white/70 text-blue-900/80 border-blue-900/10 hover:bg-white hover:border-blue-800/40"
                 }`}
               >
                 {f.label}
               </button>
             ))}
           </div>
-          <span className="text-sm font-bold text-blue-900/50">
+          <span className="text-sm font-bold text-blue-900/80">
             {pendingCount} {pendingCount === 1 ? "pendiente" : "pendientes"}
           </span>
         </div>
 
         {filteredTasks.length === 0 ? (
-          <p className="text-blue-900/50 text-center py-10">{emptyMessage}</p>
+          <p className="text-blue-900/80 text-center py-10">{emptyMessage}</p>
         ) : (
           <ul className="space-y-2">
             {filteredTasks.map((task) => {
@@ -195,8 +195,8 @@ const TodoList = () => {
                     }
                     className={`shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition duration-200 ${
                       task.completed
-                        ? "bg-emerald-500 border-emerald-500 text-white"
-                        : "border-blue-300 text-transparent hover:border-emerald-500 hover:text-emerald-500/40"
+                        ? "bg-emerald-600 border-emerald-600 text-white"
+                        : "border-blue-300 text-transparent hover:border-emerald-600 hover:text-emerald-700/40"
                     }`}
                   >
                     <FiCheck size={14} />
@@ -234,7 +234,7 @@ const TodoList = () => {
                     <span
                       className={`flex-1 min-w-0 text-blue-900 break-words ${
                         task.completed
-                          ? "line-through text-blue-900/40"
+                          ? "line-through text-blue-900/70"
                           : "font-medium"
                       }`}
                     >
@@ -248,14 +248,14 @@ const TodoList = () => {
                         <button
                           onClick={saveEdit}
                           title="Guardar"
-                          className={`${actionButton} text-emerald-600 hover:bg-emerald-50`}
+                          className={`${actionButton} text-emerald-700 hover:bg-emerald-50`}
                         >
                           <FiCheck />
                         </button>
                         <button
                           onClick={cancelEdit}
                           title="Cancelar"
-                          className={`${actionButton} text-red-500 hover:bg-red-50`}
+                          className={`${actionButton} text-red-700 hover:bg-red-50`}
                         >
                           <FiX />
                         </button>
@@ -272,7 +272,7 @@ const TodoList = () => {
                     <button
                       onClick={() => deleteTask(task.id)}
                       title="Eliminar"
-                      className={`${actionButton} text-red-500 hover:bg-red-50`}
+                      className={`${actionButton} text-red-700 hover:bg-red-50`}
                     >
                       <BsTrash3 />
                     </button>
