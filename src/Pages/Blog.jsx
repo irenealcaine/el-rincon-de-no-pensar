@@ -54,7 +54,25 @@ const Blog = () => {
         />
 
         <section className="flex flex-col lg:flex-row lg:items-center gap-4 mb-10">
-          <div className="flex flex-wrap gap-2">
+          <div className="w-full lg:hidden">
+            <label htmlFor="blog-category" className="sr-only">
+              Filtrar por categoría
+            </label>
+            <select
+              id="blog-category"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full rounded-full bg-white/80 border border-blue-900/10 px-4 py-2.5 text-sm font-bold text-blue-900 outline-none focus:ring-2 focus:ring-blue-500/40"
+            >
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="hidden lg:flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
                 key={category}

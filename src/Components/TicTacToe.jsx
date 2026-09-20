@@ -104,7 +104,7 @@ function TicTacToe() {
         )}
       </div>
 
-      <div className="grid grid-cols-3 gap-2 p-3 bg-blue-900 rounded-3xl shadow-lg">
+      <div className="grid w-full max-w-xs grid-cols-3 gap-2 rounded-3xl bg-blue-900 p-2.5 shadow-lg sm:max-w-sm md:gap-3 md:p-3">
         {board.map((value, index) => {
           const isWinningCell = winningLine.includes(index);
           return (
@@ -112,7 +112,7 @@ function TicTacToe() {
               key={index}
               onClick={() => handleClick(index)}
               disabled={!!value || isGameOver}
-              className={`group w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl font-tictactoe text-5xl md:text-6xl font-bold transition-all duration-200 flex items-center justify-center ${
+              className={`group aspect-square w-full rounded-2xl font-tictactoe text-4xl font-bold transition-all duration-200 flex items-center justify-center sm:text-5xl md:text-6xl ${
                 isWinningCell
                   ? winner === "X"
                     ? "bg-orange-700 text-white"
@@ -133,7 +133,7 @@ function TicTacToe() {
                   {value}
                 </span>
               ) : (
-                <span className="opacity-0 group-hover:opacity-30 text-blue-900 text-4xl md:text-5xl transition-opacity">
+                <span className="opacity-0 group-hover:opacity-30 text-blue-900 text-3xl sm:text-4xl md:text-5xl transition-opacity">
                   {xIsNext ? "X" : "O"}
                 </span>
               )}
