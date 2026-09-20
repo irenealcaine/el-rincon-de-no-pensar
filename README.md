@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# El rincón de no pensar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyectos pequeños pero llenos de encanto, hechos con React y Tailwind: una colección de creaciones modestas que, aunque demasiado pequeñas para tener su propio sitio web, merecen ser apreciadas y compartidas.
 
-## Available Scripts
+## 🛋️ Qué contiene
 
-In the project directory, you can run:
+- **Proyectos** — Blog, frases célebres, registro de peso, tabla de ejercicios, lista de tareas y galería de fotos.
+- **Componentes** — Reloj, temporizador, calculadora y carrusel de fotos.
+- **Juegos** — Clicker, 3 en raya, parejas (memoria), preguntas y piedra, papel o tijeras.
 
-### `npm start`
+## 🚀 Puesta en marcha
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install       # instala dependencias
+npm start         # entorno de desarrollo (http://localhost:3000)
+npm run build     # build de producción + prerenderizado (react-snap)
+npm test          # ejecuta los tests
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> `npm run build` ejecuta automáticamente `react-snap` (script `postbuild`), que genera HTML estático por ruta para mejorar el SEO.
 
-### `npm test`
+## 🧰 Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React 18](https://react.dev/) + [Create React App](https://create-react-app.dev/)
+- [Tailwind CSS](https://tailwindcss.com/) (configuración propia de colores y tipografías en `tailwind.config.js`)
+- [React Router](https://reactrouter.com/) para el enrutado cliente
+- [react-icons](https://react-icons.github.io/react-icons/) e iconos SVG propios
+- [Chart.js](https://www.chartjs.org/) para la gráfica del registro de peso
 
-### `npm run build`
+## 📁 Estructura
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── Components/    # Componentes reutilizables (Sidebar, Button, Carousel…)
+├── Pages/         # Páginas (Home, Projects, Games, BlogPostDetail…)
+├── data/          # Datos estáticos (Posts, Quotes, MenuItems, categoryColors)
+├── Hooks/         # Hooks propios (useInterval)
+├── App.js         # Definición de rutas
+└── index.js       # Punto de entrada
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎨 Accesibilidad y SEO
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La web está orientada a cumplir **WCAG 2.2 (nivel AA)**:
 
-### `npm run eject`
+- `lang="es"`, skip link, jerarquía de encabezados correcta (un único `<h1>` por página).
+- Nombres accesibles en botones de iconos, modal de galería con trampa de foco, indicadores de foco visibles.
+- Contraste de color verificado (AA) en todos los textos e interfaces.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+SEO:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Prerenderizado** con `react-snap`: HTML estático por ruta (títulos y meta descriptions únicos).
+- `sitemap.xml` y `robots.txt` con directiva `Sitemap`.
+- Canonical, Open Graph, Twitter Cards y datos estructurados JSON-LD (`WebSite` y `BlogPosting`).
+- URLs descriptivas con slugs para los artículos del blog.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ☁️ Despliegue
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Desplegado en [Netlify](https://www.netlify.com/):
 
-## Learn More
+- **URL:** https://elrincondenopensar.netlify.app/
+- **Repo:** https://github.com/irenealcaine/el-rincon-de-no-pensar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Configuración de build en `netlify.toml` (comando `CI= npm run build`, publish en `build/`). El redirect `/* → /index.html` permite el enrutado cliente; los archivos estáticos (`sitemap.xml`, `robots.txt`, HTML prerenderizado) se sirven con prioridad.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ✍️ Contacto
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Email:** irenealcainealvarez@gmail.com
+- **Web personal:** https://irenealcainealvarez.es/
