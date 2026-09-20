@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import Footer from "../Components/Footer";
-import Header from "../Components/Header";
 import BlogPosts from "../Components/BlogPosts";
 import BackButton from "../Components/BackButton";
 import Posts from "../data/Posts";
@@ -20,7 +19,6 @@ const BlogPostDetail = () => {
   if (!post) {
     return (
       <div className="bg-blue-100 min-h-screen">
-        <Header title={"Post no encontrado"} />
         <main className="max-w-2xl mx-auto px-4 md:px-8 pb-16 text-center">
           <div className="mx-auto mt-10 w-16 h-16 rounded-2xl bg-white/70 border border-blue-900/10 flex items-center justify-center text-blue-800/60">
             <FiSearch size={26} />
@@ -49,8 +47,6 @@ const BlogPostDetail = () => {
 
   return (
     <div className="bg-blue-100 min-h-screen">
-      <Header title={"Blog"} />
-
       <main className="max-w-3xl mx-auto px-4 md:px-8 pb-16">
         <BackButton to={"/projects/blog"} className="mt-8">
           Volver al blog

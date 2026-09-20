@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "../Components/Footer";
-import Header from "../Components/Header";
 import ListItems from "../Components/ListItems";
 import PageIntro from "../Components/PageIntro";
 import menuItems from "../data/MenuItems";
@@ -8,9 +7,8 @@ import HiperLink from "../Components/HiperLink";
 
 const Components = () => {
   return (
-    <div className="min-h-screen bg-blue-100">
-      <Header title={"Componentes"} />
-      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+    <div className="texture-grain min-h-screen bg-blues-100">
+      <main className="mx-auto max-w-6xl px-4 pb-24 md:px-8">
         <PageIntro
           tagline={"~ piezas sueltas ~"}
           title={"Componentes"}
@@ -20,11 +18,14 @@ const Components = () => {
           backTo={"/"}
           backLabel={"Volver al inicio"}
         />
-        <div className="w-full text-center mb-4">
-          <HiperLink
-            href={"https://github.com/irenealcaine/el-rincon-de-no-pensar"}
-            text={"Repositorio"}
-          />
+        <div className="mb-8 w-full text-center md:mb-10">
+          <span className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-5 py-2 text-sm font-semibold text-ink/70 backdrop-blur-sm">
+            ¿Quieres ver el código?{" "}
+            <HiperLink
+              href={"https://github.com/irenealcaine/el-rincon-de-no-pensar"}
+              text={"Repositorio"}
+            />
+          </span>
         </div>
         <ListItems mapItems={menuItems[1].links} />
       </main>

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import menuItems from "../data/MenuItems";
 import ListItems from "../Components/ListItems";
@@ -7,9 +6,8 @@ import PageIntro from "../Components/PageIntro";
 
 const Projects = () => {
   return (
-    <div className="min-h-screen bg-blue-100">
-      <Header title={"Proyectos"} />
-      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+    <div className="texture-grain min-h-screen bg-blue-100">
+      <main className="mx-auto max-w-6xl px-4 pb-24 md:px-8">
         <PageIntro
           tagline={"~ cosas pequeñas con encanto ~"}
           title={"Proyectos"}

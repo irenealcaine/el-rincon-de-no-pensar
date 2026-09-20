@@ -38,17 +38,17 @@ const Sidebar = () => {
       <div
         className={`${
           open ? "w-60" : "w-12"
-        } duration-300 h-screen p-2 pt-8 bg-gradient-to-b from-blue-700 to-blue-900 shadow-2xl sticky top-0 left-0`}
+        } duration-300 h-screen p-2 pt-8 bg-gradient-to-b from-ink to-[#141b24] shadow-2xl sticky top-0 left-0`}
       >
         <FaArrowLeft
-          className={`duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-blue-100 border-2 border-blue-500 bg-blue-800 shadow-md hover:scale-110 hover:bg-blue-900 ${
+          className={`duration-200 absolute cursor-pointer rounded-full -right-3 top-20 h-7 w-7 p-1 text-paper-100 border-2 border-clay/60 bg-ink shadow-md hover:scale-110 hover:bg-clay ${
             !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
         />
         <Link
           to={"/"}
-          className="flex items-center duration-200 hover:bg-white/10 rounded-xl text-blue-100 hover:text-white"
+          className="flex items-center duration-200 hover:bg-white/10 rounded-xl text-paper-100 hover:text-white"
         >
           <div className="flex gap-x-3 items-center px-1">
             <GiSofa
@@ -71,14 +71,14 @@ const Sidebar = () => {
             <div key={index}>
               <Link
                 to={menuItem.to}
-                className={`relative text-white font-semibold text-lg flex items-center gap-x-3 cursor-pointer p-2 hover:bg-white/10 hover:text-white duration-200 mt-4 rounded-xl ${
-                  isCurrentPage(menuItem) && "bg-blue-500 text-white shadow-lg"
+                className={`relative text-paper-100/80 font-semibold text-lg flex items-center gap-x-3 cursor-pointer p-2 hover:bg-white/10 hover:text-white duration-200 mt-4 rounded-xl ${
+                  isCurrentPage(menuItem) && "bg-clay text-white shadow-lg"
                 } ${!open && "justify-center px-0"}`}
                 onClick={() => toggleSection(menuItem.title)}
               >
                 <span
                   className={`${
-                    isCurrentPage(menuItem) ? "text-white" : "text-blue-200"
+                    isCurrentPage(menuItem) ? "text-white" : "text-paper-100/50"
                   }`}
                 >
                   {menuItem.icon}
@@ -107,7 +107,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={link.to}
-                    className={`mt-0.5 text-blue-200/90 flex items-center gap-x-3 cursor-pointer p-1.5 hover:bg-white/10 hover:text-white rounded-lg duration-200 ${
+                    className={`mt-0.5 text-paper-100/60 flex items-center gap-x-3 cursor-pointer p-1.5 hover:bg-white/10 hover:text-white rounded-lg duration-200 ${
                       menuItem.title === "Juegos"
                         ? gamesSubMenuOpen && "hidden"
                         : menuItem.title === "Proyectos"
@@ -115,7 +115,7 @@ const Sidebar = () => {
                         : menuItem.title === "Componentes" &&
                           componentsSubMenuOpen &&
                           "hidden"
-                    } ${isCurrentPage(link) && "bg-blue-500 text-white"}`}
+                    } ${isCurrentPage(link) && "bg-clay text-white"}`}
                   >
                     <span className={`${!open ? "mx-auto" : "ml-6"}`}>
                       {link.icon}

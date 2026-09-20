@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Components/Header";
 import menuItems from "../data/MenuItems";
 import ListItems from "../Components/ListItems";
 import Footer from "../Components/Footer";
@@ -7,9 +6,8 @@ import PageIntro from "../Components/PageIntro";
 
 const Games = () => {
   return (
-    <div className="min-h-screen bg-blue-100">
-      <Header title={"Juegos"} />
-      <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+    <div className="texture-grain min-h-screen bg-blue-100">
+      <main className="mx-auto max-w-6xl px-4 pb-24 md:px-8">
         <PageIntro
           tagline={"~ vicio sano ~"}
           title={"Juegos"}

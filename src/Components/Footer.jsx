@@ -1,3 +1,4 @@
+import React from "react";
 import { GoMail } from "react-icons/go";
 import { FiGithub } from "react-icons/fi";
 import { TbWorldWww } from "react-icons/tb";
@@ -22,15 +23,17 @@ const socialMedia = [
 
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 right-0 text-xl w-fit flex justify-end px-4 py-1 gap-4 bg-hero bg-large rounded-tl-lg border-t-2 border-l-2 border-blue-900">
+    <footer className="fixed bottom-0 right-0 z-30 flex items-center gap-2 rounded-tl-2xl border border-b-0 border-r-0 border-ink/10 bg-white/70 px-3 py-2 shadow-card backdrop-blur-md md:px-4">
       {socialMedia.map((media) => (
         <a
           key={media.href}
           href={media.href}
-          className="p-1 rounded-xl text-white bg-blue-700/50 backdrop-blur-sm flex items-center gap-2"
+          className="flex items-center gap-2 rounded-full p-2 text-ink transition-all duration-200 hover:bg-clay hover:text-white md:p-2.5"
         >
           {media.icon}
-          <span className="text-sm hidden lg:inline-block">{media.text}</span>
+          <span className="hidden text-sm font-semibold lg:inline-block">
+            {media.text}
+          </span>
         </a>
       ))}
     </footer>

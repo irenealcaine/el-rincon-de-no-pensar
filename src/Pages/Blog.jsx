@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../Components/Header";
 import BlogPosts from "../Components/BlogPosts";
 import FeaturedPost from "../Components/FeaturedPost";
 import PageIntro from "../Components/PageIntro";
@@ -42,7 +41,6 @@ const Blog = () => {
 
   return (
     <div className="bg-blue-100 min-h-screen">
-      <Header title={"Blog"} />
 
       <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
         <PageIntro

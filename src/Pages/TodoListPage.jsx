@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import TodoList from "../Components/TodoList";
 import PageIntro from "../Components/PageIntro";
@@ -7,7 +6,6 @@ import PageIntro from "../Components/PageIntro";
 const TodoListPage = () => {
   return (
     <div className="bg-blue-100 min-h-screen">
-      <Header title={"Lista de tareas"} />
       <main className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
         <PageIntro
           tagline={"~ pendiente o hecho ~"}
