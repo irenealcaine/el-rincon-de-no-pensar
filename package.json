@@ -23,8 +23,22 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "reactSnap": {
+    "source": "build",
+    "minifyHtml": {
+      "collapseWhitespace": false
+    },
+    "inlineCss": false,
+    "removeBlobs": true,
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "headless": true,
+    "timeout": 30000,
+    "include": ["/", "/projects", "/projects/blog", "/components", "/games", "/projects/quotes", "/projects/weighttracker", "/projects/exercise", "/projects/todo", "/projects/gallery", "/components/watch", "/components/timer", "/components/calculator", "/components/carousel", "/games/tic-tac-toe", "/games/memory", "/games/idle", "/games/quiz", "/games/rock-paper-scissors", "/post/estilo-de-vida-saludable", "/post/destinos-turisticos-populares", "/post/consejos-financieros-emprendedores", "/post/recetas-saludables-alimentacion", "/post/cuidar-medio-ambiente", "/post/el-arte-de-no-pensar", "/post/primeros-pasos-react", "/post/viajar-solo-primera-vez", "/post/ejercicio-en-casa-sin-material", "/post/como-ahorrar-dia-a-dia", "/post/reposteria-facil-principiantes"]
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "react-snap": "^1.23.0",
     "tailwindcss": "^3.2.7"
   }
 }

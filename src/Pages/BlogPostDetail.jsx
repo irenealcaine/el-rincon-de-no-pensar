@@ -3,18 +3,21 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import BlogPosts from "../Components/BlogPosts";
 import BackButton from "../Components/BackButton";
+import Seo from "../Components/Seo";
 import Posts from "../data/Posts";
 import categoryColors from "../data/categoryColors";
 import { FiArrowLeft, FiArrowRight, FiSearch } from "react-icons/fi";
 
+const BASE_URL = "https://elrincondenopensar.netlify.app";
+
 const BlogPostDetail = () => {
-  const { id } = useParams();
-  const post = Posts.find((post) => post.id === parseInt(id));
+  const { slug } = useParams();
+  const post = Posts.find((post) => post.postUrl === `/post/${slug}`);
   const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [slug]);
 
   if (!post) {
     return (
@@ -47,6 +50,36 @@ const BlogPostDetail = () => {
 
   return (
     <div className="bg-blue-100 min-h-screen">
+      <Seo
+        title={post.title}
+        description={post.excerpt.slice(0, 155)}
+        path={post.postUrl}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt.slice(0, 155),
+            image: post.imageUrl,
+            url: `${BASE_URL}${post.postUrl}`,
+            inLanguage: "es",
+            datePublished: "2026-01-01",
+            author: {
+              "@type": "Person",
+              name: "Irene Alcaine",
+              url: "https://irenealcainealvarez.es/",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "El rincón de no pensar",
+              url: BASE_URL,
+            },
+          }),
+        }}
+      />
       <main className="max-w-3xl mx-auto px-4 md:px-8 pb-16">
         <BackButton to={"/projects/blog"} className="mt-8">
           Volver al blog
@@ -73,6 +106,10 @@ const BlogPostDetail = () => {
         <img
           src={post.imageUrl}
           alt={post.title}
+          loading="lazy"
+          decoding="async"
+          width="768"
+          height="432"
           className="mt-8 w-full max-h-[28rem] object-cover rounded-3xl shadow-xl"
         />
 
@@ -86,7 +123,7 @@ const BlogPostDetail = () => {
           <nav className="mt-10 flex flex-col sm:flex-row gap-4">
             {prevPost && (
               <Link
-                to={`/post/${prevPost.id}`}
+                to={prevPost.postUrl}
                 className="group flex-1 rounded-2xl bg-white border border-blue-900/10 p-5 shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <span className="flex items-center gap-1 text-xs font-bold text-blue-900/80 uppercase">
@@ -100,7 +137,7 @@ const BlogPostDetail = () => {
             )}
             {nextPost && (
               <Link
-                to={`/post/${nextPost.id}`}
+                to={nextPost.postUrl}
                 className="group flex-1 rounded-2xl bg-white border border-blue-900/10 p-5 shadow-md hover:shadow-xl transition-all duration-300 text-right"
               >
                 <span className="flex items-center gap-1 justify-end text-xs font-bold text-blue-900/80 uppercase">

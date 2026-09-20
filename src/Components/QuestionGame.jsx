@@ -297,6 +297,10 @@ const QuestionGame = () => {
             <img
               src={option.image}
               alt={option.question}
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="400"
               className="w-full md:w-8/12 mx-auto rounded-2xl mb-6 shadow-md max-h-56 object-cover"
             />
 

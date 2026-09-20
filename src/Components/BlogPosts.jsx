@@ -24,6 +24,10 @@ const BlogPosts = ({
           <img
             src={imageUrl}
             alt={title}
+            loading="lazy"
+            decoding="async"
+            width="800"
+            height="450"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />

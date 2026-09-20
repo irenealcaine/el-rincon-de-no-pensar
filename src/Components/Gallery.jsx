@@ -95,6 +95,8 @@ const Modal = ({ onClose, photos, index, onNavigate }) => {
         <img
           src={photo.url}
           alt={photo.category}
+          width="1200"
+          height="800"
           className="max-h-[80vh] max-w-full object-contain rounded-2xl border-4 border-blue-200 shadow-2xl"
         />
         <figcaption className="mt-3 text-center font-bold text-blue-100">
@@ -165,6 +167,10 @@ const Gallery = ({ photos }) => {
               <img
                 src={photo.url}
                 alt={photo.category}
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="450"
                 className="w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />

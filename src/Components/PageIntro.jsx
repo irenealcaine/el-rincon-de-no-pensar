@@ -1,9 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import BackButton from "./BackButton";
+import Seo from "./Seo";
 
 const PageIntro = ({ tagline, title, description, backTo, backLabel }) => {
+  const location = useLocation();
+
   return (
     <section className="mt-10 mb-12 md:mt-14 md:mb-16">
+      <Seo title={title} description={description} path={location.pathname} />
       <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <p className="font-tictactoe text-lg text-clay-dark">{tagline}</p>

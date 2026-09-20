@@ -5,12 +5,17 @@ import HiperLink from "../Components/HiperLink";
 import menuItems from "../data/MenuItems";
 import ListItems from "../Components/ListItems";
 import Footer from "../Components/Footer";
+import Seo from "../Components/Seo";
 
 const Home = () => {
   const introduction1 = `Bienvenidos a 'El Rincón de no pensar', una web donde se encuentran proyectos pequeños pero llenos de encanto, todos ellos hechos con React y Tailwind. Aquí, presento una colección de creaciones modestas que, aunque demasiado pequeñas para tener su propio sitio web, merecen ser apreciadas y compartidas.`;
 
   return (
     <div className="texture-grain min-h-screen bg-blue-100">
+      <Seo
+        title="Proyectos, juegos y componentes con React"
+        description="El rincón de no pensar: proyectos, juegos, componentes de React y artículos para desconectar, hechos con React y Tailwind."
+      />
       <Header title={"El rincón de no pensar"} />
 
       <main className="mx-auto max-w-6xl px-4 pb-24 md:px-8">
