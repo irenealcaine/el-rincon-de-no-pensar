@@ -54,7 +54,9 @@ const Sidebar = () => {
         </button>
         <Link
           to={"/"}
-          className="flex items-center duration-200 hover:bg-white/10 rounded-xl text-paper-100 hover:text-white"
+          className={`flex items-center duration-200 hover:bg-white/10 rounded-xl text-paper-100 hover:text-white ${
+            !open && "justify-center px-0"
+          }`}
         >
           <div className="flex gap-x-3 items-center px-1">
             <GiSofa
@@ -64,7 +66,7 @@ const Sidebar = () => {
             />
             <p
               className={`origin-left font-bold text-2xl duration-200 ${
-                !open && "scale-0"
+                !open && "hidden scale-0"
               }`}
             >
               Inicio
@@ -72,7 +74,7 @@ const Sidebar = () => {
           </div>
         </Link>
 
-        <div className="pt-6">
+        <div className="pt-10">
           {menuItems.map((menuItem, index) => (
             <div key={index}>
               <Link
