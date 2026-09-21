@@ -3,9 +3,9 @@ import Button from "./Button";
 import { FaRegHandRock, FaRegHandPeace, FaRegHandPaper } from "react-icons/fa";
 import { FiSmile, FiFrown, FiMinusCircle } from "react-icons/fi";
 
-const piedra = <FaRegHandRock className="w-10 h-10 md:w-14 md:h-14" />;
-const tijeras = <FaRegHandPeace className="w-10 h-10 md:w-14 md:h-14" />;
-const papel = <FaRegHandPaper className="w-10 h-10 md:w-14 md:h-14" />;
+const piedra = <FaRegHandRock className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14" />;
+const tijeras = <FaRegHandPeace className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14" />;
+const papel = <FaRegHandPaper className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14" />;
 const options = [piedra, papel, tijeras];
 const optionLabels = ["Piedra", "Papel", "Tijeras"];
 
@@ -77,31 +77,31 @@ const RPS = () => {
       : "tie";
 
   return (
-    <section className="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-8">
+    <section className="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-4 sm:p-6 md:p-8">
       <div className="flex flex-col items-center">
-        <div className="flex flex-wrap items-center justify-between gap-3 w-full mb-8">
-          <div className="grid grid-cols-3 gap-3 flex-1 min-w-56">
-            <div className="px-4 py-3 rounded-2xl bg-emerald-50 text-center">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 w-full mb-8">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full md:flex-1 md:min-w-0">
+            <div className="px-2 sm:px-4 py-3 rounded-2xl bg-emerald-50 text-center">
               <p className="text-xs font-bold text-emerald-700 uppercase">
                 Ganadas
               </p>
-              <p className="font-mono text-3xl font-black text-emerald-700">
+              <p className="font-mono text-2xl sm:text-3xl font-black text-emerald-700">
                 {wins}
               </p>
             </div>
-            <div className="px-4 py-3 rounded-2xl bg-blue-50 text-center">
+            <div className="px-2 sm:px-4 py-3 rounded-2xl bg-blue-50 text-center">
               <p className="text-xs font-bold text-blue-700 uppercase">
                 Empates
               </p>
-              <p className="font-mono text-3xl font-black text-blue-700">
+              <p className="font-mono text-2xl sm:text-3xl font-black text-blue-700">
                 {ties}
               </p>
             </div>
-            <div className="px-4 py-3 rounded-2xl bg-red-50 text-center">
+            <div className="px-2 sm:px-4 py-3 rounded-2xl bg-red-50 text-center">
               <p className="text-xs font-bold text-red-700 uppercase">
                 Perdidas
               </p>
-              <p className="font-mono text-3xl font-black text-red-700">
+              <p className="font-mono text-2xl sm:text-3xl font-black text-red-700">
                 {losses}
               </p>
             </div>
@@ -110,14 +110,14 @@ const RPS = () => {
         </div>
 
         <p className="font-bold text-blue-900/80 mb-3">Elige una opción</p>
-        <div className="flex gap-4">
+        <div className="flex gap-3 md:gap-4">
           {options.map((option, index) => (
             <button
               key={index}
               onClick={() => handleUserChoice(option)}
               disabled={!!userChoice}
               aria-label={`Elegir ${optionLabels[index]}`}
-              className={`w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center transition-all duration-200 ${
+              className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center transition-all duration-200 ${
                 userChoice === option
                   ? "bg-violet-100 text-violet-700 ring-4 ring-violet-400 scale-105"
                   : "bg-blue-50 border-2 border-blue-200 text-blue-800 hover:bg-blue-100 disabled:opacity-40 disabled:cursor-not-allowed"
@@ -152,7 +152,7 @@ const RPS = () => {
             <div
               className={`mt-4 text-center px-6 py-3 rounded-2xl border ${resultStyle[currentStyle]}`}
             >
-              <p className="font-black text-2xl inline-flex items-center gap-2">
+              <p className="font-black text-lg sm:text-2xl inline-flex items-center gap-2 text-center">
                 <span className="inline-flex">{resultIcon[currentStyle]}</span>
                 {result}
               </p>
