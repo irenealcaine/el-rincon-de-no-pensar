@@ -149,7 +149,7 @@ function TicTacToe() {
             {scores.x}
           </p>
         </div>
-        <div className="px-5 py-2 rounded-2xl bg-blue-50 text-center min-w-16">
+        <div className="px-5 py-2 rounded-2xl bg-blue-50 text-center min-w-16 content-end">
           <p className="text-xs font-bold text-blue-700 uppercase">Empates</p>
           <p className="font-mono text-3xl font-black text-blue-700">
             {scores.draws}
