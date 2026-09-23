@@ -6,6 +6,7 @@ import {
 import { CgNotes } from "react-icons/cg";
 import { FaGamepad } from "react-icons/fa";
 import { FiWatch } from "react-icons/fi";
+import { FiHelpCircle } from "react-icons/fi";
 import { RxLapTimer } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
 import { TbPuzzle } from "react-icons/tb";
@@ -99,6 +100,12 @@ const menuItems = [
         to: "/components/carousel",
         icon: <BsImages className="h-6" />,
         bigIcon: <BsImages className="h-16 w-16" />,
+      },
+      {
+        title: "FAQ",
+        to: "/components/faq",
+        icon: <FiHelpCircle className="h-6" />,
+        bigIcon: <FiHelpCircle className="h-16 w-16" />,
       },
     ],
   },

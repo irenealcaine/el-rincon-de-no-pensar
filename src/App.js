@@ -28,6 +28,7 @@ import CalculatorPage from "./Pages/CalculatorPage";
 import CarouselPage from "./Pages/CarouselPage";
 import TodoListPage from "./Pages/TodoListPage";
 import GalleryPage from "./Pages/GalleryPage";
+import FAQPage from "./Pages/FAQ";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -77,6 +78,7 @@ function App() {
                 element={<CalculatorPage />}
               />
               <Route path="/components/carousel" element={<CarouselPage />} />
+              <Route path="/components/faq" element={<FAQPage />} />
 
               <Route path="/games" element={<Games />} />
               <Route path="/games/tic-tac-toe" element={<TicTacToeGame />} />
