@@ -20,6 +20,7 @@ import { AiOutlineCalculator } from "react-icons/ai";
 import { BsImages } from "react-icons/bs";
 import { BiPhotoAlbum } from "react-icons/bi"
 import { FaPalette } from "react-icons/fa";
+import { FiLock } from "react-icons/fi";
 
 const menuItems = [
   {
@@ -69,6 +70,12 @@ const menuItems = [
         to: "/projects/palette",
         icon: <FaPalette className="h-6" />,
         bigIcon: <FaPalette className="h-16 w-16" />,
+      },
+      {
+        title: "Generador de contraseñas",
+        to: "/projects/password",
+        icon: <FiLock className="h-6" />,
+        bigIcon: <FiLock className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",

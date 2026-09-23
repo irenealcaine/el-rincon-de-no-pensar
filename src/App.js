@@ -30,6 +30,7 @@ import TodoListPage from "./Pages/TodoListPage";
 import GalleryPage from "./Pages/GalleryPage";
 import FAQPage from "./Pages/FAQ";
 import ColorPalettePage from "./Pages/ColorPalettePage";
+import PasswordGeneratorPage from "./Pages/PasswordGeneratorPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -71,6 +72,7 @@ function App() {
               <Route path="/projects/todo" element={<TodoListPage />} />
               <Route path="/projects/gallery" element={<GalleryPage />} />
               <Route path="/projects/palette" element={<ColorPalettePage />} />
+              <Route path="/projects/password" element={<PasswordGeneratorPage />} />
 
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<WatchPage />} />
