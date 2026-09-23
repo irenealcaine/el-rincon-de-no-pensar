@@ -4,6 +4,8 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import "chartjs-adapter-date-fns";
 import Button from "./Button";
+import Toast from "./Toast";
+import useToast from "../Hooks/useToast";
 
 const STORAGE_KEY = "weightTracker";
 
@@ -31,6 +33,7 @@ const WeightTable = () => {
     const stored = loadStoredData();
     return !(stored?.weightData?.length > 0);
   });
+  const { toasts, showToast, dismiss } = useToast();
 
   const formatDate = (dateStr) => {
     if (!dateStr) return "";
@@ -49,6 +52,7 @@ const WeightTable = () => {
   const handleAddRow = () => {
     const newRow = { date: "", weight: "", i: "" };
     setRowData([...rowData, newRow]);
+    showToast("Fila añadida", "info");
   };
 
   const handleInputChange = (e, index) => {
@@ -62,6 +66,7 @@ const WeightTable = () => {
         .map((row) => row.date);
       if (previousDates.some((date) => date > value)) {
         setDateWarning("¡La fecha es anterior a las fechas anteriores!");
+        showToast("La fecha es anterior a las fechas anteriores", "error");
       } else {
         setDateWarning("");
       }
@@ -85,6 +90,7 @@ const WeightTable = () => {
       }));
     setWeightData(newWeightData);
     setShowEditor(false);
+    showToast("Pesos guardados correctamente", "success");
   };
 
   const chartData = {
@@ -301,6 +307,7 @@ const WeightTable = () => {
           </p>
         )}
       </section>
+      <Toast toasts={toasts} onDismiss={dismiss} />
     </div>
   );
 };

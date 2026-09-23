@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import Toast from "./Toast";
+import useToast from "../Hooks/useToast";
 import { BsTrash3 } from "react-icons/bs";
 import { FiCheck, FiEdit, FiX } from "react-icons/fi";
 
@@ -30,6 +32,7 @@ const TodoList = () => {
   const [editingId, setEditingId] = useState(null);
   const [editingText, setEditingText] = useState("");
   const [filter, setFilter] = useState("all");
+  const { toasts, showToast, dismiss } = useToast();
 
   useEffect(() => {
     try {
@@ -51,6 +54,7 @@ const TodoList = () => {
         },
       ]);
       setNewTask("");
+      showToast("Tarea añadida", "success");
     }
   };
 
@@ -70,6 +74,7 @@ const TodoList = () => {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
+    showToast("Tarea eliminada", "info");
   };
 
   const startEdit = (task) => {
@@ -84,6 +89,7 @@ const TodoList = () => {
           task.id === editingId ? { ...task, text: editingText.trim() } : task
         )
       );
+      showToast("Tarea actualizada", "success");
     }
     setEditingId(null);
     setEditingText("");
@@ -283,6 +289,7 @@ const TodoList = () => {
           </ul>
         )}
       </section>
+      <Toast toasts={toasts} onDismiss={dismiss} />
     </div>
   );
 };
