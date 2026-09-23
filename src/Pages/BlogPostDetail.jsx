@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import BlogPosts from "../Components/BlogPosts";
 import BackButton from "../Components/BackButton";
 import Seo from "../Components/Seo";
+import StarRating from "../Components/StarRating";
 import Posts from "../data/Posts";
 import categoryColors from "../data/categoryColors";
 import { FiArrowLeft, FiArrowRight, FiSearch } from "react-icons/fi";
@@ -118,6 +119,8 @@ const BlogPostDetail = () => {
             {post.excerpt}
           </p>
         </div>
+
+        <StarRating postUrl={post.postUrl} />
 
         {(prevPost || nextPost) && (
           <nav className="mt-10 flex flex-col sm:flex-row gap-4">
