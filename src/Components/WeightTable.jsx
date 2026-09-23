@@ -5,7 +5,9 @@ import Chart from "chart.js/auto";
 import "chartjs-adapter-date-fns";
 import Button from "./Button";
 import Toast from "./Toast";
+import Tabs from "./Tabs";
 import useToast from "../Hooks/useToast";
+import { FiClipboard, FiTrendingUp } from "react-icons/fi";
 
 const STORAGE_KEY = "weightTracker";
 
@@ -152,160 +154,192 @@ const WeightTable = () => {
 
   return (
     <div className="pb-16">
-      {showEditor || weightData.length === 0 ? (
-        <section className="bg-white rounded-3xl shadow-lg p-4 md:p-6 mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-black text-blue-900">Registro</h2>
-            {weightData.length > 0 && (
-              <button
-                onClick={() => setShowEditor(false)}
-                className="text-sm font-bold text-blue-800 hover:text-blue-600 transition"
-              >
-                ← Ver datos guardados
-              </button>
-            )}
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-blue-900 text-white">
-                  <th className="p-3 text-left font-bold rounded-l-xl w-1/2">
-                    Fecha
-                  </th>
-                  <th className="p-3 text-left font-bold rounded-r-xl w-1/2">
-                    Peso (kg)
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rowData.map((row, index) => (
-                  <tr
-                    key={index}
-                    className="border-b border-blue-900/10 last:border-0"
-                  >
-                    <td className="p-3">
-                      <input
-                        type="date"
-                        name="date"
-                        value={row.date}
-                        onChange={(e) => handleInputChange(e, index)}
-                        className="w-full rounded-lg border border-blue-900/10 bg-blue-50/50 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/40"
-                      />
-                    </td>
-                    <td className="p-3">
-                      <input
-                        type="number"
-                        step="0.1"
-                        name="weight"
-                        value={row.weight}
-                        onChange={(e) => handleInputChange(e, index)}
-                        className="w-full rounded-lg border border-blue-900/10 bg-blue-50/50 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/40"
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {dateWarning && (
-            <p className="mt-4 text-red-700 font-bold bg-red-50 border border-red-200 rounded-xl py-2 px-4 text-center">
-              {dateWarning}
-            </p>
-          )}
-
-          <div className="mt-4 flex flex-col sm:flex-row gap-3">
-            <Button
-              type={"green"}
-              onClickValue={handleAddRow}
-              value={"Agregar fila"}
-            />
-            <Button onClickValue={handleSaveData} value={"Guardar cambios"} />
-          </div>
-        </section>
-      ) : (
-        <section className="bg-white rounded-3xl shadow-lg p-4 md:p-6 mb-8">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xl font-black text-blue-900">
-              Datos guardados
-            </h2>
-            <span className="text-sm font-bold text-blue-900/80">
-              {weightData.length}{" "}
-              {weightData.length === 1 ? "entrada" : "entradas"}
-            </span>
-          </div>
-
-          <div className="max-h-96 overflow-y-auto rounded-xl border border-blue-900/10">
-            <table className="w-full text-sm">
-              <thead className="sticky top-0 bg-blue-900 text-white">
-                <tr>
-                  <th className="p-2 text-left font-bold">#</th>
-                  <th className="p-2 text-left font-bold">Fecha</th>
-                  <th className="p-2 text-left font-bold">Peso (kg)</th>
-                  <th className="p-2 text-left font-bold">Δ</th>
-                </tr>
-              </thead>
-              <tbody>
-                {weightData.map((data, index) => {
-                  const prev = index > 0 ? weightData[index - 1].weight : null;
-                  const delta = prev !== null ? data.weight - prev : null;
-                  return (
-                    <tr
-                      key={index}
-                      className="border-b border-blue-900/5 last:border-0 hover:bg-blue-50/50"
-                    >
-                      <td className="p-2 text-blue-900/80">{index + 1}</td>
-                      <td className="p-2 font-medium text-blue-900">
-                        {formatDate(data.date)}
-                      </td>
-                      <td className="p-2 font-bold text-blue-900">
-                        {data.weight} kg
-                      </td>
-                      <td className="p-2">
-                        {delta !== null && (
-                          <span
-                            className={
-                              delta > 0
-                                ? "text-red-700"
-                                : delta < 0
-                                ? "text-emerald-700"
-                                : "text-blue-900/80"
-                            }
-                          >
-                            {delta > 0 ? "+" : ""}
-                            {delta.toFixed(1)} kg
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          <button
-            onClick={() => setShowEditor(true)}
-            className="mt-4 rounded-full bg-blue-800 text-white font-bold px-6 py-2.5 hover:bg-blue-900 transition active:scale-95"
-          >
-            Añadir / editar datos
-          </button>
-        </section>
-      )}
-
       <section className="bg-white rounded-3xl shadow-lg p-4 md:p-6">
-        <h2 className="text-xl font-black text-blue-900 mb-4">Evolución</h2>
-        {weightData.length > 0 ? (
-          <div className="h-80">
-            <Line data={chartData} options={chartOptions} />
-          </div>
-        ) : (
-          <p className="text-blue-900/80 text-center py-16">
-            Añade filas, pulsa "Guardar cambios" y aquí verás la evolución de tu
-            peso.
-          </p>
-        )}
+        <Tabs
+          tabs={[
+            {
+              label: "Registro",
+              icon: <FiClipboard />,
+              content: (
+                <>
+                  {showEditor || weightData.length === 0 ? (
+                    <>
+                      <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-black text-blue-900">
+                          Registro
+                        </h2>
+                        {weightData.length > 0 && (
+                          <button
+                            onClick={() => setShowEditor(false)}
+                            className="text-sm font-bold text-blue-800 hover:text-blue-600 transition"
+                          >
+                            ← Ver datos guardados
+                          </button>
+                        )}
+                      </div>
+
+                      <div className="overflow-x-auto">
+                        <table className="w-full">
+                          <thead>
+                            <tr className="bg-blue-900 text-white">
+                              <th className="p-3 text-left font-bold rounded-l-xl w-1/2">
+                                Fecha
+                              </th>
+                              <th className="p-3 text-left font-bold rounded-r-xl w-1/2">
+                                Peso (kg)
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {rowData.map((row, index) => (
+                              <tr
+                                key={index}
+                                className="border-b border-blue-900/10 last:border-0"
+                              >
+                                <td className="p-3">
+                                  <input
+                                    type="date"
+                                    name="date"
+                                    value={row.date}
+                                    onChange={(e) => handleInputChange(e, index)}
+                                    className="w-full rounded-lg border border-blue-900/10 bg-blue-50/50 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/40"
+                                  />
+                                </td>
+                                <td className="p-3">
+                                  <input
+                                    type="number"
+                                    step="0.1"
+                                    name="weight"
+                                    value={row.weight}
+                                    onChange={(e) => handleInputChange(e, index)}
+                                    className="w-full rounded-lg border border-blue-900/10 bg-blue-50/50 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500/40"
+                                  />
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+
+                      {dateWarning && (
+                        <p className="mt-4 text-red-700 font-bold bg-red-50 border border-red-200 rounded-xl py-2 px-4 text-center">
+                          {dateWarning}
+                        </p>
+                      )}
+
+                      <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                        <Button
+                          type={"green"}
+                          onClickValue={handleAddRow}
+                          value={"Agregar fila"}
+                        />
+                        <Button
+                          onClickValue={handleSaveData}
+                          value={"Guardar cambios"}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-xl font-black text-blue-900">
+                          Datos guardados
+                        </h2>
+                        <span className="text-sm font-bold text-blue-900/80">
+                          {weightData.length}{" "}
+                          {weightData.length === 1 ? "entrada" : "entradas"}
+                        </span>
+                      </div>
+
+                      <div className="max-h-96 overflow-y-auto rounded-xl border border-blue-900/10">
+                        <table className="w-full text-sm">
+                          <thead className="sticky top-0 bg-blue-900 text-white">
+                            <tr>
+                              <th className="p-2 text-left font-bold">#</th>
+                              <th className="p-2 text-left font-bold">Fecha</th>
+                              <th className="p-2 text-left font-bold">
+                                Peso (kg)
+                              </th>
+                              <th className="p-2 text-left font-bold">Δ</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {weightData.map((data, index) => {
+                              const prev =
+                                index > 0 ? weightData[index - 1].weight : null;
+                              const delta =
+                                prev !== null ? data.weight - prev : null;
+                              return (
+                                <tr
+                                  key={index}
+                                  className="border-b border-blue-900/5 last:border-0 hover:bg-blue-50/50"
+                                >
+                                  <td className="p-2 text-blue-900/80">
+                                    {index + 1}
+                                  </td>
+                                  <td className="p-2 font-medium text-blue-900">
+                                    {formatDate(data.date)}
+                                  </td>
+                                  <td className="p-2 font-bold text-blue-900">
+                                    {data.weight} kg
+                                  </td>
+                                  <td className="p-2">
+                                    {delta !== null && (
+                                      <span
+                                        className={
+                                          delta > 0
+                                            ? "text-red-700"
+                                            : delta < 0
+                                            ? "text-emerald-700"
+                                            : "text-blue-900/80"
+                                        }
+                                      >
+                                        {delta > 0 ? "+" : ""}
+                                        {delta.toFixed(1)} kg
+                                      </span>
+                                    )}
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <button
+                        onClick={() => setShowEditor(true)}
+                        className="mt-4 rounded-full bg-blue-800 text-white font-bold px-6 py-2.5 hover:bg-blue-900 transition active:scale-95"
+                      >
+                        Añadir / editar datos
+                      </button>
+                    </>
+                  )}
+                </>
+              ),
+            },
+            {
+              label: "Evolución",
+              icon: <FiTrendingUp />,
+              content: (
+                <>
+                  <h2 className="text-xl font-black text-blue-900 mb-4">
+                    Evolución
+                  </h2>
+                  {weightData.length > 0 ? (
+                    <div className="h-80">
+                      <Line data={chartData} options={chartOptions} />
+                    </div>
+                  ) : (
+                    <p className="text-blue-900/80 text-center py-16">
+                      Añade filas, pulsa "Guardar cambios" y aquí verás la
+                      evolución de tu peso.
+                    </p>
+                  )}
+                </>
+              ),
+            },
+          ]}
+        />
       </section>
       <Toast toasts={toasts} onDismiss={dismiss} />
     </div>
