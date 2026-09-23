@@ -29,6 +29,7 @@ import CarouselPage from "./Pages/CarouselPage";
 import TodoListPage from "./Pages/TodoListPage";
 import GalleryPage from "./Pages/GalleryPage";
 import FAQPage from "./Pages/FAQ";
+import ColorPalettePage from "./Pages/ColorPalettePage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -69,6 +70,7 @@ function App() {
               <Route path="/projects/exercise" element={<Exercise />} />
               <Route path="/projects/todo" element={<TodoListPage />} />
               <Route path="/projects/gallery" element={<GalleryPage />} />
+              <Route path="/projects/palette" element={<ColorPalettePage />} />
 
               <Route path="/components" element={<Components />} />
               <Route path="/components/watch" element={<WatchPage />} />

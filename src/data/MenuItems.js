@@ -19,6 +19,7 @@ import { CgGym } from "react-icons/cg";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { BsImages } from "react-icons/bs";
 import { BiPhotoAlbum } from "react-icons/bi"
+import { FaPalette } from "react-icons/fa";
 
 const menuItems = [
   {
@@ -62,6 +63,12 @@ const menuItems = [
         to: "/projects/gallery",
         icon: <BiPhotoAlbum className="h-6" />,
         bigIcon: <BiPhotoAlbum className="h-16 w-16" />,
+      },
+      {
+        title: "Paleta de colores",
+        to: "/projects/palette",
+        icon: <FaPalette className="h-6" />,
+        bigIcon: <FaPalette className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",
