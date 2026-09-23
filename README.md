@@ -4,9 +4,10 @@ Proyectos pequeños pero llenos de encanto, hechos con React y Tailwind: una col
 
 ## 🛋️ Qué contiene
 
-- **Proyectos** — Blog, frases célebres, registro de peso, tabla de ejercicios, lista de tareas y galería de fotos.
-- **Componentes** — Reloj, temporizador, calculadora y carrusel de fotos.
+- **Proyectos** — Blog (17 artículos con paginación y valoración por estrellas), frases célebres, registro de peso, tabla de ejercicios, lista de tareas, galería de fotos, paleta de colores aleatorios y generador de contraseñas.
+- **Componentes** — Reloj, temporizador, calculadora, carrusel de fotos y FAQ en acordeón.
 - **Juegos** — Clicker, 3 en raya, parejas (memoria), preguntas y piedra, papel o tijeras.
+- **Piezas compartidas** — `Toast`, `Tabs`, `StarRating`, `Paginator` y hook `useToast`, reutilizados entre proyectos.
 
 ## 🚀 Puesta en marcha
 
@@ -26,15 +27,16 @@ npm test          # ejecuta los tests
 - [React Router](https://reactrouter.com/) para el enrutado cliente
 - [react-icons](https://react-icons.github.io/react-icons/) e iconos SVG propios
 - [Chart.js](https://www.chartjs.org/) para la gráfica del registro de peso
+- Datos de usuario guardados en `localStorage` (registro de peso, lista de tareas, paletas y valoraciones)
 
 ## 📁 Estructura
 
 ```
 src/
-├── Components/    # Componentes reutilizables (Sidebar, Button, Carousel…)
-├── Pages/         # Páginas (Home, Projects, Games, BlogPostDetail…)
-├── data/          # Datos estáticos (Posts, Quotes, MenuItems, categoryColors)
-├── Hooks/         # Hooks propios (useInterval)
+├── Components/    # Componentes reutilizables (Sidebar, Button, Toast, Tabs, StarRating…)
+├── Pages/         # Páginas (Home, Projects, Games, BlogPostDetail, FAQ…)
+├── data/          # Datos estáticos (Posts, Quotes, MenuItems, categoryColors, Faqs)
+├── Hooks/         # Hooks propios (useInterval, useToast)
 ├── App.js         # Definición de rutas
 └── index.js       # Punto de entrada
 ```
