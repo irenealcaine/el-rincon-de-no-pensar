@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import BlogPosts from "../Components/BlogPosts";
 import FeaturedPost from "../Components/FeaturedPost";
 import PageIntro from "../Components/PageIntro";
+import Paginator from "../Components/Paginator";
 import Posts from "../data/Posts.js";
 import categoryColors from "../data/categoryColors.js";
 import Footer from "../Components/Footer";
 import { FiSearch, FiCheck } from "react-icons/fi";
 
+const PAGE_SIZE = 3;
+
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState("");
+  const gridRef = useRef(null);
 
   const featuredPost = Posts.find((post) => post.featured);
   const otherPosts = Posts.filter((post) => !post.featured);
@@ -32,6 +37,30 @@ const Blog = () => {
 
   const showFeatured = featuredPost && matchesFilters(featuredPost);
   const filteredPosts = otherPosts.filter(matchesFilters);
+
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+    if (gridRef.current) {
+      gridRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setPage(1);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+    setPage(1);
+  };
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -61,7 +90,7 @@ const Blog = () => {
             <select
               id="blog-category"
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={(e) => handleCategoryChange(e.target.value)}
               className="w-full rounded-full bg-white/80 border border-blue-900/10 px-4 py-2.5 text-sm font-bold text-blue-900 outline-none focus:ring-2 focus:ring-blue-500/40"
             >
               {categories.map((category) => (
@@ -76,7 +105,7 @@ const Blog = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategoryChange(category)}
                 className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
                   selectedCategory === category
                     ? "bg-blue-800 text-white border-blue-800 shadow-md scale-105"
@@ -93,7 +122,7 @@ const Blog = () => {
             <input
               type="search"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={handleSearchChange}
               placeholder="Buscar artículos..."
               className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/80 border border-blue-900/10 outline-none text-sm focus:ring-2 focus:ring-blue-500/40 placeholder:text-blue-900/80"
             />
@@ -107,8 +136,11 @@ const Blog = () => {
         )}
 
         {filteredPosts.length > 0 ? (
-          <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            {filteredPosts.map((post) => (
+          <section
+            ref={gridRef}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 scroll-mt-24"
+          >
+            {paginatedPosts.map((post) => (
               <BlogPosts
                 key={post.id}
                 title={post.title}
@@ -134,6 +166,12 @@ const Blog = () => {
             </p>
           </section>
         )}
+
+        <Paginator
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
 
         <section className="relative mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 to-blue-700 p-8 md:p-12 text-white shadow-xl">
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10 blur-2xl" />

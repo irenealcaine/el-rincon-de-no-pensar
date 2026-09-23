@@ -115,5 +115,65 @@ const Posts = [
     postUrl: "/post/reposteria-facil-principiantes",
     categories: ["Alimentación"],
   },
+  {
+    id: 12,
+    title: "Jardinería urbana: un balcón lleno de vida",
+    subtitle: "Convierte tu terraza o ventana en un pequeño vergel",
+    excerpt:
+      "No hace falta un huerto en el campo para cultivar tus propias plantas. Con un balcón, una terraza o incluso una ventana bien aprovechada puedes crear un pequeño rincón verde. Empieza con hierbas aromáticas como albahaca, romero o menta, que crecen sin complicaciones y alegran cualquier plato. Añade tomates cherry, lechugas o fresas en macetas con buen drenaje y sustrato de calidad. El riego, la luz y la paciencia son las claves: observa tus plantas y aprende de ellas. Cuidar algo vivo aporta calma, oxígeno y una gran satisfacción cada vez que cosechas algo que tú mismo has cuidado.",
+    imageUrl: "https://picsum.photos/seed/jardin/900/600",
+    postUrl: "/post/jardineria-urbana",
+    categories: ["Medio Ambiente", "Bienestar"],
+  },
+  {
+    id: 13,
+    title: "Menos plástico en casa: guía para empezar",
+    subtitle: "Cambios sencillos que reducen la basura que generas",
+    excerpt:
+      "El plástico está por todas partes, pero reducirlo es más fácil de lo que piensas. Empieza por lo visible: lleva bolsas de tela al supermercado, usa botellas y táperes reutilizables y elige fruta a granel. Sustituye los envases de un solo uso por alternativas de cristal o acero y prepara tu propio café para no usar vasos desechables. En la cocina, puedes elaborar tus propios productos de limpieza con vinagre y bicarbonato. No se trata de ser perfecto, sino de sumar pequeños gestos. Cada envase que evitas es un poco menos de basura en el planeta.",
+    imageUrl: "https://picsum.photos/seed/plastic/900/600",
+    postUrl: "/post/menos-plastico-en-casa",
+    categories: ["Sostenibilidad", "Medio Ambiente"],
+  },
+  {
+    id: 14,
+    title: "El método Pomodoro para estudiar y trabajar mejor",
+    subtitle: "25 minutos de concentración que cambian tu día",
+    excerpt:
+      "El método Pomodoro divide el trabajo en bloques de 25 minutos de concentración total separados por descansos de 5. La idea es sencilla: elige una tarea, pon un temporizador y trabaja sin interrupciones hasta que suene. Al cuarto bloque, descansa más tiempo. Este ritmo reduce la procrastinación, evita el agotamiento y entrena tu atención. Puedes empezar con sesiones más cortas e ir subiendo, y combinarlo con listas de tareas para saber siempre qué hacer. Al final del día verás todo lo que has avanzado sin sentirte quemado.",
+    imageUrl: "https://picsum.photos/seed/pomodoro/900/600",
+    postUrl: "/post/metodo-pomodoro",
+    categories: ["Educación", "Bienestar"],
+  },
+  {
+    id: 15,
+    title: "Senderismo: desconectar paseando por la naturaleza",
+    subtitle: "Rutas para todos los niveles y qué llevar en la mochila",
+    excerpt:
+      "El senderismo es la combinación perfecta de ejercicio, naturaleza y silencio. Solo necesitas calzado cómodo, agua, algo de comida y ganas de andar. Empieza por rutas cortas y señalizadas, consulta la previsión meteorológica y avisa de tu plan a alguien de confianza. Camina a tu ritmo, disfruta de las vistas y deja el sendero tal y como lo encontraste. Es un plan barato, saludable y que no requiere mucho material. Encontrarás que el mejor descanso no es quedarse quieto, sino moverse entre bosques, montañas y atardeceres.",
+    imageUrl: "https://picsum.photos/seed/senderismo/900/600",
+    postUrl: "/post/senderismo",
+    categories: ["Deportes", "Viajes"],
+  },
+  {
+    id: 16,
+    title: "Invertir desde cero: cómo dar los primeros pasos",
+    subtitle: "Conceptos básicos para empezar con calma y cabeza",
+    excerpt:
+      "Invertir no es cosa de expertos ni requiere grandes cantidades de dinero. Lo primero es tener un fondo de emergencia y haber ahorrado algo. Después, aprende los conceptos esenciales: riesgo, diversificación e interés compuesto. Una opción sencilla para empezar son los fondos indexados, que reparten la inversión entre muchas empresas y reducen el riesgo. Invierte solo dinero que no necesites a corto plazo, automatiza aportaciones pequeñas y revisa tu cartera con calma, sin dejarte llevar por el pánico. El tiempo y la constancia son tus mejores aliados.",
+    imageUrl: "https://picsum.photos/seed/invertir/900/600",
+    postUrl: "/post/invertir-desde-cero",
+    categories: ["Finanzas", "Negocios"],
+  },
+  {
+    id: 17,
+    title: "Crear el hábito de la lectura en 5 pasos",
+    subtitle: "Trucos para leer más y disfrutarlo de verdad",
+    excerpt:
+      "Leer más no es cuestión de fuerza de voluntad, sino de crear un hábito agradable. Elige libros que de verdad te apetezcan, aunque sean cortos o no sean 'clásicos'. Fija un momento del día, como antes de dormir, y deja el móvil fuera del alcance. Lleva siempre un libro encima para aprovechar los tiempos muertos y no temas abandonar una lectura que no te engancha. Fíjate metas pequeñas, como diez páginas al día. En pocas semanas, leer dejará de ser un propósito y se convertirá en un placer que no querrás perder.",
+    imageUrl: "https://picsum.photos/seed/lectura/900/600",
+    postUrl: "/post/habito-lectura",
+    categories: ["Educación", "Cultura"],
+  },
 ];
 export default Posts;
