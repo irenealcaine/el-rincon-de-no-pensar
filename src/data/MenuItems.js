@@ -25,6 +25,7 @@ import { FiType } from "react-icons/fi";
 import { FiDisc } from "react-icons/fi";
 import { FaBomb } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
+import { TbLetterW } from "react-icons/tb";
 
 const menuItems = [
   {
@@ -186,6 +187,12 @@ const menuItems = [
         to: "/games/connect-four",
         icon: <FaCircle className="h-6" />,
         bigIcon: <FaCircle className="h-16 w-16" />,
+      },
+      {
+        title: "Wordle",
+        to: "/games/wordle",
+        icon: <TbLetterW className="h-6" />,
+        bigIcon: <TbLetterW className="h-16 w-16" />,
       },
     ],
   },
