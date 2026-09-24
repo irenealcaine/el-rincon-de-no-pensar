@@ -29,6 +29,7 @@ import { FaBomb } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { TbLetterW } from "react-icons/tb";
 import { GiSnake } from "react-icons/gi";
+import { MdSportsTennis } from "react-icons/md";
 
 const menuItems = [
   {
@@ -214,6 +215,12 @@ const menuItems = [
         to: "/games/snake",
         icon: <GiSnake className="h-6" />,
         bigIcon: <GiSnake className="h-16 w-16" />,
+      },
+      {
+        title: "Pong",
+        to: "/games/pong",
+        icon: <MdSportsTennis className="h-6" />,
+        bigIcon: <MdSportsTennis className="h-16 w-16" />,
       },
     ],
   },

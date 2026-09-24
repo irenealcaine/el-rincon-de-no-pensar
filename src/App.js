@@ -29,6 +29,7 @@ import MinesweeperGame from "./Pages/MinesweeperGame";
 import ConnectFourGame from "./Pages/ConnectFourGame";
 import WordleGame from "./Pages/WordleGame";
 import SnakeGame from "./Pages/SnakeGame";
+import PongGame from "./Pages/PongGame";
 import Exercise from "./Pages/Exercise";
 import CalculatorPage from "./Pages/CalculatorPage";
 import CarouselPage from "./Pages/CarouselPage";
@@ -106,6 +107,7 @@ function App() {
               <Route path="/games/connect-four" element={<ConnectFourGame />} />
               <Route path="/games/wordle" element={<WordleGame />} />
               <Route path="/games/snake" element={<SnakeGame />} />
+              <Route path="/games/pong" element={<PongGame />} />
             </Routes>
           </div>
         </div>
