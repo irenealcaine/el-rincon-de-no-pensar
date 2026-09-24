@@ -1,111 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-
-const Modal = ({ onClose, photos, index, onNavigate }) => {
-  useEffect(() => {
-    const previousFocus = document.activeElement;
-    const modal = document.getElementById("gallery-modal");
-    const closeButton = document.getElementById("gallery-modal-close");
-    (closeButton || modal)?.focus();
-
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onNavigate(index + 1);
-      if (e.key === "ArrowLeft") onNavigate(index - 1);
-      if (e.key === "Tab") {
-        const focusables = modal.querySelectorAll(
-          'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
-        );
-        if (focusables.length === 0) return;
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-      previousFocus?.focus?.();
-    };
-  }, [index, onClose, onNavigate]);
-
-  const photo = photos[index];
-
-  return (
-    <div
-      id="gallery-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-label={`Foto de ${photo.category}`}
-      className="fixed inset-0 z-20 flex items-center justify-center pl-16 md:pl-20 p-4 md:p-10"
-      onClick={onClose}
-    >
-      <div className="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-md" />
-
-      <button
-        id="gallery-modal-close"
-        onClick={onClose}
-        title="Cerrar"
-        aria-label="Cerrar"
-        className="absolute right-4 top-4 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
-      >
-        <FiX size={22} />
-      </button>
-
-      {index > 0 && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onNavigate(index - 1);
-          }}
-          title="Anterior"
-          aria-label="Foto anterior"
-          className="absolute left-14 md:left-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
-        >
-          <FiChevronLeft size={28} />
-        </button>
-      )}
-
-      {index < photos.length - 1 && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onNavigate(index + 1);
-          }}
-          title="Siguiente"
-          aria-label="Foto siguiente"
-          className="absolute right-2 md:right-6 z-30 text-white bg-white/10 hover:bg-white/25 rounded-full p-2 transition active:scale-90"
-        >
-          <FiChevronRight size={28} />
-        </button>
-      )}
-
-      <figure
-        className="modal-image relative max-w-full max-h-full"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <img
-          src={photo.url}
-          alt={photo.category}
-          width="1200"
-          height="800"
-          className="max-h-[80vh] max-w-full object-contain rounded-2xl border-4 border-blue-200 shadow-2xl"
-        />
-        <figcaption className="mt-3 text-center font-bold text-blue-100">
-          {photo.category} · {index + 1}/{photos.length}
-        </figcaption>
-      </figure>
-    </div>
-  );
-};
+import React, { useState } from "react";
+import Modal from "./Modal";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Gallery = ({ photos }) => {
   const [selectedCategory, setSelectedCategory] = useState("Todas");
@@ -182,13 +77,50 @@ const Gallery = ({ photos }) => {
         </div>
       )}
 
-      {modalIndex !== null && (
+      {modalIndex !== null && filteredPhotos[modalIndex] && (
         <Modal
-          photos={filteredPhotos}
-          index={modalIndex}
+          open
           onClose={closeModal}
-          onNavigate={navigateModal}
-        />
+          label={`Foto de ${filteredPhotos[modalIndex].category}`}
+          containerClassName="pl-16 md:pl-20"
+          contentClassName="w-full h-full flex items-center justify-center"
+        >
+          {modalIndex > 0 && (
+            <button
+              onClick={() => navigateModal(modalIndex - 1)}
+              title="Anterior"
+              aria-label="Foto anterior"
+              className="absolute left-4 md:left-6 z-30 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 active:scale-90"
+            >
+              <FiChevronLeft size={28} />
+            </button>
+          )}
+
+          {modalIndex < filteredPhotos.length - 1 && (
+            <button
+              onClick={() => navigateModal(modalIndex + 1)}
+              title="Siguiente"
+              aria-label="Foto siguiente"
+              className="absolute right-2 md:right-6 z-30 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 active:scale-90"
+            >
+              <FiChevronRight size={28} />
+            </button>
+          )}
+
+          <figure className="relative max-h-full max-w-full">
+            <img
+              src={filteredPhotos[modalIndex].url}
+              alt={filteredPhotos[modalIndex].category}
+              width="1200"
+              height="800"
+              className="max-h-[80vh] max-w-full rounded-2xl border-4 border-blue-200 object-contain shadow-2xl"
+            />
+            <figcaption className="mt-3 text-center font-bold text-blue-100">
+              {filteredPhotos[modalIndex].category} · {modalIndex + 1}/
+              {filteredPhotos.length}
+            </figcaption>
+          </figure>
+        </Modal>
       )}
     </div>
   );
