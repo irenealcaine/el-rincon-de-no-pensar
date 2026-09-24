@@ -23,6 +23,7 @@ import { FaPalette } from "react-icons/fa";
 import { FiLock } from "react-icons/fi";
 import { FiType } from "react-icons/fi";
 import { FiDisc } from "react-icons/fi";
+import { FaBomb } from "react-icons/fa";
 
 const menuItems = [
   {
@@ -172,6 +173,12 @@ const menuItems = [
         to: "/games/simon",
         icon: <FiDisc className="h-6" />,
         bigIcon: <FiDisc className="h-16 w-16" />,
+      },
+      {
+        title: "Buscaminas",
+        to: "/games/minesweeper",
+        icon: <FaBomb className="h-6" />,
+        bigIcon: <FaBomb className="h-16 w-16" />,
       },
     ],
   },
