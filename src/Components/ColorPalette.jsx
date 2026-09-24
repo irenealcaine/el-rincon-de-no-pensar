@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Toast from "./Toast";
+import Switch from "./Switch";
 import useToast from "../Hooks/useToast";
 import {
   FiBookmark,
@@ -43,6 +44,7 @@ const ColorPalette = () => {
     Array.from({ length: 5 }, randomHex)
   );
   const [savedPalettes, setSavedPalettes] = useState(loadSaved);
+  const [showRgb, setShowRgb] = useState(false);
   const { toasts, showToast, dismiss } = useToast();
 
   useEffect(() => {
@@ -153,6 +155,15 @@ const ColorPalette = () => {
           </button>
         </div>
 
+        <div className="mb-6 flex items-center justify-between rounded-2xl border border-blue-900/10 bg-blue-50/40 px-4 py-3">
+          <Switch
+            checked={showRgb}
+            onChange={setShowRgb}
+            label={showRgb ? "Códigos en RGB" : "Códigos en HEX"}
+            className="w-full justify-between"
+          />
+        </div>
+
         <div className="flex flex-wrap gap-3">
           {colors.map((color, index) => {
             const textColor = readableColor(color);
@@ -178,20 +189,18 @@ const ColorPalette = () => {
 
                 <div className="space-y-2">
                   <button
-                    onClick={() => copyText(color, "Código HEX")}
-                    className={`${copyButton} bg-black/10 backdrop-blur-sm`}
-                  >
-                    <FiCopy />
-                    {color}
-                  </button>
-                  <button
                     onClick={() =>
-                      copyText(`rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, "Código RGB")
+                      copyText(
+                        showRgb
+                          ? `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
+                          : color,
+                        showRgb ? "Código RGB" : "Código HEX"
+                      )
                     }
                     className={`${copyButton} bg-black/10 backdrop-blur-sm`}
                   >
                     <FiCopy />
-                    rgb({rgb.r}, {rgb.g}, {rgb.b})
+                    {showRgb ? `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` : color}
                   </button>
                 </div>
               </div>

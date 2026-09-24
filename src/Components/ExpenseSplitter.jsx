@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Toast from "./Toast";
+import Switch from "./Switch";
 import useToast from "../Hooks/useToast";
 import {
   FiArrowRight,
@@ -301,21 +302,11 @@ const ExpenseSplitter = () => {
           </div>
 
           <div className="mt-4 rounded-2xl border border-blue-900/10 bg-blue-50/40 p-4">
-            <div className="flex items-center gap-2">
-              <input
-                id="split-all"
-                type="checkbox"
-                checked={splitAll}
-                onChange={(e) => setSplitAll(e.target.checked)}
-                className="h-4 w-4 accent-blue-800"
-              />
-              <label
-                htmlFor="split-all"
-                className="text-sm font-bold text-blue-900"
-              >
-                Repartir entre todos
-              </label>
-            </div>
+            <Switch
+              checked={splitAll}
+              onChange={setSplitAll}
+              label="Repartir entre todos"
+            />
 
             {!splitAll && (
               <div className="mt-3 flex flex-wrap gap-2">

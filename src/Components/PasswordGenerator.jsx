@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Toast from "./Toast";
+import Switch from "./Switch";
 import useToast from "../Hooks/useToast";
 import {
   FiCopy,
@@ -218,22 +219,21 @@ const PasswordGenerator = () => {
 
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           {pools.map((p) => (
-            <label
+            <div
               key={p.key}
-              className={`flex cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 transition ${
+              className={`rounded-2xl border px-4 py-3 transition ${
                 p.checked
                   ? "border-blue-200 bg-blue-50/60"
                   : "border-blue-900/10 bg-white hover:bg-blue-50/40"
               }`}
             >
-              <input
-                type="checkbox"
+              <Switch
                 checked={p.checked}
-                onChange={() => p.setter(!p.checked)}
-                className="h-4 w-4 accent-blue-800"
+                onChange={p.setter}
+                label={p.label}
+                className="w-full justify-between"
               />
-              <span className="text-sm font-bold text-blue-900">{p.label}</span>
-            </label>
+            </div>
           ))}
         </div>
       </section>
