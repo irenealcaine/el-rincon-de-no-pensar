@@ -21,6 +21,7 @@ import { BsImages } from "react-icons/bs";
 import { BiPhotoAlbum } from "react-icons/bi"
 import { FaPalette } from "react-icons/fa";
 import { FiLock } from "react-icons/fi";
+import { FiType } from "react-icons/fi";
 
 const menuItems = [
   {
@@ -158,6 +159,12 @@ const menuItems = [
         to: "/games/rock-paper-scissors",
         icon: <FaRegHandPeace className="h-6" />,
         bigIcon: <FaRegHandPeace className="h-16 w-16" />,
+      },
+      {
+        title: "El ahorcado",
+        to: "/games/hangman",
+        icon: <FiType className="h-6" />,
+        bigIcon: <FiType className="h-16 w-16" />,
       },
     ],
   },
