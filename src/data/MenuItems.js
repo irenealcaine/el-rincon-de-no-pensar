@@ -24,6 +24,7 @@ import { FiLock } from "react-icons/fi";
 import { FiType } from "react-icons/fi";
 import { FiDisc } from "react-icons/fi";
 import { TbKeyboard } from "react-icons/tb";
+import { FiDivide } from "react-icons/fi";
 import { FaBomb } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { TbLetterW } from "react-icons/tb";
@@ -88,6 +89,12 @@ const menuItems = [
         to: "/projects/typing",
         icon: <TbKeyboard className="h-6" />,
         bigIcon: <TbKeyboard className="h-16 w-16" />,
+      },
+      {
+        title: "Repartir gastos",
+        to: "/projects/expenses",
+        icon: <FiDivide className="h-6" />,
+        bigIcon: <FiDivide className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",
