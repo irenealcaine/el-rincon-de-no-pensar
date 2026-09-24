@@ -118,13 +118,13 @@ const Gallery = ({ photos }) => {
             </Tooltip>
           )}
 
-          <figure className="relative max-h-full max-w-full">
+          <figure className="relative flex max-h-full max-w-full flex-col items-center justify-center">
             <img
               src={filteredPhotos[modalIndex].url}
               alt={filteredPhotos[modalIndex].category}
               width="1200"
               height="800"
-              className="max-h-[80vh] max-w-full rounded-2xl border-4 border-blue-200 object-contain shadow-2xl"
+              className="h-auto w-auto max-h-[80vh] max-w-[90vw] rounded-2xl border-4 border-blue-200 object-contain shadow-2xl"
             />
             <figcaption className="mt-3 text-center font-bold text-blue-100">
               {filteredPhotos[modalIndex].category} · {modalIndex + 1}/
