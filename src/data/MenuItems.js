@@ -22,6 +22,7 @@ import { BiPhotoAlbum } from "react-icons/bi"
 import { FaPalette } from "react-icons/fa";
 import { FiLock } from "react-icons/fi";
 import { FiType } from "react-icons/fi";
+import { FiDisc } from "react-icons/fi";
 
 const menuItems = [
   {
@@ -165,6 +166,12 @@ const menuItems = [
         to: "/games/hangman",
         icon: <FiType className="h-6" />,
         bigIcon: <FiType className="h-16 w-16" />,
+      },
+      {
+        title: "Simón dice",
+        to: "/games/simon",
+        icon: <FiDisc className="h-6" />,
+        bigIcon: <FiDisc className="h-16 w-16" />,
       },
     ],
   },
