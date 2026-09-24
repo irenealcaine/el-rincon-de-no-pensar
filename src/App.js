@@ -26,6 +26,7 @@ import RPSGame from "./Pages/RPSGame";
 import HangmanGame from "./Pages/HangmanGame";
 import SimonSaysGame from "./Pages/SimonSaysGame";
 import MinesweeperGame from "./Pages/MinesweeperGame";
+import ConnectFourGame from "./Pages/ConnectFourGame";
 import Exercise from "./Pages/Exercise";
 import CalculatorPage from "./Pages/CalculatorPage";
 import CarouselPage from "./Pages/CarouselPage";
@@ -96,6 +97,7 @@ function App() {
               <Route path="/games/hangman" element={<HangmanGame />} />
               <Route path="/games/simon" element={<SimonSaysGame />} />
               <Route path="/games/minesweeper" element={<MinesweeperGame />} />
+              <Route path="/games/connect-four" element={<ConnectFourGame />} />
             </Routes>
           </div>
         </div>

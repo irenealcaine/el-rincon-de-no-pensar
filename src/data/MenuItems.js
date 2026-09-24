@@ -24,6 +24,7 @@ import { FiLock } from "react-icons/fi";
 import { FiType } from "react-icons/fi";
 import { FiDisc } from "react-icons/fi";
 import { FaBomb } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa";
 
 const menuItems = [
   {
@@ -179,6 +180,12 @@ const menuItems = [
         to: "/games/minesweeper",
         icon: <FaBomb className="h-6" />,
         bigIcon: <FaBomb className="h-16 w-16" />,
+      },
+      {
+        title: "Conecta 4",
+        to: "/games/connect-four",
+        icon: <FaCircle className="h-6" />,
+        bigIcon: <FaCircle className="h-16 w-16" />,
       },
     ],
   },
