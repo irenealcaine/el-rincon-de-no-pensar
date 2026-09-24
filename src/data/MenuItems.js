@@ -28,6 +28,7 @@ import { FiDivide } from "react-icons/fi";
 import { FaBomb } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { TbLetterW } from "react-icons/tb";
+import { GiSnake } from "react-icons/gi";
 
 const menuItems = [
   {
@@ -207,6 +208,12 @@ const menuItems = [
         to: "/games/wordle",
         icon: <TbLetterW className="h-6" />,
         bigIcon: <TbLetterW className="h-16 w-16" />,
+      },
+      {
+        title: "La serpiente",
+        to: "/games/snake",
+        icon: <GiSnake className="h-6" />,
+        bigIcon: <GiSnake className="h-16 w-16" />,
       },
     ],
   },
