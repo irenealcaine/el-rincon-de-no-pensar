@@ -4,6 +4,7 @@ import menuItems from "../data/MenuItems.js";
 import { FaArrowLeft } from "react-icons/fa";
 import { BsFillCaretUpFill } from "react-icons/bs";
 import { GiSofa } from "react-icons/gi";
+import Tooltip from "./Tooltip";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -59,11 +60,13 @@ const Sidebar = () => {
           }`}
         >
           <div className="flex gap-x-3 items-center px-1">
-            <GiSofa
-              className={`duration-500 w-8 h-8 p-1 ${
-                open && "rotate-[360deg] md:w-12 md:h-12"
-              }`}
-            />
+            <Tooltip content={open ? "" : "Inicio"} position="right">
+              <GiSofa
+                className={`duration-500 w-8 h-8 p-1 ${
+                  open && "rotate-[360deg] md:w-12 md:h-12"
+                }`}
+              />
+            </Tooltip>
             <p
               className={`origin-left font-bold text-2xl duration-200 ${
                 !open && "hidden scale-0"
@@ -85,13 +88,15 @@ const Sidebar = () => {
                 } ${!open && "justify-center px-0"}`}
                 onClick={() => toggleSection(menuItem.title)}
               >
-                <span
-                  className={`${
-                    isCurrentPage(menuItem) ? "text-white" : "text-paper-100/70"
-                  }`}
-                >
-                  {menuItem.icon}
-                </span>
+                <Tooltip content={open ? "" : menuItem.title} position="right">
+                  <span
+                    className={`${
+                      isCurrentPage(menuItem) ? "text-white" : "text-paper-100/70"
+                    }`}
+                  >
+                    {menuItem.icon}
+                  </span>
+                </Tooltip>
                 <span
                   className={`${!open && "hidden"} origin-left duration-200`}
                 >
@@ -127,9 +132,15 @@ const Sidebar = () => {
                           "hidden"
                     } ${isCurrentPage(link) && "bg-clay text-white"}`}
                   >
-                    <span className={`${!open ? "mx-auto" : "ml-6"}`}>
-                      {link.icon}
-                    </span>
+                    <Tooltip
+                      content={open ? "" : link.title}
+                      position="right"
+                      className={!open ? "mx-auto" : ""}
+                    >
+                      <span className={`${!open ? "mx-auto" : "ml-6"}`}>
+                        {link.icon}
+                      </span>
+                    </Tooltip>
                     <span className={`${!open && "hidden"}`}>{link.title}</span>
                   </Link>
                 ))}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Toast from "./Toast";
 import Switch from "./Switch";
+import Tooltip from "./Tooltip";
 import useToast from "../Hooks/useToast";
 import {
   FiCopy,
@@ -147,27 +148,38 @@ const PasswordGenerator = () => {
           <p className="flex-1 min-w-0 break-all py-1 font-mono text-lg md:text-xl font-bold text-blue-900">
             {showPassword ? password : "•".repeat(password.length)}
           </p>
-          <button
-            onClick={() => setShowPassword(!showPassword)}
-            aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
-            className={iconButton}
+          <Tooltip
+            content={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+            position="top"
           >
-            {showPassword ? <FiEyeOff /> : <FiEye />}
-          </button>
-          <button
-            onClick={generate}
-            aria-label="Generar nueva contraseña"
-            className={iconButton}
-          >
-            <FiRefreshCw />
-          </button>
-          <button
-            onClick={() => copyText(password, "Contraseña")}
-            aria-label="Copiar contraseña"
-            className={iconButton}
-          >
-            <FiCopy />
-          </button>
+            <button
+              onClick={() => setShowPassword(!showPassword)}
+              aria-label={
+                showPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+              }
+              className={iconButton}
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
+          </Tooltip>
+          <Tooltip content="Generar nueva contraseña" position="top">
+            <button
+              onClick={generate}
+              aria-label="Generar nueva contraseña"
+              className={iconButton}
+            >
+              <FiRefreshCw />
+            </button>
+          </Tooltip>
+          <Tooltip content="Copiar contraseña" position="top">
+            <button
+              onClick={() => copyText(password, "Contraseña")}
+              aria-label="Copiar contraseña"
+              className={iconButton}
+            >
+              <FiCopy />
+            </button>
+          </Tooltip>
         </div>
 
         <div className="mt-5">

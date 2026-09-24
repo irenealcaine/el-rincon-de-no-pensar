@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import Tooltip from "./Tooltip";
 import {
   RiArrowLeftSFill,
   RiArrowRightSFill,
@@ -58,38 +59,48 @@ const Carousel = () => {
           {currentImageIndex + 1} / {images.length}
         </span>
 
-        <button
-          onClick={previousImage}
-          title="Anterior"
-          aria-label="Anterior"
-          className="absolute top-1/2 -translate-y-1/2 left-4 bg-blue-900/60 hover:bg-blue-900/80 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+        <Tooltip
+          content="Anterior"
+          position="right"
+          className="absolute top-1/2 -translate-y-1/2 left-4 z-10"
         >
-          <RiArrowLeftSFill size={26} />
-        </button>
-        <button
-          onClick={nextImage}
-          title="Siguiente"
-          aria-label="Siguiente"
-          className="absolute top-1/2 -translate-y-1/2 right-4 bg-blue-900/60 hover:bg-blue-900/80 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+          <button
+            onClick={previousImage}
+            aria-label="Anterior"
+            className="bg-blue-900/60 hover:bg-blue-900/80 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+          >
+            <RiArrowLeftSFill size={26} />
+          </button>
+        </Tooltip>
+        <Tooltip
+          content="Siguiente"
+          position="left"
+          className="absolute top-1/2 -translate-y-1/2 right-4 z-10"
         >
-          <RiArrowRightSFill size={26} />
-        </button>
+          <button
+            onClick={nextImage}
+            aria-label="Siguiente"
+            className="bg-blue-900/60 hover:bg-blue-900/80 backdrop-blur-sm text-white p-3 rounded-full transition duration-200 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+          >
+            <RiArrowRightSFill size={26} />
+          </button>
+        </Tooltip>
       </div>
 
       <div className="mt-4 flex justify-center gap-2">
         {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImageIndex(index)}
-            title={`Ir a la foto ${index + 1}`}
-            aria-label={`Ir a la foto ${index + 1}`}
-            aria-current={index === currentImageIndex ? "true" : undefined}
-            className={`h-3 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 ${
-              index === currentImageIndex
-                ? "w-8 bg-blue-800"
-                : "w-3 bg-blue-900/30 hover:bg-blue-900/50"
-            }`}
-          />
+          <Tooltip key={index} content={`Ir a la foto ${index + 1}`} position="top">
+            <button
+              onClick={() => setCurrentImageIndex(index)}
+              aria-label={`Ir a la foto ${index + 1}`}
+              aria-current={index === currentImageIndex ? "true" : undefined}
+              className={`h-3 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 ${
+                index === currentImageIndex
+                  ? "w-8 bg-blue-800"
+                  : "w-3 bg-blue-900/30 hover:bg-blue-900/50"
+              }`}
+            />
+          </Tooltip>
         ))}
       </div>
 

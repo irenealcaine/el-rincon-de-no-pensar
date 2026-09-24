@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+import Tooltip from "./Tooltip";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Gallery = ({ photos }) => {
@@ -86,25 +87,35 @@ const Gallery = ({ photos }) => {
           contentClassName="w-full h-full flex items-center justify-center"
         >
           {modalIndex > 0 && (
-            <button
-              onClick={() => navigateModal(modalIndex - 1)}
-              title="Anterior"
-              aria-label="Foto anterior"
-              className="absolute left-4 md:left-6 z-30 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 active:scale-90"
+            <Tooltip
+              content="Foto anterior"
+              position="right"
+              className="absolute left-4 md:left-6 z-30 top-1/2 -translate-y-1/2"
             >
-              <FiChevronLeft size={28} />
-            </button>
+              <button
+                onClick={() => navigateModal(modalIndex - 1)}
+                aria-label="Foto anterior"
+                className="rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 active:scale-90"
+              >
+                <FiChevronLeft size={28} />
+              </button>
+            </Tooltip>
           )}
 
           {modalIndex < filteredPhotos.length - 1 && (
-            <button
-              onClick={() => navigateModal(modalIndex + 1)}
-              title="Siguiente"
-              aria-label="Foto siguiente"
-              className="absolute right-2 md:right-6 z-30 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 active:scale-90"
+            <Tooltip
+              content="Foto siguiente"
+              position="left"
+              className="absolute right-2 md:right-6 z-30 top-1/2 -translate-y-1/2"
             >
-              <FiChevronRight size={28} />
-            </button>
+              <button
+                onClick={() => navigateModal(modalIndex + 1)}
+                aria-label="Foto siguiente"
+                className="rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 active:scale-90"
+              >
+                <FiChevronRight size={28} />
+              </button>
+            </Tooltip>
           )}
 
           <figure className="relative max-h-full max-w-full">

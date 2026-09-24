@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Toast from "./Toast";
 import Switch from "./Switch";
+import Tooltip from "./Tooltip";
 import useToast from "../Hooks/useToast";
 import {
   FiBookmark,
@@ -178,6 +179,7 @@ const ColorPalette = () => {
                   <span className="text-xs font-bold uppercase tracking-widest opacity-80">
                     {index + 1}
                   </span>
+                  <Tooltip content={`Regenerar color ${index + 1}`} position="top">
                   <button
                     onClick={() => regenerateColor(index)}
                     aria-label={`Regenerar color ${index + 1}`}
@@ -185,6 +187,7 @@ const ColorPalette = () => {
                   >
                     <FiRefreshCw />
                   </button>
+                </Tooltip>
                 </div>
 
                 <div className="space-y-2">
@@ -227,23 +230,25 @@ const ColorPalette = () => {
               >
                 <div className="flex flex-1 min-w-0 flex-wrap gap-1.5">
                   {palette.colors.map((c, i) => (
-                    <button
-                      key={i}
-                      onClick={() => copyText(c, "Código HEX")}
-                      title={c}
-                      aria-label={`Copiar ${c}`}
-                      className="h-10 w-10 shrink-0 rounded-lg border border-black/10 transition hover:scale-110"
-                      style={{ backgroundColor: c }}
-                    />
+                    <Tooltip key={i} content={`Copiar ${c}`} position="top">
+                      <button
+                        onClick={() => copyText(c, "Código HEX")}
+                        aria-label={`Copiar ${c}`}
+                        className="h-10 w-10 shrink-0 rounded-lg border border-black/10 transition hover:scale-110"
+                        style={{ backgroundColor: c }}
+                      />
+                    </Tooltip>
                   ))}
                 </div>
-                <button
-                  onClick={() => deletePalette(palette.id)}
-                  aria-label="Eliminar paleta"
-                  className="shrink-0 rounded-full p-2 text-red-700 hover:bg-red-50 transition active:scale-90"
-                >
-                  <FiTrash2 />
-                </button>
+                <Tooltip content="Eliminar paleta" position="top">
+                  <button
+                    onClick={() => deletePalette(palette.id)}
+                    aria-label="Eliminar paleta"
+                    className="shrink-0 rounded-full p-2 text-red-700 hover:bg-red-50 transition active:scale-90"
+                  >
+                    <FiTrash2 />
+                  </button>
+                </Tooltip>
               </li>
             ))}
           </ul>
