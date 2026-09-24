@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Toast from "./Toast";
 import Switch from "./Switch";
+import Dropdown from "./Dropdown";
 import useToast from "../Hooks/useToast";
 import {
   FiArrowRight,
@@ -279,25 +280,13 @@ const ExpenseSplitter = () => {
               />
             </div>
             <div>
-              <label
-                htmlFor="expense-payer"
-                className="mb-1 block text-sm font-bold text-blue-900/80"
-              >
-                Pagó
-              </label>
-              <select
-                id="expense-payer"
+              <Dropdown
+                label="Pagó"
                 value={payer}
-                onChange={(e) => setPayer(e.target.value)}
-                className={inputClass}
-              >
-                <option value="">Elige quién pagó...</option>
-                {participants.map((p) => (
-                  <option key={p} value={p}>
-                    {p}
-                  </option>
-                ))}
-              </select>
+                options={participants.map((p) => ({ label: p, value: p }))}
+                onChange={setPayer}
+                placeholder="Elige quién pagó..."
+              />
             </div>
           </div>
 
