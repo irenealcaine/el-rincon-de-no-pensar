@@ -23,6 +23,7 @@ import { FaPalette } from "react-icons/fa";
 import { FiLock } from "react-icons/fi";
 import { FiType } from "react-icons/fi";
 import { FiDisc } from "react-icons/fi";
+import { TbKeyboard } from "react-icons/tb";
 import { FaBomb } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { TbLetterW } from "react-icons/tb";
@@ -81,6 +82,12 @@ const menuItems = [
         to: "/projects/password",
         icon: <FiLock className="h-6" />,
         bigIcon: <FiLock className="h-16 w-16" />,
+      },
+      {
+        title: "Mecanografía",
+        to: "/projects/typing",
+        icon: <TbKeyboard className="h-6" />,
+        bigIcon: <TbKeyboard className="h-16 w-16" />,
       },
       // {
       //   title: "El tiempo",
